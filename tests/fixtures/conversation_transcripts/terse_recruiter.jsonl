@@ -1,0 +1,17 @@
+{"kind": "meta", "scenario": "terse_recruiter", "expected_ready_to_compose": true, "expected_max_cloris_turns": 9}
+{"kind": "cloris", "content": "Hi — I'm Cloris. Tell me about the role."}
+{"kind": "recruiter", "content": "Tax associate."}
+{"kind": "cloris", "content": "Tax associate — senior, staff, or open? And what kind of tax: sales, partnership, income, all of it?"}
+{"kind": "extraction", "updates": {"role_title": "Tax Associate"}}
+{"kind": "recruiter", "content": "Senior. Sales tax mostly."}
+{"kind": "cloris", "content": "Senior sales tax associate. Multi-state, single state, or one big state with carve-outs?"}
+{"kind": "extraction", "updates": {"role_title": "Senior Tax Associate", "role_summary": "Senior sales tax associate."}}
+{"kind": "recruiter", "content": "Multi-state. Twelve."}
+{"kind": "cloris", "content": "Twelve states is real volume — does the new hire own filings end-to-end, or backfill the Director on edge cases?"}
+{"kind": "extraction", "updates": {"capability_areas": [{"name": "Multi-state sales tax", "description": "Owns filings across twelve states."}]}}
+{"kind": "recruiter", "content": "End to end. Director only on edge cases."}
+{"kind": "cloris", "content": "Got it — end to end on twelve states, Director on edges only. What's the bar for an edge case — a new state, a sourcing-rule change, or just a number that looks weird?"}
+{"kind": "extraction", "updates": {"capability_areas": [{"name": "Multi-state sales tax", "description": "Owns filings across twelve states end-to-end. Director steps in only on edge cases."}], "depth_distinction": {"builder_definition": "Owns the twelve-state filing process from intake to filed return.", "user_definition": "Operates the existing process; escalates edge cases to the Director."}}}
+{"kind": "recruiter", "content": "New state or a sourcing-rule change. Numbers we handle ourselves."}
+{"kind": "cloris", "content": "New state or sourcing-rule change goes up — that's a clean line. I think I have what I need. Want to see the brief I'd run with?"}
+{"kind": "extraction", "updates": {"depth_distinction": {"builder_definition": "Owns the twelve-state filing process from intake to filed return.", "user_definition": "Operates the existing process; escalates edge cases to the Director.", "edge_case_guidance": "Escalation triggers are new-state additions and sourcing-rule changes only; numerical anomalies are handled in-role."}}}

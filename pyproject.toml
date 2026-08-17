@@ -1,0 +1,11 @@
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+# "not network" keeps the opt-in real-API smoke (test_integration_a24_smoke)
+# out of default runs: shared.config auto-loads .env, so on the operator
+# machine the tests' env-key skip gates would otherwise pass and hit real APIs.
+addopts = '-q -m "not network"'
+markers = [
+    "live_integration: opt-in tests that hit the real Perplexity API (require PERPLEXITY_API_KEY + PERPLEXITY_LIVE_INTEGRATION=1)",
+    "network: opt-in tests that hit cheap real APIs (OpenAlex / GitHub / Google CSE) on a smoke fixture; skip when the relevant env keys are unset",
+]

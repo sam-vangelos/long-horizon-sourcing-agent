@@ -1,0 +1,896 @@
+[
+ {
+  "fixture_id": "adv_accountant_scattered_vocab",
+  "archetype": "accountant with incidental BA vocabulary",
+  "expected_new": {
+   "families": [
+    "REJECT"
+   ],
+   "reject_reasons": [
+    "NON_FIT",
+    "CAPABILITY_INSUFFICIENT"
+   ],
+   "must_not": {
+    "families": [
+     "SAVE_FAMILY"
+    ]
+   }
+  },
+  "notes": "One ERP-migration bullet and SQL in skills must not outweigh a career that is accounting, not software delivery.",
+  "profile": {
+   "name": "Priya Raman",
+   "profile_url": "https://www.linkedin.com/talent/profile/FIXTURE_Priya_Raman",
+   "headline": "Accounting Manager | CPA",
+   "about": "",
+   "experiences": [
+    {
+     "title": "Accounting Manager",
+     "company": "Meridian Fund Services",
+     "location": "New York City Metropolitan Area",
+     "start": "Jun 2019",
+     "end": "Present",
+     "summary_bullets": [
+      "Manage month-end close and NAV support reconciliations for 14 fund clients.",
+      "Documented business requirements and process flows for the NetSuite migration as the accounting team's representative.",
+      "Supervise a team of three senior accountants; own audit PBC delivery."
+     ]
+    },
+    {
+     "title": "Senior Accountant",
+     "company": "Concord Insurance Group",
+     "location": "New York City Metropolitan Area",
+     "start": "Mar 2014",
+     "end": "Jun 2019",
+     "summary_bullets": [
+      "Prepared statutory and GAAP financials; owned premium receivable reconciliations.",
+      "Partnered with IT on UAT for the fixed-assets module during the ERP upgrade."
+     ]
+    },
+    {
+     "title": "Staff Accountant",
+     "company": "Hale & Whitmore LLP",
+     "location": "New York City Metropolitan Area",
+     "start": "Aug 2010",
+     "end": "Mar 2014",
+     "summary_bullets": [
+      "General ledger, accruals, and client audit support."
+     ]
+    }
+   ],
+   "education": [
+    {
+     "degree": "BS",
+     "school": "Baruch College",
+     "field": "Accounting"
+    }
+   ],
+   "skills_snippet": [
+    "Month-End Close",
+    "Reconciliations",
+    "NetSuite",
+    "US GAAP",
+    "Excel",
+    "SQL"
+   ]
+  }
+ },
+ {
+  "fixture_id": "adv_stale_bank_ba_healthcare",
+  "archetype": "real BA artifacts 2010-2015, unrelated healthcare operations since",
+  "expected_new": {
+   "families": [
+    "REJECT"
+   ],
+   "reject_reasons": [
+    "EVIDENCE_STALE"
+   ],
+   "must_not": {
+    "families": [
+     "SAVE_FAMILY"
+    ]
+   }
+  },
+  "notes": "The HSBC chapter is genuinely good and genuinely over. Current chapter is practice operations.",
+  "profile": {
+   "name": "Marcus Webb",
+   "profile_url": "https://www.linkedin.com/talent/profile/FIXTURE_Marcus_Webb",
+   "headline": "Practice Operations Manager",
+   "about": "",
+   "experiences": [
+    {
+     "title": "Practice Operations Manager",
+     "company": "Riverdale Health Partners",
+     "location": "New York City Metropolitan Area",
+     "start": "Feb 2018",
+     "end": "Present",
+     "summary_bullets": [
+      "Run daily operations for a 12-provider multi-site practice: scheduling, billing operations, staffing.",
+      "Own payer-credentialing workflow and front-desk training."
+     ]
+    },
+    {
+     "title": "Operations Supervisor",
+     "company": "CityMD",
+     "location": "New York City Metropolitan Area",
+     "start": "Apr 2015",
+     "end": "Feb 2018",
+     "summary_bullets": [
+      "Supervised patient-intake operations across two clinics."
+     ]
+    },
+    {
+     "title": "Business Analyst",
+     "company": "HSBC",
+     "location": "New York City Metropolitan Area",
+     "start": "Jan 2010",
+     "end": "Apr 2015",
+     "summary_bullets": [
+      "Authored BRDs and functional specifications for the payments reconciliation platform.",
+      "Mapped current-state and future-state workflows with operations stakeholders.",
+      "Coordinated UAT cycles and tracked defects to closure with the development team."
+     ]
+    }
+   ],
+   "education": [
+    {
+     "degree": "BA",
+     "school": "Fordham University",
+     "field": "Economics"
+    }
+   ],
+   "skills_snippet": [
+    "Practice Management",
+    "Medical Billing",
+    "Scheduling",
+    "Requirements Documentation"
+   ]
+  }
+ },
+ {
+  "fixture_id": "adv_director_engineering",
+  "archetype": "director of engineering with early-career requirements exposure",
+  "expected_new": {
+   "families": [
+    "REJECT",
+    "REVIEW_FAMILY"
+   ],
+   "reject_reasons": [
+    "OVER_LEVEL"
+   ],
+   "must_not": {
+    "families": [
+     "SAVE_FAMILY"
+    ]
+   }
+  },
+  "notes": "Demonstrated current level is org leadership; a senior-IC BA role is an evident step down.",
+  "profile": {
+   "name": "Daniel Okafor",
+   "profile_url": "https://www.linkedin.com/talent/profile/FIXTURE_Daniel_Okafor",
+   "headline": "Director of Software Engineering",
+   "about": "",
+   "experiences": [
+    {
+     "title": "Director of Software Engineering",
+     "company": "Meridian Capital Technology",
+     "location": "New York City Metropolitan Area",
+     "start": "May 2021",
+     "end": "Present",
+     "summary_bullets": [
+      "Lead a 45-engineer organization across four product teams building fund-servicing platforms.",
+      "Own the delivery roadmap, vendor strategy, and a $6M run budget.",
+      "Report to the CTO; partner with product and operations executives on portfolio priorities."
+     ]
+    },
+    {
+     "title": "Engineering Manager",
+     "company": "Broadridge",
+     "location": "New York City Metropolitan Area",
+     "start": "Jun 2016",
+     "end": "May 2021",
+     "summary_bullets": [
+      "Managed two teams (14 engineers) delivering proxy-processing services.",
+      "Introduced quarterly planning tied to client commitments."
+     ]
+    },
+    {
+     "title": "Senior Software Engineer",
+     "company": "Fiserv",
+     "location": "New York City Metropolitan Area",
+     "start": "Jul 2011",
+     "end": "Jun 2016",
+     "summary_bullets": [
+      "Built payment-processing services in Java; worked closely with BAs to refine requirements and acceptance criteria."
+     ]
+    }
+   ],
+   "education": [
+    {
+     "degree": "BS",
+     "school": "Rutgers University",
+     "field": "Computer Science"
+    }
+   ],
+   "skills_snippet": [
+    "Engineering Leadership",
+    "Roadmapping",
+    "Vendor Management",
+    "Java",
+    "Agile"
+   ]
+  }
+ },
+ {
+  "fixture_id": "adv_thirty_year_exec",
+  "archetype": "30-year executive whose skills transfer but whose level does not",
+  "expected_new": {
+   "families": [
+    "REJECT",
+    "REVIEW_FAMILY"
+   ],
+   "reject_reasons": [
+    "OVER_LEVEL"
+   ],
+   "must_not": {
+    "families": [
+     "SAVE_FAMILY"
+    ]
+   }
+  },
+  "notes": "BA chapter is 1996-2001; everything since is program and portfolio leadership.",
+  "profile": {
+   "name": "Linda Marchetti",
+   "profile_url": "https://www.linkedin.com/talent/profile/FIXTURE_Linda_Marchetti",
+   "headline": "SVP, Operations Technology",
+   "about": "",
+   "experiences": [
+    {
+     "title": "SVP, Operations Technology",
+     "company": "Meridian Trust",
+     "location": "New York City Metropolitan Area",
+     "start": "Mar 2017",
+     "end": "Present",
+     "summary_bullets": [
+      "Own the operations technology portfolio: 60+ applications, $22M budget, 5 direct-report managers.",
+      "Sponsor modernization programs and present quarterly to the operating committee."
+     ]
+    },
+    {
+     "title": "VP, Program Management",
+     "company": "BNY Mellon",
+     "location": "New York City Metropolitan Area",
+     "start": "Jan 2009",
+     "end": "Mar 2017",
+     "summary_bullets": [
+      "Ran multi-year regulatory and platform-consolidation programs across custody operations."
+     ]
+    },
+    {
+     "title": "Program Manager",
+     "company": "JPMorgan",
+     "location": "New York City Metropolitan Area",
+     "start": "Jun 2001",
+     "end": "Jan 2009",
+     "summary_bullets": [
+      "Managed delivery schedules, budgets, and steering reporting for settlement-system programs."
+     ]
+    },
+    {
+     "title": "Business Analyst",
+     "company": "Chase",
+     "location": "New York City Metropolitan Area",
+     "start": "Aug 1996",
+     "end": "Jun 2001",
+     "summary_bullets": [
+      "Documented requirements and test plans for branch-platform releases; ran UAT with branch staff."
+     ]
+    }
+   ],
+   "education": [
+    {
+     "degree": "BS",
+     "school": "NYU",
+     "field": "Information Systems"
+    }
+   ],
+   "skills_snippet": [
+    "Portfolio Management",
+    "Program Governance",
+    "Budget Ownership",
+    "Stakeholder Management"
+   ]
+  }
+ },
+ {
+  "fixture_id": "adv_lifelong_shallow_contractor",
+  "archetype": "contract-heavy career, interchangeable duty bullets, no ownership growth",
+  "expected_new": {
+   "families": [
+    "REJECT"
+   ],
+   "reject_reasons": [
+    "BAR_ORDINARY",
+    "CAPABILITY_INSUFFICIENT"
+   ],
+   "must_not": {
+    "families": [
+     "SAVE_FAMILY"
+    ]
+   }
+  },
+  "notes": "Fifteen years, six stints, zero named systems or outcomes. The noise floor of a dense market.",
+  "profile": {
+   "name": "Robert Kessler",
+   "profile_url": "https://www.linkedin.com/talent/profile/FIXTURE_Robert_Kessler",
+   "headline": "Business Analyst (Contract)",
+   "about": "Experienced Business Analyst available for contract engagements.",
+   "experiences": [
+    {
+     "title": "Business Analyst (Contract)",
+     "company": "Citizens Bank",
+     "location": "New York City Metropolitan Area",
+     "start": "Oct 2024",
+     "end": "Present",
+     "summary_bullets": [
+      "Gathered and documented business requirements.",
+      "Facilitated meetings with stakeholders.",
+      "Participated in UAT testing."
+     ]
+    },
+    {
+     "title": "Business Analyst (Contract)",
+     "company": "MetLife",
+     "location": "New York City Metropolitan Area",
+     "start": "Jul 2023",
+     "end": "Sep 2024",
+     "summary_bullets": [
+      "Gathered requirements and updated documentation in Jira and Confluence.",
+      "Supported the project manager with status reporting."
+     ]
+    },
+    {
+     "title": "Business Analyst (Contract)",
+     "company": "TIAA",
+     "location": "New York City Metropolitan Area",
+     "start": "Feb 2022",
+     "end": "Jun 2023",
+     "summary_bullets": [
+      "Documented business requirements and process flows.",
+      "Participated in daily stand-ups and sprint ceremonies."
+     ]
+    },
+    {
+     "title": "Business Analyst (Contract)",
+     "company": "Santander",
+     "location": "New York City Metropolitan Area",
+     "start": "Sep 2020",
+     "end": "Jan 2022",
+     "summary_bullets": [
+      "Assisted with requirements gathering sessions.",
+      "Performed UAT testing as assigned."
+     ]
+    },
+    {
+     "title": "Business Analyst (Contract)",
+     "company": "Prudential Financial",
+     "location": "New York City Metropolitan Area",
+     "start": "Mar 2018",
+     "end": "Aug 2020",
+     "summary_bullets": [
+      "Gathered and documented requirements.",
+      "Coordinated with QA on test cases."
+     ]
+    },
+    {
+     "title": "Business Analyst (Contract)",
+     "company": "Aetna",
+     "location": "New York City Metropolitan Area",
+     "start": "May 2011",
+     "end": "Feb 2018",
+     "summary_bullets": [
+      "Documented business requirements for various projects.",
+      "Facilitated stakeholder meetings."
+     ]
+    }
+   ],
+   "education": [
+    {
+     "degree": "BBA",
+     "school": "Pace University",
+     "field": "Management"
+    }
+   ],
+   "skills_snippet": [
+    "Requirements Gathering",
+    "Jira",
+    "Confluence",
+    "UAT",
+    "Agile",
+    "MS Visio"
+   ]
+  }
+ },
+ {
+  "fixture_id": "adv_prestigious_vague",
+  "archetype": "prestigious employer, vague one-line bullets",
+  "expected_new": {
+   "families": [
+    "REJECT",
+    "REVIEW_FAMILY"
+   ],
+   "reject_reasons": [
+    "CAPABILITY_INSUFFICIENT"
+   ],
+   "must_not": {
+    "tier": [
+     "PRIORITY"
+    ]
+   }
+  },
+  "notes": "Goldman on the header cannot substitute for evidence. Caliber must not read STRONG from brand.",
+  "profile": {
+   "name": "Alexandra Chen",
+   "profile_url": "https://www.linkedin.com/talent/profile/FIXTURE_Alexandra_Chen",
+   "headline": "Business Analyst at Goldman Sachs",
+   "about": "",
+   "experiences": [
+    {
+     "title": "Business Analyst",
+     "company": "Goldman Sachs",
+     "location": "New York City Metropolitan Area",
+     "start": "Jan 2020",
+     "end": "Present",
+     "summary_bullets": [
+      "Work on regulatory reporting initiatives.",
+      "Support trading technology projects.",
+      "Collaborate with global teams."
+     ]
+    },
+    {
+     "title": "Analyst",
+     "company": "Morgan Stanley",
+     "location": "New York City Metropolitan Area",
+     "start": "Jul 2018",
+     "end": "Jan 2020",
+     "summary_bullets": [
+      "Supported technology change initiatives."
+     ]
+    }
+   ],
+   "education": [
+    {
+     "degree": "BS",
+     "school": "Cornell University",
+     "field": "Applied Economics and Management"
+    }
+   ],
+   "skills_snippet": [
+    "Regulatory Reporting",
+    "Project Support",
+    "Excel",
+    "PowerPoint"
+   ]
+  }
+ },
+ {
+  "fixture_id": "adv_keyword_exact_ordinary",
+  "archetype": "exact JD vocabulary, generic duty phrasing, ordinary scope",
+  "expected_new": {
+   "families": [
+    "REJECT"
+   ],
+   "reject_reasons": [
+    "BAR_ORDINARY"
+   ],
+   "must_not": {
+    "families": [
+     "SAVE_FAMILY"
+    ]
+   }
+  },
+  "notes": "Every JD noun present, no named system, scope, or outcome anywhere. The keyword-match trap in pure form.",
+  "profile": {
+   "name": "James Whitfield",
+   "profile_url": "https://www.linkedin.com/talent/profile/FIXTURE_James_Whitfield",
+   "headline": "Senior Business Analyst",
+   "about": "",
+   "experiences": [
+    {
+     "title": "Senior Business Analyst",
+     "company": "Guardian Life",
+     "location": "New York City Metropolitan Area",
+     "start": "Apr 2021",
+     "end": "Present",
+     "summary_bullets": [
+      "Wrote user stories and acceptance criteria for various projects.",
+      "Conducted UAT and coordinated sign-off with business users.",
+      "Created process flows and requirements documentation.",
+      "Worked in an Agile/Scrum environment with cross-functional teams."
+     ]
+    },
+    {
+     "title": "Business Analyst",
+     "company": "Travelers",
+     "location": "New York City Metropolitan Area",
+     "start": "Jun 2018",
+     "end": "Apr 2021",
+     "summary_bullets": [
+      "Gathered business requirements and wrote user stories.",
+      "Supported UAT and requirements traceability activities."
+     ]
+    }
+   ],
+   "education": [
+    {
+     "degree": "BA",
+     "school": "University of Connecticut",
+     "field": "Business Administration"
+    }
+   ],
+   "skills_snippet": [
+    "User Stories",
+    "Acceptance Criteria",
+    "UAT",
+    "Process Flows",
+    "Agile",
+    "Jira"
+   ]
+  }
+ },
+ {
+  "fixture_id": "adv_bright_noncanonical_vocab",
+  "archetype": "compelling BA-loop evidence in non-BA vocabulary",
+  "expected_new": {
+   "families": [
+    "SAVE_FAMILY"
+   ]
+  },
+  "notes": "MUST SAVE. Ownership of discovery, spec authorship, validation, and outcomes, described without canonical BA nouns.",
+  "profile": {
+   "name": "Sofia Grant",
+   "profile_url": "https://www.linkedin.com/talent/profile/FIXTURE_Sofia_Grant",
+   "headline": "Product Operations Lead — fund services",
+   "about": "",
+   "experiences": [
+    {
+     "title": "Product Operations Lead",
+     "company": "Arcline Fund Administration",
+     "location": "New York City Metropolitan Area",
+     "start": "Mar 2022",
+     "end": "Present",
+     "summary_bullets": [
+      "Ran working sessions with fund accounting and transfer agency teams to map the reconciliation exception workflow end to end.",
+      "Wrote the build spec pack — screen definitions, matching rules, exception queues, edge cases — that the platform team delivered against over four releases.",
+      "Drove sign-off testing with operations before each release; caught two matching-rule regressions before production.",
+      "Cut manual exception touches roughly 40% in the first year after rollout."
+     ]
+    },
+    {
+     "title": "Workflow Solutions Analyst",
+     "company": "SS&C Technologies",
+     "location": "New York City Metropolitan Area",
+     "start": "Jan 2019",
+     "end": "Mar 2022",
+     "summary_bullets": [
+      "Translated client operating models into configuration and change specifications for the fund-servicing platform.",
+      "Owned the traceability sheet tying client requirements to delivered configuration for two conversions."
+     ]
+    }
+   ],
+   "education": [
+    {
+     "degree": "BS",
+     "school": "Binghamton University",
+     "field": "Financial Economics"
+    }
+   ],
+   "skills_snippet": [
+    "Process Mapping",
+    "Workflow Design",
+    "SQL",
+    "Exception Management",
+    "Client Onboarding"
+   ]
+  }
+ },
+ {
+  "fixture_id": "adv_strong_unbranded",
+  "archetype": "unbranded employers, exceptional ownership and outcomes",
+  "expected_new": {
+   "families": [
+    "SAVE_FAMILY"
+   ],
+   "tier": "PRIORITY"
+  },
+  "notes": "MUST SAVE, and under the new contract should grade PRIORITY. Unbranded-specific beats branded-vague.",
+  "profile": {
+   "name": "David Osei",
+   "profile_url": "https://www.linkedin.com/talent/profile/FIXTURE_David_Osei",
+   "headline": "Senior Business Analyst",
+   "about": "",
+   "experiences": [
+    {
+     "title": "Senior Business Analyst",
+     "company": "Pinewood Community Bank",
+     "location": "Newark, NJ",
+     "start": "Feb 2021",
+     "end": "Present",
+     "summary_bullets": [
+      "Led discovery for the loan-servicing platform replacement: 40+ stakeholder interviews across servicing, collections, and finance.",
+      "Authored 200+ user stories with acceptance criteria consumed directly by two delivery squads.",
+      "Wrote SQL against the servicing database to validate data-mapping assumptions before build.",
+      "Planned and ran UAT with 30 business users; maintained the requirements traceability matrix used as SOX evidence."
+     ]
+    },
+    {
+     "title": "Business Analyst",
+     "company": "Lumenalta",
+     "location": "New York City Metropolitan Area",
+     "start": "May 2017",
+     "end": "Feb 2021",
+     "summary_bullets": [
+      "Sole BA on three client engagements; owned requirements from discovery through UAT sign-off."
+     ]
+    }
+   ],
+   "education": [
+    {
+     "degree": "BS",
+     "school": "CUNY City College",
+     "field": "Computer Information Systems"
+    }
+   ],
+   "skills_snippet": [
+    "Requirements Elicitation",
+    "User Stories",
+    "Acceptance Criteria",
+    "SQL",
+    "UAT",
+    "Traceability"
+   ]
+  }
+ },
+ {
+  "fixture_id": "adv_northern_trust_clone",
+  "archetype": "individually solid Northern Trust profile (concentration is a search-side problem)",
+  "expected_new": {
+   "families": [
+    "SAVE_FAMILY"
+   ]
+  },
+  "notes": "Judged on merit alone this person is fine. The employer-concentration control belongs in scout/commit (Phase 4), never in this verdict.",
+  "profile": {
+   "name": "Rachel Donnelly",
+   "profile_url": "https://www.linkedin.com/talent/profile/FIXTURE_Rachel_Donnelly",
+   "headline": "Technical Business Analyst at Northern Trust",
+   "about": "",
+   "experiences": [
+    {
+     "title": "Technical Business Analyst",
+     "company": "Northern Trust",
+     "location": "New York City Metropolitan Area",
+     "start": "Aug 2020",
+     "end": "Present",
+     "summary_bullets": [
+      "Specified API and file-feed integration requirements — data mappings, error handling, retry behavior — between the fund accounting platform and three downstream reporting systems.",
+      "Authored user stories and acceptance criteria for the client-reporting modernization program.",
+      "Coordinated UAT with operations across two release cycles and drove defect triage to closure."
+     ]
+    },
+    {
+     "title": "Business Analyst",
+     "company": "BNY Mellon",
+     "location": "New York City Metropolitan Area",
+     "start": "Jun 2017",
+     "end": "Aug 2020",
+     "summary_bullets": [
+      "Documented requirements and process flows for corporate-actions automation; wrote SQL to investigate data questions."
+     ]
+    }
+   ],
+   "education": [
+    {
+     "degree": "BS",
+     "school": "Villanova University",
+     "field": "Finance"
+    }
+   ],
+   "skills_snippet": [
+    "API Requirements",
+    "Data Mapping",
+    "User Stories",
+    "UAT",
+    "SQL",
+    "Fund Accounting"
+   ]
+  }
+ },
+ {
+  "fixture_id": "prot_twenty_year_current_ic",
+  "archetype": "PROTECTION: 22-year career, currently hands-on senior IC",
+  "expected_new": {
+   "families": [
+    "SAVE_FAMILY"
+   ],
+   "must_not": {
+    "reject_reasons": [
+     "OVER_LEVEL",
+     "BAR_ORDINARY"
+    ]
+   }
+  },
+  "notes": "Age-proxy tripwire. Long tenure with current, specific, IC-shaped evidence MUST save. An OVER_LEVEL or BAR_ORDINARY reject here means the new contract leaked a years proxy.",
+  "profile": {
+   "name": "Susan Albright",
+   "profile_url": "https://www.linkedin.com/talent/profile/FIXTURE_Susan_Albright",
+   "headline": "Senior Business Systems Analyst",
+   "about": "",
+   "experiences": [
+    {
+     "title": "Senior Business Systems Analyst",
+     "company": "State Street",
+     "location": "New York City Metropolitan Area",
+     "start": "Sep 2018",
+     "end": "Present",
+     "summary_bullets": [
+      "Author acceptance criteria and interface specifications for the custody-integration program (SWIFT and REST feeds).",
+      "Led UAT for two platform conversions with 15 business testers; owned defect triage with the engineering lead.",
+      "Write SQL daily to investigate data questions before they become requirements defects."
+     ]
+    },
+    {
+     "title": "Business Systems Analyst",
+     "company": "Fidelity Investments",
+     "location": "Boston, MA",
+     "start": "Mar 2010",
+     "end": "Sep 2018",
+     "summary_bullets": [
+      "Owned requirements for brokerage-operations workflow tools; maintained the traceability matrix through five releases."
+     ]
+    },
+    {
+     "title": "Business Analyst",
+     "company": "John Hancock",
+     "location": "Boston, MA",
+     "start": "Jun 2004",
+     "end": "Mar 2010",
+     "summary_bullets": [
+      "Documented requirements and coordinated UAT for annuity administration systems."
+     ]
+    }
+   ],
+   "education": [
+    {
+     "degree": "BS",
+     "school": "Boston College",
+     "field": "Management Information Systems"
+    }
+   ],
+   "skills_snippet": [
+    "Interface Specifications",
+    "Acceptance Criteria",
+    "UAT",
+    "SQL",
+    "SWIFT",
+    "Traceability"
+   ]
+  }
+ },
+ {
+  "fixture_id": "prot_sparse_promising",
+  "archetype": "PROTECTION: sparse profile, discriminating practitioner skills",
+  "expected_new": {
+   "families": [
+    "SAVE_FAMILY",
+    "REVIEW_FAMILY"
+   ],
+   "decisions": [
+    "INFERENTIAL_SAVE",
+    "REVIEW_INFERRED"
+   ],
+   "must_not": {
+    "families": [
+     "REJECT"
+    ]
+   }
+  },
+  "notes": "Sparse is UNKNOWN, not weak. Titles + discriminating skills route to the inferential/review paths, never to a caliber reject.",
+  "profile": {
+   "name": "Anders Lim",
+   "profile_url": "https://www.linkedin.com/talent/profile/FIXTURE_Anders_Lim",
+   "headline": "Business Systems Analyst — payments",
+   "about": "",
+   "experiences": [
+    {
+     "title": "Business Systems Analyst",
+     "company": "Broadridge",
+     "location": "New York City Metropolitan Area",
+     "start": "Apr 2022",
+     "end": "Present",
+     "summary_bullets": []
+    },
+    {
+     "title": "Analyst",
+     "company": "Valley National Bank",
+     "location": "New York City Metropolitan Area",
+     "start": "Jul 2019",
+     "end": "Apr 2022",
+     "summary_bullets": []
+    }
+   ],
+   "education": [
+    {
+     "degree": "BS",
+     "school": "Stevens Institute of Technology",
+     "field": "Information Systems"
+    }
+   ],
+   "skills_snippet": [
+    "Requirements Traceability Matrix",
+    "UAT Coordination",
+    "SQL",
+    "User Stories",
+    "ISO 20022"
+   ]
+  }
+ },
+ {
+  "fixture_id": "prot_returner_current_reentry",
+  "archetype": "PROTECTION: career gap with strong current re-entry",
+  "expected_new": {
+   "families": [
+    "SAVE_FAMILY"
+   ],
+   "must_not": {
+    "reject_reasons": [
+     "EVIDENCE_STALE"
+    ]
+   }
+  },
+  "notes": "The recency test reads the current chapter, which is live and specific. The 2019-2023 gap must not be penalized.",
+  "profile": {
+   "name": "Monica Reyes",
+   "profile_url": "https://www.linkedin.com/talent/profile/FIXTURE_Monica_Reyes",
+   "headline": "Business Analyst — consumer lending",
+   "about": "Returned to the workforce in 2023 after family leave; currently leading requirements for hardship-assistance workflows.",
+   "experiences": [
+    {
+     "title": "Business Analyst (Contract)",
+     "company": "Regions Bank",
+     "location": "New York City Metropolitan Area",
+     "start": "Mar 2023",
+     "end": "Present",
+     "summary_bullets": [
+      "Lead discovery and write user stories with acceptance criteria for the hardship-assistance servicing workflow.",
+      "Run UAT with servicing agents each release; own the requirements traceability log."
+     ]
+    },
+    {
+     "title": "Senior Business Analyst",
+     "company": "Wells Fargo",
+     "location": "New York City Metropolitan Area",
+     "start": "Jan 2012",
+     "end": "Jun 2019",
+     "summary_bullets": [
+      "Authored BRDs and functional specs for consumer-lending origination releases.",
+      "Facilitated discovery workshops with underwriting and compliance stakeholders; coordinated UAT sign-off."
+     ]
+    }
+   ],
+   "education": [
+    {
+     "degree": "BA",
+     "school": "Montclair State University",
+     "field": "Business Administration"
+    }
+   ],
+   "skills_snippet": [
+    "User Stories",
+    "Acceptance Criteria",
+    "Discovery Workshops",
+    "UAT",
+    "Traceability"
+   ]
+  }
+ }
+]

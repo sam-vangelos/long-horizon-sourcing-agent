@@ -1,0 +1,1307 @@
+# Cloris — LinkedIn Recruiter selector manifest
+# Pass 1: scaffolded. `verified: false` rows MUST be confirmed against DOM dumps
+# from capture-snippets/ before the worker treats them as stable_now.
+#
+# Schema:
+#   <id>:
+#     label:            exact visible label (UI source of truth)
+#     section:          grouping/section in UI
+#     classification:   stable_now | mock_only | defer | unknown
+#     verified:         bool — has a human/script confirmed this against live DOM?
+#     role:             ARIA role (preferred selector strategy)
+#     name_pattern:     regex for accessible name (case-insensitive)
+#     selector:         Playwright selector expression (fallback if role+name unavailable)
+#     attribute_hints:  durable attrs to scope/verify on
+#     mutation:         open|type|click|select|toggle|drag|range|read_only
+#     verification:     post-action signal proving success
+#     semantics:        OR|AND|exclude|current|past|both|range|single|multi
+#     failure_modes:    [string]
+#     mutating:         bool — if true, requires explicit intent envelope
+
+version: 3
+generated: 2026-05-19
+generator: cloris-linkedin-map-pass-3
+docs_ref: ../docs/linkedin-recruiter-dom-map.md
+pass_2_delta: ../docs/pass-2-live-observations.md
+pass_3_delta: ../docs/pass-3-live-observations.md
+pass_2_observed_project_id: '2035258290'
+pass_3_observed_project_id: '2035258290'
+pass_3_observed_query: 'software engineer'
+pass_3_observed_total_results: '17M+'
+pass_3_observed_ats_integration: 'Greenhouse (Greenhouse - Acme)'
+pass_4_required_for: [project_picker_full_path, stage_picker_contents, more_actions_menu_contents, no_results_state, query_parse_errors, save_confirmation_toast]
+
+# ---------------------------------------------------------------------------
+# A. ROUTES & PAGE STATE
+# ---------------------------------------------------------------------------
+routes:
+  recruiter_home:
+    pattern: ^https://www\.linkedin\.com/talent/?$
+    classification: stable_now
+    verified: false
+  project_home:
+    pattern: ^https://www\.linkedin\.com/talent/hire/(?P<projectId>\d+)(/|$)
+    classification: stable_now
+    verified: false
+  project_search:
+    pattern: ^https://www\.linkedin\.com/talent/hire/(?P<projectId>\d+)/discover/recruiterSearch(?:$|\?)
+    classification: stable_now
+    verified: true
+    notes: confirmed live 2026-05-19
+    query_params:
+      searchContextId:  { semantics: opaque, source: server }
+      searchHistoryId:  { semantics: opaque, source: server }
+      searchRequestId:  { semantics: opaque, source: server }
+      start:            { semantics: integer_offset, source: client }
+      uiOrigin:         { semantics: enum, source: client, examples: [FACET_SEARCH] }
+    worker_policy: round-trip opaque params unchanged; never invent values
+  project_search_advanced:
+    pattern: ^https://www\.linkedin\.com/talent/hire/(?P<projectId>\d+)/discover/recruiterSearch/advanced
+    classification: stable_now
+    verified: true
+    notes: Advanced search is a sibling route, not a modal. URL alone verifies open state.
+  pipeline:
+    pattern: ^https://www\.linkedin\.com/talent/hire/(?P<projectId>\d+)/manage/pipeline
+    classification: unknown
+    verified: false
+    notes: save-aware surface; treat as mutation-sensitive. Subpath inferred from left-nav 'Pipeline' item observed in Pass 2; not navigated.
+  profile_full:
+    pattern: ^https://www\.linkedin\.com/talent/profile/(?P<recruiterMemberId>[A-Za-z0-9_-]+)\?project=(?P<projectId>\d+)
+    classification: stable_now
+    verified: false
+  profile_drawer_route:
+    pattern: ^https://www\.linkedin\.com/talent/hire/(?P<projectId>\d+)/discover/recruiterSearch/profile/(?P<candidateId>[A-Za-z0-9_-]+)
+    classification: stable_now
+    verified: true
+    query_params:
+      searchContextId:  { semantics: opaque, source: server }
+      searchHistoryId:  { semantics: opaque, source: server, notes: 'attribution back to source search' }
+      searchRequestId:  { semantics: opaque, source: server }
+      trk:              { semantics: enum, source: client, examples: [SEARCH_CONTEXTUAL] }
+    notes: |
+      Pass 3: profile drawer pushes URL AND mounts a role=dialog simultaneously.
+      Either signal verifies open state. Prefer dialog presence (browser back can be flaky).
+      trk=SEARCH_CONTEXTUAL is the entry-vector marker from search results.
+  recommended_matches:
+    pattern: ^https://www\.linkedin\.com/talent/hire/(?P<projectId>\d+)/discover/automatedSourcing/review
+    classification: defer
+    verified: true
+    notes: Out of scope for search worker; routes here from "View all N recommended matches" link.
+  saved_searches:
+    pattern: ^https://www\.linkedin\.com/talent/search-history
+    classification: defer
+    verified: false
+    notes: LinkedIn buried this entry point in 2024; URL still works
+  login_wall:
+    pattern: ^https://www\.linkedin\.com/(login|checkpoint/)
+    classification: stable_now
+    verified: false
+    notes: emits recovery.logged_out
+  checkpoint_challenge:
+    pattern: ^https://www\.linkedin\.com/checkpoint/challenge/
+    classification: stable_now
+    verified: false
+    notes: emits recovery.blocked
+
+page_state:
+  candidate_id_from_url:
+    extractor: javascript
+    code: |
+      const m = window.location.pathname.match(/\/profile\/([A-Za-z0-9_-]+)/);
+      return m ? m[1] : null;
+    classification: stable_now
+    verified: true
+  search_history_id_from_url:
+    extractor: javascript
+    code: |
+      return new URL(location.href).searchParams.get('searchHistoryId');
+    classification: stable_now
+    verified: true
+    notes: 'Pass 3: present on every profile URL opened from search results; carries attribution back to the source search.'
+  project_id_from_url:
+    extractor: javascript
+    code: |
+      const m = window.location.pathname.match(/\/talent\/hire\/(\d+)\//);
+      return m ? m[1] : null;
+    classification: stable_now
+    verified: true
+  project_breadcrumb:
+    selector: 'header, [role="navigation"][aria-label*="breadcrumb" i]'
+    text_pattern: '{projectName} . Talent pool . Search'
+    classification: stable_now
+    verified: true
+    notes: observed exact breadcrumb 'Technical Program Manager - May 2026 › Talent pool › Search'
+  project_privacy_badge:
+    selector: 'header :has-text(/Private . \\d+ member/i)'
+    classification: stable_now
+    verified: true
+    notes: 'observed: Private . 1 member'. Use as project-context loaded ping.
+  empty_search_probe:
+    selector: 'main :has-text(/Start a search/i)'
+    text: "Start a search — You haven't started a search yet. Use the search filters to start finding candidates."
+    classification: stable_now
+    verified: true
+    notes: canonical 'search not yet run' precondition probe
+  result_count_text:
+    selector: 'form :text-matches("^[\\d.]+[KM]?\\+?\\s+results?$", "i")'
+    classification: stable_now
+    verified: true
+    notes: 'Pass 3: observed format is e.g. "17M+ results". Supports K+/M+ suffixes for approximate large pools.'
+    parse: |
+      // returns { total, approximate, unit }
+      // examples: "17M+ results", "650K+ results", "4,231 results", "45 results"
+      const t = el.innerText.trim();
+      const m = t.match(/^([\d.,]+)([KM])?(\+)?\s+results?$/i);
+      if (!m) return null;
+      const num = parseFloat(m[1].replace(/,/g, ''));
+      const mult = m[2] === 'M' ? 1e6 : m[2] === 'K' ? 1e3 : 1;
+      return {
+        total: Math.round(num * mult),
+        approximate: !!m[3],
+        unit: m[2] || null,
+      };
+  active_filter_chips:
+    role: button
+    name_pattern: 'remove .* filter'
+    selector: '[data-test-active-filter] button, [aria-label$="filter"]'
+    classification: stable_now
+    verified: false
+  filter_complementary_pane:
+    role: complementary
+    name: 'Search filters and AI chat'
+    selector: 'role=complementary[name="Search filters and AI chat"]'
+    classification: stable_now
+    verified: true
+    notes: 'Pass 3: most stable anchor for the entire filter panel.'
+
+# ---------------------------------------------------------------------------
+# B. KEYWORD SEARCH
+# ---------------------------------------------------------------------------
+keyword_search:
+  keyword_input:
+    label: 'Search by job title, ideal candidate, keyword, or boolean'
+    placeholder: 'Type anything here'
+    role: combobox
+    name_pattern: 'job title.*ideal candidate.*keyword.*boolean'
+    selector: 'role=combobox[name=/job title.*ideal candidate.*keyword.*boolean/i]'
+    classification: stable_now
+    verified: true
+    mutation: type
+    verification: suggestion dropdown appears; URL gains/changes searchContextId
+    semantics: boolean_plus_natural_language
+    boolean_ops: [AND, OR, NOT, '""', '()']
+    natural_language: true
+    char_limit: 2000
+    failure_modes:
+      - silent truncation past char_limit
+      - autocomplete intercepts Enter
+      - did-you-mean replaces literal query
+      - 'Enter inside PER-FILTER inputs dismisses dropdown without applying — only the top-bar combobox uses Enter productively'
+    notes: 'Pass 2: AI-assisted intent is INLINED into this combobox (accessible name includes ideal candidate). There is no separate AI-Assisted panel on this seat.'
+
+  submit_button:
+    label: Search
+    role: button
+    name_pattern: '^search$'
+    classification: unknown
+    verified: false
+    mutation: click
+    notes: 'Pass 2: not observed on the empty search surface. Filters apply incrementally; there may be no separate Search button on this seat. Treat top-bar Enter or suggestion-click as the submit path.'
+
+  clear_button:
+    label: Clear
+    role: button
+    name_pattern: '^clear$'
+    classification: unknown
+    verified: false
+    mutation: click
+
+# ---------------------------------------------------------------------------
+# C. RESULTS LIST  (Pass 3 corrections + promotions)
+# ---------------------------------------------------------------------------
+# CORRECTIONS from Pass 1:
+#   - Cards are role=article, NOT role=listitem
+#   - Results wrapped in a <form>, not a bare list
+#   - Page size is 25 (confirmed by 'Select all 25 profiles')
+#   - Result count supports K+/M+ suffix
+results_list:
+  results_form:
+    selector: 'form:has(:text-matches("Select all \\d+ profiles"))'
+    classification: stable_now
+    verified: true
+    notes: 'Pass 3: results wrap in a form, not a bare list. Use as scoping anchor for everything below.'
+  select_all_checkbox:
+    scope: results_form
+    role: checkbox
+    name_pattern: 'Select all \d+ profiles'
+    classification: defer
+    mutating: true   # toggles bulk-action toolbar which contains mutating items
+    verified: true
+    notes: 'Pass 3: reveals bulk-action toolbar; defer.'
+  see_search_breakdown:
+    scope: results_form
+    role: button
+    name_pattern: '^See search breakdown$'
+    classification: defer
+    verified: true
+    notes: opens a panel showing filter-by-filter result contribution; structure unverified
+  result_card:
+    role: article
+    selector: 'role=article >> has=a[href*="/talent/profile/"]'
+    classification: stable_now
+    verified: true
+    notes: 'Pass 3 CORRECTION: cards are role=article, not listitem.'
+  result_card_filter_out_recommended:
+    # Cloris must skip recommended-match cards embedded in the same form
+    exclusion_scope: 'role=region[name="All recommended matches"]'
+    classification: stable_now
+    verified: true
+  candidate_name_link:
+    scope: result_card
+    role: link
+    selector: 'a[href*="/talent/profile/"]'
+    classification: stable_now
+    verified: true
+    mutation: click_opens_drawer
+  recruiter_member_id:
+    scope: result_card
+    extractor: regex
+    source: candidate_name_link.href
+    pattern: '/talent/profile/([A-Za-z0-9_-]+)'
+    classification: stable_now
+    verified: true
+  redacted_marker:
+    scope: result_card
+    selector: 'text=/^LinkedIn Member$/'
+    classification: stable_now
+    verified: false   # not observed in Pass 3 query; pattern remains documented
+    notes: 'Not observed in Pass 3 (query had no redacted results in first page). Pattern is documented; needs Pass 4 confirmation with an out-of-network query.'
+  pagination_header:
+    role: navigation
+    name: 'Profile list header pagination'
+    selector: 'role=navigation[name="Profile list header pagination"]'
+    classification: stable_now
+    verified: true
+    notes: 'Pass 3: header pagination with range "1 - 25" and "Go to next page N" link.'
+  pagination_footer:
+    role: navigation
+    name: 'Profile list pagination'
+    selector: 'role=navigation[name="Profile list pagination"]'
+    classification: stable_now
+    verified: true
+    notes: 'Pass 3: footer pagination with explicit page-link list (Pages 1-10) and Next link.'
+  pagination_next_link:
+    scope: pagination_footer
+    role: link
+    name_pattern: '^Next$'
+    classification: stable_now
+    verified: true
+  pagination_page_link:
+    scope: pagination_footer
+    role: link
+    name_pattern: '^Page \d+$'
+    classification: stable_now
+    verified: true
+  embedded_recommended_matches:
+    role: region
+    name: 'All recommended matches'
+    selector: 'role=region[name="All recommended matches"]'
+    classification: stable_now
+    verified: true
+    notes: 'Pass 3: lives inside the results form; Cloris must filter these out of primary result enumeration.'
+  recommended_matches_link:
+    scope: embedded_recommended_matches
+    role: link
+    name_pattern: 'View all \d+ recommended matches'
+    classification: stable_now
+    verified: true
+    href_pattern: '/discover/automatedSourcing/review\?collectionType=AGGREGATED'
+
+# Per-card action rail — ALL MUTATING
+result_card_action_rail:
+  save_to_pipeline:
+    scope: result_card
+    role: button
+    name_pattern: "^Save to '[^']+'$"
+    selector: "role=button[name=/^Save to '/]"
+    classification: defer
+    mutating: true
+    verified: true
+    notes: |
+      Pass 3 CRITICAL: button name embeds the default stage, e.g. "Save to 'uncontacted'".
+      Primary save is STAGE-AWARE, not project-picker-aware: clicking saves to the current
+      project's default stage with no intermediate dialog. Mis-click = candidate saved to
+      current project's default stage.
+  save_stage_chooser:
+    scope: result_card
+    role: button
+    name: 'Select pipeline stage to save to'
+    classification: defer
+    mutating: true   # selecting a stage in the dropdown saves to that stage
+    verified: true
+    notes: 'Pass 3: opens stage-picker dropdown; dropdown contents unverified (Pass 4 candidate).'
+  hide_candidate:
+    scope: result_card
+    role: button
+    name_pattern: '^Hide$'
+    classification: defer
+    mutating: true
+    verified: true
+  message_candidate:
+    scope: result_card
+    role: button
+    name_pattern: '^Message '
+    classification: defer
+    mutating: true
+    verified: true
+  more_actions:
+    scope: result_card
+    role: button
+    name_pattern: '^More actions for '
+    classification: defer
+    mutating: true   # menu contains destructive items
+    verified: true
+    notes: 'Menu contents not captured in Pass 3 (forbidden). Pass 4 may open + read item names + Escape.'
+
+# Card hover actions — MUTATING; never auto-click in default mode
+card_hover_actions:
+  card_save_button:
+    scope: result_card
+    role: button
+    name_pattern: 'save to project'
+    classification: defer
+    mutating: true
+    verified: false
+  card_hide_button:
+    scope: result_card
+    role: button
+    name_pattern: '^hide$'
+    classification: defer
+    mutating: true
+    verified: false
+  card_reach_out:
+    scope: result_card
+    role: button
+    name_pattern: 'reach out|message|inmail'
+    classification: defer
+    mutating: true
+    verified: false
+
+# ---------------------------------------------------------------------------
+# D. PROFILE DRAWER (Pass 3 promotions)
+# ---------------------------------------------------------------------------
+profile:
+  drawer:
+    role: dialog
+    selector: 'role=dialog'
+    classification: stable_now
+    verified: true
+    notes: 'Pass 3: opening a candidate pushes URL to /profile/{candidateId} AND mounts role=dialog. Either verifies open state; prefer dialog.'
+  drawer_from_project_heading:
+    scope: drawer
+    role: heading
+    name_pattern: '^From '
+    classification: stable_now
+    verified: true
+    notes: 'Pass 3: confirms which project context the drawer was opened in. Source of truth for project scope.'
+  drawer_pagination:
+    scope: drawer
+    role: navigation
+    name: 'Pagination'
+    classification: stable_now
+    verified: true
+    notes: 'Pass 3: drawer-internal nav through result set without closing.'
+  drawer_prev_candidate:
+    scope: drawer_pagination
+    role: button
+    name_pattern: 'Previous candidate'
+    classification: stable_now
+    verified: true
+  drawer_next_candidate:
+    scope: drawer_pagination
+    role: link
+    name_pattern: '^Go forward to profile \d+$'
+    classification: stable_now
+    verified: true
+  drawer_position_counter:
+    scope: drawer
+    selector: 'text=/^\\d+ of [\\d,]+$/'
+    classification: stable_now
+    verified: true
+    notes: 'Pass 3: e.g. "1 of 17,151,103" - matches total result count.'
+  drawer_exit:
+    scope: drawer
+    selector: 'role=presentation[name="Exit profile view"]'
+    classification: defer
+    verified: true
+    notes: 'Pass 3: exit affordance is role=presentation, not button. Escape is the safer close path.'
+  drawer_escape:
+    keypress: Escape
+    classification: stable_now
+    verified: true
+  profile_name:
+    scope: drawer
+    role: heading
+    classification: stable_now
+    verified: true
+  profile_headline:
+    scope: drawer
+    selector: 'header [aria-label*="headline" i], header h2'
+    classification: stable_now
+    verified: true
+  profile_connection_degree:
+    scope: drawer
+    selector: 'text=/^(1st|2nd|3rd\\+?)$/i'
+    classification: stable_now
+    verified: true
+  profile_connection_count:
+    scope: drawer
+    selector: 'text=/[\\d,K+]+ connections?$/i'
+    classification: stable_now
+    verified: true
+
+  # Public profile resolver — NEW in Pass 3, big simplification
+  public_profile_resolver:
+    scope: drawer
+    role: button
+    name: 'Public profile'
+    classification: stable_now
+    verified: true
+    mutation: click_opens_tooltip
+    notes: |
+      Pass 3: clicking opens a tooltip containing:
+        - link "Open link in new tab" with href = public linkedin.com/in/<vanity>
+        - button "Copy link"
+      The tooltip's link href is readable as an attribute — no need to click "Open link".
+      This is the canonical Recruiter-id → public-vanity bridge. Replaces the
+      redirect-probe approach scaffolded in Pass 1.
+    extract_path:
+      step_1: "click button[name='Public profile']"
+      step_2: "read getByRole('link', { name: /^Open link in new tab$/ }).getAttribute('href')"
+      step_3: "href matches https://www\\.linkedin\\.com/in/(?P<vanity>[^/?#]+)"
+
+  # Contact field mutations
+  add_email:
+    scope: drawer
+    role: button
+    name: 'Add email'
+    classification: defer
+    mutating: true
+    verified: true
+  add_phone:
+    scope: drawer
+    role: button
+    name: 'Add phone number'
+    classification: defer
+    mutating: true
+    verified: true
+
+  # "In N projects" cross-membership signal — KEY SAVE-SAFETY READ
+  in_projects_section:
+    scope: drawer
+    role: heading
+    name_pattern: '^In \d+ projects?$'
+    classification: stable_now
+    verified: true
+    notes: |
+      Pass 3 CRITICAL save-safety signal: lists every other project the candidate
+      is already in, with status (contacted / uncontacted). Read this BEFORE any
+      save action to detect already_saved or already_in_other_project conditions.
+  in_projects_link:
+    scope: in_projects_section
+    role: link
+    classification: stable_now
+    verified: true
+    name_parse: '^(?P<projectName>.+) (?P<status>contacted|uncontacted)$'
+
+  # Tabs
+  drawer_tabs:
+    scope: drawer
+    role: navigation
+    classification: stable_now
+    verified: true
+    tabs:
+      profile:           { name: '^Profile$', classification: stable_now }
+      projects:          { name: '^Projects \(\d+\)$', classification: stable_now }
+      messages:          { name: '^Messages \(\d+\)$', classification: stable_now }
+      ats:               { name: '(Greenhouse|Lever|Ashby|Workday|iCIMS|SmartRecruiters)', classification: stable_now, notes: 'ATS tab name varies by integration; observed Greenhouse on Sam seat' }
+      feedback:          { name: '^Feedback \(\d+\)$', classification: stable_now }
+      attachments:       { name: '^Attachments \(\d+\)$', classification: stable_now }
+      recruiting_activity: { name: '^Recruiting activity$', classification: stable_now }
+      more:              { name: '^More$', classification: defer, notes: 'overflow tab; contents not captured Pass 3' }
+
+  # Body sections (read-only)
+  section_summary:      { scope: drawer, role: heading, name_pattern: '^Summary$', classification: stable_now, verified: true }
+  section_experience:   { scope: drawer, role: heading, name_pattern: '^Experience$', classification: stable_now, verified: true }
+  section_education:    { scope: drawer, role: heading, name_pattern: '^Education$', classification: stable_now, verified: true }
+  section_skills:       { scope: drawer, role: heading, name_pattern: '^Skills$', classification: stable_now, verified: true }
+  section_accomplishments: { scope: drawer, role: heading, name_pattern: '^Accomplishments$', classification: stable_now, verified: true }
+  section_interests:    { scope: drawer, role: heading, name_pattern: '^Interests$', classification: stable_now, verified: true }
+  section_personal_info: { scope: drawer, role: heading, name_pattern: '^Personal Information$', classification: stable_now, verified: true }
+  show_all_skills:      { scope: section_skills, role: button, name_pattern: '^Show all \d+ skills$', classification: stable_now, verified: true }
+
+  profile_unavailable:
+    selector: 'text=/no longer available|cannot find/i'
+    classification: unknown
+    verified: false
+    notes: 'Not observed in Pass 3 (live candidate). Pattern remains documented.'
+
+# Right rail: Recruiting Tools panel — NEW in Pass 3
+recruiting_tools_panel:
+  panel:
+    scope: drawer
+    role: region
+    name_pattern: '^Recruiting Tools$'
+    classification: stable_now
+    verified: true
+  notes_row:
+    add_button:
+      role: button
+      name_pattern: '^Add Note about '
+      classification: defer
+      mutating: true
+      verified: true
+  reminders_row:
+    add_button:
+      role: button
+      name: 'Add new reminder'
+      classification: defer
+      mutating: true
+      verified: true
+  links_row:
+    add_button:
+      role: button
+      name: 'Add new link'
+      classification: defer
+      mutating: true
+      verified: true
+  tags_row:
+    add_button:
+      role: button
+      name: 'Add new tags'
+      classification: defer
+      mutating: true
+      verified: true
+
+# Right rail: Similar Profiles — must filter out of primary results, same as embedded recommended_matches
+similar_profiles:
+  region:
+    scope: drawer
+    role: heading
+    name: 'Similar Profiles'
+    classification: stable_now
+    verified: true
+  view_more_link:
+    role: link
+    name_pattern: 'View more recommendations'
+    classification: stable_now
+    verified: true
+
+# Mutating profile actions — defer (Pass 3 confirmed)
+profile_mutating:
+  save_to_pipeline_drawer:
+    scope: drawer
+    role: button
+    name_pattern: "^Save to '[^']+'$"
+    classification: defer
+    mutating: true
+    verified: true
+    notes: 'Pass 3: same stage-aware pattern as the card-level Save button. Default stage observed: uncontacted.'
+  save_stage_chooser_drawer:
+    scope: drawer
+    role: button
+    name: 'Select pipeline stage to save to'
+    classification: defer
+    mutating: true
+    verified: true
+  hide_drawer:
+    scope: drawer
+    role: button
+    name_pattern: '^Hide$'
+    classification: defer
+    mutating: true
+    verified: true
+  message_drawer:
+    scope: drawer
+    role: button
+    name_pattern: '^Message '
+    classification: defer
+    mutating: true
+    verified: true
+  share_for_review:
+    scope: drawer
+    role: button
+    name_pattern: '^Share .+ for review$'
+    classification: defer
+    mutating: true
+    verified: true
+  more_actions_drawer:
+    scope: drawer
+    role: button
+    name_pattern: '^More actions for '
+    classification: defer
+    mutating: true
+    verified: true
+    notes: contains Hide/Block/Report/Reject/etc — DO NOT click items. Menu contents not captured Pass 3.
+
+# ---------------------------------------------------------------------------
+# E. SAVE FLOW (Pass 3 CORRECTION: stage-aware, not project-picker-aware)
+# ---------------------------------------------------------------------------
+# Pass 3 finding: the primary Save button saves to the CURRENT URL's project
+# at that project's DEFAULT STAGE. There is no project-picker dialog on the
+# primary path. The Save-stage chooser is a secondary dropdown for stage
+# selection.
+#
+# IMPLICATION: project safety is enforced by URL, not by a dialog gate.
+# Cloris MUST verify URL.projectId == envelope.targetProjectId BEFORE click.
+save_flow:
+  default_stage_extraction:
+    source: save_to_pipeline_button.name
+    pattern: "^Save to '(?P<defaultStage>[^']+)'$"
+    classification: stable_now
+    verified: true
+    notes: 'Pass 3: read the default stage from the button name before saving.'
+  stage_picker_dropdown:
+    trigger: save_stage_chooser
+    classification: unknown   # contents not captured in Pass 3
+    verified: false
+    notes: 'Pass 4 candidate: opening dropdown to read stage names is potentially non-mutating; selecting a stage IS mutating.'
+  save_toast:
+    role: status
+    name_pattern: 'saved to'
+    classification: unknown
+    verified: false
+    notes: not observable without performing a save; Pass 5 (mutation worker validation) territory
+  post_save_verification:
+    primary:    in_projects_section now lists targetProjectName
+    secondary:  save_to_pipeline button name changes
+    tertiary:   left-nav pipeline count increments by 1
+    notes: 'Pass 3 recommended algorithm in docs/pass-3-live-observations.md §I.1'
+
+# ---------------------------------------------------------------------------
+# F. FILTERS (Advanced Search panel)
+# ---------------------------------------------------------------------------
+# Each filter follows the same selector template:
+#   section: getByRole('region' or 'group', { name: /<label>/i })
+#   input:   section.getByRole('combobox' or 'textbox')
+#   options: getByRole('listbox') > getByRole('option')
+#   chips:   active_filter_chips with text starting with filter label
+
+# ---------------------------------------------------------------------------
+# FILTER PILL MECHANICS (Pass 2 correction)
+# ---------------------------------------------------------------------------
+# Each filter is a TWO-STEP control, not a direct input:
+#   step 1: button name='Add {label}' (role=button)  -> click to reveal editor
+#   step 2: editor is one of: combobox+listbox, multi-select list, range, toggle, free-text
+# Chips render INSIDE the filter group as inline items prefixed with '+':
+#   e.g. '+Amazon', '+Full-Stack Development (8.9M+)', '+San Francisco Bay Area'
+# The numeric suffix '(N.NM+)' is LinkedIn's candidate-pool estimate for that chip.
+#
+# Section anchoring on Advanced surface:
+#   getByRole('heading', { name: /^Candidate details$/i }).locator('..')
+# Section names (Advanced):
+#   - Candidate details
+#   - Education & experience
+#   - Company
+#   - Recruiting & candidate activity
+filter_pill_pattern:
+  open:    "button[role='button'][name='Add {label}']"
+  editor:  "depends on filter type (combobox / listbox / range / switch / textbox)"
+  chip:    "text node prefixed with '+' inside the filter group; may include trailing '(NUM+)' pool-size"
+  remove:  "click the chip OR open editor and uncheck (prefer chip click)"
+  verify:  "new chip appears within ~2s of suggestion click; URL gains searchContextId/searchHistoryId"
+  failure: "silent no-op: typed + clicked suggestion, no chip within 2s → reopen and reclick (per LinkedIn skill)"
+
+filters:
+  keywords:
+    label: Keywords
+    placeholder: 'Profile keywords or boolean'
+    classification: stable_now      # top-bar variant
+    verified: true
+    semantics: boolean
+    scope: entire_profile
+    surfaces: [normal_left_panel, advanced_left_panel]
+
+  job_titles:
+    label: Job titles
+    placeholder: 'Job titles or boolean'
+    add_button_name: 'Add Job titles or boolean'
+    classification: mock_only
+    verified: true              # filter pill confirmed; scope-toggle mechanics not exercised
+    semantics: multi_or
+    scope_options: [current, past, current_or_past]
+    scope_default: current_or_past
+    boolean_supported: true
+    surfaces: [normal_left_panel, advanced_left_panel]
+
+  current_companies:
+    label: Current companies
+    classification: mock_only
+    verified: true              # observed as separate Advanced filter
+    semantics: multi_or
+    scope: current
+    supports_exclude: true      # Boolean text commands per tip sheet
+    surfaces: [advanced_company_section]
+
+  past_companies:
+    label: Past companies
+    classification: mock_only
+    verified: true              # observed as separate Advanced filter
+    semantics: multi_or
+    scope: past
+    supports_exclude: false
+    surfaces: [advanced_company_section]
+
+  companies:
+    label: Companies
+    placeholder: 'Companies or boolean'
+    add_button_name: 'Add Companies or boolean'
+    classification: mock_only
+    verified: true
+    semantics: multi_or
+    scope: current_or_past
+    surfaces: [normal_left_panel]   # CORRECTED: this is the merged pill on the normal surface only
+    notes: 'Pass 2 correction: only ONE merged Companies pill exists on the normal surface. Advanced splits it into Current + Past. There is no distinct third filter for current-or-past on Advanced.'
+    pass_2_observed_chips: ['+Amazon', '+Freelance | Self-Employed']
+
+  locations:
+    label: Locations
+    placeholder: 'Candidate geographic locations'
+    add_button_name: 'Add a Candidate geographic location'
+    classification: mock_only
+    verified: true
+    semantics: multi_or
+    scope: currently_or_open_to_relocate
+    boolean_supported: false
+    failure_modes:
+      - 'autocomplete substitutes "San Francisco" -> "San Francisco Bay Area" (metro upcast)'
+
+  industries:
+    label: Industries
+    classification: mock_only
+    verified: true              # observed in Advanced > Education & experience
+    semantics: multi_or
+    hierarchical: [L1, L2, L3]
+    surfaces: [advanced_education_experience_section]
+    notes: selecting L1 includes all child levels
+
+  job_functions:
+    label: Job functions
+    classification: mock_only
+    verified: false
+    semantics: multi_or
+    scope: present_positions
+
+  seniority:
+    label: Seniority
+    classification: mock_only
+    verified: false
+    semantics: multi_or
+    scope: current
+    enum: [Unpaid, Training, Entry, Senior, Manager, Director, VP, CXO, Owner, Partner]
+
+  years_of_experience:
+    label: Years of experience
+    classification: defer
+    verified: false
+    semantics: range
+    notes: slider; integer rounding
+
+  years_in_current_company:
+    label: Years in current company
+    classification: defer
+    verified: false
+    semantics: range
+
+  years_in_current_position:
+    label: Years in current position
+    classification: defer
+    verified: false
+    semantics: range
+
+  skills:
+    label: Skills and Assessments
+    placeholder: 'Skill keywords anywhere on profile'
+    add_button_name: 'Add Skill keywords anywhere on profile'
+    classification: mock_only
+    verified: true
+    semantics: multi_or
+    surfaces: [normal_left_panel, advanced_education_experience_section]
+    notes: typeahead mixes standardized + member-generated skills; chips include pool-size suffix e.g. '+Full-Stack Development (8.9M+)'
+    pass_2_observed_chips: ['+Full-Stack Development (8.9M+)']
+
+  schools:
+    label: Schools
+    classification: mock_only
+    verified: false
+    semantics: multi_or
+    notes: namespace overlaps with companies (e.g., Harvard)
+
+  fields_of_study:
+    label: Fields of study
+    classification: mock_only
+    verified: false
+    semantics: multi_or
+    notes: >1600 member-generated values; no enumerable master list
+
+  degrees:
+    label: Degrees
+    classification: mock_only
+    verified: false
+    semantics: multi_or
+
+  year_of_graduation:
+    label: Year of graduation
+    classification: defer
+    verified: false
+    semantics: range
+
+  postal_code:
+    label: Postal code/ Zip code
+    classification: mock_only
+    verified: false
+    semantics: single_with_radius
+    notes: radius units vary by locale
+
+  spoken_languages:
+    label: Spoken languages
+    classification: mock_only
+    verified: false
+    semantics: multi_or
+
+  profile_languages:
+    label: Profile languages
+    classification: mock_only
+    verified: false
+    semantics: multi_or
+    notes: distinct from spoken_languages
+
+  first_names:
+    label: First names
+    classification: mock_only
+    verified: false
+    semantics: multi_or
+
+  last_names:
+    label: Last names
+    classification: mock_only
+    verified: false
+    semantics: multi_or
+
+  network_relationships:
+    label: Network relationships
+    classification: mock_only
+    verified: false
+    semantics: multi_or
+    enum: ['1st', '2nd', '3rd+', 'Group connections', 'TeamLink']
+
+  recently_joined_linkedin:
+    label: Recently joined LinkedIn
+    classification: mock_only
+    verified: false
+    semantics: single
+    enum_ranges: ['1 day', '1 week', '1 month', '3 months']
+
+  hide_previously_viewed:
+    label: Hide previously viewed
+    classification: mock_only
+    verified: true                # observed as boolean toggle
+    semantics: toggle             # CORRECTED from 'single' — observed as on/off, not range
+    pass_2_observed_state: 'toggle visible; default Off'
+    notes: 'Pass 2 observed only on/off. Pass 1 docs suggested Past-3m / Past-6m scope — may be inside an expanded editor; needs Pass 3 to confirm.'
+
+  military_veterans:
+    label: Military veterans
+    classification: mock_only
+    verified: false
+    semantics: toggle
+    notes: US-only relevance
+
+  company_sizes:
+    label: Company sizes
+    classification: mock_only
+    verified: false
+    semantics: multi_or
+    scope: current
+    enum: ['1-10', '11-50', '51-200', '201-500', '501-1,000', '1,001-5,000', '5,001-10,000', '10,000+']
+
+  company_types:
+    label: Company types
+    classification: mock_only
+    verified: false
+    semantics: multi_or
+    scope: current
+    enum: [Public, Private, Non-profit, Educational, Government, Partnership, Self-owned, Self-employed]
+
+  company_followers:
+    label: Company followers
+    classification: mock_only
+    verified: false
+    semantics: toggle
+    notes: gated to seat's contracted company
+
+  employment_type:
+    label: Employment type
+    placeholder: 'May be open to these types of employment'
+    classification: mock_only
+    verified: true
+    semantics: multi_or
+    enum: [Full-time, Part-time, Contract, Internship, Temporary, Volunteer, Other]
+    surfaces: [advanced_education_experience_section]
+
+  workplace_types:
+    label: Workplace types
+    placeholder: 'Draws from open to work preferences'
+    classification: mock_only
+    verified: true                # NEW in Pass 2; not in Pass 1
+    semantics: multi_or
+    enum: [Remote, Hybrid, On-site]
+    sources_from: open_to_work_preferences
+    surfaces: [advanced_education_experience_section]
+    notes: 'Pass 2 finding: this is how Open-to-Work is surfaced on full Recruiter — not as a standalone filter but as a Workplace-types feed.'
+
+  all_groups:
+    label: All groups
+    classification: mock_only
+    verified: false
+    semantics: multi_or
+
+  my_groups:
+    label: My groups
+    classification: mock_only
+    verified: false
+    semantics: multi_or
+
+  applicants:
+    label: In ATS
+    placeholder: 'Find applicants who are in your ATS'
+    classification: defer
+    verified: true              # observed as toggle in Advanced > Recruiting & candidate activity
+    semantics: toggle           # CORRECTED: observed as boolean toggle, not multi-select
+    supports_exclude: true
+    gating: ats_integration
+    pass_2_observed_state: 'toggle visible; default Off'
+
+  candidate_sources:
+    label: Candidate sources
+    classification: unknown
+    verified: false
+    semantics: multi_or
+    gating: contract
+
+  custom_fields:
+    label: Custom field filters
+    classification: unknown
+    verified: false
+    semantics: per_field
+    gating: contract
+
+  qualifications:
+    label: Qualifications
+    placeholder: 'Describe with natural language'
+    classification: defer         # NEW in Pass 2 — premium NL filter that rewrites multiple underlying filters
+    verified: true
+    semantics: natural_language
+    gating: premium
+    surfaces: [normal_left_panel]
+    notes: 'Apply rewrites multiple filters at once — non-deterministic. Cloris should not depend on this for reproducible searches.'
+
+  projects_search:
+    label: Projects
+    placeholder: 'Search for projects'
+    classification: defer        # CORRECTED from mock_only — cross-record filter
+    verified: true               # observed in Advanced > Recruiting & candidate activity
+    semantics: multi_or
+    notes: filters by membership in OTHER projects — interacts with save state; defer
+
+  project_statuses:
+    label: Project statuses
+    classification: mock_only
+    verified: false
+    semantics: multi_or
+
+  notes_search:
+    label: Notes
+    placeholder: 'Filter by notes'
+    classification: defer        # CORRECTED — cross-record private data
+    verified: true
+    semantics: typeahead
+
+  tags_search:
+    label: Tags
+    placeholder: 'Filter by tags'
+    classification: mock_only
+    verified: true
+    semantics: multi_or
+
+  reminders_search:
+    label: Reminders search
+    classification: mock_only
+    verified: false
+    semantics: free_text_boolean
+
+  reviews_search:
+    label: Reviews search
+    classification: mock_only
+    verified: false
+    semantics: free_text_boolean
+
+  recruiting_activity:
+    label: Recruiting activity
+    placeholder: 'Recruiting activity by your team'
+    classification: defer
+    verified: true              # observed in Advanced > Recruiting & candidate activity
+    semantics: dual_mode
+    modes: [with, without]
+    notes: time-period dropdown; dual-mode = fragility
+
+# ---------------------------------------------------------------------------
+# OVERFLOW MENU next to Hide filters (Pass 3 fully mapped)
+# ---------------------------------------------------------------------------
+overflow_menu:
+  trigger:
+    scope: filter_complementary_pane
+    role: button
+    name: 'More actions'
+    classification: stable_now
+    verified: true
+    mutation: click_opens_menu
+  menu:
+    role: menu
+    classification: stable_now
+    verified: true
+    sections:
+      manage_search:
+        items:
+          view_saved_searches:
+            role: menuitem
+            name: 'View saved searches'
+            classification: defer
+            verified: true
+            notes: navigates away; defer
+          save_as_new_search:
+            role: menuitem
+            name: 'Save as new search'
+            classification: defer
+            mutating: true
+            verified: true
+          view_search_history:
+            role: menuitem
+            name: 'View search history'
+            classification: defer
+            verified: true
+          clear_search:
+            role: menuitem
+            name: 'Clear search'
+            classification: defer
+            mutating: true
+            verified: true
+            notes: discards filter state; mutating
+      custom_filters:
+        items:
+          save_as_new_custom_filter:
+            role: menuitem
+            name: 'Save as new custom filter'
+            classification: defer
+            mutating: true
+            verified: true
+          delete_custom_filters:
+            role: menuitem
+            name: 'Delete custom filters'
+            classification: defer
+            mutating: true
+            verified: true
+
+# ---------------------------------------------------------------------------
+# F.43 SPOTLIGHTS (Pass 3 fully mapped)
+# ---------------------------------------------------------------------------
+# Structure: region[name="Spotlights"] containing Previous/Next carousel buttons
+# and a list of spotlight buttons. Each spotlight button's accessible name
+# embeds the live count, e.g. "3.2M+ are Open to work".
+spotlights_region:
+  role: region
+  name: 'Spotlights'
+  classification: stable_now
+  verified: true
+  carousel:
+    prev: { role: button, name: 'Previous', classification: stable_now, verified: true }
+    next: { role: button, name: 'Next',     classification: stable_now, verified: true }
+  button_name_parse: '^(?P<count>\S+)\s+are\s+(?P<label>.+)$'
+  sub_panel_pattern:
+    notes: |
+      Some spotlights expose an in-card checkbox sub-panel when clicked
+      (e.g. Internal candidates, Interested in your company). The sub-panel
+      has Cancel and "Show results" buttons. Show results is MUTATING (alters
+      the search). Cancel is safe.
+    cancel: { role: button, name: 'Cancel', classification: stable_now, verified: true }
+    show_results: { role: button, name: 'Show results', classification: defer, mutating: true, verified: true }
+
+spotlights:
+  # Observed on Sam's seat, project 2035258290, query 'software engineer'
+  open_to_work:
+    label: Open to work
+    classification: mock_only
+    verified: true
+    pass_3_count: '3.2M+'
+  active_talent:
+    label: Active talent
+    classification: mock_only
+    verified: true
+    pass_3_count: '650K+'
+  rediscovered_candidates:
+    label: Rediscovered candidates
+    classification: mock_only
+    verified: true
+    pass_3_count: '34K+'
+  internal_candidates:
+    label: Internal candidates
+    classification: mock_only
+    verified: true
+    has_sub_panel: true
+    pass_3_count: '45'
+  interested_in_your_company:
+    label: Interested in your company
+    classification: mock_only
+    verified: true
+    has_sub_panel: true
+    pass_3_count: '19K+'
+  have_company_connections:
+    label: Have company connections
+    classification: mock_only
+    verified: true
+    pass_3_count: '34K+'
+
+  # Documented in LinkedIn tip sheets but NOT observed on Sam's seat for this query
+  more_likely_to_respond:
+    label: More likely to respond
+    classification: unknown
+    verified: false
+    notes: not surfaced in Pass 3 carousel for this query
+  engaged_with_talent_brand:
+    label: Engaged with your Talent Brand
+    classification: unknown
+    verified: false
+  past_applicants:
+    label: Past applicants
+    classification: unknown
+    verified: false
+  hasnt_changed_roles:
+    label: Hasn't changed roles in a few years
+    classification: unknown
+    verified: false
+  team_recruiting_activity:
+    label: Recruiting activity from your team
+    classification: unknown
+    verified: false
+  actively_hiring:
+    label: Actively Hiring
+    classification: unknown
+    verified: false
+    gating: staffing_edition
+    sub_filters: [Location, Employment Type]
+
+# ---------------------------------------------------------------------------
+# Premium / account-gated / experimental
+# ---------------------------------------------------------------------------
+premium:
+  ai_assisted_search:
+    label: AI-Assisted Search
+    classification: mock_only
+    verified: false
+    notes: non-deterministic; English seats only
+  hiring_assistant:
+    label: Hiring Assistant
+    classification: unknown
+    verified: false
+    gating: feature_flag
+  semantic_search_ranking:
+    classification: unknown
+    verified: false
+    gating: feature_flag
+  highlighted_applicants:
+    label: Highlighted Applicants
+    classification: unknown
+    verified: false
+    gating: feature_flag
+  gender_insight_banner:
+    label: Gender insight banner
+    classification: mock_only
+    verified: false
+  recommended_matches:
+    label: Recommended Matches
+    classification: mock_only
+    verified: false
+  similar_profiles:
+    label: View similar profiles
+    classification: mock_only
+    verified: false
+
+# ---------------------------------------------------------------------------
+# RECOVERY SIGNALS
+# ---------------------------------------------------------------------------
+recovery_signals:
+  logged_out:
+    detect: 'url matches /login or /checkpoint/ OR title contains "Sign in"'
+    action: halt_emit_reauth
+  blocked:
+    detect: '/checkpoint/challenge/ OR captcha iframe OR "Unusual activity" banner'
+    action: backoff_24h
+  wrong_surface:
+    detect: 'url does not match expected route family for step'
+    action: halt_step_replan
+  wrong_seat:
+    detect: 'Advanced search button absent OR filter count ~20'
+    action: halt_refuse_mutations
+  no_project_context:
+    detect: 'url lacks /hire/<projectId>/ AND envelope expected project'
+    action: halt_refuse_mutations
+  lost_project_context:
+    detect: 'url.projectId != envelope.targetProjectId'
+    action: halt_mutating_step
+  stale_search:
+    detect: 'result_count_text unchanged within 5s after apply OR chip delta wrong'
+    action: re_apply_once
+  browser_crash:
+    detect: 'document.body.children.length < 2 OR no [role="main"] for >10s'
+    action: restart_session
+  profile_unavailable:
+    detect: 'text matches /no longer available|cannot find/i'
+    action: skip_candidate
+  member_id_unavailable:
+    detect: 'name == "LinkedIn Member" AND no /talent/profile/ link'
+    action: skip_redacted
+  save_unverified:
+    detect: 'no Saved badge AND no pipeline count delta within 5s of save'
+    action: halt_no_retry
+    notes: NEVER retry save — risk of double-save
+
+# ---------------------------------------------------------------------------
+# WORKER POLICY
+# ---------------------------------------------------------------------------
+worker_policy:
+  default_mode: read_only
+  mutating_intents_require:
+    - explicit_intent_in_envelope: true
+    - target_project_id_match: true
+    - idempotency_token: true
+    - human_confirmation: configurable
+  forbidden_in_default_mode:
+    - save_to_project
+    - remove_from_project
+    - move_pipeline_stage
+    - add_note
+    - edit_note
+    - add_tag
+    - reject
+    - hide
+    - block
+    - report
+    - endorse
+    - connect
+    - follow
+    - inmail
+    - message
+    - share
+    - export
+    - bulk_action_any
+    - project_switcher

@@ -1,0 +1,1039 @@
+# Cloris — Public LinkedIn (linkedin.com) selector manifest
+# Pass 1 scaffold + Pass 2a unauthenticated verification.
+# `verified: false` rows MUST be confirmed against DOM dumps from
+# capture-snippets/ (Pass 2b, authenticated) before the worker treats them as stable_now.
+#
+# Schema:
+#   <id>:
+#     label:            exact visible label (UI source of truth)
+#     section:          grouping in UI
+#     classification:   stable_now | mock_only | defer | unknown
+#     verified:         bool — has Pass 2a/2b or a DevTools script confirmed this against live DOM?
+#     role:             ARIA role (preferred selector strategy)
+#     name_pattern:     regex for accessible name (case-insensitive)
+#     href_pattern:     regex for href trk= substring (preferred over class on public LI)
+#     selector:         Playwright selector expression (fallback)
+#     attribute_hints:  durable attrs to scope/verify on
+#     mutation:         open|type|click|select|toggle|read_only
+#     verification:     post-action signal proving success
+#     semantics:        single|multi|OR|AND|exclude
+#     failure_modes:    [string]
+#     mutating:         bool — if true, requires explicit intent envelope and is in worker_policy.forbidden_in_default_mode
+
+version: 1
+generated: 2026-05-19
+generator: cloris-linkedin-public-map-pass-1
+docs_ref: ../docs/linkedin-public-dom-map.md
+pass_2a_delta: ../docs/pass-2a-live-observations.md
+pass_2a_observed_profile: 'jordanrivera'
+pass_2a_observed_company: 'acme-software'
+pass_2a_observed_search_keyword: 'software engineer'
+pass_2b_required_for:
+  - authenticated_profile_full
+  - profile_details_experience
+  - profile_details_education
+  - profile_details_skills
+  - profile_overlay_contact_info
+  - search_results_people_authenticated
+  - company_people_tab_authenticated
+  - connect_modal_read_only
+  - message_dialog_read_only
+
+# ---------------------------------------------------------------------------
+# A. ROUTES & PAGE STATE
+# ---------------------------------------------------------------------------
+routes:
+  public_profile:
+    pattern: ^https://www\.linkedin\.com/in/(?P<vanity>[A-Za-z0-9_%.\-]+)/?(\?|$)
+    classification: stable_now
+    verified: true
+    notes: confirmed live 2026-05-19 against /in/jordanrivera. Renders without redirect for first ~3-5 guest views.
+    auth_required: false
+    query_params:
+      trk: { semantics: opaque, source: server, examples: [public_profile, profile-tab] }
+  public_profile_details_experience:
+    pattern: ^https://www\.linkedin\.com/in/(?P<vanity>[A-Za-z0-9_%.\-]+)/details/experience/?(\?|$)
+    classification: unknown
+    verified: false
+    auth_required: true
+    notes: Pass 2b required.
+  public_profile_details_education:
+    pattern: ^https://www\.linkedin\.com/in/(?P<vanity>[A-Za-z0-9_%.\-]+)/details/education/?(\?|$)
+    classification: unknown
+    verified: false
+    auth_required: true
+  public_profile_details_skills:
+    pattern: ^https://www\.linkedin\.com/in/(?P<vanity>[A-Za-z0-9_%.\-]+)/details/skills/?(\?|$)
+    classification: unknown
+    verified: false
+    auth_required: true
+    notes: Skills not rendered at all on unauthenticated /in/. Pass 2b required.
+  public_profile_overlay_contact_info:
+    pattern: ^https://www\.linkedin\.com/in/(?P<vanity>[A-Za-z0-9_%.\-]+)/overlay/contact-info/?(\?|$)
+    classification: unknown
+    verified: false
+    auth_required: true
+    notes: 1st-degree only. Pass 2b required.
+  public_profile_recent_activity:
+    pattern: ^https://www\.linkedin\.com/in/(?P<vanity>[A-Za-z0-9_%.\-]+)/recent-activity/(all|posts|articles|comments)/?(\?|$)
+    classification: unknown
+    verified: false
+    auth_required: true
+  company_landing:
+    pattern: ^https://www\.linkedin\.com/company/(?P<slug>[A-Za-z0-9\-_]+)/?(\?|$)
+    classification: unknown
+    verified: false
+    auth_required: false
+    notes: Landing is partially readable signed-out; confirm Pass 2b.
+  company_people:
+    pattern: ^https://www\.linkedin\.com/company/(?P<slug>[A-Za-z0-9\-_]+)/people/?(\?|$)
+    classification: unknown
+    verified: true
+    auth_required: true
+    notes: |
+      Pass 2a confirmed: unauthenticated GET hard-redirects to /authwall?trk=bf.
+      Surface is itself unverified; selectors below are all unknown pending Pass 2b authenticated capture.
+  pub_dir_legacy:
+    pattern: ^https://www\.linkedin\.com/pub/dir/
+    classification: defer
+    verified: true
+    auth_required: true
+    notes: |
+      Pass 2a confirmed: hard-redirect to /authwall?trk=gf. Surface effectively deprecated 2025-2026.
+      Worker MUST emit recovery.surface_unavailable_authwall on encounter.
+  search_results_people:
+    pattern: ^https://www\.linkedin\.com/search/results/people/?\?
+    classification: unknown
+    verified: true
+    auth_required: true
+    notes: |
+      Pass 2a confirmed: unauthenticated GET hard-redirects to /uas/login?session_redirect=...&skipRedirect=true.
+      Selectors below are all unknown pending Pass 2b authenticated capture.
+    query_params:
+      keywords:         { semantics: boolean_query, source: client, notes: 'AND/OR/NOT uppercase, parens supported, no wildcards, ~2000 char practical cap' }
+      origin:           { semantics: enum, source: client, examples: [FACETED_SEARCH, GLOBAL_SEARCH_HEADER, SWITCH_SEARCH_VERTICAL] }
+      geoUrn:           { semantics: json_array_url_encoded, source: client, notes: 'urn:li:fs_geo:* numeric ids' }
+      currentCompany:   { semantics: json_array_url_encoded, source: client, notes: 'urn:li:fs_miniCompany:* numeric ids' }
+      pastCompany:      { semantics: json_array_url_encoded, source: client }
+      schoolFilter:     { semantics: json_array_url_encoded, source: client }
+      industry:         { semantics: json_array_url_encoded, source: client }
+      network:          { semantics: enum_csv, source: client, examples: ['F', 'S', 'O', 'F,S'] }
+      profileLanguage:  { semantics: iso_lang, source: client }
+      firstName:        { semantics: string, source: client }
+      lastName:         { semantics: string, source: client }
+      title:            { semantics: string, source: client }
+    result_cap: 1000
+  posts_activity:
+    pattern: ^https://www\.linkedin\.com/posts/(?P<slug>[A-Za-z0-9_\-]+)
+    classification: stable_now
+    verified: false
+    auth_required: false
+    notes: Readable signed-out (partial). Out of fallback-sourcing primary scope.
+  pulse_article:
+    pattern: ^https://www\.linkedin\.com/pulse/(?P<slug>[A-Za-z0-9\-]+)
+    classification: stable_now
+    verified: false
+    auth_required: false
+  authwall_join:
+    pattern: ^https://www\.linkedin\.com/authwall(\?|$)
+    classification: stable_now
+    verified: true
+    notes: |
+      Pass 2a confirmed. Two trk variants observed: bf (company-people origin), gf (pub-dir origin).
+      Always terminal. Worker emits recovery.authwall_join.
+    query_params:
+      trk:            { semantics: enum, examples: [bf, gf] }
+      trkInfo:        { semantics: opaque_base64, source: server }
+      sessionRedirect: { semantics: encoded_url, source: server }
+  authwall_signin:
+    pattern: ^https://www\.linkedin\.com/uas/login(\?|$)
+    classification: stable_now
+    verified: true
+    notes: |
+      Pass 2a confirmed. Distinct from /authwall — uses h1 "Sign in" template + Apple/Google/MS SSO iframes.
+      Always terminal. Worker emits recovery.authwall_signin.
+    query_params:
+      session_redirect: { semantics: encoded_url, source: server }
+      skipRedirect:     { semantics: boolean_string, examples: ['true'] }
+      fromSignIn:       { semantics: boolean_string }
+  checkpoint:
+    pattern: ^https://www\.linkedin\.com/checkpoint/
+    classification: stable_now
+    verified: false
+    notes: emits recovery.blocked (challenge) or recovery.authwall_signin (login subpath)
+  signup_cold_join:
+    pattern: ^https://www\.linkedin\.com/signup/cold-join(\?|$)
+    classification: stable_now
+    verified: true
+    notes: Reached from /uas/login "Join now" link. Forbidden destination.
+  signup_public_profile_join:
+    pattern: ^https://www\.linkedin\.com/signup/public-profile-join(\?|$)
+    classification: stable_now
+    verified: true
+    notes: Reached from /in/{vanity} modal "Join to view profile" CTA. Forbidden destination.
+
+# ---------------------------------------------------------------------------
+# A.2 PAGE STATE EXTRACTORS
+# ---------------------------------------------------------------------------
+page_state:
+  surface_from_pathname:
+    extractor: javascript
+    code: |
+      const p = window.location.pathname;
+      if (p.startsWith('/in/')) return 'public_profile';
+      if (p === '/authwall') return 'authwall_join';
+      if (p === '/uas/login' || p.startsWith('/checkpoint/')) return 'authwall_signin';
+      if (/^\/company\/[^/]+\/people\/?$/.test(p)) return 'company_people';
+      if (p.startsWith('/pub/dir/')) return 'pub_dir_legacy';
+      if (p.startsWith('/search/results/people')) return 'search_results_people';
+      if (p.startsWith('/signup/')) return 'signup_forbidden';
+      return 'unknown_surface';
+    classification: stable_now
+    verified: true
+  vanity_from_url:
+    extractor: javascript
+    code: |
+      const m = window.location.pathname.match(/^\/in\/([A-Za-z0-9_%.\-]+)/);
+      return m ? decodeURIComponent(m[1]) : null;
+    classification: stable_now
+    verified: true
+  company_slug_from_url:
+    extractor: javascript
+    code: |
+      const m = window.location.pathname.match(/^\/company\/([A-Za-z0-9\-_]+)/);
+      return m ? m[1] : null;
+    classification: stable_now
+    verified: false
+  authwall_trk_from_url:
+    extractor: javascript
+    code: |
+      if (window.location.pathname !== '/authwall') return null;
+      return new URL(window.location.href).searchParams.get('trk');
+    classification: stable_now
+    verified: true
+    notes: returns 'bf' (company origin) or 'gf' (guest flow origin)
+  session_redirect_from_url:
+    extractor: javascript
+    code: |
+      const sp = new URL(window.location.href).searchParams;
+      return sp.get('sessionRedirect') || sp.get('session_redirect') || null;
+    classification: stable_now
+    verified: true
+  guest_view_cookie:
+    extractor: javascript
+    code: |
+      const m = document.cookie.match(/(?:^|;\s*)li_g_view=([^;]+)/);
+      return m ? decodeURIComponent(m[1]) : null;
+    classification: stable_now
+    verified: false
+    notes: Worker should read on every guest profile load and emit recovery.guest_view_limit at <budget> threshold.
+  canonical_url:
+    extractor: javascript
+    code: |
+      const l = document.querySelector('link[rel="canonical"]');
+      return l ? l.href : null;
+    classification: stable_now
+    verified: false
+    notes: Useful to confirm the actual /in/{vanity} when URL was redirected from /pub/dir/ etc.
+  og_type:
+    extractor: javascript
+    code: |
+      const m = document.querySelector('meta[property="og:type"]');
+      return m ? m.getAttribute('content') : null;
+    classification: stable_now
+    verified: true
+    notes: 'profile' on public profile pages, absent/website on authwall.
+  jsonld_person:
+    extractor: javascript
+    code: |
+      const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+      for (const s of scripts) {
+        try {
+          const data = JSON.parse(s.textContent);
+          const arr = Array.isArray(data) ? data : (data['@graph'] || [data]);
+          for (const node of arr) {
+            if (node['@type'] === 'Person' || node['@type'] === 'ProfilePage') {
+              return node;
+            }
+            if (node.mainEntityOfPage?.['@type'] === 'ProfilePage') return node;
+          }
+        } catch {}
+      }
+      return null;
+    classification: stable_now
+    verified: false
+    notes: Pass 2b should confirm exact shape and key set on a public profile page.
+
+# ---------------------------------------------------------------------------
+# B. PUBLIC PROFILE (/in/{vanity}) — Pass 2a verified surface
+# ---------------------------------------------------------------------------
+public_profile:
+  page_title:
+    label: '{name} - {headline} | LinkedIn'
+    classification: stable_now
+    verified: true
+    selector: 'html >> document.title'
+    semantics: single
+    notes: 'Pass 2a: "Jordan Rivera - Chair, Rivera Foundation and Founder, Bright Energy | LinkedIn"'
+  name_heading:
+    label: '{display_name}'
+    section: top_card
+    role: heading
+    selector: 'h1'
+    classification: stable_now
+    verified: true
+    mutation: read_only
+    notes: 'First h1 on page. Pass 2a: "Jordan Rivera".'
+  headline_heading:
+    label: '{headline}'
+    section: top_card
+    role: heading
+    selector: 'main h2 >> nth=0'
+    classification: stable_now
+    verified: true
+    mutation: read_only
+    notes: 'First h2 inside main, immediately after the h1.'
+  location_followers_connections_line:
+    label: '{location} · Contact Info {followers} followers · {connections} connections'
+    section: top_card
+    role: heading
+    selector: 'main h2 >> nth=1'
+    classification: stable_now
+    verified: true
+    mutation: read_only
+    parse_regex: '^(?P<location>.+?) · Contact Info (?P<followers>[\d.KM]+) followers · (?P<connections>\d+)\+? connections?$'
+    notes: 'Pass 2a: location + contact-info link + follower count + connection count are flattened into one h2 text node. Worker MUST regex-split.'
+  profile_photo:
+    label: '{display_name} (photo)'
+    section: top_card
+    role: image
+    selector: 'main button[aria-label] > img[alt]'
+    classification: stable_now
+    verified: true
+    mutation: read_only
+    notes: 'Photo is wrapped in a <button name="<Name>">. Button click would open lightbox or modal — read alt/src only.'
+    attribute_hints: [alt, src]
+  background_banner:
+    label: '{display_name} (background)'
+    section: top_card
+    selector: 'main figure img'
+    classification: stable_now
+    verified: true
+    mutation: read_only
+    notes: 'Also alt="{display_name}". Useful as a top-card-rendered presence check.'
+  top_card_current_company_link:
+    label: '{company_name}'
+    section: top_card_right_column
+    role: link
+    href_pattern: 'trk=public_profile_topcard-current-company'
+    classification: stable_now
+    verified: true
+    mutation: read_only
+    extract: { company_slug: 'href match /company/(?P<slug>[^/?]+)' }
+  top_card_school_link:
+    label: '{school_name}'
+    section: top_card_right_column
+    role: link
+    href_pattern: 'trk=public_profile_topcard-school'
+    classification: stable_now
+    verified: true
+    mutation: read_only
+    extract: { school_slug: 'href match /school/(?P<slug>[^/?]+)' }
+  top_card_external_link:
+    label: '{website_label}'
+    section: top_card_right_column
+    role: link
+    selector: 'main a[rel*="noopener"]:not([href*="linkedin.com"])'
+    classification: mock_only
+    verified: false
+    mutation: read_only
+    notes: 'Influencer profiles show external website link (e.g. Blog). Pattern not yet confirmed on non-influencer profiles.'
+  about_heading:
+    label: 'About'
+    role: heading
+    selector: 'section:has(h2:has-text("About")) h2'
+    classification: stable_now
+    verified: true
+    mutation: read_only
+  about_text:
+    label: '{about_text}'
+    section: about
+    selector: 'section:has(h2:has-text("About")) :not(h2)'
+    classification: mock_only
+    verified: true
+    mutation: read_only
+    notes: |
+      Visible DOM text is truncated to ~69 chars for unauthenticated viewers (per research, change effective March 2024).
+      Worker MUST prefer JSON-LD Person.description over this DOM read.
+  experience_section_heading:
+    label: 'Experience'
+    role: heading
+    selector: 'section:has(h2:has-text("Experience")) h2'
+    classification: stable_now
+    verified: true
+    mutation: read_only
+  experience_item_anchor:
+    label: '{company_name} logo'
+    section: experience
+    role: link
+    href_pattern: 'trk=public_profile_experience-item_profile-section-card_image-click'
+    classification: stable_now
+    verified: true
+    mutation: read_only
+    notes: One anchor per experience item; iterate all matches. Sibling h3 = job title, h4 = company name.
+    extract:
+      company_slug: 'href match /company/(?P<slug>[^/?]+)'
+  experience_item_title:
+    label: '{job_title}'
+    section: experience
+    role: heading
+    selector: 'section:has(h2:has-text("Experience")) h3'
+    classification: stable_now
+    verified: true
+    mutation: read_only
+  experience_item_company:
+    label: '{company_name}'
+    section: experience
+    role: heading
+    selector: 'section:has(h2:has-text("Experience")) h4'
+    classification: stable_now
+    verified: true
+    mutation: read_only
+  experience_item_dates:
+    label: '{date_range} · {duration}'
+    section: experience
+    selector: 'section:has(h2:has-text("Experience")) :text-matches("\\d{4}.*(Present|\\d{4}).*(year|month)", "i")'
+    classification: mock_only
+    verified: true
+    mutation: read_only
+    notes: 'Pass 2a saw "2000 - Present · 26 years". Regex stable but text positioning not formally verified across profiles.'
+  education_section_heading:
+    label: 'Education'
+    role: heading
+    selector: 'section:has(h2:has-text("Education")) h2'
+    classification: stable_now
+    verified: true
+    mutation: read_only
+  education_item_anchor:
+    label: '{school_name} logo'
+    section: education
+    role: link
+    href_pattern: 'trk=public_profile_school_profile-section-card_image-click'
+    classification: stable_now
+    verified: true
+    mutation: read_only
+    extract:
+      school_slug: 'href match /school/(?P<slug>[^/?]+)'
+  skills_section:
+    label: 'Skills'
+    classification: unknown
+    verified: false
+    mutation: read_only
+    notes: 'Pass 2a confirmed: NOT present on unauthenticated /in/. Auth required. Pass 2b will map.'
+  recommendations_section:
+    label: 'Recommendations'
+    classification: unknown
+    verified: false
+    notes: 'Not present unauthenticated. Pass 2b.'
+  activity_heading:
+    label: 'Activity'
+    role: heading
+    selector: 'section:has(h2:has-text("Activity")) h2:has-text("Activity")'
+    classification: stable_now
+    verified: true
+    mutation: read_only
+  activity_follower_count:
+    label: '{follower_count} followers'
+    role: heading
+    selector: 'section:has(h2:has-text("Activity")) h2:has-text("followers")'
+    classification: stable_now
+    verified: true
+    mutation: read_only
+  articles_heading:
+    label: 'Articles by {first_name}'
+    role: heading
+    selector: 'h2:text-matches("^Articles by ", "i")'
+    classification: stable_now
+    verified: true
+    mutation: read_only
+  recent_post_link:
+    label: '{post_excerpt}'
+    section: activity
+    role: link
+    selector: 'a[href*="/posts/"]'
+    classification: stable_now
+    verified: true
+    mutation: read_only
+    extract:
+      post_path: 'href match /posts/(?P<path>[^?]+)'
+  see_all_activities_cta:
+    label: 'See all activities'
+    role: link
+    href_pattern: '/signup/cold-join.*trk=public_profile'
+    classification: mock_only
+    verified: true
+    mutation: read_only
+    mutating: false
+    notes: 'Join-wall CTA. Worker MUST NOT click. Treat as presence-only marker.'
+  similar_profiles_region:
+    label: 'Similar profiles / People also viewed'
+    selector: 'section:has(h2:has-text("Similar profiles")), section:has(h2:has-text("People also viewed"))'
+    classification: defer
+    verified: false
+    mutation: read_only
+  signin_modal_dialog:
+    label: "View {first_name}'s full profile"
+    role: dialog
+    selector: 'role=dialog >> has=heading[name=/^View .+\'s full profile$/]'
+    name_pattern: ''
+    classification: stable_now
+    verified: true
+    mutation: read_only
+    notes: 'No aria-label on the dialog itself. Heading matches the regex.'
+  signin_modal_heading:
+    label: "View {first_name}'s full profile"
+    role: heading
+    name_pattern: "^View .+'s full profile$"
+    classification: stable_now
+    verified: true
+    mutation: read_only
+  signin_modal_email_button:
+    label: 'Sign in with Email'
+    role: button
+    name_pattern: '^Sign in with Email$'
+    classification: stable_now
+    verified: true
+    mutation: click
+    mutating: true
+    notes: Forbidden — worker MUST NOT click.
+  signin_modal_join_link:
+    label: 'Join now'
+    role: link
+    name_pattern: '^Join now$'
+    classification: stable_now
+    verified: true
+    mutating: true
+    notes: Inside the dialog. Forbidden.
+  signin_modal_dismiss_keyboard:
+    label: 'ESC key'
+    selector: 'keyboard:Escape'
+    classification: stable_now
+    verified: true
+    mutation: read_only
+    mutating: false
+    notes: 'Always allowed. Dismisses the modal; underlying profile content remains in DOM.'
+  header_signin_link:
+    label: 'Sign in'
+    role: link
+    href_pattern: 'trk=public_profile_nav-header-signin'
+    classification: stable_now
+    verified: true
+    mutating: true
+    notes: Presence marker only — forbidden to click.
+  header_join_link:
+    label: 'Join now'
+    role: link
+    href_pattern: 'trk=public_profile_nav-header-join'
+    classification: stable_now
+    verified: true
+    mutating: true
+    notes: Presence marker only — forbidden to click.
+  topcard_join_button:
+    label: 'Join to view profile'
+    role: link
+    href_pattern: 'trk=public_profile_top-card-primary-button-join-to-view-profile'
+    classification: stable_now
+    verified: true
+    mutating: true
+    notes: Forbidden.
+  bottom_cta_banner:
+    label: 'Join to view full profile'
+    role: link
+    href_pattern: 'trk=public_profile_bottom-cta-banner'
+    classification: stable_now
+    verified: true
+    mutating: true
+    notes: Forbidden.
+
+# ---------------------------------------------------------------------------
+# C. SEARCH RESULTS — auth-walled (Pass 2b required for all rows)
+# ---------------------------------------------------------------------------
+search_results_people:
+  surface_note: |
+    Pass 2a confirmed the unauthenticated URL hard-redirects to /uas/login.
+    All rows below are unknown until Pass 2b runs on the authenticated seat.
+  keyword_input:
+    label: Search
+    classification: unknown
+    verified: false
+    role: combobox
+  vertical_tabs_people:
+    label: People
+    classification: unknown
+    verified: false
+  filter_connections:
+    label: Connections
+    classification: unknown
+    verified: false
+    url_param: network
+  filter_connections_of:
+    label: Connections of
+    classification: unknown
+    verified: false
+  filter_locations:
+    label: Locations
+    classification: unknown
+    verified: false
+    url_param: geoUrn
+  filter_current_company:
+    label: Current company
+    classification: unknown
+    verified: false
+    url_param: currentCompany
+  filter_past_company:
+    label: Past company
+    classification: unknown
+    verified: false
+    url_param: pastCompany
+  filter_school:
+    label: School
+    classification: unknown
+    verified: false
+    url_param: schoolFilter
+  filter_industry:
+    label: Industry
+    classification: unknown
+    verified: false
+    url_param: industry
+  filter_profile_language:
+    label: Profile language
+    classification: unknown
+    verified: false
+    url_param: profileLanguage
+  all_filters_modal_trigger:
+    label: All filters
+    classification: unknown
+    verified: false
+  result_card:
+    label: '{candidate_name}'
+    classification: unknown
+    verified: false
+    mutation: read_only
+  result_card_name_link:
+    label: '{candidate_name}'
+    classification: unknown
+    verified: false
+    href_pattern: '^/in/'
+    mutation: read_only
+    notes: Canonical extraction handle. Pass 2b to confirm.
+  result_card_headline:
+    label: '{headline}'
+    classification: unknown
+    verified: false
+  result_card_location:
+    label: '{location}'
+    classification: unknown
+    verified: false
+  result_card_connect_button:
+    label: Connect
+    classification: unknown
+    verified: false
+    mutating: true
+    notes: Forbidden.
+  result_card_follow_button:
+    label: Follow
+    classification: unknown
+    verified: false
+    mutating: true
+    notes: Forbidden.
+  result_card_message_button:
+    label: Message
+    classification: unknown
+    verified: false
+    mutating: true
+    notes: Forbidden.
+  result_count_text:
+    label: 'About {N} results'
+    classification: unknown
+    verified: false
+    notes: Caps at 1,000.
+  pagination_next:
+    label: Next
+    role: button
+    name_pattern: '^Next$'
+    classification: unknown
+    verified: false
+    mutation: click
+  pagination_page_n:
+    label: 'Page {n}'
+    role: button
+    name_pattern: '^Page \d+$'
+    classification: unknown
+    verified: false
+  redacted_member_card:
+    label: LinkedIn Member
+    classification: unknown
+    verified: false
+    notes: Out-of-network cards redacted. Worker drops on detection.
+
+# ---------------------------------------------------------------------------
+# D. COMPANY PEOPLE — auth-walled (Pass 2b required for all rows)
+# ---------------------------------------------------------------------------
+company_people:
+  surface_note: |
+    Pass 2a confirmed unauthenticated GET hard-redirects to /authwall?trk=bf. All rows unknown until Pass 2b.
+  company_name_heading:
+    label: '{company_name}'
+    classification: unknown
+    verified: false
+  people_tab:
+    label: People
+    classification: unknown
+    verified: false
+  headcount_line:
+    label: '{N} employees'
+    classification: unknown
+    verified: false
+  filter_where_they_live:
+    label: Where they live
+    classification: unknown
+    verified: false
+  filter_where_they_studied:
+    label: Where they studied
+    classification: unknown
+    verified: false
+  filter_what_they_do:
+    label: What they do
+    classification: unknown
+    verified: false
+  filter_what_they_studied:
+    label: What they studied
+    classification: unknown
+    verified: false
+  filter_what_they_are_skilled_at:
+    label: What they're skilled at
+    classification: unknown
+    verified: false
+  employee_card:
+    label: '{employee_name}'
+    classification: unknown
+    verified: false
+  employee_card_connect:
+    label: Connect
+    classification: unknown
+    verified: false
+    mutating: true
+  show_more_pagination:
+    label: Show more
+    classification: unknown
+    verified: false
+
+# ---------------------------------------------------------------------------
+# E. AUTH-WALL TEMPLATES (Pass 2a verified)
+# ---------------------------------------------------------------------------
+authwall_join:
+  page_title:
+    label: 'Sign Up | LinkedIn'
+    classification: stable_now
+    verified: true
+    selector: 'html >> document.title'
+  heading:
+    label: 'Join LinkedIn'
+    role: heading
+    name_pattern: '^Join LinkedIn$'
+    classification: stable_now
+    verified: true
+  email_input:
+    label: Email
+    role: textbox
+    name_pattern: '^Email$'
+    classification: stable_now
+    verified: true
+    mutating: true
+    notes: Forbidden — worker MUST NOT type.
+  password_input:
+    label: 'Password (6+ characters)'
+    role: textbox
+    name_pattern: '^Password \(6\+ characters\)$'
+    classification: stable_now
+    verified: true
+    mutating: true
+  agree_join_button:
+    label: 'Agree & Join'
+    role: button
+    name_pattern: '^Agree & Join$'
+    classification: stable_now
+    verified: true
+    mutating: true
+  continue_with_google_iframe:
+    label: 'Sign in with Google Button'
+    selector: 'iframe[title="Sign in with Google Button"]'
+    classification: stable_now
+    verified: true
+    mutating: true
+    notes: OAuth client_id 990339570472-k6nqn1tpmitg8pui82bfaun3jrpmiuhs.apps.googleusercontent.com
+  signin_pivot_button:
+    label: 'Sign in'
+    role: button
+    name_pattern: '^Sign in$'
+    classification: stable_now
+    verified: true
+    mutating: true
+    notes: Pivots from /authwall to /uas/login.
+  app_upsell_dialog:
+    label: LinkedIn is better on the app
+    role: dialog
+    classification: defer
+    verified: true
+    notes: Bottom-right toast. Has a "Dismiss" button which is the only allowed interaction.
+  app_upsell_dismiss:
+    label: Dismiss
+    role: button
+    name_pattern: '^Dismiss$'
+    classification: stable_now
+    verified: true
+    mutation: click
+    mutating: false
+    notes: Always-allowed read-only-equivalent click — closes the app-upsell toast.
+
+authwall_signin:
+  page_title:
+    label: 'LinkedIn Login, Sign in | LinkedIn'
+    classification: stable_now
+    verified: true
+  heading:
+    label: 'Sign in'
+    role: heading
+    name_pattern: '^Sign in$'
+    classification: stable_now
+    verified: true
+  apple_signin_button:
+    label: 'Sign in with Apple'
+    role: button
+    name_pattern: '^Sign in with Apple$'
+    classification: stable_now
+    verified: true
+    mutating: true
+  google_signin_iframe:
+    label: 'Sign in with Google Button'
+    selector: 'iframe[title="Sign in with Google Button"]'
+    classification: stable_now
+    verified: true
+    mutating: true
+  acme-software_signin_iframe:
+    label: 'Sign in with Microsoft button'
+    selector: 'iframe[title="Sign in with Microsoft button"]'
+    classification: stable_now
+    verified: true
+    mutating: true
+    notes: client_id 3fa91358-6f74-4525-b5df-da149652be36
+  acme-software_session_detect_iframe:
+    label: 'Sign in with Microsoft prompt'
+    selector: 'iframe[title="Sign in with Microsoft prompt"]'
+    classification: defer
+    verified: true
+    notes: Session-detection iframe (uuid cc38a71c-1f54-4236-85d2-6dd283cc6b54). Read-only presence.
+  email_input:
+    label: 'Email or phone'
+    role: textbox
+    name_pattern: '^Email or phone$'
+    classification: stable_now
+    verified: true
+    mutating: true
+  password_input:
+    label: 'Password'
+    role: textbox
+    name_pattern: '^Password$'
+    classification: stable_now
+    verified: true
+    mutating: true
+  show_password_button:
+    label: 'Show'
+    role: button
+    name_pattern: '^Show$'
+    classification: stable_now
+    verified: true
+    mutating: true
+  keep_logged_in_checkbox:
+    label: 'Keep me logged in'
+    role: checkbox
+    name_pattern: '^Keep me logged in$'
+    classification: stable_now
+    verified: true
+    mutating: true
+  signin_submit_button:
+    label: 'Sign in'
+    role: button
+    name_pattern: '^Sign in$'
+    classification: stable_now
+    verified: true
+    mutating: true
+    notes: Form submit. Forbidden.
+  forgot_password_link:
+    label: 'Forgot password?'
+    role: link
+    name_pattern: '^Forgot password\?$'
+    classification: stable_now
+    verified: true
+    mutating: false
+    notes: Read-only / presence-only.
+  join_now_link:
+    label: 'Join now'
+    role: link
+    name_pattern: '^Join now$'
+    classification: stable_now
+    verified: true
+    mutating: true
+    notes: Pivots to /signup/cold-join. Forbidden.
+
+# ---------------------------------------------------------------------------
+# F. STATIC REFERENCE DATA (worker uses this to build URL queries)
+# ---------------------------------------------------------------------------
+geo_urns:
+  # urn:li:fs_geo:<id> — partial map; expand as needed. Source: Captain Data + research doc.
+  US: 103644278
+  UK: 101165590
+  Canada: 101174742
+  Germany: 101282230
+  France: 105015875
+  Netherlands: 102890719
+  Spain: 105646813
+  Brazil: 106057199
+  India: 102713980
+  Australia: 101452733
+  Mexico: 103323778
+  Japan: 101355337
+  Singapore: 102454443
+  UAE: 104305776
+
+industry_urns:
+  # urn:li:fs_industry:<id> — partial map of common tech-recruiting industries.
+  ComputerSoftware: 4
+  InformationTechnologyAndServices: 96
+  InternetSoftwareAndServices: 6
+  ComputerHardware: 3
+  ComputerNetworking: 5
+  TelecommunicationsServices: 8
+  ResearchServices: 70
+  HigherEducation: 68
+  FinancialServices: 43
+  Banking: 41
+  VentureCapitalAndPrivateEquity: 106
+  ManagementConsulting: 11
+
+network_codes:
+  first_degree: F
+  second_degree: S
+  third_plus_degree: O
+
+# ---------------------------------------------------------------------------
+# G. WORKER POLICY
+# ---------------------------------------------------------------------------
+worker_policy:
+  forbidden_in_default_mode:
+    - signin_modal_email_click
+    - signin_modal_join_click
+    - header_signin_click
+    - header_join_click
+    - topcard_join_click
+    - bottom_cta_banner_click
+    - see_all_activities_click
+    - similar_profile_connect_click
+    - post_react
+    - post_comment
+    - post_share
+    - post_repost
+    - post_save
+    - article_react
+    - article_comment
+    - article_share
+    - connect
+    - follow
+    - message
+    - send_inmail
+    - endorse
+    - recommend
+    - report
+    - block
+    - subscribe_newsletter
+    - subscribe_hashtag
+    - apply_to_job
+    - im_interested_on_job
+    - any_input_on_authwall
+    - any_input_on_uas_login
+    - any_button_on_authwall_join
+    - any_button_on_authwall_signin
+    - signin_with_apple
+    - signin_with_google
+    - signin_with_acme-software
+    - open_the_app_deeplink
+    - cold_join_form_submit
+    - public_profile_join_form_submit
+
+  read_only_always_allowed:
+    - read_public_profile_dom
+    - read_public_profile_jsonld
+    - read_meta_tags
+    - read_canonical_url
+    - dismiss_signin_modal
+    - dismiss_app_toast
+    - navigate_to_public_profile
+    - navigate_to_company_landing
+    - read_url_state
+
+  per_session_budgets:
+    unauthenticated_profile_views:
+      max: 3
+      window_seconds: 1800
+      escalation_signal: recovery.guest_view_limit
+      notes: Hard cap is 3-5 per LinkedIn. Cloris budget set conservatively to 3.
+    page_loads_per_minute:
+      max: 20
+      window_seconds: 60
+      escalation_signal: recovery.rate_limit_self
+      notes: Self-imposed; LinkedIn's actual threshold is undocumented.
+    search_queries_per_hour:
+      max: 50
+      window_seconds: 3600
+      escalation_signal: recovery.rate_limit_self
+      notes: Conservative; raise only after Pass 2b validates.
+
+  cookies_must_persist:
+    - li_at
+    - JSESSIONID
+    - lidc
+    - bcookie
+    - bscookie
+    - li_g_view
+
+  recovery_signals:
+    recovery.authwall_join:
+      trigger: 'pathname == /authwall'
+      action: halt_emit_reauth
+    recovery.authwall_signin:
+      trigger: 'pathname == /uas/login OR pathname startsWith /checkpoint/'
+      action: halt_emit_reauth
+    recovery.guest_view_limit:
+      trigger: 'modal not dismissible OR profile content missing after Escape'
+      action: halt_cooldown_30min
+    recovery.surface_unavailable_authwall:
+      trigger: 'attempted /company/.../people/ or /pub/dir/, got /authwall'
+      action: drop_input_pivot
+    recovery.surface_unavailable_login:
+      trigger: 'attempted /search/results/people/, got /uas/login'
+      action: drop_input_pivot
+    recovery.profile_404:
+      trigger: 'h1 matches "This page doesn''t exist" OR HTTP 404'
+      action: drop_input
+    recovery.blocked:
+      trigger: 'pathname startsWith /checkpoint/challenge/ OR captcha iframe present'
+      action: halt_cooldown_24h
+    recovery.logged_out:
+      trigger: 'had session, URL changed to /uas/login'
+      action: emit_reauth_task
+    recovery.browser_crash:
+      trigger: 'document.body.children.length < 2 OR <main> missing'
+      action: restart_worker
+    recovery.unknown_surface:
+      trigger: 'pathname matches no known route AND not an auth surface'
+      action: halt_human_review

@@ -1,0 +1,23 @@
+{
+  "name": "@cloris/linkedin-public-fixtures",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Playwright page objects + safety guard for Cloris LinkedIn fallback (public web) worker. Pinned to selector manifest v1.",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "playwright test",
+    "test:offline": "PLAYWRIGHT_MODE=offline playwright test",
+    "test:live": "PLAYWRIGHT_MODE=cdp playwright test"
+  },
+  "dependencies": {
+    "yaml": "^2.5.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.47.0",
+    "@types/node": "^20.14.0",
+    "typescript": "^5.5.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

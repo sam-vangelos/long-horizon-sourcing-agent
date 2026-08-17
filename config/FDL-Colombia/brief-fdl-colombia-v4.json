@@ -1,0 +1,1146 @@
+{
+  "role_title": "Junior Frontier Data Lead",
+  "role_level": "IC4",
+  "role_summary": "Hands-on, research-facing IC4 who turns frontier AI lab goals into frontier-quality datasets, RL environments, evaluation harnesses, and validation systems. Owns data and environment quality for one or more capability areas by translating ambiguous model-improvement goals into task specs, rubrics, validators, and measurable lift, while partnering closely with researchers, engineers, QAs, and data creators. This is not a pure research, annotation-ops, or app-layer GenAI role; the bar is builder-level depth in data quality, environment design, training-adjacent systems, or evaluation methodology.",
+  "geography": "Colombia",
+  "linkedin_project": "Research Engineer - Colombia",
+  "linkedin_project_id": "3000000005",
+  "kit_url": "",
+
+  "instructions": [
+    "Evaluate against the Colombia IC4 role defined in the generic Frontier Data Lead JD. The candidate does not need Bay Area-level managerial scope; the hard bar is hands-on builder depth plus research-facing data and evaluation judgment.",
+    "Strong candidates usually anchor in at least one of these lanes: RL or post-training systems, coding-agent or SWE evaluation, tool-use or browser-use or MCP environments, data-quality and validation systems, multimodal or STEM reasoning data, or embodied or simulation infrastructure.",
+    "Do not over-index on exact titles like Frontier Data Lead. Adjacent titles such as Research Engineer, ML Engineer, Applied Scientist, AI Engineer, Data Scientist, Staff Software Engineer, and Technical Lead can fit if the underlying work is training-adjacent, evaluation-heavy, or environment-building.",
+    "The deepest false-positive pool in Colombia is BPO and outsourcing annotation work. AI Trainer, RLHF Specialist, and Data Quality Analyst titles at Teleperformance, Concentrix, TTEC, TaskUs, Alorica, TELUS International, Outlier, or similar vendors should default to NO unless the profile clearly shows rubric design, validation tooling, or methodology ownership.",
+    "A second major noise pattern is generic GenAI application work: RAG chatbots, copilots, automation flows, or AI transformation consulting without model-improvement, environment, benchmark, verifier, or data-quality-system ownership.",
+    "Because Colombia is a smaller market, do not require frontier-lab pedigree. Colombian university labs, corporate R&D teams, and strong ML groups at companies like Rappi, Mercado Libre, Globant, Habi, Addi, Nubank, Truora, or Bancolombia can all produce fits if the actual work crosses below the application layer.",
+    "Academic and research profiles should be treated seriously when they show simulation, verifiable STEM reasoning, multimodal evaluation, RL environments, or real model-training or evaluation methodology. Purely theoretical or teaching-only profiles still need a systems or data bridge.",
+    "At facial stage, ambiguous ML titles in strong Colombia or LATAM tech companies should usually pass through for full evaluation. Use the full profile to separate applied business ML from post-training, eval, or data-quality engineering.",
+    "For GitHub, prioritize repos and files that show eval harnesses, validators, benchmarks, synthetic data or task generation, RL environments, repo sandboxes, simulation code, reward or verifier logic, or fine-tuning or training utilities. De-emphasize prompt packs, notebook-only demos, and thin wrappers over hosted APIs."
+  ],
+
+  "search_priorities": [
+    "RL, post-training, verifier, and environment builders in Colombia or Colombia-based LATAM teams",
+    "Coding-agent, SWE-benchmark, repo-sandbox, and code-evaluation builders",
+    "Tool-use, browser-use, MCP, and workflow-environment builders with explicit evaluation or quality systems",
+    "Data-quality, validation, synthetic-data, and LLM-evaluation builders who improved model behavior through better data",
+    "Multimodal, STEM-reasoning, or embodied and simulation researchers and engineers with strong implementation depth",
+    "Colombian academic and corporate R&D profiles whose research translates into evaluation, simulation, model-training, or environment-design work",
+    "Strong ML engineers at Colombian or regional tech companies who moved below the application layer into fine-tuning, evaluation, or training-data systems"
+  ],
+
+  "additional_search_terms": [
+    "post-training",
+    "RLHF",
+    "RLAIF",
+    "DPO",
+    "GRPO",
+    "PPO",
+    "reward model",
+    "verifier",
+    "trajectory scoring",
+    "environment design",
+    "agent environment",
+    "task generation",
+    "synthetic data",
+    "data curation",
+    "data quality",
+    "evaluation harness",
+    "LLM evaluation",
+    "LLM-as-a-Judge",
+    "benchmarking",
+    "coding agent",
+    "SWE-bench",
+    "LiveCodeBench",
+    "HumanEval",
+    "MBPP",
+    "repo sandbox",
+    "patch verification",
+    "unit test generation",
+    "program synthesis",
+    "browser-use",
+    "computer-use",
+    "tool calling",
+    "function calling",
+    "MCP",
+    "Model Context Protocol",
+    "fine-tuning",
+    "instruction tuning",
+    "LoRA",
+    "vLLM",
+    "aprendizaje por refuerzo",
+    "ajuste fino",
+    "datos sintéticos",
+    "calidad de datos",
+    "evaluación de modelos",
+    "agentes de software",
+    "simulación",
+    "verificación"
+  ],
+
+  "intake_notes": "The Colombia role uses the shared Frontier Data Lead generic JD, which is an IC4 or early-IC5-shaped hands-on role rather than the Bay Area senior-builder brief. The existing Colombia v3 brief already captured the most important market-specific traps, especially BPO annotation noise and smaller-market academic concentration. This v4 refresh keeps those Colombia calibrations but imports sharper role translation from the Bay Area Code + RL brief and the generic JD: the true bar is not generic applied AI or title pedigree, but hands-on work designing or improving environments, data-quality systems, evaluation harnesses, validators, synthetic data pipelines, or model-training-adjacent workflows. Strong candidates may anchor in one lane rather than all of them, but they should read as credible builders below the application layer.",
+
+  "capability_areas": [
+    {
+      "name": "1. RL Environments, Verifiers & Post-Training Data Systems",
+      "description": "Designing or building RL and post-training systems that improve frontier models through environments, verifiers, reward logic, preference data, or realistic long-horizon workflows. This is the clearest direct-fit lane for the RL Gyms side of the role.",
+      "builder_signals": [
+        "Built or contributed to RLHF, DPO, GRPO, PPO, or similar post-training pipelines",
+        "Designed reward models, preference-collection workflows, verifier logic, or trajectory scoring",
+        "Built RL or agent environments, simulators, task suites, or realistic workflow interfaces",
+        "Created seed data, schemas, APIs, or synthetic trajectories for post-training or environment realism",
+        "Can explain how environment, reward, or data design changed model behavior or benchmark outcomes"
+      ],
+      "user_signals": [
+        "Mentioned RL or RLHF only as a skill keyword, course topic, or marketing term with no project evidence",
+        "Used a pre-trained RLHF-tuned model via API without participating in reward, environment, or evaluation design",
+        "Managed preference annotation work without designing the methodology"
+      ],
+      "key_terms": [
+        "RLHF",
+        "DPO",
+        "GRPO",
+        "PPO",
+        "reward model",
+        "verifier",
+        "trajectory",
+        "preference data",
+        "post-training",
+        "alignment",
+        "environment design"
+      ],
+      "github_code_signals": [
+        "trl",
+        "verl",
+        "openrlhf",
+        "grpo",
+        "ppo",
+        "reward",
+        "verifier",
+        "trajectory",
+        "vllm"
+      ]
+    },
+    {
+      "name": "2. Coding Agents, SWE Benchmarks & Repository Evaluation",
+      "description": "Building datasets, environments, benchmarks, or verification systems for models that write, debug, test, or reason over code. This is the clearest direct-fit lane for the coding-agent side of the role.",
+      "builder_signals": [
+        "Built or improved coding-agent benchmarks such as SWE-bench, HumanEval, MBPP, LiveCodeBench, or strong custom equivalents",
+        "Created repo-level evaluation harnesses, patch verification, unit-test generation, or code-task validators",
+        "Designed training-data or synthetic-task pipelines for code-generation or software-engineering models",
+        "Built coding agents that operate on real repositories or long-horizon development tasks",
+        "Analyzed failure modes on software-engineering tasks and used that analysis to improve the benchmark, data, or model"
+      ],
+      "user_signals": [
+        "Used Copilot, Cursor, ChatGPT, or Claude Code for development without building benchmarks, evals, or improvement loops around them",
+        "Built standard CI, devtools, or backend infrastructure with no model-evaluation or code-generation component",
+        "Created codegen demos or wrappers without task realism, verification, or dataset methodology"
+      ],
+      "key_terms": [
+        "coding agent",
+        "SWE-bench",
+        "LiveCodeBench",
+        "HumanEval",
+        "MBPP",
+        "repo sandbox",
+        "patch verification",
+        "unit test generation",
+        "program synthesis",
+        "code evaluation"
+      ],
+      "github_code_signals": [
+        "swebench",
+        "livecodebench",
+        "humaneval",
+        "mbpp",
+        "sandbox",
+        "tree-sitter",
+        "pytest",
+        "openhands",
+        "aider"
+      ]
+    },
+    {
+      "name": "3. Tool-Use Agents, Browser Environments & MCP Workflows",
+      "description": "Building tool-use environments for browser, computer-use, API, or MCP-style agents, including workflow realism, validation, and trajectory analysis. This captures the long-horizon multi-step side of the generic JD.",
+      "builder_signals": [
+        "Built AI agents or multi-agent systems with real tool-calling, stateful workflows, or long-horizon task execution",
+        "Designed or implemented MCP servers, function-calling interfaces, or tool-use schemas for agents",
+        "Built browser-use or computer-use environments with explicit success criteria and observability",
+        "Designed evaluation frameworks for multi-step agent behavior, trajectory analysis, or long-horizon tasks",
+        "Implemented guardrails, quality systems, or automated judges for agent outputs and workflow behavior"
+      ],
+      "user_signals": [
+        "Used pre-built agent frameworks without designing the environment, interface, or evaluation methodology",
+        "Built simple chatbots or RAG systems with no multi-step tool use, workflow simulation, or evaluation rigor",
+        "Did browser automation or QA scripting unrelated to LLM agents or model evaluation"
+      ],
+      "key_terms": [
+        "AI agent",
+        "multi-agent",
+        "tool calling",
+        "function calling",
+        "MCP",
+        "Model Context Protocol",
+        "browser-use",
+        "computer-use",
+        "agent evaluation",
+        "workflow simulation",
+        "LLM-as-a-Judge"
+      ],
+      "github_code_signals": [
+        "playwright",
+        "selenium",
+        "browser-use",
+        "mcp",
+        "fastapi",
+        "openapi",
+        "langgraph"
+      ]
+    },
+    {
+      "name": "4. Data Quality, Validation & Synthetic Data Systems",
+      "description": "Designing and building systems that define, enforce, or improve training-data and evaluation quality. This is the day-to-day operational core of the role across all capability lanes.",
+      "builder_signals": [
+        "Designed evaluation suites, rubrics, or quality metrics for model outputs or training data",
+        "Built LLM evaluation frameworks, automated validators, regression checks, or slice-based quality systems",
+        "Built data-curation pipelines for selection, filtering, deduplication, decontamination, or quality scoring",
+        "Created synthetic-data or task-generation systems that improved coverage, difficulty, realism, or diversity",
+        "Wrote automated quality-assessment scripts or programmatic validators for data and model behavior",
+        "Designed annotation methodology, labeling guidelines, or inter-annotator quality systems rather than only running the operation",
+        "Improved model performance through better data, better quality controls, or better evaluation design",
+        "Implemented custom ML or analysis code for evaluation, denoising, or error-taxonomy work"
+      ],
+      "user_signals": [
+        "Built ETL or analytics pipelines with no awareness of training-data quality or model-improvement goals",
+        "Did dashboard or reporting data cleanup rather than model-training or evaluation quality work",
+        "Managed annotation throughput operationally without designing the methodology or technical quality system"
+      ],
+      "key_terms": [
+        "data curation",
+        "data quality",
+        "validation",
+        "evaluation suite",
+        "quality rubric",
+        "synthetic data",
+        "data augmentation",
+        "annotation methodology",
+        "decontamination",
+        "LLM evaluation",
+        "automated evaluation"
+      ],
+      "github_code_signals": [
+        "deepeval",
+        "ragas",
+        "trulens",
+        "great_expectations",
+        "pandera",
+        "validation",
+        "synthetic",
+        "rubric"
+      ]
+    },
+    {
+      "name": "5. Multimodal & STEM Reasoning Data",
+      "description": "Building datasets, benchmarks, evaluation systems, or fine-tuning pipelines for multimodal reasoning or verifiable STEM tasks. This lane matters because the generic JD explicitly includes multimodal and STEM reasoning surfaces.",
+      "builder_signals": [
+        "Designed multimodal training datasets, benchmarks, or evaluation frameworks for vision-language or document-heavy tasks",
+        "Created STEM reasoning datasets, validators, or error-analysis systems with verifiable solutions",
+        "Built evaluation systems for document understanding, chart reasoning, OCR-aware tasks, or science and math reasoning",
+        "Fine-tuned or trained multimodal models or reasoning models rather than only calling hosted APIs",
+        "Published or shipped work on visual reasoning, document intelligence, mathematical reasoning, or verifiable STEM evaluation"
+      ],
+      "user_signals": [
+        "Used vision APIs for standard classification or OCR in product applications without model-training or evaluation ownership",
+        "Built RAG systems that happen to include PDFs or images but no multimodal model or benchmark design",
+        "Did analytical STEM work with no evidence of datasets, model-training, or evaluation-system building"
+      ],
+      "key_terms": [
+        "VLM",
+        "vision-language",
+        "multimodal",
+        "document understanding",
+        "chart reasoning",
+        "OCR",
+        "STEM reasoning",
+        "mathematical reasoning",
+        "verifiable evaluation"
+      ],
+      "github_code_signals": [
+        "llava",
+        "ocr",
+        "chartqa",
+        "vision-language"
+      ]
+    },
+    {
+      "name": "6. LLM Fine-Tuning & Model Training",
+      "description": "Hands-on language-model training or fine-tuning work in any context, including industry, academia, or strong personal or open-source projects. This is a catch-all lane for people whose model-improvement depth is real even if it does not center on coding agents or RL environments.",
+      "builder_signals": [
+        "Fine-tuned LLMs through SFT, instruction tuning, LoRA, PEFT, domain adaptation, or similar methods using hands-on code",
+        "Trained models from scratch or materially modified training procedures, data mixtures, or evaluation loops",
+        "Built training-data pipelines specifically for fine-tuning or model improvement",
+        "Designed or ran experiments to improve model behavior through better data, better training, or better evaluation",
+        "Published or shipped ML work involving hands-on model training, fine-tuning, or evaluation methodology"
+      ],
+      "user_signals": [
+        "Used pre-trained models via API without fine-tuning or training ownership",
+        "Deployed models to production without participating in how they were trained or evaluated",
+        "Used AutoML or no-code ML tooling with no custom training logic"
+      ],
+      "key_terms": [
+        "fine-tuning",
+        "SFT",
+        "instruction tuning",
+        "LoRA",
+        "PEFT",
+        "training pipeline",
+        "model training",
+        "PyTorch",
+        "HuggingFace",
+        "transformers"
+      ],
+      "github_code_signals": [
+        "lora",
+        "peft",
+        "transformers",
+        "deepspeed",
+        "axolotl",
+        "unsloth",
+        "sft"
+      ]
+    },
+    {
+      "name": "7. Embodied AI, Simulation & Long-Horizon Interaction",
+      "description": "Building simulation environments, synthetic data, or physically grounded interaction systems for embodied or VLA-style agents. Lower-volume than the other lanes in Colombia, but still directly relevant when the work shows environment realism and measurable evaluation depth.",
+      "builder_signals": [
+        "Built simulation environments for robot or embodied-agent training",
+        "Designed synthetic-data pipelines or scenario generation for embodied or interactive agents",
+        "Created sim-to-real transfer frameworks, evaluation suites, or long-horizon task environments",
+        "Built RL training loops or verifier systems inside simulation contexts",
+        "Worked on VLA or embodied-agent datasets with real state, tool, sensor, or action abstractions"
+      ],
+      "user_signals": [
+        "Used simulation tools only for classical control validation with no ML-training or evaluation-system layer",
+        "Did robotics, mechanical engineering, or hardware work without agent-training, dataset, or simulation-eval ownership",
+        "Worked on perception-only subsystems with no evidence of interaction, task design, or environment quality work"
+      ],
+      "key_terms": [
+        "sim-to-real",
+        "Isaac Sim",
+        "MuJoCo",
+        "PyBullet",
+        "embodied AI",
+        "VLA",
+        "simulation environment",
+        "long-horizon interaction"
+      ],
+      "github_code_signals": [
+        "mujoco",
+        "pybullet",
+        "isaac",
+        "habitat"
+      ]
+    }
+  ],
+
+  "depth_distinction": {
+    "builder_definition": "A builder for this role personally defines the data or environment that changes model behavior: task suites, rubrics, validators, reward or verifier logic, synthetic generators, evaluation harnesses, or fine-tuning loops. They can explain how better data, better realism, better validation, or better task design turned into measurable lift, fewer failure modes, or stronger coverage. Hands-on means they authored or directly shaped code, methodology, and quality criteria themselves.",
+    "user_definition": "A user or adjacent profile builds on top of models or around the serving layer without shaping the data, evaluation, or improvement loop. This includes generic RAG and chatbot builders, model-serving or MLOps teams with no training or evaluation ownership, annotation operators following existing rubrics, and managers who coordinate the work but do not design the technical quality system.",
+    "edge_case_guidance": "CODING-AGENT SPECIALISTS: Strong fit even without explicit RL titles if they built real SWE benchmarks, repo sandboxes, patch verification, unit-test generation, or code-task post-training loops. RL OR SIMULATION SPECIALISTS: Strong fit even without coding-agent titles if they designed environments, verifiers, tasks, or proof-of-value loops that improved model behavior. ACADEMICS: Research profiles can fit when the work is implementable and systems-facing, not purely theoretical. BPO OR OPS PROFILES: Only save when the person clearly designed rubrics, validators, quality metrics, or evaluation pipelines rather than merely following them. CAREER TRANSITIONERS: Evaluate on current hands-on model-improvement work, not on whether the entire career has carried the same title."
+  },
+
+  "inferential_save_rules": {
+    "description": "For profiles where evidence is sparse but priors are strong, SAVE with a flag rather than reject on insufficient evidence. These candidates should be reviewed by the recruiter instead of being silently lost.",
+    "conditions": [
+      "PhD in ML, AI, CS, EE, physics, mathematics, statistics, robotics, or another quantitative field plus a current technical ML, AI, research-engineering, or simulation-heavy role even if bullets are sparse",
+      "Current technical role at a frontier lab, strong AI company, or serious Colombian research lab with title or team context suggesting training, evaluation, agents, benchmarks, or simulation work",
+      "Visible progression from SWE, data, robotics, or research roles into a current ML or AI role with direct model-improvement signals even if profile detail is thin",
+      "Sparse profile but clear open-source, publication, or headline evidence of RL environments, evaluation systems, coding-agent work, or fine-tuning"
+    ],
+    "save_tag": "INFERENTIAL_SAVE",
+    "confidence_range": [0.4, 0.6],
+    "note": "These are not confident saves. They are too strong to reject on missing detail and should be prioritized for human review."
+  },
+
+  "calibration_examples": {
+    "strong_saves": [
+      {
+        "name": "RL environment researcher or builder",
+        "why": "Direct environment-design and RL signal maps cleanly to the highest-priority capability lane."
+      },
+      {
+        "name": "Regional platform ML engineer with fine-tuning or eval depth",
+        "why": "Large-scale production ML plus clear evidence below the application layer."
+      },
+      {
+        "name": "Simulation or robotics engineer with modern agent bridge",
+        "why": "Simulation infrastructure and long-horizon environment design transfer directly to RL gyms and embodied data work."
+      },
+      {
+        "name": "Coding-agent benchmark or verifier builder",
+        "why": "Direct coding-agent and SWE-evaluation fit."
+      }
+    ],
+    "incorrect_saves": [
+      {
+        "name": "BPO AI trainer or RLHF annotation operator",
+        "why": "Keyword overlap with RLHF, but the work is operational annotation rather than environment, rubric, or evaluation-system design."
+      },
+      {
+        "name": "RPA or automation consultant with AI marketing language",
+        "why": "Automation is not the same thing as agent evaluation or post-training infrastructure."
+      },
+      {
+        "name": "AI transformation consultant or cloud architect without builder evidence",
+        "why": "Presentation-layer AI strategy without builder-level authorship."
+      },
+      {
+        "name": "Generic ML title with no below-the-application-layer evidence",
+        "why": "Title alone is not enough when nothing points below the application layer."
+      }
+    ],
+    "borderline_verify": [
+      {
+        "name": "Bank or marketplace data scientist with explicit fine-tuning or eval signals",
+        "why": "The industry context is usually noisy, but direct model-improvement evidence overrides it."
+      },
+      {
+        "name": "Academic RL or simulation profile with sparse implementation detail",
+        "why": "Use INFERENTIAL_SAVE when the work looks implementable and systems-facing; reject only when it is clearly teaching-only or purely theoretical."
+      },
+      {
+        "name": "Applied CV or speech engineer with real training and evaluation depth",
+        "why": "Do not reject purely because the domain is not LLM-native when the builder-level data, benchmark, or simulation depth is real."
+      }
+    ]
+  },
+
+  "non_fit_patterns": [
+    {
+      "label": "Pure data analytics or BI",
+      "description": "Data analysts and BI professionals building dashboards, reports, ad hoc SQL, and business reporting for human stakeholders.",
+      "why_not": "Their data work is reporting and visualization, not training data, evaluation design, or model-quality improvement.",
+      "examples": [
+        "BI analyst building Tableau or Power BI dashboards",
+        "Analytics engineer building dbt models for finance reporting",
+        "Data analyst writing SQL for marketing or growth teams"
+      ]
+    },
+    {
+      "label": "Pure software engineering with no ML component",
+      "description": "Backend, frontend, mobile, or full-stack engineers building applications or infrastructure with zero visible ML, evaluation, or research layer across their career.",
+      "why_not": "Software engineering is helpful, but without evidence of ML work, training data, evaluation methodology, or model-improvement systems, the role's core competency is missing.",
+      "examples": [
+        "Full-stack engineer building React and Node applications",
+        "Backend engineer building REST APIs and microservices",
+        "Mobile engineer building iOS or Android apps"
+      ]
+    },
+    {
+      "label": "MLOps or model serving without training or evaluation ownership",
+      "description": "Engineers who deploy, monitor, and scale models in production but do not design training data, fine-tuning, environments, or evaluation systems.",
+      "why_not": "They operate around the model rather than shaping the post-training, data-quality, or quality-loop work this role owns.",
+      "examples": [
+        "MLOps engineer managing SageMaker or Kubeflow",
+        "ML platform engineer building feature stores or serving infrastructure",
+        "DevOps engineer who happens to deploy ML workloads"
+      ]
+    },
+    {
+      "label": "Data engineering or ETL without ML awareness",
+      "description": "Engineers building data pipelines, warehouses, and transformations for analytics or business operations rather than model training or evaluation.",
+      "why_not": "They move data but do not design it for model behavior, training quality, or evaluation rigor.",
+      "examples": [
+        "Data engineer building Spark pipelines for a warehouse",
+        "ETL developer building Airflow DAGs for reporting",
+        "Warehouse engineer optimizing analytics tables"
+      ]
+    },
+    {
+      "label": "Generic GenAI or RAG application builders",
+      "description": "Engineers or consultants who shipped copilots, chat workflows, AI assistants, or automation tools for end users without owning post-training, benchmark design, verifier logic, or data-quality systems.",
+      "why_not": "They are building on top of models rather than improving models through data, environments, or evaluation methodology. The role sits below the application layer.",
+      "examples": [
+        "Enterprise copilot builder using APIs and RAG only",
+        "Consultant shipping AI automation workflows with no eval or data-system ownership",
+        "Prompt-engineering product builder with no training or benchmark work"
+      ]
+    },
+    {
+      "label": "Annotation or data-ops execution only",
+      "description": "People who label data, review outputs, or manage annotation operations without creating the rubric, validation tooling, or quality system.",
+      "why_not": "This role designs the process and technical quality bar; it is not an annotation-operations role.",
+      "examples": [
+        "AI trainer following existing RLHF rubrics",
+        "Annotation QA specialist checking labels for throughput",
+        "Data-ops lead focused on staffing and queue management"
+      ]
+    },
+    {
+      "label": "BPO or outsourcing annotation work",
+      "description": "High-volume Colombia market pattern where AI, data-quality, or RLHF titles appear at outsourcing vendors whose actual work is operational annotation, moderation, or review.",
+      "why_not": "The title contains ML vocabulary, but the work is following rubrics at scale rather than designing training pipelines, reward systems, validation tooling, or evaluation infrastructure.",
+      "examples": [
+        "AI Trainer at Teleperformance doing RLHF annotation",
+        "RLHF Specialist at Concentrix rating model outputs",
+        "Data Quality Analyst at TELUS International following labeling rubrics"
+      ]
+    },
+    {
+      "label": "Project, program, or people management without technical IC work",
+      "description": "Managers, PMs, and coordinators who organize ML or data teams but do not personally write code, shape quality systems, or design technical methodology.",
+      "why_not": "The role requires hands-on technical leadership, not managerial oversight alone.",
+      "examples": [
+        "Technical program manager for an ML team",
+        "Product manager for an AI product",
+        "Engineering manager with no recent technical authorship"
+      ]
+    }
+  ],
+
+  "non_fit_override_rule": "A non-fit pattern is overridden when the profile shows concrete builder-level evidence in a capability area. Someone at a BPO who designed rubrics, validators, or evaluation pipelines is not annotation noise. Someone at a bank or marketplace who fine-tuned models, built evals, or designed training-data systems is not generic applied ML. Actual evidence in the work history always beats the default expectation from the company or title.",
+
+  "employer_signal_rules": [
+    {
+      "tier": "frontier_lab",
+      "employer_patterns": [
+        "OpenAI",
+        "Anthropic",
+        "Google DeepMind",
+        "Meta FAIR",
+        "Microsoft Research",
+        "Microsoft AI",
+        "xAI",
+        "Mistral",
+        "Cohere"
+      ],
+      "evidence_required": "Any technical role touching training, agents, evaluation, data, research engineering, or model-improvement systems is a strong signal. Pure manager-only profiles still need adjacency evidence, but employer signal is very strong.",
+      "save_on_employer_alone": true
+    },
+    {
+      "tier": "strong_ai",
+      "employer_patterns": [
+        "Amazon AGI",
+        "Apple MLR",
+        "Microsoft Acme",
+        "Hugging Face",
+        "AI2",
+        "Scale AI",
+        "Stability AI",
+        "Snorkel",
+        "Factored",
+        "Samsung AI Center",
+        "Databricks"
+      ],
+      "evidence_required": "Need at least one visible sign of training, evaluation, agents, data quality, simulation, or post-training depth. Company signal helps, but these employers also contain adjacent product and platform roles.",
+      "save_on_employer_alone": false
+    },
+    {
+      "tier": "research_lab",
+      "employer_patterns": [
+        "Universidad de los Andes",
+        "Uniandes",
+        "CINFONIA",
+        "IMAGINE Lab",
+        "COLIVRI",
+        "Universidad Nacional de Colombia",
+        "UNAL",
+        "MindLab",
+        "EAFIT",
+        "i2t Lab",
+        "Pontificia Universidad Javeriana",
+        "Javeriana",
+        "SIR Lab",
+        "Universidad del Valle",
+        "EISC",
+        "Universidad de Antioquia",
+        "SISTEMIC",
+        "IBM Research",
+        "Samsung AI Center"
+      ],
+      "evidence_required": "Need publications, open-source work, research detail, or hands-on model or simulation work showing evaluation, training, benchmark, or environment-building depth. Title alone at a university is not sufficient because teaching-only and administrative roles exist.",
+      "save_on_employer_alone": false
+    },
+    {
+      "tier": "colombian_tech",
+      "employer_patterns": [
+        "Rappi",
+        "MercadoLibre",
+        "Mercado Libre",
+        "Globant",
+        "Bancolombia",
+        "Nubank",
+        "EPAM",
+        "Habi",
+        "Addi",
+        "Truora",
+        "Frubana",
+        "LaHaus"
+      ],
+      "evidence_required": "ML roles at these companies range from pure applied business ML to genuinely training-adjacent work. Do not reject on company alone. At facial stage, ML titles here are usually ambiguous YES; at full stage, the decision must be based on the actual work in the bullets.",
+      "save_on_employer_alone": false
+    },
+    {
+      "tier": "neutral",
+      "employer_patterns": [],
+      "evidence_required": "Same standard as any candidate: capability-area mapping plus builder-vs-user depth based on real profile evidence.",
+      "save_on_employer_alone": false
+    }
+  ],
+
+  "minimum_years_experience": 4,
+  "minimum_bar_description": "4+ years of total ML-adjacent experience, which can include software engineering roles with real ML components, ML research, data science with model building, simulation-heavy robotics work, or ML engineering. This does not require 4 years specifically in post-training, RLHF, or evaluation. A software engineer with 6 years total and 1.5 years of direct fine-tuning or benchmark work meets the bar. A career transitioner with 3 years of infrastructure work and 1 year of hands-on RLHF, evaluation, or simulation-environment work can also meet it if the current role is directly relevant. The floor exists to filter out junior career starters, not to penalize non-linear trajectories into model-improvement work.",
+
+  "facial_calibration": {
+    "expected_yes_rate_low": 0.2,
+    "expected_yes_rate_high": 0.45,
+    "fast_exit_patterns": [
+      "ENTIRE career is IT support, helpdesk, or system administration with no ML or AI or data-science signal at any position",
+      "ENTIRE career is sales, business development, or account management",
+      "ENTIRE career is HR, recruiting, or people operations",
+      "ENTIRE career is marketing, content creation, or social media with no technical roles",
+      "ENTIRE career is project or program management with no technical IC positions",
+      "ENTIRE career is web or mobile frontend development with no ML or data signal across all roles",
+      "ENTIRE career is manual QA or testing with no ML automation or data-science component",
+      "ENTIRE career is BPO annotation or AI trainer work at outsourcing companies with no engineering or research transition"
+    ],
+    "trajectory_yes_patterns": [
+      "Any position at a frontier AI lab or strong AI company in a technical role",
+      "Career includes Research Scientist, Research Engineer, Applied Scientist, ML Engineer, AI Engineer, or strong simulation or robotics titles",
+      "PhD or MSc in ML, AI, CS, EE, physics, mathematics, statistics, robotics, or a related quantitative field visible in education",
+      "Title or headline contains LLM, NLP, RL, reinforcement learning, fine-tuning, training data, data quality, benchmark, evaluation, synthetic data, or simulation at any position",
+      "Progression from SWE, robotics, data, or research roles into ML-specific roles",
+      "Current position involves AI research, R&D, AI lab, machine learning, model evaluation, or post-training language",
+      "Academic roles at Colombian universities or research labs with visible ML, AI, robotics, simulation, or computational affiliations"
+    ],
+    "trajectory_ambiguous_patterns": [
+      "ML Engineer, Data Scientist, or AI Engineer at a Colombian or LATAM tech company where the exact work is unclear from the snippet",
+      "Software Engineer at any company with AI or ML mentioned in the headline but no clear depth from the snippet alone",
+      "Data Scientist title at a non-tech company, which could range from SQL analytics to genuine model-training work",
+      "Mix of technical roles across different domains where direction toward model-improvement work is unclear without bullets",
+      "Career change visible from non-ML roles into a recent ML role where the current depth cannot be proven from titles alone",
+      "AI Trainer, RLHF Specialist, or Data Quality Analyst at a company that might be a BPO or might be a genuine AI company; needs context"
+    ],
+    "trajectory_no_patterns": [
+      "ENTIRE career is data analytics, BI, or reporting across all positions with no ML engineering or research titles",
+      "ENTIRE career is traditional software engineering with zero ML or AI or research signal across all positions",
+      "ENTIRE career is data engineering or ETL with no model-training, benchmark, or research positions at any point",
+      "ENTIRE career is DevOps, SRE, or infrastructure with no recent pivot to ML or model-improvement work",
+      "ENTIRE career is non-technical operations, finance, legal, or admin roles",
+      "ENTIRE career is BPO annotation or moderation work at outsourcing companies with no engineering or research transition"
+    ]
+  },
+
+  "market_density": "moderate",
+  "employer_blacklist": [
+    "Acme"
+  ],
+  "jd_path": "/Users/jordan.rivera/Downloads/Frontier Data Lead (Generic).md",
+
+  "bias_controls": {
+    "max_consecutive_saves": 7,
+    "max_consecutive_rejects": 15,
+    "parse_failure_alarm_rate": 0.03
+  },
+
+  "domain_verbs": [
+    "designs",
+    "builds",
+    "evaluates",
+    "validates",
+    "fine-tunes",
+    "simulates",
+    "audits"
+  ],
+  "domain_depth_objects": [
+    "task suites with measurable model lift",
+    "reward or verifier logic for long-horizon agent behavior",
+    "training-data curation and synthetic-data pipelines",
+    "benchmark or evaluation harnesses for code, tool-use, or multimodal tasks"
+  ],
+  "transferability_examples": [
+    {
+      "result": "transfers",
+      "source_context": "Applied CV or speech ML engineer with large-scale training, data curation, and evaluation ownership",
+      "target_context": "Frontier data quality, multimodal, or STEM reasoning lane",
+      "rationale": "The core transferable skill is builder-level authorship of training data, evaluation, and model-improvement methodology, not whether the model family is already LLM-native."
+    },
+    {
+      "result": "transfers",
+      "source_context": "Robotics or simulation engineer who built RL environments, validators, or long-horizon tasks",
+      "target_context": "RL gyms, embodied, or tool-use environment work",
+      "rationale": "Environment realism, verifier logic, and trajectory design transfer directly when the work already shaped agent behavior rather than merely consuming a simulator."
+    },
+    {
+      "result": "does_not_transfer",
+      "source_context": "RAG or copilot application engineer using hosted APIs with no benchmark, fine-tuning, or quality-system ownership",
+      "target_context": "Frontier Data Lead",
+      "rationale": "Application-layer AI delivery does not demonstrate the below-the-application-layer data, environment, or evaluation depth this role requires."
+    }
+  ],
+  "worked_examples": [
+    {
+      "decision": "SAVE",
+      "profile": "ML Engineer & AI Researcher, Universidad de los Andes (MSc Biomedical Eng), Bogota. AI Research Engineer @ UniAndes: created a segmentation benchmark dataset from 6 years of satellite imagery and validated SOTA models to establish performance baselines; re-benchmarked with VLMs for open-ended regional recognition. Graduate Research Assistant: built a benchmark + multitask model for robotic-surgery scene understanding (instance/semantic segmentation, action recognition, phase recognition), beating SOTA; multimodal fetal-echocardiography model surpassing image-only by 14%. Domain is medical / remote-sensing CV, not LLM. Google DeepMind Scholar. [Santiago R., conf 0.62]",
+      "reasoning": "Step 1 (capability map): benchmark design + multimodal model training + VLM evaluation maps to capability area 4 (Data Quality, Validation & Synthetic Data) and area 5 (Multimodal & STEM Reasoning Data). Step 2 (depth test): builder, not user — he authored the benchmark dataset, designed the multitask model, and can tie design choices to measurable lift (14%, >5% over SOTA). That is the builder_definition: personally defines the data/eval that changes model behavior. Step 3 (transferability): the domain is adjacent (medical/remote-sensing CV, not LLM post-training), but benchmark-design and VLM-evaluation methodology transfer directly to multimodal and evaluation work. Weigh: real below-the-application-layer methodology depth clears the bar; the adjacency is a recruiter-deep-dive question on LLM-native adaptability, not a reason to reject. Decision: SAVE (0.62) — solid, with a deep-dive flag, not a hedge."
+    },
+    {
+      "decision": "TRANSFERABLE_SAVE",
+      "profile": "Deputy Director of Data Mining @ Quantil; Senior Fellow Responsible AI @ BID Lab; Adjunct Professor (Design & Analysis of Algorithms) @ UniAndes. MSc Systems Eng + BSc Mathematics (UniAndes). DeepMind-CINFONIA scholarship. Work: NLP model development and fairness/responsible-AI evaluation methodology; leads applied DS/AI projects for clients. No direct post-training, RL-environment, coding-agent, or LLM fine-tuning evidence. [Melissa Robles, conf 0.52]",
+      "reasoning": "Step 1 (capability map): NLP model development + fairness evaluation methodology gestures at area 4 (Data Quality, Validation) and the evaluation side of the role. Step 2 (depth test): genuinely research-facing and builder-leaning — she develops models and designs evaluation methodology, above the pure-application line. But the evidence is about responsible-AI / fairness evaluation, not the post-training / environment / benchmark systems the role centers on. Step 3 (transferability): fairness-eval and NLP model work could transfer to data-quality and evaluation work, but the bridge is unproven on the profile. Weigh: stronger than a reject (real methodology depth) but the core-lane evidence is indirect — so SAVE-with-a-transfer-flag rather than a clean SAVE. Decision: TRANSFERABLE_SAVE (0.52) — flag for recruiter to probe the depth of the NLP / model-training work before committing."
+    },
+    {
+      "decision": "INFERENTIAL_SAVE",
+      "profile": "AI Software Engineer @ Bancolombia (progression: AI Jr -> Senior -> Specialist Architect -> SW Engineer, 2023-present). MSc Computer Engineering + BSc Biomedical Eng (UniAndes). Skills: Python, TensorFlow, AWS, ML, anomaly detection, big data. Profile is SPARSE — titles and a clear AI role progression, but almost no bullet detail on what the work actually was. [Nicolas Laverde, conf 0.42]",
+      "reasoning": "Step 1 (capability map): can't map cleanly — the profile names AI roles at a bank but gives no project detail, so no capability area is evidenced directly. Step 2 (depth test): indeterminate; no discriminating practitioner signals either way (could be real model work, could be applied business ML on top of vendors). Step 3 (transferability): n/a without evidence. Weigh: this is exactly the inferential_save_rules case — sparse profile but strong priors (UniAndes MSc, a multi-year AI role progression at a serious employer). Rejecting on thin evidence would silently lose a possibly-real builder; the rule says SAVE-with-a-flag and route to recruiter. Decision: INFERENTIAL_SAVE (0.42) — recruiter to verify whether the Bancolombia work involves any model-training, evaluation, or data-quality-system depth vs. applied business ML."
+    },
+    {
+      "decision": "REJECT",
+      "profile": "GCP | Data Science | AI/ML Engineer | Python | ML | GenerativeAI, UniAndes. Engineering Lead: built a stateful autonomous conversational AI agent on Dialogflow CX for customer diagnostics/booking. Senior LLM Developer (consultant) @ Walmart: AI-driven financial automation. GenAI Professor @ Simplilearn (taught GANs, VAEs, Transformers). Startup founder. Plus BPO-adjacent Scale AI annotation work. Skills: MLOps, Google Gemini, Generative AI Tools, Transformers, Vertex, Contact Center / CCaaS. [Jaime Saldarriaga, conf 0.92]",
+      "reasoning": "Step 1 (capability map): on keywords this looks like the strongest profile in the set — LLM developer, Transformers, GenAI, annotation, Scale AI all surface-match multiple capability areas. Step 2 (depth test): apply the builder-vs-user line and it collapses. Every concrete bullet is integration and application — a Dialogflow CX conversational agent, LLM-API automation, RAG/chatbot delivery, teaching GenAI, contact-center architecture. The Scale AI work is annotation, not annotation-methodology design. This is two non_fit_patterns at once: Generic GenAI or RAG application builders and BPO or outsourcing annotation work. Step 3 (transferability): nothing to port — there is no evaluation system, RL environment, fine-tuning pipeline, benchmark, or data-quality infrastructure he authored. Weigh: the case-for is pure keyword surface; the case-against is the total absence of below-the-application-layer methodology. Decision: REJECT at high confidence (0.92). This is the floor — more AI vocabulary than any of the three saves, and the lowest actual fit, because the role sits below the application layer and none of this work does."
+    }
+  ],
+  "canonical_framework_patterns": [
+    "post-training",
+    "reward modeling",
+    "evaluation harness",
+    "benchmark design",
+    "synthetic data",
+    "agent environment"
+  ],
+  "canonical_company_patterns": [
+    "OpenAI",
+    "Anthropic",
+    "Google DeepMind",
+    "Rappi",
+    "Mercado Libre",
+    "Universidad de los Andes"
+  ],
+  "canonical_title_patterns": [
+    "Research Engineer",
+    "ML Engineer",
+    "Applied Scientist",
+    "AI Engineer",
+    "Research Scientist"
+  ],
+  "canonical_broad_patterns": [
+    "model evaluation",
+    "data quality",
+    "fine-tuning",
+    "simulation environment",
+    "coding agents"
+  ],
+  "edge_case_patterns": [
+    "robotics simulation",
+    "document reasoning",
+    "scientific ML",
+    "program synthesis",
+    "model validation"
+  ],
+  "edge_case_company_patterns": [
+    "Bancolombia",
+    "Globant",
+    "Truora",
+    "EAFIT",
+    "Universidad Nacional de Colombia"
+  ],
+  "sequencing_heuristics": "Lead with direct RL, coding-agent, evaluation-system, and validation builders. Backload generic applied-ML, academic, and simulation edge-case lanes after the direct environment and post-training lanes are covered.",
+  "term_blacklist_categories": [
+    {
+      "label": "annotation-ops vocabulary",
+      "rationale": "High-volume Colombia noise where AI language describes operational labeling rather than builder-level quality-system design.",
+      "terms": [
+        "AI trainer",
+        "RLHF specialist",
+        "data annotator",
+        "prompt writer",
+        "content reviewer"
+      ]
+    },
+    {
+      "label": "application-layer genai marketing",
+      "rationale": "Captures noisy copilot and transformation language that often lacks training, benchmark, or environment depth.",
+      "terms": [
+        "RAG chatbot",
+        "AI transformation",
+        "copilot builder",
+        "automation consultant",
+        "prompt engineering"
+      ]
+    }
+  ],
+  "abbreviation_collisions": [
+    {
+      "abbreviation": "RL",
+      "expansion": "reinforcement learning",
+      "standalone_allowed": false,
+      "note": "Pair with environment, policy, reward, agent, or post-training language; RL alone is too noisy."
+    }
+  ],
+  "example_compounds": [
+    {
+      "boolean": "(\"research engineer\" OR \"ml engineer\" OR \"applied scientist\") AND (\"post-training\" OR RLHF OR verifier OR \"evaluation harness\")",
+      "purpose": "broad recall for direct model-improvement builders",
+      "novelty_bucket": "canonical"
+    },
+    {
+      "boolean": "(simulation OR \"browser-use\" OR MCP OR \"coding agent\") AND (validator OR benchmark OR \"synthetic data\" OR \"unit test generation\")",
+      "purpose": "cross-lane edge-case retrieval for environment and tooling builders",
+      "novelty_bucket": "edge_case"
+    }
+  ],
+  "domain_lane_hints": [
+    {
+      "lane": "post_training",
+      "patterns": [
+        "post-training",
+        "reward model",
+        "RLHF",
+        "fine-tuning"
+      ]
+    },
+    {
+      "lane": "coding_agents",
+      "patterns": [
+        "coding agent",
+        "SWE-bench",
+        "repo sandbox",
+        "patch verification"
+      ]
+    },
+    {
+      "lane": "evaluation_quality",
+      "patterns": [
+        "data quality",
+        "evaluation harness",
+        "validator",
+        "synthetic data"
+      ]
+    }
+  ],
+
+  "retrieval_design": {
+    "families": [
+      {
+        "family_id": "colombia_canonical_ml_builders",
+        "label": "Canonical ML-builder titles (Colombia, title-bounded cleanup)",
+        "objective": "Deliberate canonical-pool pass: bound to the canonical ML-builder titles and cross with below-the-application-layer capability proof. This is a later cleanup pass, not an opener.",
+        "priority": 95,
+        "enabled": true,
+        "variants_to_emit": 2,
+        "entry_signals": [
+          {
+            "item_id": "canon_title_kw",
+            "label": "Canonical ML-builder titles (keyword spine)",
+            "terms": [
+              "Research Engineer",
+              "ML Engineer",
+              "Machine Learning Engineer",
+              "Applied Scientist",
+              "AI Engineer",
+              "Research Scientist"
+            ],
+            "priority": 90,
+            "rationale": "Boolean recall spine so the title-bounded family still has an open keyword doorway alongside the structured filter."
+          }
+        ],
+        "capability_proxies": [
+          {
+            "item_id": "canon_cap_posttrain",
+            "label": "Post-training / eval / data-quality capability proof",
+            "terms": [
+              "post-training",
+              "RLHF",
+              "reward model",
+              "verifier",
+              "evaluation harness",
+              "synthetic data",
+              "fine-tuning"
+            ],
+            "priority": 80,
+            "rationale": "Below-the-application-layer capability signal that separates real builders from applied business ML."
+          }
+        ],
+        "reality_filters": [
+          {
+            "item_id": "canon_reality_lift",
+            "label": "Model-improvement reality proof",
+            "terms": [
+              "benchmark",
+              "validation",
+              "data curation",
+              "model evaluation"
+            ],
+            "priority": 60,
+            "rationale": "Keeps the title-bounded family from being a pure title pull."
+          }
+        ],
+        "context_constraints": [
+          {
+            "item_id": "canon_title_filter",
+            "label": "Canonical title sidebar filter (deliberate pool bound)",
+            "terms": [
+              "Research Engineer",
+              "Machine Learning Engineer",
+              "Applied Scientist",
+              "AI Engineer",
+              "Research Scientist"
+            ],
+            "priority": 70,
+            "structured_surface": "linkedin_title_filter",
+            "rationale": "Deliberate canonical-pool bound applied as a Recruiter title sidebar filter. Correct here because this family EXISTS to sweep the canonical title pool in a later cleanup pass."
+          }
+        ],
+        "anti_noise": [],
+        "target_employers": [],
+        "target_markets": ["Colombia"],
+        "hypothesis_ids": [],
+        "notes": "Canonical-pool cleanup pass. Title filter is the deliberate pool bound; the keyword entry_signal preserves a Boolean spine so recall does not collapse to the sidebar facet alone."
+      },
+      {
+        "family_id": "colombia_regional_employer_ml",
+        "label": "Strong-signal Colombian/LATAM employers (company-bounded)",
+        "objective": "Deliberate canonical-pool pass over named strong-signal regional employers, crossed with model-improvement capability proof to separate training-adjacent work from applied business ML.",
+        "priority": 80,
+        "enabled": true,
+        "variants_to_emit": 2,
+        "entry_signals": [
+          {
+            "item_id": "emp_role_kw",
+            "label": "Technical ML roles (keyword spine)",
+            "terms": [
+              "ML Engineer",
+              "Machine Learning Engineer",
+              "Research Engineer",
+              "Applied Scientist",
+              "Data Scientist"
+            ],
+            "priority": 85,
+            "rationale": "Open keyword doorway so the company-bounded family still has a Boolean spine."
+          }
+        ],
+        "capability_proxies": [
+          {
+            "item_id": "emp_cap_depth",
+            "label": "Below-application-layer capability proof",
+            "terms": [
+              "fine-tuning",
+              "evaluation",
+              "synthetic data",
+              "data quality",
+              "LLM evaluation",
+              "model training"
+            ],
+            "priority": 75,
+            "rationale": "The discriminating signal: regional-employer ML ranges from applied business ML to genuine training-adjacent work."
+          }
+        ],
+        "reality_filters": [
+          {
+            "item_id": "emp_reality",
+            "label": "Builder reality proof",
+            "terms": [
+              "benchmark",
+              "validator",
+              "training pipeline",
+              "data curation"
+            ],
+            "priority": 55,
+            "rationale": "Keeps the company-bounded family from being a pure employer pull."
+          }
+        ],
+        "context_constraints": [
+          {
+            "item_id": "emp_company_filter",
+            "label": "Strong-signal regional employers (company sidebar filter)",
+            "terms": [
+              "Rappi",
+              "MercadoLibre",
+              "Mercado Libre",
+              "Globant",
+              "Nubank",
+              "Bancolombia",
+              "Habi",
+              "Addi",
+              "Truora",
+              "Factored",
+              "Universidad de los Andes"
+            ],
+            "priority": 70,
+            "structured_surface": "linkedin_company_filter",
+            "rationale": "Deliberate employer allow-list applied as a Recruiter company sidebar filter. Real values from canonical_company_patterns + colombian_tech / strong_ai / research_lab employer tiers in the brief. None of these collide with the BPO NOT-clause."
+          }
+        ],
+        "anti_noise": [],
+        "target_employers": [],
+        "target_markets": ["Colombia", "LATAM"],
+        "hypothesis_ids": [],
+        "notes": "Company filter is the deliberate pool bound. target_employers intentionally left empty so the filter comes only from the reasoned company constraint (avoids the structured_filter_seeded_from_target_employers narrowing warning and the lane-vs-variant path divergence)."
+      },
+      {
+        "family_id": "post_training_rl_edge",
+        "label": "Post-training / RL-environment edge-case opener (keyword)",
+        "objective": "Tapped-market opener for the RL / post-training / verifier pool using capability language rather than canonical titles, so it surfaces non-obvious adjacent builders the standard pass would miss.",
+        "priority": 90,
+        "enabled": true,
+        "variants_to_emit": 2,
+        "entry_signals": [
+          {
+            "item_id": "rl_entry",
+            "label": "Post-training / RL doorway",
+            "terms": [
+              "post-training",
+              "reinforcement learning",
+              "RLHF",
+              "reward model",
+              "verifier",
+              "environment design",
+              "agent environment"
+            ],
+            "priority": 90,
+            "rationale": "Recall doorway by capability, NOT by title — this is an edge-case opener by design, so no title/company filter."
+          }
+        ],
+        "capability_proxies": [
+          {
+            "item_id": "rl_cap",
+            "label": "Post-training builder proof",
+            "terms": [
+              "DPO",
+              "GRPO",
+              "PPO",
+              "trajectory scoring",
+              "preference data",
+              "trl",
+              "verl",
+              "vLLM"
+            ],
+            "priority": 80,
+            "rationale": "Practitioner-only framework/method terms."
+          }
+        ],
+        "reality_filters": [
+          {
+            "item_id": "rl_reality",
+            "label": "Measurable-lift proof",
+            "terms": [
+              "benchmark",
+              "evaluation harness",
+              "model behavior"
+            ],
+            "priority": 55
+          }
+        ],
+        "context_constraints": [],
+        "anti_noise": [],
+        "target_employers": [],
+        "target_markets": ["Colombia"],
+        "hypothesis_ids": [],
+        "notes": "Edge-case opener — KEYWORD ONLY. No structured_surface anywhere: a title/company filter here would bound the pool back to the canonical population this opener is built to skip (strategy.py:1077)."
+      },
+      {
+        "family_id": "coding_agent_tooluse_edge",
+        "label": "Coding-agent / tool-use / MCP edge-case opener (keyword)",
+        "objective": "Tapped-market opener for SWE-benchmark, repo-sandbox, tool-use, browser-use, and MCP builders via specific tool/benchmark names, capturing transfer populations under non-canonical titles.",
+        "priority": 85,
+        "enabled": true,
+        "variants_to_emit": 2,
+        "entry_signals": [
+          {
+            "item_id": "code_entry",
+            "label": "Coding-agent / tool-use doorway",
+            "terms": [
+              "coding agent",
+              "SWE-bench",
+              "repo sandbox",
+              "patch verification",
+              "browser-use",
+              "computer-use",
+              "MCP",
+              "Model Context Protocol"
+            ],
+            "priority": 85,
+            "rationale": "Capability/tool-name doorway — practitioner-only terms, no title bound."
+          }
+        ],
+        "capability_proxies": [
+          {
+            "item_id": "code_cap",
+            "label": "Code-eval builder proof",
+            "terms": [
+              "LiveCodeBench",
+              "HumanEval",
+              "MBPP",
+              "unit test generation",
+              "program synthesis",
+              "openhands",
+              "aider",
+              "tree-sitter"
+            ],
+            "priority": 75
+          }
+        ],
+        "reality_filters": [
+          {
+            "item_id": "code_reality",
+            "label": "Code-eval reality proof",
+            "terms": [
+              "code evaluation",
+              "patch verification",
+              "benchmark"
+            ],
+            "priority": 55
+          }
+        ],
+        "context_constraints": [],
+        "anti_noise": [],
+        "target_employers": [],
+        "target_markets": ["Colombia"],
+        "hypothesis_ids": [],
+        "notes": "Pure edge-case/keyword family. Preserves the tapped-market edge-case discovery the brief is designed for. No structured filter."
+      }
+    ],
+    "shared_layers": {
+      "reality_filters": [],
+      "context_constraints": [],
+      "anti_noise": [
+        {
+          "item_id": "shared_bpo_noise",
+          "label": "BPO annotation-ops exclusion",
+          "terms": [
+            "AI trainer",
+            "RLHF specialist",
+            "data annotator",
+            "content reviewer",
+            "Teleperformance",
+            "Concentrix",
+            "TaskUs",
+            "TELUS International"
+          ],
+          "priority": 60,
+          "rationale": "Colombia's deepest false-positive pool (BPO annotation). Stays Boolean NOT — anti_noise is forced to soft_hint anyway; negative structured filtering is not wired."
+        },
+        {
+          "item_id": "shared_genai_noise",
+          "label": "Application-layer GenAI marketing exclusion",
+          "terms": [
+            "RAG chatbot",
+            "AI transformation",
+            "copilot builder",
+            "automation consultant",
+            "prompt engineering"
+          ],
+          "priority": 55,
+          "rationale": "Generic GenAI/RAG application noise without model-improvement ownership."
+        }
+      ]
+    },
+    "edge_case_hypotheses": [],
+    "derived_from_legacy": false
+  },
+
+  "version": "4.2",
+  "author": "Codex",
+  "notes": "Colombia FDL v4. Built by refreshing `brief-fdl-colombia-v3.json` with the shared generic Frontier Data Lead JD, the Bay Area Code + RL merged brief, and the existing Colombia RL Gyms kit material. Key changes: (1) role summary rewritten around the generic JD's research-facing data, environment, and evaluation spine, (2) added instructions, search_priorities, additional_search_terms, and intake_notes so the brief carries search-shape guidance instead of only evaluation rules, (3) capability areas renamed and sharpened around RL environments, coding-agent evaluation, tool-use workflows, and validation systems, (4) github_code_signals added for major capability lanes, (5) generic GenAI and RAG application builders made an explicit non-fit pattern, (6) calibration_examples added using repo-native archetypes from the Colombia and Brazil search materials, (7) Colombia-specific BPO annotation and research-lab calibrations preserved, (8) Bay Area seniority language deliberately not imported; this remains an IC4 hands-on builder brief. v4.1: added a `worked_examples` array — four real, abridged decisions from the pre-fork Colombia run (Santiago R. SAVE 0.62, Melissa Robles TRANSFERABLE_SAVE 0.52, Nicolas Laverde INFERENTIAL_SAVE 0.42, Jaime Saldarriaga REJECT 0.92) forming a save-gradient-plus-floor on adjacent-domain builders; these populate the full-evaluation prompt's WORKED EXAMPLES slot, which previously fell through to the vertical-agnostic fallback for every brief. v4.2: added a `retrieval_design` block to flip `use_layered_retrieval` on so structured LinkedIn filters actually apply at execution (previously the brief had no retrieval_design, so it ran the flat keyword path and structured filters never reached Recruiter). Two canonical families carry a deliberate pool bound (linkedin_title_filter over canonical titles; linkedin_company_filter over named strong-signal Colombian/LATAM employers), each keeping a keyword spine so recall does not collapse to the facet. Two edge-case opener families stay pure keyword (a title/company filter there would bound the pool back to the canonical population the opener skips). Boolean stays first-class; filters are reasoned per-lane levers with fail-closed fallback."
+}

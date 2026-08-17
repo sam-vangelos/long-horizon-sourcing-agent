@@ -1,0 +1,14 @@
+# snapshot_source: https://github.com/ossf/criticality_score
+# refresh_cadence_target: weekly (operator-gated via scripts/refresh_ossf_criticality.py)
+# notes: P6.7 — the fabricated "illustrative ordering" rows previously
+#   shipped here (kubernetes/kubernetes, torvalds/linux, etc., with invented
+#   scores) have been deleted. Never invent data (spec doctrine): this file
+#   intentionally ships with NO rows until an operator runs
+#   scripts/refresh_ossf_criticality.py against the real, published
+#   OpenSSF criticality_score CSV (operator gate — not automated; see
+#   spec §14). Until a real refresh lands, every lookup returns None and
+#   github/project_quality.py.score_project() logs + records a
+#   `signals["ossf_criticality_note"]` explaining the drop; the other
+#   four project-quality signals are unaffected and still compute
+#   normally.
+repo,score

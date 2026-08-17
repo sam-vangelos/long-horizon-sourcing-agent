@@ -1,0 +1,190 @@
+{
+  "id": "senior-product-designer-fixture",
+  "role_title": "Senior Product Designer",
+  "role_level": "senior",
+  "role_summary": "Senior product designer for Sundial Health, a Series B clinical-workflow SaaS. The role owns the patient-intake and care-coordination surfaces — the parts of the product where information density, regulatory constraints, and clinician trust all collide. The hire will be one of two senior designers on a four-person design team and will partner directly with the clinical-product PM on what ships next.",
+  "geography": "United States",
+  "minimum_years_experience": 6,
+  "minimum_bar_description": "Six years of product design experience with at least three on dense information-product surfaces — clinical, financial, ops, or developer tooling. Pure consumer-app or pure marketing-website portfolios will not match this brief; the work has to show evidence of designing for users with complex jobs.",
+  "kit_url": "",
+  "target_modules": ["designer"],
+  "capability_areas": [
+    {
+      "name": "Information-dense product surfaces",
+      "description": "Has designed product surfaces where the screen carries genuine complexity — workflow tools, clinical software, ops dashboards, financial systems. The portfolio shows hierarchy decisions made under information load, not minimalist marketing aesthetics.",
+      "builder_signals": [
+        "Portfolio cases study a specific surface in depth; the candidate explains the hierarchy choice, the failure modes of earlier versions, and what shipped.",
+        "Visible craft on dense surfaces: typographic discipline at small sizes, color used for legibility before mood, layout that survives content variation.",
+        "Tenure on a vertical that demands density (clinical / financial / dev tools / ops); not a generalist who has occasionally touched dense work."
+      ],
+      "user_signals": [
+        "Portfolio is heavy on splashy marketing pages and light on the actual product; the dense surfaces are absent.",
+        "Treatment of complex screens reads as decoration rather than information design — gradients and illustrations dominate over content hierarchy.",
+        "Career arc through brand / marketing roles with product design as a stretch."
+      ]
+    },
+    {
+      "name": "Systems thinking under constraints",
+      "description": "Designs for systems, not just screens. The strongest portfolios show the candidate noticing a structural problem one layer up from the brief and proposing a system-level fix that lands in shipped components.",
+      "builder_signals": [
+        "Portfolio includes a case study about a design system, a component refactor, or a cross-surface IA decision; the candidate authored or co-authored it, not just used it.",
+        "Their writing names trade-offs: \"we considered X but chose Y because Z,\" not \"we made a beautiful component library.\"",
+        "Evidence of cross-functional engagement — the candidate worked with engineering on tokens, with research on edge cases, with content on copy."
+      ],
+      "user_signals": [
+        "Design system work consists of using Figma libraries someone else built and renaming components.",
+        "Case studies skip the trade-offs — every story is a clean win.",
+        "Treatment of constraints feels like a complaint rather than the medium."
+      ]
+    },
+    {
+      "name": "Editorial craft in product surfaces",
+      "description": "Treats typography, copy, and microinteraction craft as load-bearing, not decoration. Particularly important here because the customers (clinicians) read every label carefully and notice when the writing is off.",
+      "builder_signals": [
+        "Portfolio shows visible authoring of microcopy, error states, and empty states — the candidate is the one who writes the strings, not the one who waits for marketing.",
+        "Typographic choices are intentional and explained; pairing, sizing, and rhythm are discussed with confidence.",
+        "Editorial sensibility extends beyond visuals — the case study writing itself reads carefully."
+      ],
+      "user_signals": [
+        "Microcopy is generic or absent; the screens render with placeholder strings.",
+        "Type pairings are default — the system font doing the work without authoring choice.",
+        "Case study writing is dashboard-speak: \"We optimized engagement by 23%\" with no editorial voice."
+      ]
+    }
+  ],
+  "depth_distinction": {
+    "builder_definition": "The builder authors hierarchy under information load. Their portfolio shows they have designed for users whose jobs are complex — not the reasoning of the candidate, but the reasoning of the user reading the screen. They make typographic and compositional decisions with conviction and can defend them.",
+    "user_definition": "The user has designed beautiful screens that didn't carry density. Their work shows craft within an easier problem space — landing pages, brand systems, marketing surfaces — and the leap to clinical-workflow density would be a stretch they may or may not be ready for.",
+    "edge_case_guidance": "The hardest calls are designers with five years on a dense vertical (e.g., fintech) and one year on a more consumer-facing product. If the dense work is recent enough that the muscle memory is intact and the case studies show the right kind of thinking, lean save. If the vertical pivot has dulled the density chops, lean borderline."
+  },
+  "non_fit_patterns": [
+    {
+      "label": "Marketing-website portfolio",
+      "description": "Portfolio is dominated by landing pages, brand expressions, and marketing-site work; the actual product surfaces are minor or absent.",
+      "why_not": "The work shape is real but it's a different job. Clinical-workflow density rewards a different muscle than landing-page composition."
+    },
+    {
+      "label": "Layout-only with no shipped product evidence",
+      "description": "Portfolio shows beautiful Figma compositions with no case study about what shipped, what users said, or what changed in production.",
+      "why_not": "The role demands shipping into a clinical environment; a designer whose work has only existed in Figma will be slow to learn what actually ships."
+    },
+    {
+      "label": "Pure design-system maintainer",
+      "description": "Recent role is full-time on a design system without product-surface authorship; they shipped tokens but not screens.",
+      "why_not": "The brief needs a product designer, not a design-systems engineer; the substrate is adjacent but not the same."
+    }
+  ],
+  "design_rubric": {
+    "principles": [
+      {
+        "name": "Visual hierarchy",
+        "description": "How clearly the work guides the viewer's attention through information-dense product surfaces.",
+        "anchors": {
+          "bad": "No discernible hierarchy. Every element competes equally; the eye does not know where to land first.",
+          "okay": "Hierarchy is present but weak; distinctions between primary and secondary content require effort to read.",
+          "good": "Clear hierarchy. Primary, secondary, and tertiary elements are visually distinct and the eye lands on the intended focal point.",
+          "excellent": "Hierarchy is purposeful and confident, with each layer serving a deliberate communication purpose under genuine information load."
+        },
+        "weight": 1.4
+      },
+      {
+        "name": "Typographic refinement",
+        "description": "Type choices, kerning precision, line-height discipline, and how typography carries the work's voice.",
+        "anchors": {
+          "bad": "Type is undifferentiated or default; no evidence of intentional typeface selection or sizing rhythm.",
+          "okay": "Type is consistent without precision; choices are workable but not load-bearing.",
+          "good": "Type is intentional and well-set; kerning, leading, and pairing reflect craft.",
+          "excellent": "Typography is a primary expressive material; decisive type choices and micro-typography precision."
+        },
+        "weight": 1.1
+      },
+      {
+        "name": "Compositional balance",
+        "description": "Spatial relationships across the canvas; positive and negative space, alignment, rhythm.",
+        "anchors": {
+          "bad": "Composition is cluttered or arbitrary; elements feel placed rather than arranged.",
+          "okay": "Composition is workable but predictable; default grid behavior, no compositional ambition.",
+          "good": "Composition is considered; rhythm and balance are intentional, negative space is used as a positive material.",
+          "excellent": "Composition is the design itself; tension and pacing deployed with intent."
+        },
+        "weight": 1.2
+      },
+      {
+        "name": "Color system coherence",
+        "description": "How color choices relate as a system; palette discipline, chromatic relationships, functional purpose.",
+        "anchors": {
+          "bad": "Color is incidental or chaotic; no palette discipline; colors fight each other.",
+          "okay": "Color works but isn't a system; choices are workable, coherence is approximate.",
+          "good": "Color is systematic; palette is clearly defined and relationships are intentional.",
+          "excellent": "Color is a structural material; palette has perspective and decisiveness."
+        },
+        "weight": 1.0
+      },
+      {
+        "name": "Conceptual strength",
+        "description": "Whether the work expresses an idea beyond its surface; does it reward extended attention.",
+        "anchors": {
+          "bad": "No discernible concept beneath the surface; the work executes a brief without proposing a frame.",
+          "okay": "Concept is present but generic; recognizable, not particularly its own.",
+          "good": "Concept is sharp and the visual choices serve it consistently.",
+          "excellent": "Concept is original and the execution makes the concept inevitable."
+        },
+        "weight": 0.8
+      },
+      {
+        "name": "Craft execution",
+        "description": "Fit, finish, and the absence of avoidable errors; spacing precision, edge treatment, alignment discipline.",
+        "anchors": {
+          "bad": "Visible craft errors; misalignments, low-resolution assets, or mistreated edges signal indifference.",
+          "okay": "Craft is acceptable; few errors but not particularly precise.",
+          "good": "Craft is clean; spacing, alignment, and finish are precise; the work reads as intentional.",
+          "excellent": "Craft is at the limit of what the medium allows; every detail serves the whole."
+        },
+        "weight": 1.3
+      }
+    ],
+    "discipline_weight_overrides": {
+      "product": {
+        "Visual hierarchy": 1.5,
+        "Compositional balance": 1.2,
+        "Conceptual strength": 0.7
+      }
+    },
+    "calibration_exemplars": [
+      {
+        "portfolio_url": "https://portfolio.example.test/calibration/exemplar-yes-1",
+        "discipline": "product",
+        "verdict": "yes",
+        "per_principle_reasoning": {
+          "Visual hierarchy": "The case study screens carry hierarchy under genuine information load — clinical timelines, patient summaries, multi-step intake. Primary actions are unambiguous without sacrificing the supporting context.",
+          "Craft execution": "Spacing is consistent across breakpoints; the typography handles small-size labels with care."
+        },
+        "overall_reasoning": "Strong example of the kind of dense product work the brief targets. The case study shows the candidate authoring hierarchy decisions, not consuming a system."
+      },
+      {
+        "portfolio_url": "https://portfolio.example.test/calibration/exemplar-no-1",
+        "discipline": "product",
+        "verdict": "no",
+        "per_principle_reasoning": {
+          "Visual hierarchy": "The work is composed beautifully but the surfaces are marketing pages, not product. Hierarchy under load is not demonstrated.",
+          "Compositional balance": "Layouts are accomplished but on a problem an order of magnitude simpler than what the role demands."
+        },
+        "overall_reasoning": "The craft is real but the substrate is wrong. This portfolio does not show the candidate has designed for the kind of user this role serves."
+      },
+      {
+        "portfolio_url": "https://portfolio.example.test/calibration/exemplar-borderline-1",
+        "discipline": "product",
+        "verdict": "borderline",
+        "per_principle_reasoning": {
+          "Visual hierarchy": "Some screens show the right shape of thinking; others fall back to default-grid layouts that don't carry the load.",
+          "Conceptual strength": "Case study writing is uneven; some surfaces have a sharp frame and others read as competent execution without a thesis."
+        },
+        "overall_reasoning": "The candidate has the substrate exposure but the depth is uneven. Worth a conversation; the answer to that conversation will turn this into save or no."
+      }
+    ],
+    "hard_reject_patterns": [
+      "layout-only portfolios with no shipped product evidence",
+      "portfolios consisting primarily of unshipped Dribbble shots"
+    ]
+  }
+}

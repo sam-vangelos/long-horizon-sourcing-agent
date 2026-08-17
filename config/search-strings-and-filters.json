@@ -1,0 +1,50 @@
+{
+  "permanent_filters": {
+    "language": "English — Full Professional or above",
+    "field_of_study": [
+      "Computer Science",
+      "Mathematics",
+      "Applied Mathematics",
+      "Electrical Engineering",
+      "Physics",
+      "Statistics",
+      "Engineering",
+      "Mechanical Engineering",
+      "Math and Computer Science",
+      "Artificial Intelligence",
+      "Computational and Applied Mathematics",
+      "Computer Science Engineering"
+    ]
+  },
+
+  "strings": [
+    {
+      "id": 1,
+      "name": "Post-Training & RLHF",
+      "boolean": "(\"post-training\" OR \"preference optimization\" OR \"reward model\" OR \"reward modeling\" OR \"PPO\" OR \"proximal policy optimization\" OR \"TRL\" OR \"Transformer Reinforcement Learning\" OR \"RLHF\" OR \"DPO\" OR \"direct preference optimization\" OR \"fine-tuning\" OR \"preference learning\" OR \"preference training\")"
+    },
+    {
+      "id": 2,
+      "name": "RL Environments & Infrastructure",
+      "boolean": "(\"RL environment\" OR \"reinforcement learning environment\" OR \"simulation environment\" OR \"reward function\" OR \"reward design\" OR \"reward engineering\" OR \"observation space\" OR \"state space\" OR \"action space\" OR \"synthetic data generation\" OR \"reward shaping\" OR \"multi-step task\" OR \"long-horizon task\" OR \"sequential task\" OR \"curriculum learning\" OR \"OpenAI Gym\" OR \"PettingZoo\" OR \"Gymnasium\" OR \"gym environment\")"
+    },
+    {
+      "id": 3,
+      "name": "Agent Development & Tools",
+      "boolean": "(\"function calling\" OR \"tool calling\" OR \"tool use\" OR \"multi-agent\" OR \"multiagent\" OR \"multi agent system\" OR \"coding agent\" OR \"SWE-agent\" OR \"CrewAI\" OR \"AutoGen\" OR \"DSPy\" OR \"Semantic Kernel\" OR \"LangGraph\" OR \"agentic\" OR \"agent framework\")"
+    }
+  ],
+
+  "ml_boilerplate": "AND (\"machine learning\" OR \"deep learning\" OR \"fine-tuning\" OR \"fine-tune\" OR \"reinforcement learning\" OR \"RL environment\" OR \"code generation\" OR \"coding agent\" OR \"LLM\" OR \"large language model\")",
+
+  "noise_patterns": {
+    "DPO": "Data Protection Officer (Brazil LGPD) — not ML",
+    "post training": "Corporate L&D when unhyphenated",
+    "simulation environment": "CFD, thermal, Unity physics — not RL",
+    "curriculum learning": "Education/teaching — not ML",
+    "agentic": "RPA, cloud marketing — not AI/ML",
+    "Gym": "Fitness industry",
+    "trajectory": "'career trajectory' — millions of results, pure noise",
+    "oracle": "Oracle DB/Corporation — not ML"
+  }
+}

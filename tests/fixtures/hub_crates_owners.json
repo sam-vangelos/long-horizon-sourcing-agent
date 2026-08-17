@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "login": "dtolnay",
+      "kind": "user",
+      "avatar": "https://avatars.githubusercontent.com/u/1940490",
+      "url": "https://github.com/dtolnay"
+    },
+    {
+      "id": 2,
+      "login": "serde-team",
+      "kind": "team",
+      "avatar": "https://avatars.githubusercontent.com/u/1",
+      "url": "https://github.com/serde-team"
+    }
+  ]
+}

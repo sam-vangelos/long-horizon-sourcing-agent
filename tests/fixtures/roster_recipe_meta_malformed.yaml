@@ -1,0 +1,6 @@
+package:
+  name: broken
+
+recipe-maintainers:
+  - first
+  broken line without list marker

@@ -1,0 +1,26 @@
+{
+  "_meta": {
+    "schema_version": "1.0",
+    "purpose": "OSS Maintainers Slice 4 — calibration fixture for the maintainership classifier. Per spec §13.1, this fixture gates Slice 4 ship via three agreement-rate thresholds (exact-level >= 0.80, within-one-level >= 0.95, non-adjacent confusion <= 0.02). Sam (or a designated human reviewer) hand-classifies each entry by reading the actual GitHub profile and cross-checking merged PRs / CONTRIBUTORS / GOVERNANCE files. Building the fixture is real work, not background — budget 2-5 hours for a run of 20-30 entries. No automated tooling can produce this honestly: the gate's whole purpose is to detect 'right for the wrong reason' classifier failures, which requires labels grounded in human inspection.",
+    "spec_section": "13.1",
+    "size_target_v1": "20-30 entries",
+    "size_target_v2": "50-100 entries (post-Phase-2 customer signal)",
+    "level_distribution_target": "8-12 contributors / 8-12 maintainers / 4-6 project_leads",
+    "span_target": "infrastructure (kubernetes/kubernetes, etcd-io/etcd) | systems (rust-lang/rust, torvalds/linux) | devtools (pytorch/pytorch, astral-sh/uv) | web (facebook/react, vercel/next.js)",
+    "entry_shape": {
+      "username": "github login (lowercase) e.g. 'thockin'",
+      "target_project": "owner/repo string e.g. 'kubernetes/kubernetes'",
+      "ground_truth_level": "one of: contributor | maintainer | project_lead",
+      "evidence_notes": "1-3 sentences describing why this label, citing observable artifacts (merged PRs, CONTRIBUTORS file, GOVERNANCE.md, public role). Audited by a second human if possible.",
+      "classified_by": "name or initials of the human classifier",
+      "classified_at": "ISO 8601 UTC timestamp"
+    },
+    "ship_gate_thresholds": {
+      "exact_level_match": 0.80,
+      "within_one_level_match": 0.95,
+      "non_adjacent_confusion_max": 0.02
+    },
+    "status": "EMPTY — awaiting hand-classification work by Sam. Slice 4 does NOT ship until this fixture has 20-30 entries AND tests/test_github_maintainership_classifier.py's agreement gate passes against it. The classifier code (github/maintainership.py) ships as scaffolding; the gate verdict is deferred until the fixture is populated."
+  },
+  "entries": []
+}

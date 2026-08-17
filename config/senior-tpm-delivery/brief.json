@@ -1,0 +1,161 @@
+{
+  "id": "senior-tpm-delivery",
+  "role_title": "Senior Technical Program Manager",
+  "role_level": "senior",
+  "role_summary": "Senior TPM for the Delivery / TA2 horizontal — a COO-equivalent force multiplier for the Delivery Director across multiple AI data-delivery workstreams and accounts. Owns cost accountability (FDL owns quality, SPL owns throughput), stands up dashboards and tracking, holds SPLs accountable with the right questions, manages escalations, and acts as shadow DD when the DD is stretched or out. May deploy account-aligned (one DD's accounts) or horizontal (cross-account, managing account PMs as internal stakeholders). A specific near-term priority is operationalizing the OTS data factory — 35% of revenue, currently over-reliant on two senior leaders.",
+  "geography": "San Francisco, United States",
+  "minimum_years_experience": 8,
+  "minimum_bar_description": "Eight years of program management or technical operations experience with at least three years managing 8+ concurrent workstreams at scale. Must have operated in fast-cycle environments (2-week to 2-month workstreams) where requirements shift mid-flight. Pure big-consultancy backgrounds without startup-pace evidence are out of scope.",
+  "kit_url": "",
+  "source_config": {
+    "linkedin": {
+      "project_id": "2035258290",
+      "project_name": "Technical Program Manager",
+      "search_url": "https://www.linkedin.com/talent/hire/2035258290/discover/recruiterSearch?searchContextId=7d47324a-e255-4345-b1d6-b6572d88cff7&searchHistoryId=21102849306&searchRequestId=b06c922d-2b26-4369-85b6-8923d7181c67&start=0&uiOrigin=FACET_SEARCH"
+    }
+  },
+  "target_modules": ["linkedin"],
+  "capability_areas": [
+    {
+      "name": "Multi-workstream program orchestration at scale",
+      "description": "Has concurrently managed 8–10+ workstreams with rapid ramp-up and ramp-down cycles. The brief is not looking for someone who managed one long program — the hire juggles many short-lived, overlapping workstreams where scope changes weekly and rosters shift constantly.",
+      "builder_signals": [
+        "Describes managing 8+ concurrent workstreams with specific examples of ramp-up/down decisions they personally drove.",
+        "Has managed rosters of 1,000+ people across multiple workstreams — or, without that exact scale, demonstrates the maturity and escalation judgment that compensates.",
+        "References operating in 2-week to 2-month cycle environments where deliverables were constantly redefined by upstream research."
+      ],
+      "user_signals": [
+        "Managed one or two long-running programs with stable teams and clear requirements — the opposite of this role's chaos.",
+        "Scale mentioned in resume is headcount they inherited and maintained, not actively managed through volatility.",
+        "Workstream descriptions are generic ('managed cross-functional programs') without cycle-time or ramp detail."
+      ]
+    },
+    {
+      "name": "Cost ownership and operational analytics",
+      "description": "Owns budgets, defines the right dashboards, monitors the right metrics (quality, throughput, cost, workforce performance), and asks questions when they drift. Not just a dashboard consumer — defines what to measure and why.",
+      "builder_signals": [
+        "Describes specific metrics they defined or redefined — not inherited dashboards, but ones they stood up because the existing instrumentation was wrong.",
+        "Can articulate a moment where a metric they monitored caught a problem before it escalated: AHT drift, cost overrun, quality regression.",
+        "Has held delivery leads accountable to numbers with good friction — pushed back when the story didn't match the data."
+      ],
+      "user_signals": [
+        "References 'data-driven' without naming the specific metrics they tracked or the decisions those metrics drove.",
+        "Dashboard consumption only — reviews reports someone else built rather than defining what needs tracking.",
+        "Cost awareness is a line item on the resume but not load-bearing in the stories they tell."
+      ]
+    },
+    {
+      "name": "Technical enough to catch bullshit",
+      "description": "CS background or technical adjacency — doesn't need FDL-level depth but needs to follow an SPL's technical reasoning, push back when AHT doesn't match commitments, and break down vague client complaints into tooling vs. trainer quality vs. guidelines vs. calibration.",
+      "builder_signals": [
+        "CS degree or equivalent technical work history — not a gate, but a strong signal that they can engage with technical leads substantively.",
+        "Describes a situation where they caught a delivery lead's story that didn't add up and dug into the technical detail to understand why.",
+        "Can articulate the difference between a tooling problem, a data-quality problem, and a calibration-mismatch problem in their own domain."
+      ],
+      "user_signals": [
+        "Pure PMO background with no evidence of engaging with technical content — manages timelines and escalations but can't challenge an engineer's reasoning.",
+        "Delegates all technical judgment to leads without independent verification.",
+        "Resume is heavy on process frameworks (SAFe, Agile ceremonies) and light on domain-specific technical decisions."
+      ]
+    },
+    {
+      "name": "Autonomy and escalation maturity",
+      "description": "Owns outcomes rather than deferring to hierarchy. Pushes back on bad decisions — including when a Delivery Director insists on shipping bad-quality data because it was committed. Knows when to escalate, how to frame it, and who to bring in.",
+      "builder_signals": [
+        "Tells a story about disagreeing with a senior leader and holding the line — or disagree-and-commit with vocal pushback, not silent compliance.",
+        "Has a clear mental model for escalation: when to absorb vs. when to raise, who to loop, how to frame the trade-off.",
+        "References operating as an acting director or GM when their principal was unavailable — took decisions rather than waiting."
+      ],
+      "user_signals": [
+        "Defers to hierarchy in escalation stories — 'my manager decided' rather than 'I recommended and here's why.'",
+        "Conflict-averse framing — describes consensus-seeking but not the willingness to hold an unpopular position.",
+        "Junior-career pattern: bogs down on org structure rather than driving through it."
+      ]
+    }
+  ],
+  "depth_distinction": {
+    "builder_definition": "The builder has run program operations in a high-velocity, short-cycle environment where workstreams, rosters, and requirements were constantly changing. They have a specific answer to 'which workstream would have failed without you' that cites decisions they made — not process they followed. They define metrics, not just monitor them.",
+    "user_definition": "The user has managed programs in stable, long-cycle environments with established processes. They are competent at tracking and reporting but have not operated in the chaos that defines this role — rapid ramp-up/down, ambiguous client requirements, cross-functional escalations across fulfillment, tooling, and quality. The skills are real but tuned for a different operating tempo.",
+    "edge_case_guidance": "The hardest borderline is a strong TPM from a large tech company (Google, Meta, Amazon) who managed complex programs but in a structured environment with established infra. If they show scrappiness — built something from nothing, operated through a reorg, ran a function that was understaffed — lean save. If every story starts with 'the process was...' rather than 'I decided to...', lean reject."
+  },
+  "non_fit_patterns": [
+    {
+      "label": "Big-consultancy operator",
+      "description": "Career is primarily at Accenture, Deloitte, McKinsey implementation, or similar — accustomed to environments where everything is set up, processes are mature, and the infrastructure exists before they arrive.",
+      "why_not": "This role is scrappy and startup-paced. Most workstreams run 2 weeks to 2 months. Big-consultancy operators struggle because they expect structure that doesn't exist here."
+    },
+    {
+      "label": "Process-framework specialist",
+      "description": "Identity is built around SAFe, Agile at Scale, or ceremony-heavy methodologies. Resume leads with certifications and framework implementations rather than outcomes.",
+      "why_not": "The role needs someone who operates in chaos, not someone who imposes process on it. Framework specialists optimize for predictability; this environment is inherently unpredictable."
+    },
+    {
+      "label": "Junior hire in a senior wrapper",
+      "description": "Title says senior or staff but stories are about individual workstream execution rather than cross-workstream orchestration, stakeholder management, or budget ownership.",
+      "why_not": "Ankita explicitly named this anti-pattern: junior folks bog down on hierarchy. This is not a junior hire — the TPM acts as shadow DD and must operate at DD altitude."
+    }
+  ],
+  "employer_signal_rules": [],
+  "domain_verbs": [
+    "orchestrated", "ramped up", "ramped down", "stood up", "held accountable",
+    "escalated", "debugged", "right-sized", "absorbed", "triaged",
+    "defined metrics for", "monitored", "pushed back on", "stepped in as",
+    "owned cost for", "broke down", "tracked against plan"
+  ],
+  "domain_depth_objects": [
+    "multi-workstream delivery dashboards tracking quality, throughput, and cost simultaneously",
+    "ramp-up / ramp-down plans for 1,000+ person rosters across parallel workstreams",
+    "escalation matrices mapping when to absorb vs. raise across fulfillment, tooling, and quality",
+    "cost models and budget tracking for concurrent AI data-delivery accounts",
+    "weekly client summary reports distilling internal complexity into curated status",
+    "AHT and throughput benchmarks with drift-detection thresholds",
+    "cross-functional stakeholder communication cadences across account PMs, tooling, and fulfillment"
+  ],
+  "transferability_examples": [
+    {
+      "from_domain": "logistics / operations tech (Uber, DoorDash, Flexport)",
+      "to_role": "AI data delivery TPM",
+      "why_transfers": "Same operating tempo — rapid-cycle, high-roster-churn, ambiguous requirements from upstream. The domain objects differ but the orchestration muscle is identical.",
+      "result": "save"
+    },
+    {
+      "from_domain": "consulting implementation (Accenture, Deloitte delivery)",
+      "to_role": "AI data delivery TPM",
+      "why_transfers": "Program management skills are real but tuned for stable, long-cycle engagements with pre-existing infrastructure. The scrappiness gap is the risk.",
+      "result": "reject"
+    },
+    {
+      "from_domain": "big tech TPM (Google, Amazon, Meta program management)",
+      "to_role": "AI data delivery TPM",
+      "why_transfers": "Complex programs at scale, but with established process and tooling. Transfers if stories show scrappiness and chaos tolerance; doesn't if every answer starts with 'the process was.'",
+      "result": "borderline"
+    }
+  ],
+  "canonical_title_patterns": [
+    "Technical Program Manager", "Senior TPM", "Staff TPM",
+    "Program Manager", "Senior Program Manager",
+    "Delivery Manager", "Operations Manager",
+    "Chief of Staff (to VP/SVP Eng or Ops)"
+  ],
+  "canonical_company_patterns": [],
+  "canonical_framework_patterns": [],
+  "canonical_broad_patterns": [
+    "program management", "technical operations", "delivery operations",
+    "workforce orchestration", "data operations", "AI operations"
+  ],
+  "edge_case_patterns": [
+    "Strong systems TPM from big tech with no startup-pace evidence — borderline unless scrappiness surfaces in the stories",
+    "Operations manager from gig-economy company (Uber Eats, Instacart) — the tempo matches even if the domain doesn't",
+    "Data operations lead from an AI training company — check if they ran programs or did annotation IC work"
+  ],
+  "edge_case_company_patterns": [
+    "Google — save only if stories show chaos tolerance, not just process execution",
+    "Amazon — the LP culture produces strong operators but verify they built vs. inherited structure",
+    "Accenture / Deloitte — reject unless the specific engagement was scrappy and short-cycle"
+  ],
+  "term_blacklist_categories": [],
+  "abbreviation_collisions": [],
+  "example_compounds": [],
+  "sequencing_heuristics": "Prioritize candidates currently in high-velocity operations roles over those in stable big-tech program management. Within high-velocity, prefer AI-adjacent (data delivery, model evaluation, post-training) over pure logistics.",
+  "minimum_bar": "Eight years total experience in program management or technical operations; three years managing 8+ concurrent workstreams; demonstrated cost or budget ownership; evidence of operating in fast-cycle (sub-quarter) delivery environments with shifting requirements."
+}

@@ -1,0 +1,75 @@
+sequenceDiagram
+    autonumber
+    participant ORCH as orchestrator (linkedin/github)
+    participant ACQ as acquisition / browser / client
+    participant SHARED as shared.execution.SharedExecutionRuntime
+    participant RT as RuntimeStateStore
+    participant DB as runtime_state.sqlite3
+    participant HB as heartbeat
+    participant SC as worker.json
+    participant PROJ as projections.py
+    participant FILES as projection JSON/JSONL
+    participant JUDGE as shared.judger
+    participant BIAS as shared.bias_controls
+    participant SE as side_effects (per source)
+    participant RUNS as output/runs/...
+    participant CP as cloris.control_plane
+    participant API as cloris.api
+    participant FE as Svelte UI
+    participant RECON as cloris.reconciler
+
+    loop work_unit (search query / GH query / graph seed)
+        ORCH->>ACQ: execute work unit
+        ACQ-->>ORCH: candidate snippets (light evidence)
+        ORCH->>SHARED: record_candidate_discovered(...)
+        SHARED->>RT: insert candidate, transition lifecycle 'discovered' → 'snippet_extracted'
+        RT->>DB: enforce ALLOWED_LIFECYCLE_TRANSITIONS, INSERT candidate + candidate_attempt + event
+        RT->>HB: bump_heartbeat(state_dir)
+        HB->>SC: write heartbeat_at = now
+        RT->>PROJ: schedule projection flush
+        PROJ-->>FILES: rebuild progress.json + snippets.jsonl
+
+        ORCH->>JUDGE: facial_judge(snippet, brief)
+        JUDGE-->>ORCH: FACIAL_YES / FACIAL_NO / FACIAL_BORDERLINE
+        ORCH->>SHARED: finalize facial attempt
+        SHARED->>RT: lifecycle 'facial_started' → 'facial_terminal'
+        RT->>DB: candidate_attempt + event
+        ORCH->>BIAS: observe facial decision
+        BIAS-->>ORCH: alert? (none / flag / pause)
+        alt BIAS pause
+            ORCH->>RT: finish_run(status='paused', stop_reason=<bias-rule>)
+            ORCH->>SE: leave run intact, no irreversible side effects
+            Note over ORCH,RT: surface to operator via /api/status
+        end
+
+        opt facial == YES
+            ORCH->>ACQ: open profile / fetch full evidence
+            ORCH->>JUDGE: full_judge(profile, brief)
+            JUDGE-->>ORCH: SAVE / REJECT / INFERENTIAL_SAVE / TRANSFERABLE_SAVE / SIGNAL_SAVE
+            ORCH->>SHARED: finalize full attempt, lifecycle → 'full_terminal'
+            SHARED->>RT: candidate_attempt + event + terminal_decision
+            opt SAVE family
+                ORCH->>SE: idempotent side effect (LinkedIn save click / GH outreach prep)
+                SE->>RT: record side_effect (idempotency_key)
+                SE->>RUNS: append save record JSONL / export
+            end
+        end
+    end
+
+    par UI polling (every 3s active / 10s idle)
+        FE->>API: GET /api/status
+        API->>CP: aggregate_status()
+        CP->>DB: read RO (mode=ro URI)
+        CP->>SC: read worker.json
+        CP-->>API: per-state-dir worker_state, run summary, brief drift
+        API-->>FE: StatusResponse
+    and Reconciler — on app mount + every 5 minutes via setInterval, see App.svelte 169-210
+        FE->>API: POST /api/reconcile
+        API->>RECON: reconcile_and_apply()
+        RECON->>CP: enumerate_state_dirs + read worker sidecars
+        RECON->>DB: read RO latest_run_summary
+        Note over RECON,DB: only reconcile when worker is genuinely gone (missing/bad sidecar or pid_dead). NEVER reconcile alive_silent.
+        RECON->>RT: finish_run(run_id, 'abandoned', stop_reason=RunStopReason.WORKER_MISSING)
+        RT->>DB: UPDATE runs SET status='abandoned', ended_at=now
+        RECON-->>API: count + Mutation list (for forensic display)
+    end

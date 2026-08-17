@@ -1,0 +1,59 @@
+{
+  "role": "Frontier Data Lead — RL Gyms",
+  "philosophy": "You are sourcing for a high-bar frontier AI role. The person you save will partner with researchers at OpenAI, Anthropic, and DeepMind to build RL environments, post-training pipelines, and evaluation infrastructure. Ask: 'Would this person be credible in that room?'",
+
+  "qualification_paths": {
+    "pedigree": {
+      "description": "MSc/PhD from strong research institution + 5+ years applied ML + evidence of building products or leading teams. May lack explicit RL keywords but trajectory says they can do the job.",
+      "example": "PhD Physics top-tier > 5yr postdoc > 5yr applied ML building production systems > led team of 7"
+    },
+    "direct_experience": {
+      "description": "Clear signal of hands-on work in RLHF pipelines, RL environment design, reward/verifier systems, LLM fine-tuning, coding agent infrastructure, eval/benchmark systems. 4-5 years enough IF directly relevant.",
+      "counts": [
+        "Built RLHF pipelines",
+        "Designed custom gym environments",
+        "Fine-tuned coding models",
+        "Developed reward models",
+        "Created eval harnesses",
+        "Deployed vLLM/distributed training",
+        "Built neural nets from scratch",
+        "Model quantization",
+        "Multi-agent systems with real ML backbone"
+      ],
+      "does_not_count": [
+        "Used LangChain for chatbot",
+        "RLHF in headline but works at annotation company",
+        "'agentic AI' but builds RPA"
+      ]
+    }
+  },
+
+  "calibration_examples": {
+    "strong_saves": [
+      "PhD Multiagent Systems UFRGS, teaches RL with Gym/Stable-baselines3, RoboCup Rescue 3rd place → Path 2, direct RL",
+      "PhD Tufts simulation environments + robot simulator + CUDA/distributed + LLMs → Path 2, simulation maps to RL gym building",
+      "MSc AI, 5yr ML, supervised model training + LLM quantization (Llama 3.2 3B) + CrewAI → Path 2, direct model training",
+      "Sr ML Engineer at MercadoLibre, 7+ years, MSc CS → Path 1, strong company + senior + grad degree"
+    ],
+    "clear_skips": [
+      "AI Trainer at Outlier, RLHF in headline, BA Communications → annotation work, not engineering",
+      "RPA Developer at any company → RPA is not AI/ML",
+      "Lead Backend Engineer, Rust/fraud, built MCP client, zero model training → exceptional builder but no model training",
+      "ML Engineer at unknown 15-person startup, no grad degree, generic headline → insufficient signal"
+    ],
+    "borderline_saves": [
+      "16yr ML veteran, energy sector, CV/MLOps/Semantic Kernel, client-facing delivery → Path 1 + delivery fit",
+      "Data Scientist at bank, headline mentions vLLM → normally noise, but vLLM = direct LLM infra signal"
+    ]
+  },
+
+  "strong_companies": {
+    "brazil": ["MercadoLibre", "Nubank", "iFood", "PagSeguro", "Stone", "TOTVS", "Itaú", "Samsung", "Microsoft", "Google", "Meta", "Oracle", "IBM", "Embraer", "Petrobras", "CI&T", "CESAR", "Eldorado Research"],
+    "colombia": ["MercadoLibre", "Rappi", "Nubank", "Globant", "Factored", "Bancolombia", "EPAM", "Samsung", "Microsoft", "Google"]
+  },
+
+  "strong_universities": {
+    "brazil": ["USP", "UNICAMP", "UFRGS", "PUC-Rio", "UFMG", "ITA", "IMPA", "UFRJ"],
+    "colombia": ["Uniandes", "UNAL", "EAFIT", "Javeriana", "Universidad del Valle"]
+  }
+}

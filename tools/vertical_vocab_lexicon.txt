@@ -1,0 +1,42 @@
+# Vertical-vocabulary lexicon for tools/lint_vertical_vocab.py (Wave 2 slice 9).
+# One term per line; matched case-insensitively on word boundaries inside
+# string literals in shared/ and linkedin/ production code. Underscore-joined
+# slugs (lane ids like "capital_markets") deliberately do NOT match the
+# spaced forms below — slugs are identifiers, not vocabulary.
+#
+# ML/AI vertical. Bare "ml" and "llm" are deliberately EXCLUDED: they
+# collide with this codebase's own LLM-client infrastructure vocabulary
+# ("llm" usage tiers, [glance-llm] prints, Literal["llm"] enums) far more
+# often than with matcher vocabulary, and every real matcher tuple observed
+# carries a companion term below. Residual risk accepted: an ml/llm-ONLY
+# matcher tuple would slip the ratchet.
+llms
+genai
+generative ai
+machine learning
+artificial intelligence
+large language model
+rlhf
+langchain
+langgraph
+pinecone
+vllm
+trl
+axolotl
+agentic
+frontier lab
+# BFS / financial-services vertical
+bfsi
+banking
+capital markets
+hedge fund
+buy-side
+buy side
+fintech
+financial services
+investment bank
+# FDE vertical
+fde
+fdse
+forward deployed
+forward-deployed

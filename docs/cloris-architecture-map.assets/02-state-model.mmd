@@ -1,0 +1,47 @@
+flowchart LR
+    subgraph LIVE["Per-state-directory (output/state/&lt;source&gt;/&lt;brief_state_key&gt;/)"]
+        CANON[("runtime_state.sqlite3<br/><b>CANONICAL</b><br/>+ WAL + SHM")]
+        PROJ[/"progress.json<br/>snippets.jsonl<br/>facial_judgments.jsonl<br/>final_judgments.jsonl<br/>candidate_history-*.jsonl<br/>session_*_candidates.json<br/>session_*_graph.json<br/><b>PROJECTIONS</b>"/]
+        SIDE[/"worker.json<br/><b>SIDECAR</b>"/]
+        LOCK[/"runtime_state.lock<br/><b>WRITER LOCK</b>"/]
+        MI_LIVE[/"market_intel/live-*.jsonl<br/>market_intel/live-summary.json<br/><b>LIVE MI ADVISORY (sidecar)</b>"/]
+    end
+    subgraph GLOBAL["Global (output/)"]
+        INTAKE[("intake/intake_sessions.sqlite3<br/><b>AUTHORING</b>")]
+        IDENTITY[("state/_identity/identity.sqlite3<br/><b>CROSS-SOURCE PERSONS</b>")]
+    end
+    subgraph IMMUTABLE["Immutable / accumulated"]
+        RUNS[("output/runs/&lt;source&gt;/&hellip;<br/><b>FINALIZED RUN OUTPUT</b>")]
+        MARKET[("output/market_intelligence/&lt;market_key&gt;/<br/><b>PER-MARKET SYNTHESIS</b>")]
+    end
+
+    WORKER_PROC["worker / orchestrator process"] -- "writes" --> CANON
+    WORKER_PROC -- "writes" --> SIDE
+    WORKER_PROC -- "writes JSONL/exports" --> RUNS
+    WORKER_PROC -- "writes live advisory" --> MI_LIVE
+    CANON -. "projection layer flushes" .-> PROJ
+    CANON -- "writers serialize on" --> LOCK
+
+    UI_PROC["cloris UI process (api.py)"] -- "reads RO" --> CANON
+    UI_PROC -- "reads" --> SIDE
+    UI_PROC -- "writes" --> INTAKE
+    UI_PROC -- "spawn serializes on" --> LOCK
+    RECON_PROC["cloris reconciler"] -- "reads RO + finish_run" --> CANON
+
+    POSTRUN["market_intelligence engine"] -- "reads RO" --> CANON
+    POSTRUN -- "reads" --> RUNS
+    POSTRUN -- "writes" --> MARKET
+
+    BRIEF_TOOL["tools/iterate_brief.py"] -- "reads" --> MARKET
+    BRIEF_TOOL -- "reads" --> RUNS
+
+    classDef canon fill:#dcfce7,stroke:#15803d,color:#1c1917,font-weight:bold
+    classDef proj fill:#fef3c7,stroke:#b45309,color:#1c1917,stroke-dasharray:4 2
+    classDef immut fill:#e0e7ff,stroke:#4338ca,color:#1c1917
+    classDef side fill:#f5f5f4,stroke:#525252,color:#1c1917
+    classDef proc fill:#fce7f3,stroke:#a21caf,color:#1c1917
+    class CANON,INTAKE,IDENTITY canon
+    class PROJ,MI_LIVE proj
+    class RUNS,MARKET immut
+    class SIDE,LOCK side
+    class WORKER_PROC,UI_PROC,RECON_PROC,POSTRUN,BRIEF_TOOL proc

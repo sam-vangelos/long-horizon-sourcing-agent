@@ -1,0 +1,248 @@
+{
+  "id": "prre-code-github",
+  "role_title": "Principal Research Engineer - Code",
+  "role_level": "principal",
+  "minimum_years_experience": 8,
+  "role_summary": "Owns end-to-end creation of datasets, RL environments, and evals for frontier-lab coding agents and software engineering. Hands-on technical leadership: builds the environments, evals, and pipelines personally, and builds/leads the teams that scale them. Mapped to one or more AI labs; the work is judged at frontier quality bar for realism, correctness, diversity, and difficulty.",
+  "geography": "San Francisco Bay Area",
+  "minimum_bar": "Hands-on builder evidence in the coding-agent / SWE post-training domain: has personally built RL environments, evals, agent scaffolds, or training pipelines FOR CODE — not merely used them, and not adjacent domains.",
+  "minimum_bar_description": "The strongest single signal is measurable coding-model improvement: fine-tuned or post-trained a model to improve SWE capability, or built a coding agent that beat its base model. That evidence outweighs title and employer wherever it appears, but its absence is not disqualifying — a save is a decision to reach out for a conversation, not to hire on the spot. What must show is the WORK: training runs, eval harnesses, benchmark construction, execution sandboxes, or agent scaffolds personally built, intersecting the code domain.",
+  "target_projects": [],
+  "target_stacks": [
+    "python"
+  ],
+  "maintainership_level": "contributor",
+  "depth_distinction": {
+    "builder_definition": "Builds the substrate that improves coding models and agents: RL environments with executable rewards, eval harnesses and benchmarks, agent scaffolds that operate on real repositories, data pipelines that produce validated code corpora, or post-training runs with measured SWE deltas. The artifact runs, tests, and measures — it does not merely call a model.",
+    "user_definition": "Uses that substrate from the application layer: prompts hosted models, runs published benchmarks at defaults, forks frameworks for config edits, wraps APIs into demo agents, or writes about agents/RLHF without runnable training or evaluation code.",
+    "edge_case_guidance": "Infrastructure-heavy profiles (serving, orchestration, general training infra) count as builders ONLY when the work visibly intersects the code domain — coding tasks, code evals, repository data, or coding agents. Generic RL builders (robotics, AV, games) are users of this role's domain regardless of RL depth, per the operator's transferability instruction. Strong eval or environment work FOR CODE with no fine-tuning evidence stays in scope — the measurable-model-improvement signal is a weight, not a gate."
+  },
+  "capability_areas": [
+    {
+      "name": "RL environments and post-training for code",
+      "description": "Builds the environments, reward plumbing, and training loops that improve coding models: executable SWE tasks, verifiable rewards from tests, GRPO/PPO-style post-training runs on code tasks. The work product is a model or environment, not a demo.",
+      "builder_signals": [
+        "Repo implementing an RL environment for software tasks: dockerized repos, task registries, reward functions wired to test execution",
+        "Training configs or scripts (trl, verl, OpenRLHF, torchtune) applied to code tasks, with eval deltas reported in the README",
+        "Reward-model or verifier code for program correctness (unit-test reward, execution feedback, patch-apply checks)",
+        "Merged PRs on RL-for-code or agent-training frameworks that add environments, rewards, or rollout machinery"
+      ],
+      "user_signals": [
+        "Notebooks that fine-tune a small model on a public code dataset with default configs and no evaluation delta",
+        "Forks of training frameworks with only config edits and no upstream contribution",
+        "Blog-style repos explaining RLHF concepts without runnable training or eval code"
+      ],
+      "key_terms": [
+        "RL environment",
+        "verifiable reward",
+        "GRPO",
+        "post-training",
+        "rollout",
+        "reward model",
+        "execution feedback"
+      ],
+      "github_code_signals": [
+        "verl",
+        "trl",
+        "OpenRLHF",
+        "torchtune",
+        "SWE-Gym",
+        "R2E",
+        "commit0",
+        "verifiers",
+        "prime-rl",
+        "GRPO",
+        "reward_fn",
+        "rollout"
+      ]
+    },
+    {
+      "name": "Coding agents and scaffolds",
+      "description": "Builds agent systems that operate on real repositories: plan-edit-test loops, repo navigation, patch generation, tool use against dev tooling. Owns the scaffold, not just prompts over someone else's.",
+      "builder_signals": [
+        "An agent scaffold repo of their own: tool-call loop, repo browsing, patch application, test-run feedback, trajectory logging",
+        "Substantive merged PRs on established coding agents (SWE-agent, OpenHands, aider, mini-swe-agent class) touching the loop, tools, or evaluation — not docs",
+        "MCP servers or tool integrations for developer workflows (repo, CI, terminal, browser-of-code)",
+        "Benchmark submissions or leaderboard entries with reproducible harness code"
+      ],
+      "user_signals": [
+        "Thin wrappers around a hosted model API marketed as an agent, with no repo interaction or test loop",
+        "Prompt-collection repos and agent framework demos with no evaluation",
+        "Config-only forks of agent frameworks"
+      ],
+      "key_terms": [
+        "agent scaffold",
+        "patch generation",
+        "repo navigation",
+        "tool use",
+        "trajectory",
+        "SWE agent"
+      ],
+      "github_code_signals": [
+        "swe-agent",
+        "OpenHands",
+        "aider",
+        "mini-swe-agent",
+        "tree-sitter",
+        "patch_apply",
+        "tool_call",
+        "MCP",
+        "sandbox",
+        "e2b",
+        "firejail",
+        "docker exec"
+      ]
+    },
+    {
+      "name": "Code evals and benchmark construction",
+      "description": "Designs and builds evaluation harnesses and benchmarks for coding capability: task curation, contamination control, graders, pass@k infrastructure, flaky-test handling. Knows why a benchmark is hard and what it fails to measure.",
+      "builder_signals": [
+        "A benchmark or harness repo they authored: task specs, containerized reproduction, grading scripts, baseline results",
+        "Merged PRs to established code evals (SWE-bench family, LiveCodeBench, bigcode-evaluation-harness, HumanEval/MBPP tooling) adding tasks, graders, or infrastructure",
+        "Decontamination or dataset-quality tooling for code corpora (dedup, license filtering, test-leakage detection)",
+        "Written analysis of eval failure modes backed by harness code in the same repo"
+      ],
+      "user_signals": [
+        "Repos that only run published benchmarks with default settings and repost scores",
+        "Leaderboard screenshots without reproducible harness code"
+      ],
+      "key_terms": [
+        "benchmark",
+        "eval harness",
+        "pass@k",
+        "contamination",
+        "grader",
+        "task curation"
+      ],
+      "github_code_signals": [
+        "SWE-bench",
+        "LiveCodeBench",
+        "bigcode-evaluation-harness",
+        "HumanEval",
+        "MBPP",
+        "EvalPlus",
+        "pass_at_k",
+        "decontamination",
+        "grading",
+        "harness"
+      ]
+    },
+    {
+      "name": "Data pipelines and synthetic generation for code",
+      "description": "Builds the pipelines that produce training and eval data for code: repository mining, PR/issue extraction, synthetic task generation, validation workflows, quality rubrics enforced in code. Scale and correctness both matter.",
+      "builder_signals": [
+        "Pipeline repos that mine repositories or PRs into structured task/train data, with validation stages and throughput handling",
+        "Synthetic data generators for code tasks (test generation, bug injection, instruction synthesis) with quality checks",
+        "Sandboxing/reproduction infrastructure: building many repos in isolation, snapshotting environments, unit-test generators",
+        "Internal-tool-shaped repos: reviewer dashboards, annotation QA automation, data-quality metrics computed in CI"
+      ],
+      "user_signals": [
+        "One-off scraping scripts without validation or scale handling",
+        "Dataset re-uploads or format conversions of others' corpora"
+      ],
+      "key_terms": [
+        "data pipeline",
+        "synthetic data",
+        "repository mining",
+        "validation workflow",
+        "quality rubric",
+        "sandboxing"
+      ],
+      "github_code_signals": [
+        "pull request mining",
+        "GH Archive",
+        "tree-sitter",
+        "docker",
+        "nsjail",
+        "pytest",
+        "hypothesis",
+        "dedup",
+        "MinHash",
+        "datatrove",
+        "license filter"
+      ]
+    },
+    {
+      "name": "Technical leadership evidenced in the open",
+      "description": "Leads engineering work visibly: maintains projects others depend on, reviews and merges others' contributions, sets up CI/QA processes, mentors through review. Supporting signal — a tiebreaker per the operator instructions, never a requirement.",
+      "builder_signals": [
+        "Maintainer-shaped activity on a real project: reviewing and merging external PRs, release management, CONTRIBUTING/CI they authored",
+        "Org ownership with multiple active contributors on projects in the code-agent/eval domain",
+        "Talks, papers, or technical posts tied to shipped repos in this domain (paper + code, not paper alone)"
+      ],
+      "user_signals": [
+        "Follower count or stars without corresponding review/merge activity",
+        "Org membership badges with no visible contributions"
+      ],
+      "key_terms": [
+        "maintainer",
+        "code review",
+        "release",
+        "CI",
+        "mentoring"
+      ],
+      "github_code_signals": [
+        "CODEOWNERS",
+        "CONTRIBUTING",
+        "release",
+        "review"
+      ]
+    }
+  ],
+  "non_fit_patterns": [
+    {
+      "label": "Generic RL without the code intersection",
+      "description": "Builds RL for robotics, autonomous vehicles, games, or sim-to-real: MuJoCo/Isaac policies, locomotion, navigation stacks.",
+      "why_not": "Operator instruction: RL-environment experience transfers ONLY where it intersects code. Robotics/AV/games RL is explicitly out of scope and actively excluded — the domain anchor is software engineering.",
+      "examples": [
+        "Isaac Sim locomotion policies",
+        "AV planning-stack RL",
+        "Atari/Go self-play repos"
+      ]
+    },
+    {
+      "label": "Prompt-layer agent builders",
+      "description": "Ships agent products that are prompt chains over hosted APIs: no repo interaction, no execution loop, no evaluation, no scaffold of their own.",
+      "why_not": "The role owns environments and evals at frontier quality; prompt-wrapper work shows none of the execution, testing, or measurement substrate the bar requires.",
+      "examples": [
+        "LangChain demo collections",
+        "GPT-wrapper 'AI engineer' portfolio apps"
+      ]
+    },
+    {
+      "label": "Annotation-operations managers without hands-on build",
+      "description": "Runs labeling vendors, annotation workflows, or data-ops programs; the artifacts are process docs and dashboards others built.",
+      "why_not": "Operational leadership is wanted IN ADDITION to hands-on capability, never instead of it — the minimum bar is personally-built environments, evals, or pipelines.",
+      "examples": [
+        "Vendor-side annotation program leads",
+        "data-ops PMs with no pipeline code"
+      ]
+    },
+    {
+      "label": "ML platform/MLOps without the code domain",
+      "description": "Builds serving, feature stores, orchestration, or general training infrastructure with no coding-agent, code-eval, or SWE-data surface.",
+      "why_not": "Adjacent infrastructure skill without the domain anchor; every search and save must intersect coding/SWE per the operator's domain instruction.",
+      "examples": [
+        "Kubeflow/feature-store platform work",
+        "generic inference-serving repos"
+      ]
+    },
+    {
+      "label": "Educators, curators, and list-keepers",
+      "description": "High-star repos that are tutorials, courses, interview prep, or awesome-lists about agents/LLMs; content, not systems.",
+      "why_not": "Stars on content repos are attention, not build evidence; the bar requires runnable environments, harnesses, or training code.",
+      "examples": [
+        "awesome-llm-agents lists",
+        "interview-prep repos",
+        "course notebooks"
+      ]
+    }
+  ],
+  "instructions": [
+    "Domain anchor (operator, 2026-07-27): this role is coding agents and software engineering, specifically. RL environments, datasets, evals, and post-training are the WORK, but the domain is code. Every search string must intersect the coding/SWE domain — SWE-bench and sibling coding benchmarks, coding agents, code generation, software-engineering agents, program synthesis, repository/PR/codebase work, or a named programming language. A string anchored only on generic post-training, data-quality, annotation, or eval vocabulary reaches the wrong population and must not be queued, even though those terms appear in the role description.",
+    "Transferability (operator, 2026-07-27): RL-environment and trajectory-collection experience IS in scope and IS transferable, but only where it intersects code — environments built for coding agents or software-engineering tasks. Generic RL, robotics, sim-to-real, and autonomous-vehicles RL are out of scope and should be actively excluded.",
+    "Seniority (operator, 2026-07-27): Principal/Staff band — Principal is the target rung, and strong Staff-level ICs with independent ownership of relevant systems are squarely in scope. Engineering-management experience (hired, led, set up QA processes) is a strong positive and a tiebreaker, never a requirement: leadership-shaped evidence (founder/CTO history, mentoring, teaching, review-process ownership) counts toward it. Hands-on Python fluency is required; C++, Java, Go, Rust, or JS as a second language is a positive signal, not a requirement.",
+    "Evidence posture (operator, 2026-07-27): the strongest single signal is measurable coding-model improvement — someone who fine-tuned or post-trained a model to improve SWE capability, or built a coding agent that beat its base model. Weight that above title and above employer wherever it appears — but its absence from the profile is not disqualifying. Profiles vary enormously in how much detail people write, especially niche frontier talent; the profile must show the WORK (training runs, eval harnesses, benchmark construction, agent scaffolds personally built), and the number is discoverable in outreach. A save is a decision to REACH OUT FOR A CONVERSATION, not to hire on the spot.",
+    "GitHub-source note (2026-07-31, derived for run 1): geography fill-rate on GitHub profiles is ~30% and Bay Area residents often list nothing — treat location as a positive filter in user_search queries but never as a rejection reason at judgment when the profile is location-silent. target_projects is deliberately empty for this baseline run; the maintainership classifier stays dormant."
+  ]
+}

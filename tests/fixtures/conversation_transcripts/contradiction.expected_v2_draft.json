@@ -1,0 +1,19 @@
+{
+  "role_title": "Senior Tax Associate",
+  "role_summary": "Owns multi-state sales tax across Northwind's twelve production-entity LLCs.",
+  "capability_areas": [
+    {
+      "name": "Sales tax",
+      "description": "Owns multi-state sales tax across twelve LLCs — filings, audits, the full surface."
+    },
+    {
+      "name": "Close coordination",
+      "description": "Partners with finance during production wrap on the close."
+    }
+  ],
+  "depth_distinction": {
+    "builder_definition": "Builder-grade on multi-state sales tax across twelve LLCs from day one — filings, audits, full ownership.",
+    "user_definition": "User-grade on close coordination is acceptable; the close side is treated as a learnable surface inside the role.",
+    "edge_case_guidance": "Candidates green on sales tax don't pass even if strong on close. Sales tax is the load that has to land."
+  }
+}

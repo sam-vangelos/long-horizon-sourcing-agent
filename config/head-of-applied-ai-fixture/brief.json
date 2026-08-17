@@ -1,0 +1,117 @@
+{
+  "id": "head-of-applied-ai-fixture",
+  "role_title": "Head of Applied AI",
+  "role_level": "principal",
+  "role_summary": "Head of Applied AI for Lattice Inc., a frontier-AI lab building post-training research products. The role partners with the research org on what to ship and owns the engineering side: a small team of senior ICs translating internal model capabilities into customer-facing systems. The hire is the first head-of role for this function — they will define what applied AI means here as much as execute against it.",
+  "geography": "United States",
+  "minimum_years_experience": 10,
+  "minimum_bar_description": "Ten years of engineering experience with at least four on the application side of frontier ML — fine-tuning, evaluation infrastructure, agent systems, or production RAG. Pure ML-research candidates without applied delivery experience are out of scope; pure ML-platform candidates without product surface area are out of scope.",
+  "kit_url": "",
+  "source_config": {
+    "linkedin": {
+      "project_id": "head-of-applied-ai-fixture",
+      "project_name": "Head of Applied AI — Lattice Inc."
+    },
+    "researcher": {
+      "research_topics": ["language model evaluation", "agent reliability", "post-training methods"],
+      "conference_allowlist": ["NeurIPS", "ICML", "ICLR", "ACL"],
+      "discipline": "ml_systems",
+      "h_index_floor": 6,
+      "papers_in_window_floor": 3,
+      "papers_in_window_months": 36
+    }
+  },
+  "target_modules": ["linkedin", "researcher", "github"],
+  "target_projects": [
+    "example-org/tundra-orm",
+    "example-org/pebble-runtime",
+    "example-org/mesa-build"
+  ],
+  "target_stacks": ["pytorch", "vllm", "agent-frameworks"],
+  "maintainership_level": "maintainer",
+  "capability_areas": [
+    {
+      "name": "Production agent systems",
+      "description": "Has shipped LLM-based agentic systems into production, with the operational scar tissue that comes from running them under load. The brief is not looking for prompt-engineers — the hire owns the substrate that makes agents reliable.",
+      "builder_signals": [
+        "Named system in their writing — the agent product, the eval harness, the capability they shipped — described with operational specificity (latency budgets, failure modes, recovery loops).",
+        "Trajectory through ML-systems-shaped roles before agents existed; they are not new to production ML, just newly applying it to agents.",
+        "Has written publicly about an agent-reliability problem in concrete terms; surfaces in talks, blog posts, or papers."
+      ],
+      "user_signals": [
+        "Resume names a popular agent framework as if having used it constitutes ownership.",
+        "Heavy on demos and Twitter threads; thin on production deployment evidence.",
+        "Career arc that pivoted to agents in the last 12 months from a non-ML domain."
+      ]
+    },
+    {
+      "name": "Evaluation infrastructure depth",
+      "description": "Believes evaluation is the hard part. Has built or substantially shaped an evaluation pipeline that the team actually uses to make ship/no-ship calls — not a benchmark for a paper.",
+      "builder_signals": [
+        "Mentions a specific eval system they built and what it changed: a launch they blocked, a regression they caught, a capability they de-risked.",
+        "Comfortable with the philosophy fights — distributional vs. behavioral evaluation, pairwise vs. anchor-grounded, synthetic vs. golden — and has a defended position.",
+        "Has either authored or substantially shaped an evaluation benchmark that other teams cite."
+      ],
+      "user_signals": [
+        "Evaluation is one bullet of many; not load-bearing in their writing.",
+        "Talks about \"running benchmarks\" without distinguishing between a benchmark and a decision-grade eval.",
+        "Has only done academic-style evaluation, not production gating."
+      ]
+    },
+    {
+      "name": "Research-engineering interface fluency",
+      "description": "The hire sits between research scientists and product engineers. The strongest candidates can read a paper carefully, can ship the implementation, and can argue with the original author about whether the paper applies to the setting they're in.",
+      "builder_signals": [
+        "Co-authored at least one paper at a frontier venue (NeurIPS / ICML / ICLR / ACL); not as the lead author, but as the implementer.",
+        "Career history shows tenure on both sides — research-leaning role at one point, product-leaning role at another.",
+        "Public artifacts (PRs, posts, talks) that translate research into shipped engineering."
+      ],
+      "user_signals": [
+        "Pure research track with no shipping evidence; would be a research scientist hire, not applied AI.",
+        "Pure platform track with no research literacy; would be an ML-platform hire, not applied AI.",
+        "Heavy reliance on research-author-as-coauthor signal without engineering substance."
+      ]
+    }
+  ],
+  "depth_distinction": {
+    "builder_definition": "The builder has shipped an applied-AI product whose reliability they personally own. They have a recruiter-readable answer to \"which of your products would have been worse without you on it,\" and the answer cites specific decisions. They read research papers as a working engineer would: which assumption breaks first when this hits production.",
+    "user_definition": "The user has consumed applied-AI work without having authored the substrate. They have used internal LLM platforms, fine-tuned models on top of someone else's pipeline, or shipped wrappers around a frontier API. The skills are real but the leverage is at a different layer than this role demands.",
+    "edge_case_guidance": "The hardest borderline calls are mid-career engineers with strong systems chops who pivoted to applied AI two years ago and have shipped one substantial product since. If the substrate shows engineering ownership — they wrote the eval harness, they own the agent loop's failure modes — lean save. If they have shipped a wrapper and are growing into the role, lean borderline; the role needs someone who can lead from day one."
+  },
+  "non_fit_patterns": [
+    {
+      "label": "Pure-research career arc",
+      "description": "Tenure entirely at research labs with no production-shipping evidence; coauthor list is strong but no products visible.",
+      "why_not": "The role's center of gravity is shipping; a research-only hire would either not get the job done or regret the role within twelve months."
+    },
+    {
+      "label": "Wrapper-only applied AI",
+      "description": "Applied-AI tenure consists of wrapping a frontier API into a B2B SaaS product without depth on evaluation, fine-tuning, or agent reliability.",
+      "why_not": "The wrapper-shape work is real engineering, but the brief is buying substrate ownership. The candidate would be at the wrong altitude for this team."
+    },
+    {
+      "label": "Manager-only for the past two years",
+      "description": "Recent role is engineering manager or director without IC contributions; they hired the team that did the work but did not author it.",
+      "why_not": "The role is hands-on for the first eighteen months; a manager-track candidate would slow the team down at exactly the moment it needs to move."
+    }
+  ],
+  "employer_signal_rules": [
+    {
+      "tier": "frontier_lab_direct",
+      "employer_patterns": ["Anthropic", "OpenAI", "Google DeepMind", "Meta FAIR", "Mistral", "Cohere"],
+      "evidence_required": "Confirmed tenure on an applied-AI or production-deployment team; pure-research tenure does not count.",
+      "save_on_employer_alone": false
+    },
+    {
+      "tier": "applied_ai_company",
+      "employer_patterns": ["Adept", "Imbue", "Sierra", "Harvey", "Hebbia", "Glean"],
+      "evidence_required": "Engineering depth visible in scope language; not just product or BD."
+    },
+    {
+      "tier": "general_systems",
+      "employer_patterns": ["Databricks", "Snowflake", "Confluent"],
+      "evidence_required": "ML-platform tenure required; otherwise treat as general-systems prior with applied-AI as a stretch."
+    }
+  ],
+  "minimum_bar": "Ten years total engineering experience; four years on applied-AI substrate (evaluation, agents, fine-tuning, or production RAG); demonstrable ownership of a shipped applied-AI product."
+}

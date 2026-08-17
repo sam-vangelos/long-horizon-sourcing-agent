@@ -1,0 +1,60 @@
+sequenceDiagram
+    autonumber
+    participant ORCH as orchestrator (LinkedIn / GitHub)
+    participant RT as RuntimeStateStore
+    participant DB as runtime_state.sqlite3
+    participant SNAP as market_intelligence.run_snapshots
+    participant RUNS as output/runs/...
+    participant ENG as market_intelligence.engine.update_market_intel
+    participant BACK as agent_backends (planner / synth / critic)
+    participant RA as research_agent (Anthropic / Perplexity)
+    participant LIVE as live_advisory sidecar
+    participant MI as output market_intelligence per market_key
+    participant ITER as tools/iterate_brief.py
+    participant BRIEF_LC as shared.brief_iteration
+    participant CFG as config/brief-*.json
+    participant FE as Svelte UI
+
+    ORCH->>RT: finish_run(run_id, status, stop_reason)
+    RT->>DB: UPDATE runs SET status, stop_reason, ended_at
+    ORCH->>SNAP: finalize_run_snapshot(source, brief_path, state_dir, run_id)
+    SNAP->>DB: read RO canonical state (run timing/id)
+    SNAP->>RUNS: copy state_dir artifacts (JSONL, sidecar MI, projections) + write run-manifest.json
+    Note over SNAP,RUNS: snapshot lives at output/runs/[source]/[brief_key]/[stamp]__run-[id]/
+    SNAP-->>ORCH: run_dir Path
+
+    rect rgba(237, 233, 254, 0.4)
+        Note over ORCH,MI: LinkedIn ONLY: auto-trigger inside linkedin/run_report.py:222-258
+        ORCH->>ENG: update_market_intel(brief_path, run_dir, mode='post_run')
+        ENG->>RUNS: read snapshot evidence + research-input.json
+        ENG->>LIVE: read live advisory from snapshot's market_intel/ sidecar
+        ENG->>MI: read prior market-intel.json + agent-state.json (if exist)
+        ENG->>BACK: planner — what to synthesize, does this need external research
+        BACK-->>ENG: planner_result
+        opt planner says yes + external backend configured
+            ENG->>RA: research_agent.collect(...)
+            RA-->>ENG: ExternalResearchResult
+        end
+        ENG->>BACK: synth — generate sections (merging external evidence)
+        BACK-->>ENG: generated_sections
+        ENG->>BACK: critic — pressure-test claims, decide keep/drop
+        BACK-->>ENG: critic_result
+        ENG->>MI: write market-intel.json + agent-state.json + .md files + history/ + token-cost-log.jsonl + research-log.jsonl
+        Note over ENG,MI: market_key = hash(role_title + geography + role_level). Multiple briefs in same market share the artifact.
+    end
+
+    Note over ORCH: GitHub: orchestrator exits here. update_market_intel must be invoked manually (tools/update_market_intel.py).
+
+    rect rgba(220, 252, 231, 0.4)
+        Note over ITER,CFG: Brief iteration — always operator-driven, no auto-trigger
+        ITER->>RUNS: read run-report.json + final_judgments.jsonl
+        ITER->>MI: _load_market_intel_summary — reads market-intel.json if present, works without
+        ITER->>BRIEF_LC: iterate_brief_draft(brief_path, run_report, market_intel_summary, ...)
+        Note over BRIEF_LC: calibration thresholds clamped at CALIBRATION_MAX_DELTA = 0.10 (shared/brief_iteration.py:71)
+        BRIEF_LC-->>ITER: BriefIterationResult (draft brief, rationale md, warnings)
+        ITER->>CFG: write brief-[id]-vN.M-draft.json
+        ITER->>RUNS: write brief-iteration-report-[id].md + brief-iteration-token-cost-log.jsonl
+    end
+
+    FE->>FE: GET /api/briefs (sees new draft version)
+    FE->>FE: GET /api/markets/[market_key] (sees synthesis)

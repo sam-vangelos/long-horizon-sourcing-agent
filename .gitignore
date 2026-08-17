@@ -1,0 +1,64 @@
+node_modules/
+.env
+*.env
+__pycache__/
+*.pyc
+.pytest_cache/
+venv/
+.venv/
+*~
+.wwebjs_auth/
+output/
+1~
+progress--*.json
+!progress-sample-redacted.json
+run-log--*.md
+.DS_Store
+greenhouse-mcp/
+.claude/
+*.bak-*.json
+
+# Build artifacts (regenerated on every build)
+dist/
+!cloris/frontend/dist/
+!cloris/frontend/dist/**
+build/
+# Build-time content-hash fingerprint stamped into dist/Cloris.app by
+# cloris/packaging/scripts/build-app.sh. Regenerated on every build; the
+# packaged-cert verifier compares it to the current source fingerprint.
+cloris/packaging/_build_revision.txt
+
+# PyInstaller app bundle outputs at repo root
+/build/
+/dist/
+
+# Tooling caches
+.playwright-cli/
+.coverage
+.mypy_cache/
+.ruff_cache/
+.certification/
+
+# Throwaway spike scripts — used for manual real-API verification of
+# implementation choices; the production helpers live in shared/.
+tools/spikes/
+
+# Dated design-probe snapshots (one per audit run)
+.cloris-design-probe-snapshot-*/
+
+# Runtime log files (written to user-data dir in production, project root in dev)
+logs/
+test.log
+.test_state.db
+
+# Derived asset exports/previews (regenerated from SVG sources)
+assets/**/exports/
+assets/**/previews/
+
+# Editor/session backups and regenerable design previews (A6, remediation spec)
+*.backup-*
+design-audit-preview*.png
+
+# Agent skills installed via `npx skills` — global at ~/.agents/skills, never vendored here
+.agents/
+skills-lock.json

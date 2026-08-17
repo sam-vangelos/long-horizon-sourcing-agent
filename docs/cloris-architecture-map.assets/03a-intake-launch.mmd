@@ -1,0 +1,53 @@
+sequenceDiagram
+    autonumber
+    participant U as User
+    participant CLI as cloris.cli
+    participant APP as cloris.app
+    participant UV as uvicorn (bg thread)
+    participant WV as pywebview (foreground)
+    participant FE as Svelte UI
+    participant API as cloris.api
+    participant CP as cloris.control_plane
+    participant LR as cloris.launchers
+    participant LL as cloris.launch_lock
+    participant W as cloris.worker (subprocess)
+    participant ORCH as linkedin/github session_orchestrator
+    participant RT as shared.runtime_state.store
+    participant DB as runtime_state.sqlite3
+
+    U->>CLI: cloris start
+    CLI->>APP: create_app() + run_app()
+    APP->>UV: server.run() in daemon thread
+    APP->>APP: _wait_until_ready (poll /healthz)
+    APP->>WV: launcher.open(http://127.0.0.1:port)
+    WV->>FE: load index.html + bundle
+    FE->>API: GET /api/status
+    API->>CP: aggregate_status()
+    CP->>DB: read RO via mode=ro URI
+    CP-->>API: StatusResponse (briefs, recent runs, worker_state per state_dir)
+    API-->>FE: StatusResponse
+    FE->>U: render Homescreen
+
+    U->>FE: pick brief, click Launch
+    FE->>API: POST /api/launch/linkedin {brief_id}
+    API->>API: _spawn_worker_for_source(source, brief_path, mode='fresh')
+    API->>LR: LAUNCHERS[source].state_dir_fn / state_key_fn / save_destination_blocker_fn
+    LR-->>API: state_dir, brief_id, blocker?
+    API->>LL: state_dir_launch_lock(state_dir)
+    LL-->>API: held
+    API->>API: read existing worker.json sidecar (if any)
+    alt sidecar pid alive
+        API-->>FE: 409 WorkerAlreadyRunningError
+    else stale or missing
+        API->>W: subprocess.Popen([python, -m, cloris.worker, --source, --brief, --brief-id, --state-dir], start_new_session=True, stdio=DEVNULL)
+        W->>W: _build_arg_parser, write_sidecar(state_dir, {pid, started_at, brief_id, heartbeat_at})
+        W->>ORCH: os.execvp(launchers[source].orchestrator_argv_fn(...))
+        ORCH->>RT: RuntimeStateStore(db_path).start_run(source, brief_id, ...)
+        RT->>DB: INSERT INTO runs (status='running', brief_snapshot_json, ...)
+        RT-->>ORCH: run_id
+        Note over ORCH,RT: orchestrator now owns the writer for this state_dir
+    end
+    API->>API: wait_for_sidecar(state_dir, expected_pid, timeout)
+    API->>LL: release lock
+    API-->>FE: LaunchResponse {state_dir, pid, worker_json_path}
+    FE->>FE: poll /api/status every 3s while running

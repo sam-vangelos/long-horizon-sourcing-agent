@@ -1,0 +1,8 @@
+# Global owners
+* @acme/platform-team owner-one@example.com @alice
+
+# Docs area
+/docs/ @bob @acme/docs-team
+
+# Library code — duplicate handle across rules (first line wins)
+/src/lib/ @alice @carol

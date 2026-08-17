@@ -1,0 +1,110 @@
+{
+  "_meta": {
+    "name": "Cloris default design rubric",
+    "version": "1.0",
+    "owner": "Sam",
+    "last_updated": "2026-05-03",
+    "notes": "Six principles × four anchor levels. Per-discipline weight overrides cover product / brand / motion / illustration / ux. Editorial baseline for the Designer module's vision-LLM evaluation; recruiters can override per-brief in the intake wizard's design_rubric chapter. The principles + anchor language carries over from docs/designer-hitl-module-spec.md §3 — settled editorial work."
+  },
+  "principles": [
+    {
+      "name": "Visual hierarchy",
+      "description": "How clearly the work guides the viewer's attention. Are primary, secondary, and tertiary elements distinguishable without effort? Does the eye land where it should?",
+      "anchors": {
+        "bad": "No discernible hierarchy. Every element competes equally for attention; viewer cannot tell what is primary.",
+        "okay": "Hierarchy is present but weak. Distinctions between primary and secondary elements are subtle and require effort to read.",
+        "good": "Clear hierarchy. Primary, secondary, and tertiary elements are visually distinct and the eye lands on the intended focal point.",
+        "excellent": "Hierarchy is purposeful and confident. Each layer serves a deliberate communication purpose; the work directs attention with precision."
+      },
+      "weight": 1.0
+    },
+    {
+      "name": "Typographic refinement",
+      "description": "Type choices, kerning precision, line-height discipline, and how typography carries the work's voice. Treats type as a first-class design material, not a fill.",
+      "anchors": {
+        "bad": "Type is undifferentiated or default. No evidence of intentional typeface selection, sizing, or rhythm.",
+        "okay": "Type is consistent without precision. Choices are workable but not load-bearing for the work's identity.",
+        "good": "Type is intentional and well-set. Kerning, leading, and pairing reflect craft; the typography carries voice without effort.",
+        "excellent": "Typography is a primary expressive material. Decisive type choices, micro-typography precision, and editorial restraint."
+      },
+      "weight": 1.0
+    },
+    {
+      "name": "Compositional balance",
+      "description": "Spatial relationships across the canvas. Positive and negative space, alignment, rhythm, and how elements relate as a whole.",
+      "anchors": {
+        "bad": "Composition is cluttered or arbitrary. Elements feel placed rather than arranged.",
+        "okay": "Composition is workable but predictable. Default grid behavior; no compositional ambition.",
+        "good": "Composition is considered. Rhythm and balance are intentional; negative space is used as a positive material.",
+        "excellent": "Composition is the design itself. Tension, asymmetry, and pacing are deployed with intent."
+      },
+      "weight": 1.0
+    },
+    {
+      "name": "Color system coherence",
+      "description": "How color choices relate as a system. Palette discipline, chromatic relationships, and the emotional / functional purpose of color.",
+      "anchors": {
+        "bad": "Color is incidental or chaotic. No discernible palette discipline; colors fight each other.",
+        "okay": "Color works but isn't a system. Choices are workable; coherence is approximate.",
+        "good": "Color is systematic. Palette is clearly defined; relationships between colors are intentional.",
+        "excellent": "Color is a structural material. Palette has perspective and decisiveness; chromatic relationships carry the work's identity."
+      },
+      "weight": 1.0
+    },
+    {
+      "name": "Conceptual strength",
+      "description": "Whether the work expresses an idea beyond its surface. Does it reward extended attention? Is there a sharp underlying concept the visual choices serve?",
+      "anchors": {
+        "bad": "No discernible concept beneath the surface. The work executes a brief without proposing a frame.",
+        "okay": "Concept is present but generic. The frame is recognizable; not particularly its own.",
+        "good": "Concept is sharp and the visual choices serve it consistently. The work has a frame worth holding.",
+        "excellent": "Concept is original and the execution makes the concept inevitable. The work proposes something rather than fulfilling something."
+      },
+      "weight": 1.0
+    },
+    {
+      "name": "Craft execution",
+      "description": "Fit, finish, and the absence of avoidable errors. Spacing precision, edge treatment, alignment discipline, asset preparation.",
+      "anchors": {
+        "bad": "Visible craft errors. Misaligned elements, low-resolution assets, or mistreated edges signal indifference to detail.",
+        "okay": "Craft is acceptable. Few errors but not particularly precise; finish is workable rather than polished.",
+        "good": "Craft is clean. Spacing, alignment, and finish are precise; the work reads as intentional throughout.",
+        "excellent": "Craft is at the limit of what the medium allows. Every detail serves the whole; nothing draws attention by being wrong."
+      },
+      "weight": 1.0
+    }
+  ],
+  "discipline_weight_overrides": {
+    "product": {
+      "Visual hierarchy": 1.3,
+      "Compositional balance": 1.2,
+      "Conceptual strength": 0.8
+    },
+    "brand": {
+      "Conceptual strength": 1.4,
+      "Color system coherence": 1.3,
+      "Typographic refinement": 1.3,
+      "Visual hierarchy": 0.9
+    },
+    "motion": {
+      "Compositional balance": 1.2,
+      "Conceptual strength": 1.2,
+      "Color system coherence": 1.0,
+      "Typographic refinement": 0.8
+    },
+    "illustration": {
+      "Conceptual strength": 1.4,
+      "Craft execution": 1.3,
+      "Color system coherence": 1.2,
+      "Typographic refinement": 0.5
+    },
+    "ux": {
+      "Visual hierarchy": 1.5,
+      "Compositional balance": 1.2,
+      "Conceptual strength": 0.7,
+      "Color system coherence": 0.9
+    }
+  },
+  "calibration_exemplars": [],
+  "hard_reject_patterns": []
+}

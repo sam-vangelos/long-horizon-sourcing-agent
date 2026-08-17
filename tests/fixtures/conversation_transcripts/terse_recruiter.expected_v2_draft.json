@@ -1,0 +1,15 @@
+{
+  "role_title": "Senior Tax Associate",
+  "role_summary": "Senior sales tax associate.",
+  "capability_areas": [
+    {
+      "name": "Multi-state sales tax",
+      "description": "Owns filings across twelve states end-to-end. Director steps in only on edge cases."
+    }
+  ],
+  "depth_distinction": {
+    "builder_definition": "Owns the twelve-state filing process from intake to filed return.",
+    "user_definition": "Operates the existing process; escalates edge cases to the Director.",
+    "edge_case_guidance": "Escalation triggers are new-state additions and sourcing-rule changes only; numerical anomalies are handled in-role."
+  }
+}

@@ -1,0 +1,29 @@
+flowchart TB
+    SURFACE["<b>Surface</b><br/><i>cloris/frontend/</i><br/>Svelte + hand-written CSS"]
+    SHELL["<b>Shell</b><br/><i>cloris/</i><br/>FastAPI + control plane + worker spawner + reconciler"]
+    SUBSTRATE["<b>Substrate</b><br/><i>shared/</i><br/>canonical SQLite, brief lifecycle, judger, governance"]
+    ADAPTERS["<b>Adapters</b><br/><i>linkedin/, github/</i><br/>per-source planning, acquisition, work-units, side-effects"]
+    POSTRUN["<b>Post-run</b><br/><i>market_intelligence/, tools/iterate_brief.py</i><br/>per-market synthesis, brief revision"]
+    DISK[("<b>On-disk state</b><br/>output/state/, output/runs/, output/market_intelligence/, output/intake/")]
+
+    SURFACE -- "HTTP (api.py)" --> SHELL
+    SHELL -- "imports" --> SUBSTRATE
+    SHELL -- "subprocess spawn (one-way)" --> ADAPTERS
+    ADAPTERS -- "imports" --> SUBSTRATE
+    SUBSTRATE -- "writes / reads RO" --> DISK
+    POSTRUN -- "reads RO" --> DISK
+    POSTRUN -- "writes per-market" --> DISK
+    SHELL -- "reads RO" --> DISK
+
+    classDef surface fill:#fef3c7,stroke:#b45309,color:#1c1917
+    classDef shell fill:#dbeafe,stroke:#1e40af,color:#1c1917
+    classDef substrate fill:#dcfce7,stroke:#15803d,color:#1c1917
+    classDef adapter fill:#fce7f3,stroke:#a21caf,color:#1c1917
+    classDef post fill:#ede9fe,stroke:#6d28d9,color:#1c1917
+    classDef state fill:#f5f5f4,stroke:#525252,color:#1c1917,stroke-dasharray:4 2
+    class SURFACE surface
+    class SHELL shell
+    class SUBSTRATE substrate
+    class ADAPTERS adapter
+    class POSTRUN post
+    class DISK state

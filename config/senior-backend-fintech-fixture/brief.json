@@ -1,0 +1,102 @@
+{
+  "id": "senior-backend-fintech-fixture",
+  "role_title": "Senior Backend Engineer",
+  "role_level": "senior",
+  "role_summary": "Senior backend engineer for Helio Labs's payments infrastructure team. The role owns the next generation of the ledger and payment-rails service: high-throughput transactional systems where correctness is load-bearing and failure modes need to be reasoned about end-to-end. The hire will be one of the first three ICs on the team, partnering with a staff engineer on the architectural direction.",
+  "geography": "United States",
+  "minimum_years_experience": 6,
+  "minimum_bar_description": "Six years of backend engineering, with at least three years on systems where correctness under concurrent load was a primary design constraint. Candidates whose entire experience has been in CRUD-heavy product surfaces with no exposure to ledger, queue, or concurrency-heavy work will read as a stretch.",
+  "kit_url": "",
+  "source_config": {
+    "linkedin": {
+      "project_id": "senior-backend-fintech-fixture",
+      "project_name": "Senior Backend — Helio Labs"
+    }
+  },
+  "capability_areas": [
+    {
+      "name": "Distributed systems at scale",
+      "description": "Has owned a service that handles meaningful production traffic and made the architectural calls that shape how it scales. The candidate should have a recruiter-readable answer to \"what was the hardest distributed-systems problem you had to solve, and how did you think about it.\"",
+      "builder_signals": [
+        "Tenure on a system with measurable scale — RPS, transaction volume, or geographic distribution that forced real architectural choices.",
+        "Job titles or scope language that names the system: \"ledger service,\" \"payments core,\" \"event router,\" rather than generic \"backend engineer.\"",
+        "Trajectory shows depth in one substrate over years rather than a sequence of one-year company-hops with shallow surface area at each."
+      ],
+      "user_signals": [
+        "\"Built REST APIs at scale\" with no scale referenced anywhere; the word scale is doing all the work.",
+        "Resume reads as full-stack with backend as one of five things; backend depth is not the spine.",
+        "Architectural calls described in passive voice (\"the system was designed to\") suggesting the candidate consumed decisions rather than made them."
+      ]
+    },
+    {
+      "name": "Payment systems integrations",
+      "description": "Has shipped or maintained code that talks to a real payment processor, banking partner, or settlement system. Knows what idempotency means in practice — not as a CS-101 concept but as the set of bugs you debug at 2am.",
+      "builder_signals": [
+        "Named integration work — Stripe, Adyen, Plaid, Modern Treasury, or in-house equivalents at fintechs of comparable stage.",
+        "Evidence of having reasoned about the operational surface: webhooks, retries, settlement reconciliation, dispute handling.",
+        "Has held a production rotation on payments-adjacent code; knows the failure modes from the inside."
+      ],
+      "user_signals": [
+        "Payments listed as a tag among twenty other tags with no project depth visible.",
+        "Resume asserts \"integrated Stripe\" but doesn't name a single design decision that was non-obvious.",
+        "Tenure at a fintech but on the consumer surface (mobile app, growth) rather than the rails."
+      ]
+    },
+    {
+      "name": "Production infra ownership",
+      "description": "Has carried the pager for systems they wrote. The brief is not looking for a pure architect — the strongest candidates have been on call, written the runbook, and made the call to roll back at 3am.",
+      "builder_signals": [
+        "Explicit on-call language; specific war-story-worthy incidents the candidate names in their writing.",
+        "Has chosen and defended infra primitives — Kafka vs RabbitMQ, Postgres vs Spanner — on a real project, with written evidence of the reasoning.",
+        "Trajectory toward staff-track or principal scope at their current company, suggesting depth was rewarded."
+      ],
+      "user_signals": [
+        "\"Worked closely with infra\" framing — adjacent to the work rather than owning it.",
+        "Pure platform-engineering role with no evidence of having written application code that used the infra they built.",
+        "Recent move into engineering management with the IC depth visible only several years back."
+      ]
+    }
+  ],
+  "depth_distinction": {
+    "builder_definition": "The builder has authored a meaningful piece of the substrate that processes money. They can speak in specifics about a deadlock they debugged, a write-amplification failure they engineered around, or a settlement-reconciliation bug that taught them something they now believe. They read other people's distributed-systems code with the eye of someone who has paid the cost of getting it wrong.",
+    "user_definition": "The user has used the substrate without owning it. Their role was to plug into a payments service that someone else built and call its endpoints from a feature surface. They can describe what the system did from the outside, but the questions about why it was shaped that way fall to the staff engineer two seats over.",
+    "edge_case_guidance": "Borderline cases are usually candidates with two years at a payments company on the right team but coming off a four-year stretch on the wrong substrate before that. The signal to watch is whether the recent depth is convincing on its own — if the work-products from those two years would let them lead the next greenfield service here, lean save. If their best stories still come from the prior chapter, they are user-tier."
+  },
+  "non_fit_patterns": [
+    {
+      "label": "Consultancy track with late fintech pivot",
+      "description": "Pure consultancy track for the first half of the resume; payment-systems work appears only in the last 18 months.",
+      "why_not": "The substrate exposure is too thin to lead the next greenfield service. The candidate would need a staff-level partner to compensate for the missing years."
+    },
+    {
+      "label": "Crypto-only fintech depth",
+      "description": "Heavy crypto / web3 background with no traditional-rails fintech depth; the substrate vocabulary is different and the brief is not for a crypto rebuild.",
+      "why_not": "Settlement, banking-partner integration, and reconciliation are different problems than on-chain finality. The transferable depth is real but not what this role is buying."
+    },
+    {
+      "label": "Manager-only recency",
+      "description": "Manager-only for the past three years; IC chops have not been kept current.",
+      "why_not": "The role is IC; a candidate whose recent contributions are coaching and roadmaps will be slow to be load-bearing on the substrate."
+    }
+  ],
+  "employer_signal_rules": [
+    {
+      "tier": "direct_comparable",
+      "employer_patterns": ["Stripe", "Adyen", "Block", "Plaid", "Modern Treasury", "Mercury", "Ramp"],
+      "evidence_required": "Confirmed tenure on a payments-rails or ledger team, not the consumer-product surface.",
+      "save_on_employer_alone": false
+    },
+    {
+      "tier": "neutral_legacy",
+      "employer_patterns": ["FIS", "Fiserv", "Jack Henry", "JPMC", "Bank of America"],
+      "evidence_required": "The role and team matter more than the logo; depth varies wildly inside these orgs."
+    },
+    {
+      "tier": "general_systems",
+      "employer_patterns": ["Google", "Meta", "Amazon", "Apple"],
+      "evidence_required": "Payments-team tenure required to count as direct depth; otherwise treat as general-systems prior."
+    }
+  ],
+  "minimum_bar": "Six years total backend experience; three years on transactional / payment-adjacent / ledger systems; demonstrable IC ownership of a service handling meaningful production load.",
+  "target_modules": ["linkedin"]
+}

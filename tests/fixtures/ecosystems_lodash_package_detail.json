@@ -1,0 +1,10 @@
+{
+  "id": 1969786,
+  "name": "lodash",
+  "ecosystem": "npm",
+  "description": "Lodash modular utilities.",
+  "repository_url": "https://github.com/lodash/lodash",
+  "latest_release_number": "4.18.1",
+  "downloads": 658979149,
+  "dependent_packages_count": 159122
+}

@@ -1,0 +1,23 @@
+<!-- PLACEHOLDER — profile-drawer snapshot
+========================================
+The role=dialog drawer mounted over the search route when a candidate is opened.
+URL family: /talent/hire/{projectId}/discover/recruiterSearch/profile/{candidateId}
+Expected to contain:
+  - role=dialog
+  - heading "From {projectName}"
+  - nav "Pagination" with "Previous candidate" button + "Go forward to profile N" link
+  - position counter text matching /^\d+ of [\d,]+$/
+  - heading "In N projects" with link list (parse as "{projectName} (contacted|uncontacted)")
+  - button "Public profile" (the public-vanity resolver)
+  - button name matching /^Save to '[^']+'$/ (stage-aware save)
+  - button "Add email", "Add phone number"
+  - region "Recruiting Tools" (right rail)
+  - heading "Similar Profiles" (right rail)
+  - tab list with at least: Profile, Projects (N), Messages (N), Greenhouse/Lever/Ashby/...,
+    Feedback (N), Attachments (N), Recruiting activity, More
+
+Fill in via capture-snippets/04_drawer_in_network.js + 99_outer_html.js. DO NOT
+include any candidate PII you would not be comfortable having committed to a
+repo — Pass-3 doc recommends scrubbing the name/email/phone fields before
+checking the file in.
+-->
