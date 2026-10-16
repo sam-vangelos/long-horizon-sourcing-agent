@@ -1,0 +1,684 @@
+{
+ "note": "Real generated strings from three ML-role campaigns (Opus 5 strategy seat), extracted 2026-09-20 from execution_plan.json; calibration fixture for linkedin/boolean_score.",
+ "strings": [
+  {
+   "id": "research_engineer_frontier-00",
+   "run": "research_engineer_frontier",
+   "boolean": "(\"OpenRLHF\" OR \"verl\" OR \"NeMo-Aligner\" OR \"TRLX\" OR \"SkyRL\" OR \"prime-rl\" OR \"DeepSpeed-Chat\" OR \"torchtune\" OR \"LLaMA-Factory\")",
+   "precision_class": "sniper",
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": [
+    "overlong_or_group"
+   ]
+  },
+  {
+   "id": "research_engineer_frontier-01",
+   "run": "research_engineer_frontier",
+   "boolean": "(\"Tulu\" OR \"UltraFeedback\" OR \"HH-RLHF\" OR \"HelpSteer\" OR \"UltraChat\" OR \"OpenHermes\" OR \"Magpie\" OR \"Nectar\" OR \"WizardLM Evol-Instruct\")",
+   "precision_class": "sniper",
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": [
+    "overlong_or_group"
+   ]
+  },
+  {
+   "id": "research_engineer_frontier-02",
+   "run": "research_engineer_frontier",
+   "boolean": "(\"RL environment\" OR \"RL environments\" OR \"reinforcement learning environment\" OR \"RLVR\" OR \"verifiable rewards\" OR \"SWE-Gym\" OR \"agent trajectories\" OR \"environment design\")",
+   "precision_class": "sniper",
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "research_engineer_frontier-03",
+   "run": "research_engineer_frontier",
+   "boolean": "(\"synthetic data generation\" OR \"synthetic data pipeline\" OR \"data generation pipeline\" OR \"Evol-Instruct\" OR \"AgentInstruct\" OR \"APIGen\" OR \"distillation pipeline\")",
+   "precision_class": "sniper",
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "research_engineer_frontier-04",
+   "run": "research_engineer_frontier",
+   "boolean": "(\"SWE-agent\" OR \"OpenHands\" OR \"Agentless\" OR \"AutoCodeRover\" OR \"mini-SWE-agent\" OR \"coding agent\" OR \"coding agents\" OR \"agentic coding\" OR \"software engineering agents\")",
+   "precision_class": "sniper",
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": [
+    "overlong_or_group"
+   ]
+  },
+  {
+   "id": "research_engineer_frontier-05",
+   "run": "research_engineer_frontier",
+   "boolean": "(\"SWE-bench\" OR \"Terminal-Bench\" OR \"OSWorld\" OR \"WebArena\" OR \"τ-bench\" OR \"GPQA\" OR \"LiveCodeBench\" OR \"MLE-bench\" OR \"BrowseComp\")",
+   "precision_class": "sniper",
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": [
+    "overlong_or_group"
+   ]
+  },
+  {
+   "id": "research_engineer_frontier-06",
+   "run": "research_engineer_frontier",
+   "boolean": "(\"eval harness\" OR \"evaluation harness\" OR \"LLM-as-a-judge\" OR \"LLM judge\" OR \"autograder\" OR \"model evaluation pipeline\" OR \"evals\")",
+   "precision_class": "sniper",
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "research_engineer_frontier-07",
+   "run": "research_engineer_frontier",
+   "boolean": "(\"reward model\" OR \"reward modeling\" OR \"preference optimization\" OR \"direct preference optimization\" OR \"preference data\" OR \"RLAIF\")",
+   "precision_class": "sniper",
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": [
+    "jd_register_overuse"
+   ]
+  },
+  {
+   "id": "research_engineer_frontier-08",
+   "run": "research_engineer_frontier",
+   "boolean": "(\"NeMo\" OR \"NeMo-Aligner\" OR \"NeMo RL\" OR \"Megatron\" OR \"Megatron-LM\" OR \"Megatron-Core\" OR \"Nemotron\")",
+   "precision_class": "sniper",
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "research_engineer_frontier-09",
+   "run": "research_engineer_frontier",
+   "boolean": "(\"DeepMind\" OR \"Gemini\") AND (\"post-training\" OR \"RLHF\" OR \"reinforcement learning\" OR \"fine-tuning\" OR \"model evaluation\" OR \"reward model\")",
+   "precision_class": "standard",
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "research_engineer_frontier-10",
+   "run": "research_engineer_frontier",
+   "boolean": "(\"eval harness\" OR \"SWE-bench\" OR \"LLM-as-a-judge\" OR \"synthetic data generation\" OR \"RL environment\" OR \"post-training\" OR \"reward model\" OR \"instruction tuning\")",
+   "precision_class": "standard",
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": [
+    "jd_register_overuse"
+   ]
+  },
+  {
+   "id": "research_engineer_frontier-11",
+   "run": "research_engineer_frontier",
+   "boolean": "(\"research engineer\" OR \"machine learning engineer\" OR \"ML engineer\" OR \"founding engineer\" OR \"software engineer\") AND (\"post-training\" OR \"RLHF\" OR \"evals\" OR \"evaluation\" OR \"synthetic data\" OR \"RL environment\" OR \"fine-tuning\") NOT (\"annotator\" OR \"AI trainer\" OR \"language specialist\" OR \"data labeling\")",
+   "precision_class": "standard",
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "research_engineer_frontier-12",
+   "run": "research_engineer_frontier",
+   "boolean": "(\"Llama\" OR \"post-training\" OR \"RLHF\" OR \"reward model\" OR \"instruction tuning\" OR \"superintelligence\" OR \"GenAI\")",
+   "precision_class": "standard",
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "research_engineer_frontier-13",
+   "run": "research_engineer_frontier",
+   "boolean": "(\"post-training\" OR \"RLHF\" OR \"DPO\" OR \"supervised fine-tuning\" OR \"fine-tuning\" OR \"instruction tuning\" OR \"distillation\" OR \"reinforcement learning\")",
+   "precision_class": "recall",
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "research_engineer_frontier-14",
+   "run": "research_engineer_frontier",
+   "boolean": "(\"benchmark\" OR \"benchmarks\" OR \"model evaluation\" OR \"capability evaluation\" OR \"evals\" OR \"red teaming\")",
+   "precision_class": "recall",
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "research_engineer_frontier-15",
+   "run": "research_engineer_frontier",
+   "boolean": "(\"machine learning\" OR \"LLM\" OR \"large language model\" OR \"language models\" OR \"reinforcement learning\")",
+   "precision_class": "standard",
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": [
+    "bare_generic_ai_term"
+   ]
+  },
+  {
+   "id": "research_engineer_frontier-16",
+   "run": "research_engineer_frontier",
+   "boolean": "(\"post-training\" OR \"reward model\" OR \"RLHF\" OR \"eval harness\" OR \"RL environments\") NOT (\"annotator\" OR \"solutions architect\" OR \"recruiter\" OR \"product manager\")",
+   "precision_class": "recall",
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "research_engineer_frontier-17",
+   "run": "research_engineer_frontier",
+   "boolean": "(\"NeurIPS\" OR \"ICML\" OR \"ICLR\" OR \"COLM\" OR \"EMNLP\" OR \"first author\") AND (\"post-training\" OR \"RLHF\" OR \"evaluation\" OR \"reinforcement learning\")",
+   "precision_class": null,
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "research_engineer_frontier-18",
+   "run": "research_engineer_frontier",
+   "boolean": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\")",
+   "precision_class": null,
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "research_engineer_frontier-19",
+   "run": "research_engineer_frontier",
+   "boolean": "(\"Amazon AGI\" OR \"AGI Foundations\" OR \"Apple Machine Learning Research\" OR \"AIML\" OR \"Microsoft AI\" OR \"AI Frontiers\" OR \"Microsoft Research\")",
+   "precision_class": null,
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": [
+    "bare_generic_ai_term"
+   ]
+  },
+  {
+   "id": "research_engineer_frontier-20",
+   "run": "research_engineer_frontier",
+   "boolean": "(\"function calling\" OR \"tool calling\" OR \"tool use\" OR \"BFCL\" OR \"xLAM\" OR \"ToolBench\") AND (\"training data\" OR \"fine-tuning\" OR \"post-training\" OR \"dataset\")",
+   "precision_class": null,
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "prre_code_brazil-00",
+   "run": "prre_code_brazil",
+   "boolean": "(\"RLHF\" OR \"fine-tuning\" OR \"fine-tuned\" OR \"post-training\" OR \"instruction tuning\" OR \"pretraining\" OR \"pré-treinamento\" OR \"ajuste fino\" OR \"benchmark\")",
+   "precision_class": "sniper",
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": [
+    "overlong_or_group"
+   ]
+  },
+  {
+   "id": "prre_code_brazil-01",
+   "run": "prre_code_brazil",
+   "boolean": "(\"MT-Bench\" OR \"Arena-Hard\" OR \"AlpacaEval\" OR \"RewardBench\" OR \"WildBench\" OR \"JudgeBench\" OR \"IFEval\" OR \"LLM-as-a-judge\" OR \"LLM-as-judge\" OR \"LLM judge\" OR \"evaluation harness\" OR \"eval harness\")",
+   "precision_class": "sniper",
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": [
+    "overlong_or_group"
+   ]
+  },
+  {
+   "id": "prre_code_brazil-02",
+   "run": "prre_code_brazil",
+   "boolean": "(\"RLHF\" OR \"RLAIF\" OR \"reward model\" OR \"reward modeling\" OR \"Direct Preference Optimization\" OR \"preference optimization\" OR \"OpenRLHF\") AND (\"supervised fine-tuning\" OR \"SFT\" OR \"post-training\" OR \"instruction tuning\" OR \"QLoRA\" OR \"distillation\" OR \"synthetic data\") NOT (\"AI Trainer\" OR \"annotator\" OR \"language specialist\")",
+   "precision_class": "sniper",
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": [
+    "jd_register_overuse"
+   ]
+  },
+  {
+   "id": "prre_code_brazil-03",
+   "run": "prre_code_brazil",
+   "boolean": "(\"IBM Research\" OR \"Microsoft Research\" OR \"Samsung Research\" OR \"Google Research\" OR \"Amazon Science\" OR \"Intel Labs\" OR \"Adobe Research\" OR \"Bosch Research\" OR \"Nokia Bell Labs\" OR \"Ericsson Research\") AND (\"RLHF\" OR \"post-training\" OR \"instruction tuning\" OR \"reward model\" OR \"evaluation harness\" OR \"LLM evaluation\" OR \"synthetic data\" OR \"supervised fine-tuning\")",
+   "precision_class": "sniper",
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": [
+    "overlong_or_group"
+   ]
+  },
+  {
+   "id": "prre_code_brazil-04",
+   "run": "prre_code_brazil",
+   "boolean": "(\"lm-evaluation-harness\" OR \"lm-eval-harness\" OR \"lm-eval\" OR \"OpenCompass\" OR \"Stanford HELM\" OR \"HELM benchmark\" OR \"EvalPlus\" OR \"LightEval\" OR \"Inspect AI\" OR \"BigCode Evaluation Harness\" OR \"simple-evals\")",
+   "precision_class": "sniper",
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": [
+    "overlong_or_group"
+   ]
+  },
+  {
+   "id": "prre_code_brazil-05",
+   "run": "prre_code_brazil",
+   "boolean": "(\"AgentBench\" OR \"WebArena\" OR \"VisualWebArena\" OR \"OSWorld\" OR \"τ-bench\" OR \"tau-bench\" OR \"Terminal-Bench\" OR \"BFCL\" OR \"Berkeley Function Calling\" OR \"ToolBench\" OR \"GAIA benchmark\" OR \"Mind2Web\" OR \"BrowserGym\" OR \"MiniWoB++\" OR \"ALFWorld\" OR \"AndroidWorld\")",
+   "precision_class": "sniper",
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": [
+    "overlong_or_group",
+    "noop_special_character"
+   ]
+  },
+  {
+   "id": "prre_code_brazil-06",
+   "run": "prre_code_brazil",
+   "boolean": "(\"GRPO\" OR \"RLVR\" OR \"verifiable reward\" OR \"verifiable rewards\" OR \"agentic RL\" OR \"agent trajectories\" OR \"trajectory collection\" OR \"RL environments for agents\" OR \"RL environment for LLM\" OR \"RL environments for LLM\" OR \"ambientes de RL\")",
+   "precision_class": "sniper",
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": [
+    "overlong_or_group",
+    "jd_register_overuse"
+   ]
+  },
+  {
+   "id": "prre_code_brazil-07",
+   "run": "prre_code_brazil",
+   "boolean": "(\"DeepSpeed\" OR \"FSDP\" OR \"Megatron-LM\" OR \"NeMo-Aligner\" OR \"NVIDIA NeMo\" OR \"Hugging Face TRL\" OR \"verl\" OR \"Colossal-AI\") AND (\"LLM\" OR \"large language model\" OR \"large language models\" OR \"language model\" OR \"transformer\")",
+   "precision_class": "sniper",
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "prre_code_brazil-08",
+   "run": "prre_code_brazil",
+   "boolean": "(\"synthetic data generation\" OR \"synthetic data pipeline\" OR \"synthetic data pipelines\" OR \"geração de dados sintéticos\" OR \"dados sintéticos\" OR \"rejection sampling\" OR \"self-instruct\" OR \"Evol-Instruct\" OR \"instruction data\" OR \"SFT dataset\" OR \"SFT data\") AND (\"LLM\" OR \"LLMs\" OR \"large language model\" OR \"language model\" OR \"modelos de linguagem\" OR \"fine-tuning\" OR \"instruction tuning\")",
+   "precision_class": "sniper",
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": [
+    "overlong_or_group"
+   ]
+  },
+  {
+   "id": "prre_code_brazil-09",
+   "run": "prre_code_brazil",
+   "boolean": "(\"engineer\" OR \"engenheiro\" OR \"research scientist\" OR \"infrastructure\" OR \"pipeline\" OR \"distributed\") AND (\"RLHF\" OR \"fine-tuning\" OR \"evaluation harness\" OR \"reward model\" OR \"post-training\" OR \"synthetic data\") NOT (\"AI Trainer\" OR \"annotator\" OR \"language specialist\")",
+   "precision_class": "standard",
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": [
+    "morphology_variant_missing"
+   ]
+  },
+  {
+   "id": "prre_code_brazil-10",
+   "run": "prre_code_brazil",
+   "boolean": "(\"RLHF\" OR \"post-training\" OR \"reward model\" OR \"instruction tuning\" OR \"supervised fine-tuning\" OR \"LLM evaluation\" OR \"evaluation harness\" OR \"synthetic data generation\" OR \"distillation\")",
+   "precision_class": "standard",
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": [
+    "overlong_or_group",
+    "jd_register_overuse"
+   ]
+  },
+  {
+   "id": "prre_code_brazil-11",
+   "run": "prre_code_brazil",
+   "boolean": "(\"BRACIS\" OR \"STIL\" OR \"Simpósio Brasileiro de Tecnologia da Informação e da Linguagem Humana\") AND (\"RLHF\" OR \"instruction tuning\" OR \"post-training\" OR \"fine-tuning\" OR \"ajuste fino\" OR \"benchmark\") AND (\"LLM\" OR \"LLMs\" OR \"large language model\" OR \"modelos de linguagem\" OR \"language model\")",
+   "precision_class": "standard",
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "prre_code_brazil-12",
+   "run": "prre_code_brazil",
+   "boolean": "(\"Sabiá\" OR \"Cabrita\" OR \"Tucano\" OR \"TeenyTinyLlama\" OR \"Canarim\" OR \"Amazônia IA\" OR \"Gervásio\" OR \"Portuguese LLM\" OR \"LLM em português\" OR \"modelo de linguagem em português\") AND (\"fine-tuning\" OR \"pretraining\" OR \"pré-treinamento\" OR \"instruction tuning\" OR \"model card\" OR \"Hugging Face\" OR \"benchmark\")",
+   "precision_class": "standard",
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": [
+    "bare_generic_ai_term",
+    "overlong_or_group"
+   ]
+  },
+  {
+   "id": "prre_code_brazil-13",
+   "run": "prre_code_brazil",
+   "boolean": "(\"BLUEX\" OR \"Poeta benchmark\" OR \"FaQuAD\" OR \"ASSIN2\" OR \"Open PT LLM Leaderboard\" OR \"Portuguese LLM leaderboard\" OR \"leaderboard de LLMs\" OR \"avaliação de LLMs\" OR \"avaliação de modelos de linguagem\") AND (\"benchmark\" OR \"benchmarks\" OR \"leaderboard\" OR \"evaluation\" OR \"avaliação\")",
+   "precision_class": "standard",
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": [
+    "overlong_or_group"
+   ]
+  },
+  {
+   "id": "prre_code_brazil-14",
+   "run": "prre_code_brazil",
+   "boolean": "(\"RLHF\" OR \"reward model\" OR \"post-training\" OR \"instruction tuning\" OR \"LLM-as-a-judge\" OR \"evaluation harness\" OR \"synthetic data generation\" OR \"preference optimization\")",
+   "precision_class": "standard",
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": [
+    "jd_register_overuse"
+   ]
+  },
+  {
+   "id": "prre_code_brazil-15",
+   "run": "prre_code_brazil",
+   "boolean": "(\"RLHF\" OR \"post-training\" OR \"fine-tuning\" OR \"instruction tuning\" OR \"LLM evaluation\" OR \"evaluation harness\" OR \"reward model\" OR \"synthetic data\" OR \"benchmark\")",
+   "precision_class": "standard",
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": [
+    "overlong_or_group"
+   ]
+  },
+  {
+   "id": "prre_code_brazil-16",
+   "run": "prre_code_brazil",
+   "boolean": "(\"RLHF\" OR \"reward model\" OR \"post-training\" OR \"evaluation harness\") NOT (\"engineer\" OR \"engenheiro\" OR \"scientist\" OR \"cientista\" OR \"researcher\" OR \"pesquisador\" OR \"AI Trainer\" OR \"annotator\" OR \"student\" OR \"estudante\")",
+   "precision_class": "standard",
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": [
+    "morphology_variant_missing",
+    "overlong_or_group"
+   ]
+  },
+  {
+   "id": "prre_code_brazil-17",
+   "run": "prre_code_brazil",
+   "boolean": "(\"frontier lab\" OR \"frontier labs\" OR \"frontier model\" OR \"frontier models\" OR \"foundation model labs\" OR \"AI labs\") AND (\"RLHF\" OR \"SFT\" OR \"post-training\" OR \"evals\" OR \"evaluation harness\" OR \"synthetic data\" OR \"reward model\" OR \"training data pipeline\") NOT (\"AI Trainer\" OR \"annotator\" OR \"language specialist\")",
+   "precision_class": "standard",
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "prre_code_brazil-18",
+   "run": "prre_code_brazil",
+   "boolean": "(\"CTO\" OR \"cofundador\" OR \"co-founder\" OR \"cofounder\" OR \"founding engineer\" OR \"head of AI\" OR \"head of research\" OR \"research lead\" OR \"líder técnico\" OR \"tech lead\") AND (\"RLHF\" OR \"post-training\" OR \"instruction tuning\" OR \"reward model\" OR \"evaluation harness\" OR \"LLM evaluation\" OR \"fine-tuned\") NOT (\"AI Trainer\" OR \"annotator\")",
+   "precision_class": "standard",
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": [
+    "overlong_or_group"
+   ]
+  },
+  {
+   "id": "prre_code_brazil-19",
+   "run": "prre_code_brazil",
+   "boolean": "(\"reward model\" OR \"reward modeling\" OR \"preference data\" OR \"preference dataset\" OR \"model distillation\" OR \"distilled model\" OR \"distilled models\" OR \"teacher model\") AND (\"LLM\" OR \"LLMs\" OR \"large language model\" OR \"language model\" OR \"Llama\" OR \"Mistral\" OR \"Qwen\")",
+   "precision_class": "standard",
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "prre_code_brazil-20",
+   "run": "prre_code_brazil",
+   "boolean": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+   "precision_class": "standard",
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "prre_code_brazil-21",
+   "run": "prre_code_brazil",
+   "boolean": "(\"SWE-bench\" OR \"SWE-bench Verified\" OR \"LiveCodeBench\" OR \"HumanEval\" OR \"Aider Polyglot\" OR \"CodeContests\" OR \"MultiPL-E\" OR \"SWE-Gym\" OR \"SWE-agent\" OR \"OpenHands\" OR \"CRUXEval\" OR \"DS-1000\") OR (\"MBPP\" AND (\"HumanEval\" OR \"code generation\" OR \"programming\" OR \"Python\"))",
+   "precision_class": "sniper",
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": [
+    "overlong_or_group"
+   ]
+  },
+  {
+   "id": "prre_code_brazil-22",
+   "run": "prre_code_brazil",
+   "boolean": "(\"code generation\" OR \"program synthesis\" OR \"code LLM\" OR \"code LLMs\" OR \"Code Llama\" OR \"StarCoder\" OR \"Qwen2.5-Coder\" OR \"DeepSeek-Coder\" OR \"code models\") AND (\"fine-tuning\" OR \"fine-tuned\" OR \"instruction tuning\" OR \"SFT\" OR \"HumanEval\" OR \"evaluation harness\" OR \"benchmark\")",
+   "precision_class": "standard",
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": [
+    "overlong_or_group"
+   ]
+  },
+  {
+   "id": "prre_code_brazil-23",
+   "run": "prre_code_brazil",
+   "boolean": "(\"LLM evaluation\" OR \"evaluation of LLMs\" OR \"evaluating LLMs\" OR \"LLM evals\" OR \"model evaluation framework\" OR \"eval suite\" OR \"avaliação de LLMs\") AND (\"benchmark\" OR \"benchmarks\" OR \"leaderboard\" OR \"graders\" OR \"rubric\" OR \"rubrics\" OR \"LLM-as-a-judge\" OR \"LLM judge\") NOT (\"AI Trainer\" OR \"annotator\" OR \"language specialist\")",
+   "precision_class": "recall",
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "prre_code_brazil-24",
+   "run": "prre_code_brazil",
+   "boolean": "(\"post-training\" OR \"post training\" OR \"RLHF\" OR \"instruction tuning\" OR \"instruction-tuned\" OR \"supervised fine-tuning\" OR \"SFT\" OR \"ajuste fino\" OR \"fine-tuning de LLM\" OR \"fine-tuning de LLMs\" OR \"PEFT\") AND (\"LLM\" OR \"LLMs\" OR \"large language model\" OR \"large language models\" OR \"modelos de linguagem\" OR \"language models\") NOT (\"AI Trainer\" OR \"annotator\" OR \"language specialist\" OR \"prompt engineer\")",
+   "precision_class": "recall",
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": [
+    "overlong_or_group"
+   ]
+  },
+  {
+   "id": "prre_code_brazil-25",
+   "run": "prre_code_brazil",
+   "boolean": "(\"NeurIPS\" OR \"ICML\" OR \"ICLR\" OR \"EMNLP\" OR \"NAACL\" OR \"COLM\" OR \"COLING\" OR \"Datasets and Benchmarks track\") AND (\"RLHF\" OR \"post-training\" OR \"reward model\" OR \"instruction tuning\" OR \"synthetic data\" OR \"distillation\" OR \"preference optimization\" OR \"supervised fine-tuning\")",
+   "precision_class": "sniper",
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "prre_code_brazil-26",
+   "run": "prre_code_brazil",
+   "boolean": "(\"Whisper\" OR \"wav2vec\" OR \"speech LLM\" OR \"vision-language model\" OR \"VLM\" OR \"LLaVA\" OR \"multimodal LLM\") AND (\"fine-tuned\" OR \"fine-tuning\" OR \"instruction tuning\" OR \"post-training\" OR \"evaluation harness\" OR \"benchmark\") NOT (\"AI Trainer\" OR \"annotator\")",
+   "precision_class": null,
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "prre_code_brazil-27",
+   "run": "prre_code_brazil",
+   "boolean": "(\"pretraining data\" OR \"pre-training data\" OR \"pretraining corpus\" OR \"tokenizer training\" OR \"data deduplication\" OR \"FineWeb\" OR \"Common Crawl\" OR \"training pipeline\") AND (\"LLM\" OR \"large language model\" OR \"language model\" OR \"foundation model\")",
+   "precision_class": null,
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "prre_code_brazil-28",
+   "run": "prre_code_brazil",
+   "boolean": "(\"RLHF\" OR \"post-training\" OR \"instruction tuning\" OR \"pré-treinamento\" OR \"ajuste fino\" OR \"benchmark\")",
+   "precision_class": null,
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": [
+    "jd_register_overuse"
+   ]
+  },
+  {
+   "id": "prre_code_brazil-29",
+   "run": "prre_code_brazil",
+   "boolean": "(\"huggingface.co\" OR \"Hugging Face Hub\" OR \"model card\" OR \"open-weights\" OR \"open weights\" OR \"released checkpoint\" OR \"published checkpoint\") AND (\"LLM\" OR \"language model\" OR \"modelo de linguagem\" OR \"instruction-tuned\" OR \"fine-tuned\")",
+   "precision_class": null,
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": [
+    "bare_generic_ai_term"
+   ]
+  },
+  {
+   "id": "principal_ai_engineer-00",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"LangGraph\" OR \"LangChain\" OR \"LlamaIndex\") AND (\"RAG\" OR \"retrieval-augmented generation\" OR \"retrieval augmented generation\")",
+   "precision_class": null,
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "principal_ai_engineer-01",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"hybrid retrieval\" OR \"hybrid search\" OR \"cross-encoder\" OR \"reranker\" OR \"reranking\" OR \"BM25\")",
+   "precision_class": null,
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": [
+    "jd_register_overuse"
+   ]
+  },
+  {
+   "id": "principal_ai_engineer-02",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"MCP server\" OR \"Model Context Protocol\" OR \"tool-calling agents\" OR \"tool calling\") AND (\"LLM\" OR \"agentic\" OR \"multi-agent\" OR \"LangGraph\")",
+   "precision_class": null,
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "principal_ai_engineer-03",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"LLM evaluation\" OR \"evaluation harness\" OR \"eval harness\" OR \"LLM evals\" OR \"RAGAS\" OR \"LLM-as-a-judge\" OR \"LLM as a judge\")",
+   "precision_class": null,
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "principal_ai_engineer-04",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"QLoRA\" OR \"LoRA\" OR \"DPO\" OR \"RLHF\" OR \"supervised fine-tuning\" OR \"SFT\" OR \"PEFT\") AND (\"LLM\" OR \"large language model\" OR \"fine-tuned\" OR \"Hugging Face\")",
+   "precision_class": null,
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "principal_ai_engineer-05",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"forward deployed\" OR \"forward-deployed\") AND (\"LLM\" OR \"GenAI\" OR \"generative AI\" OR \"machine learning\" OR \"AI engineer\")",
+   "precision_class": null,
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "principal_ai_engineer-06",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"founding AI engineer\" OR \"founding ML engineer\" OR \"founding machine learning engineer\" OR \"first AI hire\" OR \"founding engineer\") AND (\"LLM\" OR \"RAG\" OR \"GenAI\" OR \"generative AI\" OR \"agentic\")",
+   "precision_class": null,
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "principal_ai_engineer-07",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"vLLM\" OR \"DSPy\" OR \"AutoGen\" OR \"CrewAI\" OR \"Semantic Kernel\" OR \"Haystack\" OR \"Ollama\" OR \"PydanticAI\")",
+   "precision_class": null,
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "principal_ai_engineer-08",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"Pinecone\" OR \"Weaviate\" OR \"pgvector\" OR \"Qdrant\" OR \"Milvus\" OR \"FAISS\" OR \"vector search\" OR \"vector database\") AND (\"LLM\" OR \"RAG\" OR \"embeddings\" OR \"semantic search\")",
+   "precision_class": null,
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "principal_ai_engineer-09",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"Azure OpenAI\" OR \"Amazon Bedrock\" OR \"AWS Bedrock\" OR \"Vertex AI\") AND (\"RAG\" OR \"agentic\" OR \"LangChain\" OR \"LangGraph\" OR \"fine-tuned\" OR \"multi-agent\")",
+   "precision_class": null,
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "principal_ai_engineer-10",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"search relevance\" OR \"learning to rank\" OR \"information retrieval\" OR \"query understanding\" OR \"search ranking\") AND (\"LLM\" OR \"embeddings\" OR \"semantic search\" OR \"RAG\")",
+   "precision_class": null,
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": [
+    "bare_generic_ai_term"
+   ]
+  },
+  {
+   "id": "principal_ai_engineer-11",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"applied scientist\" OR \"research engineer\") AND (\"RAG\" OR \"LangGraph\" OR \"LangChain\" OR \"agentic\" OR \"fine-tuned\") AND (\"production\" OR \"deployed\" OR \"shipped\")",
+   "precision_class": null,
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "principal_ai_engineer-12",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"LangGraph\" OR \"LangChain\" OR \"RAG\" OR \"agentic\" OR \"multi-agent\" OR \"fine-tuned\")",
+   "precision_class": null,
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "principal_ai_engineer-13",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"Python\" OR \"machine learning\" OR \"LLM\" OR \"backend\")",
+   "precision_class": null,
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": [
+    "bare_generic_ai_term"
+   ]
+  },
+  {
+   "id": "principal_ai_engineer-14",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"RAG\" OR \"LangChain\" OR \"LangGraph\" OR \"agentic\" OR \"generative AI\" OR \"LLM\")",
+   "precision_class": null,
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "principal_ai_engineer-15",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"RAG\" OR \"agentic\" OR \"LangGraph\" OR \"multi-agent\" OR \"LLM fine-tuning\" OR \"retrieval-augmented\")",
+   "precision_class": null,
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "principal_ai_engineer-16",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"FastAPI\" OR \"MLflow\" OR \"Terraform\" OR \"Kubernetes\") AND (\"LLM\" OR \"RAG\" OR \"GenAI\" OR \"generative AI\" OR \"agentic\" OR \"LangChain\")",
+   "precision_class": null,
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "principal_ai_engineer-17",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"agentic\" OR \"multi-agent\" OR \"AI agents\" OR \"agentic workflows\" OR \"agent orchestration\") AND (\"LLM\" OR \"GPT-4\" OR \"Claude\" OR \"OpenAI\" OR \"LangGraph\")",
+   "precision_class": null,
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "principal_ai_engineer-18",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"copilot\" OR \"AI assistant\" OR \"conversational AI\") AND (\"LangChain\" OR \"LangGraph\" OR \"RAG\" OR \"fine-tuned\" OR \"agentic\")",
+   "precision_class": null,
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "principal_ai_engineer-19",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"RAG\" OR \"LangChain\" OR \"agentic\" OR \"LLM\") NOT (\"Director of\" OR \"Vice President\" OR \"Head of AI\" OR \"recruiter\" OR \"talent acquisition\" OR \"sourcing\")",
+   "precision_class": null,
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "principal_ai_engineer-20",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"RAG\" OR \"agentic\" OR \"LangChain\" OR \"LangGraph\" OR \"fine-tuned\" OR \"vector database\")",
+   "precision_class": null,
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "principal_ai_engineer-21",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"Fractal\" OR \"Quantiphi\" OR \"Tredence\" OR \"ZS Associates\" OR \"Sigmoid\" OR \"Tribe AI\" OR \"Slalom Build\") AND (\"RAG\" OR \"agentic\" OR \"LangChain\" OR \"LLM\")",
+   "precision_class": null,
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "principal_ai_engineer-22",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"built an LLM\" OR \"built a RAG\" OR \"built an AI agent\" OR \"shipped an LLM\" OR \"LLM-powered\") ",
+   "precision_class": null,
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": []
+  },
+  {
+   "id": "principal_ai_engineer-23",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"legal AI\" OR \"clinical LLM\" OR \"healthcare LLM\" OR \"document intelligence\" OR \"contract intelligence\") AND (\"RAG\" OR \"LLM\" OR \"fine-tuned\" OR \"embeddings\")",
+   "precision_class": null,
+   "novelty_bucket": "edge_case",
+   "existing_lint_codes": [
+    "bare_generic_ai_term"
+   ]
+  },
+  {
+   "id": "principal_ai_engineer-24",
+   "run": "principal_ai_engineer",
+   "boolean": "(\"Senior Data Scientist\" OR \"Lead Data Scientist\" OR \"Staff Data Scientist\") AND (\"LangChain\" OR \"LangGraph\" OR \"RAG\" OR \"Azure OpenAI\" OR \"agentic\")",
+   "precision_class": null,
+   "novelty_bucket": "canonical",
+   "existing_lint_codes": []
+  }
+ ]
+}

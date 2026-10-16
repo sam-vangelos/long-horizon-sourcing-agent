@@ -1,0 +1,50 @@
+{
+  "requestId": "3d7a2c91b45e4f8ea1c60d9f27b3e845",
+  "results": [
+    {
+      "id": "https://www.cedarlinecapital.com/team",
+      "url": "https://www.cedarlinecapital.com/team",
+      "title": "Our Team | Cedarline Capital",
+      "publishedDate": "2026-07-19T00:00:00.000Z",
+      "author": null,
+      "text": "Cedarline Capital\nTeam\n\nTalia Brennan is Chief of Staff at Cedarline Capital, where she runs the firm's operating cadence, LP reporting, and platform hiring. She joined in 2024 from Halden Growth, where she led business operations.\n\nOmar Vestergaard, Senior Associate, invests in seed and Series A infrastructure software. Before Cedarline he was a founding engineer at Palmetto Loop.\n\nRosalind Achebe is a General Partner and co-founded the firm in 2016.\n\nSan Mateo, California",
+      "highlights": [
+        "Talia Brennan is Chief of Staff at Cedarline Capital, where she runs the firm's operating cadence, LP reporting, and platform hiring.",
+        "Omar Vestergaard, Senior Associate, invests in seed and Series A infrastructure software."
+      ],
+      "highlightScores": [0.8811, 0.7402],
+      "summary": "Cedarline Capital team page listing the firm's investing and operating staff.",
+      "favicon": "https://www.cedarlinecapital.com/favicon.ico",
+      "image": null,
+      "entities": []
+    },
+    {
+      "id": "https://www.wexfordpeak.com/about/people",
+      "url": "https://www.wexfordpeak.com/about/people",
+      "title": "People — Wexford Peak Partners",
+      "publishedDate": null,
+      "author": null,
+      "text": "Wexford Peak Partners\nPeople\n\nDeclan Moriyama joined Wexford Peak Partners in 2023 as Principal on the growth team after six years operating at Northbound Freight, most recently as VP of Business Operations.\n\nIngrid Solheim supports the investment team. Her LinkedIn profile is https://www.linkedin.com/in/ingrid-solheim-wexford and she previously worked at Lakebridge Ventures.\n\nBoston, Massachusetts",
+      "highlights": [
+        "Declan Moriyama joined Wexford Peak Partners in 2023 as Principal on the growth team after six years operating at Northbound Freight."
+      ],
+      "highlightScores": [0.8194],
+      "summary": "Wexford Peak Partners people page.",
+      "favicon": "https://www.wexfordpeak.com/favicon.ico",
+      "image": null,
+      "entities": []
+    }
+  ],
+  "costDollars": {
+    "total": 0.012,
+    "search": {
+      "neural": 0.005,
+      "keyword": 0
+    },
+    "contents": {
+      "text": 0.002,
+      "highlights": 0.002
+    }
+  },
+  "searchTime": 1420.08
+}

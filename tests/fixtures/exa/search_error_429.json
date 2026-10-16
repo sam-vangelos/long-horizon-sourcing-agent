@@ -1,0 +1,5 @@
+{
+  "requestId": "d4c17b0e9a5b41c2b8f6a0d2e7c9314f",
+  "error": "Rate limit exceeded. /search is limited to 10 requests per second.",
+  "tag": "RATE_LIMIT_EXCEEDED"
+}

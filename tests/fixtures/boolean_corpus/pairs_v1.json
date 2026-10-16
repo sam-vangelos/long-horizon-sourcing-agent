@@ -1,0 +1,762 @@
+{
+  "note": "Edit pairs for preference accuracy. Each pair is one real string and the same string after one deterministic edit; which side is edited is randomised. `expected` is the direction the edit operator is designed to move quality.",
+  "tie_band": 0.02,
+  "pairs": [
+    {
+      "pair_id": "P001",
+      "A": "(\"RLHF\" OR \"reward model\" OR \"post-training\" OR \"evaluation harness\") NOT (\"engineer\" OR \"engenheiro\" OR \"scientist\" OR \"cientista\" OR \"researcher\" OR \"pesquisador\" OR \"AI Trainer\" OR \"annotator\" OR \"student\" OR \"estudante\")",
+      "B": "(\"RLHF\" OR \"reward model\" OR \"post-training\" OR \"evaluation harness\" OR \"reward modeling\" OR \"eval harness\") NOT (\"engineer\" OR \"engenheiro\" OR \"scientist\" OR \"cientista\" OR \"researcher\" OR \"pesquisador\" OR \"AI Trainer\" OR \"annotator\" OR \"student\" OR \"estudante\")",
+      "base_id": "prre_code_brazil-16",
+      "edit": "add_missing_common_forms",
+      "edited_side": "B",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P002",
+      "A": "(\"Llama\" OR \"post-training\" OR \"RLHF\" OR \"reward model\" OR \"instruction tuning\" OR \"superintelligence\" OR \"GenAI\" OR \"reward modeling\" OR \"generative AI\")",
+      "B": "(\"Llama\" OR \"post-training\" OR \"RLHF\" OR \"reward model\" OR \"instruction tuning\" OR \"superintelligence\" OR \"GenAI\")",
+      "base_id": "research_engineer_frontier-12",
+      "edit": "add_missing_common_forms",
+      "edited_side": "A",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P003",
+      "A": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\" OR \"evaluations\" OR \"eval\" OR \"evals\" OR \"reward modeling\")",
+      "B": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\")",
+      "base_id": "research_engineer_frontier-18",
+      "edit": "add_missing_common_forms",
+      "edited_side": "A",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P004",
+      "A": "(\"benchmark\" OR \"benchmarks\" OR \"model evaluation\" OR \"capability evaluation\" OR \"evals\" OR \"red teaming\" OR \"evaluation\" OR \"evaluations\" OR \"eval\")",
+      "B": "(\"benchmark\" OR \"benchmarks\" OR \"model evaluation\" OR \"capability evaluation\" OR \"evals\" OR \"red teaming\")",
+      "base_id": "research_engineer_frontier-14",
+      "edit": "add_missing_common_forms",
+      "edited_side": "A",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P005",
+      "A": "(\"DeepMind\" OR \"Gemini\") AND (\"post-training\" OR \"RLHF\" OR \"reinforcement learning\" OR \"fine-tuning\" OR \"model evaluation\" OR \"reward model\")",
+      "B": "(\"DeepMind\" OR \"Gemini\") AND (\"post-training\" OR \"RLHF\" OR \"reinforcement learning\" OR \"fine-tuning\" OR \"model evaluation\" OR \"reward model\" OR \"RL\" OR \"reward modeling\")",
+      "base_id": "research_engineer_frontier-09",
+      "edit": "add_missing_common_forms",
+      "edited_side": "B",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P006",
+      "A": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\" OR \"tool calling\" OR \"function calling\" OR \"tool use\" OR \"RL environment\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+      "B": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+      "base_id": "prre_code_brazil-20",
+      "edit": "add_missing_common_forms",
+      "edited_side": "A",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P007",
+      "A": "(\"benchmark\" OR \"model evaluation\" OR \"evals\" OR \"red teaming\")",
+      "B": "(\"benchmark\" OR \"benchmarks\" OR \"model evaluation\" OR \"capability evaluation\" OR \"evals\" OR \"red teaming\")",
+      "base_id": "research_engineer_frontier-14",
+      "edit": "drop_forms_to_one_per_concept",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P008",
+      "A": "(\"sandboxed execution\" OR \"tool-calling environment\" OR \"environment scaling\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+      "B": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+      "base_id": "prre_code_brazil-20",
+      "edit": "drop_forms_to_one_per_concept",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P009",
+      "A": "(\"Whisper\" OR \"wav2vec\" OR \"speech LLM\" OR \"vision-language model\" OR \"LLaVA\") AND (\"fine-tuned\" OR \"fine-tuning\" OR \"instruction tuning\" OR \"post-training\" OR \"evaluation harness\" OR \"benchmark\") NOT (\"AI Trainer\" OR \"annotator\")",
+      "B": "(\"Whisper\" OR \"wav2vec\" OR \"speech LLM\" OR \"vision-language model\" OR \"VLM\" OR \"LLaVA\" OR \"multimodal LLM\") AND (\"fine-tuned\" OR \"fine-tuning\" OR \"instruction tuning\" OR \"post-training\" OR \"evaluation harness\" OR \"benchmark\") NOT (\"AI Trainer\" OR \"annotator\")",
+      "base_id": "prre_code_brazil-26",
+      "edit": "drop_forms_to_one_per_concept",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P010",
+      "A": "(\"RLHF\" OR \"fine-tuning\" OR \"fine-tuned\" OR \"post-training\" OR \"instruction tuning\" OR \"pretraining\" OR \"pré-treinamento\" OR \"ajuste fino\" OR \"benchmark\")",
+      "B": "(\"RLHF\" OR \"fine-tuning\" OR \"post-training\" OR \"instruction tuning\" OR \"pretraining\" OR \"benchmark\")",
+      "base_id": "prre_code_brazil-00",
+      "edit": "drop_forms_to_one_per_concept",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P011",
+      "A": "(\"Sabiá\" OR \"Cabrita\" OR \"Tucano\" OR \"TeenyTinyLlama\" OR \"Canarim\" OR \"Amazônia IA\" OR \"Gervásio\" OR \"Portuguese LLM\" OR \"LLM em português\" OR \"modelo de linguagem em português\") AND (\"fine-tuning\" OR \"pretraining\" OR \"pré-treinamento\" OR \"instruction tuning\" OR \"model card\" OR \"Hugging Face\" OR \"benchmark\")",
+      "B": "(\"Sabiá\" OR \"Cabrita\" OR \"Tucano\" OR \"TeenyTinyLlama\" OR \"Canarim\" OR \"Amazônia IA\" OR \"Gervásio\" OR \"Portuguese LLM\") AND (\"fine-tuning\" OR \"pretraining\" OR \"pré-treinamento\" OR \"instruction tuning\" OR \"model card\" OR \"Hugging Face\" OR \"benchmark\")",
+      "base_id": "prre_code_brazil-12",
+      "edit": "drop_forms_to_one_per_concept",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P012",
+      "A": "(\"synthetic data generation\" OR \"Evol-Instruct\" OR \"AgentInstruct\" OR \"APIGen\" OR \"distillation pipeline\")",
+      "B": "(\"synthetic data generation\" OR \"synthetic data pipeline\" OR \"data generation pipeline\" OR \"Evol-Instruct\" OR \"AgentInstruct\" OR \"APIGen\" OR \"distillation pipeline\")",
+      "base_id": "research_engineer_frontier-03",
+      "edit": "drop_forms_to_one_per_concept",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P013",
+      "A": "(\"RLHF\" OR \"reward model\" OR \"post-training\" OR \"evaluation harness\") NOT (\"engineer\" OR \"engenheiro\" OR \"scientist\" OR \"cientista\" OR \"researcher\" OR \"pesquisador\" OR \"AI Trainer\" OR \"annotator\" OR \"student\" OR \"estudante\")",
+      "B": "(\"RLHF\" OR \"reward model\" OR \"post-training\" OR \"evaluation harness\" OR \"machine learning\") NOT (\"engineer\" OR \"engenheiro\" OR \"scientist\" OR \"cientista\" OR \"researcher\" OR \"pesquisador\" OR \"AI Trainer\" OR \"annotator\" OR \"student\" OR \"estudante\")",
+      "base_id": "prre_code_brazil-16",
+      "edit": "inject_umbrella_term",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P014",
+      "A": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\")",
+      "B": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\" OR \"machine learning\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\")",
+      "base_id": "research_engineer_frontier-18",
+      "edit": "inject_umbrella_term",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P015",
+      "A": "(\"benchmark\" OR \"benchmarks\" OR \"model evaluation\" OR \"capability evaluation\" OR \"evals\" OR \"red teaming\" OR \"machine learning\")",
+      "B": "(\"benchmark\" OR \"benchmarks\" OR \"model evaluation\" OR \"capability evaluation\" OR \"evals\" OR \"red teaming\")",
+      "base_id": "research_engineer_frontier-14",
+      "edit": "inject_umbrella_term",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P016",
+      "A": "(\"DeepMind\" OR \"Gemini\") AND (\"post-training\" OR \"RLHF\" OR \"reinforcement learning\" OR \"fine-tuning\" OR \"model evaluation\" OR \"reward model\")",
+      "B": "(\"DeepMind\" OR \"Gemini\" OR \"machine learning\") AND (\"post-training\" OR \"RLHF\" OR \"reinforcement learning\" OR \"fine-tuning\" OR \"model evaluation\" OR \"reward model\")",
+      "base_id": "research_engineer_frontier-09",
+      "edit": "inject_umbrella_term",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P017",
+      "A": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+      "B": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\" OR \"machine learning\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+      "base_id": "prre_code_brazil-20",
+      "edit": "inject_umbrella_term",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P018",
+      "A": "(\"Whisper\" OR \"wav2vec\" OR \"speech LLM\" OR \"vision-language model\" OR \"VLM\" OR \"LLaVA\" OR \"multimodal LLM\") AND (\"fine-tuned\" OR \"fine-tuning\" OR \"instruction tuning\" OR \"post-training\" OR \"evaluation harness\" OR \"benchmark\") NOT (\"AI Trainer\" OR \"annotator\")",
+      "B": "(\"Whisper\" OR \"wav2vec\" OR \"speech LLM\" OR \"vision-language model\" OR \"VLM\" OR \"LLaVA\" OR \"multimodal LLM\" OR \"machine learning\") AND (\"fine-tuned\" OR \"fine-tuning\" OR \"instruction tuning\" OR \"post-training\" OR \"evaluation harness\" OR \"benchmark\") NOT (\"AI Trainer\" OR \"annotator\")",
+      "base_id": "prre_code_brazil-26",
+      "edit": "inject_umbrella_term",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P019",
+      "A": "(\"RLHF\" OR \"reward model\" OR \"post-training\" OR \"evaluation harness\" OR \"reinforcement learning from human feedback\" OR \"reinforcement learning from AI feedback\" OR \"group relative policy optimization\") NOT (\"engineer\" OR \"engenheiro\" OR \"scientist\" OR \"cientista\" OR \"researcher\" OR \"pesquisador\" OR \"AI Trainer\" OR \"annotator\" OR \"student\" OR \"estudante\")",
+      "B": "(\"RLHF\" OR \"reward model\" OR \"post-training\" OR \"evaluation harness\") NOT (\"engineer\" OR \"engenheiro\" OR \"scientist\" OR \"cientista\" OR \"researcher\" OR \"pesquisador\" OR \"AI Trainer\" OR \"annotator\" OR \"student\" OR \"estudante\")",
+      "base_id": "prre_code_brazil-16",
+      "edit": "inject_rare_expansions",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P020",
+      "A": "(\"Llama\" OR \"post-training\" OR \"RLHF\" OR \"reward model\" OR \"instruction tuning\" OR \"superintelligence\" OR \"GenAI\" OR \"reinforcement learning from human feedback\" OR \"reinforcement learning from AI feedback\" OR \"group relative policy optimization\")",
+      "B": "(\"Llama\" OR \"post-training\" OR \"RLHF\" OR \"reward model\" OR \"instruction tuning\" OR \"superintelligence\" OR \"GenAI\")",
+      "base_id": "research_engineer_frontier-12",
+      "edit": "inject_rare_expansions",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P021",
+      "A": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\")",
+      "B": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\" OR \"reinforcement learning from human feedback\" OR \"reinforcement learning from AI feedback\" OR \"group relative policy optimization\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\")",
+      "base_id": "research_engineer_frontier-18",
+      "edit": "inject_rare_expansions",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P022",
+      "A": "(\"benchmark\" OR \"benchmarks\" OR \"model evaluation\" OR \"capability evaluation\" OR \"evals\" OR \"red teaming\")",
+      "B": "(\"benchmark\" OR \"benchmarks\" OR \"model evaluation\" OR \"capability evaluation\" OR \"evals\" OR \"red teaming\" OR \"reinforcement learning from human feedback\" OR \"reinforcement learning from AI feedback\" OR \"group relative policy optimization\")",
+      "base_id": "research_engineer_frontier-14",
+      "edit": "inject_rare_expansions",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P023",
+      "A": "(\"DeepMind\" OR \"Gemini\") AND (\"post-training\" OR \"RLHF\" OR \"reinforcement learning\" OR \"fine-tuning\" OR \"model evaluation\" OR \"reward model\")",
+      "B": "(\"DeepMind\" OR \"Gemini\" OR \"reinforcement learning from human feedback\" OR \"reinforcement learning from AI feedback\" OR \"group relative policy optimization\") AND (\"post-training\" OR \"RLHF\" OR \"reinforcement learning\" OR \"fine-tuning\" OR \"model evaluation\" OR \"reward model\")",
+      "base_id": "research_engineer_frontier-09",
+      "edit": "inject_rare_expansions",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P024",
+      "A": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+      "B": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\" OR \"reinforcement learning from human feedback\" OR \"reinforcement learning from AI feedback\" OR \"group relative policy optimization\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+      "base_id": "prre_code_brazil-20",
+      "edit": "inject_rare_expansions",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P025",
+      "A": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\")",
+      "B": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\")",
+      "base_id": "research_engineer_frontier-18",
+      "edit": "remove_anchor_group",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P026",
+      "A": "(\"DeepMind\" OR \"Gemini\") AND (\"post-training\" OR \"RLHF\" OR \"reinforcement learning\" OR \"fine-tuning\" OR \"model evaluation\" OR \"reward model\")",
+      "B": "(\"DeepMind\" OR \"Gemini\")",
+      "base_id": "research_engineer_frontier-09",
+      "edit": "remove_anchor_group",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P027",
+      "A": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+      "B": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\")",
+      "base_id": "prre_code_brazil-20",
+      "edit": "remove_anchor_group",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P028",
+      "A": "(\"Whisper\" OR \"wav2vec\" OR \"speech LLM\" OR \"vision-language model\" OR \"VLM\" OR \"LLaVA\" OR \"multimodal LLM\") AND  NOT (\"AI Trainer\" OR \"annotator\")",
+      "B": "(\"Whisper\" OR \"wav2vec\" OR \"speech LLM\" OR \"vision-language model\" OR \"VLM\" OR \"LLaVA\" OR \"multimodal LLM\") AND (\"fine-tuned\" OR \"fine-tuning\" OR \"instruction tuning\" OR \"post-training\" OR \"evaluation harness\" OR \"benchmark\") NOT (\"AI Trainer\" OR \"annotator\")",
+      "base_id": "prre_code_brazil-26",
+      "edit": "remove_anchor_group",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P029",
+      "A": "(\"Sabiá\" OR \"Cabrita\" OR \"Tucano\" OR \"TeenyTinyLlama\" OR \"Canarim\" OR \"Amazônia IA\" OR \"Gervásio\" OR \"Portuguese LLM\" OR \"LLM em português\" OR \"modelo de linguagem em português\")",
+      "B": "(\"Sabiá\" OR \"Cabrita\" OR \"Tucano\" OR \"TeenyTinyLlama\" OR \"Canarim\" OR \"Amazônia IA\" OR \"Gervásio\" OR \"Portuguese LLM\" OR \"LLM em português\" OR \"modelo de linguagem em português\") AND (\"fine-tuning\" OR \"pretraining\" OR \"pré-treinamento\" OR \"instruction tuning\" OR \"model card\" OR \"Hugging Face\" OR \"benchmark\")",
+      "base_id": "prre_code_brazil-12",
+      "edit": "remove_anchor_group",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P030",
+      "A": "(\"RLHF\" OR \"RLAIF\" OR \"reward model\" OR \"reward modeling\" OR \"Direct Preference Optimization\" OR \"preference optimization\" OR \"OpenRLHF\") AND (\"supervised fine-tuning\" OR \"SFT\" OR \"post-training\" OR \"instruction tuning\" OR \"QLoRA\" OR \"distillation\" OR \"synthetic data\") NOT (\"AI Trainer\" OR \"annotator\" OR \"language specialist\")",
+      "B": "(\"RLHF\" OR \"RLAIF\" OR \"reward model\" OR \"reward modeling\" OR \"Direct Preference Optimization\" OR \"preference optimization\" OR \"OpenRLHF\") AND  NOT (\"AI Trainer\" OR \"annotator\" OR \"language specialist\")",
+      "base_id": "prre_code_brazil-02",
+      "edit": "remove_anchor_group",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P031",
+      "A": "(\"RLHF\" OR \"reward model\" OR \"post-training\" OR \"evaluation harness\") NOT (\"engineer\" OR \"engenheiro\" OR \"scientist\" OR \"cientista\" OR \"researcher\" OR \"pesquisador\" OR \"AI Trainer\" OR \"annotator\" OR \"student\" OR \"estudante\")",
+      "B": "(\"RLHF\" OR \"reward model\" OR \"post-training\" OR \"evaluation harness\") NOT (\"engineer\" OR \"engenheiro\" OR \"scientist\" OR \"cientista\" OR \"researcher\" OR \"pesquisador\" OR \"AI Trainer\" OR \"annotator\" OR \"student\" OR \"estudante\") NOT (\"engineer\" OR \"researcher\")",
+      "base_id": "prre_code_brazil-16",
+      "edit": "add_self_excluding_NOT",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P032",
+      "A": "(\"Llama\" OR \"post-training\" OR \"RLHF\" OR \"reward model\" OR \"instruction tuning\" OR \"superintelligence\" OR \"GenAI\")",
+      "B": "(\"Llama\" OR \"post-training\" OR \"RLHF\" OR \"reward model\" OR \"instruction tuning\" OR \"superintelligence\" OR \"GenAI\") NOT (\"engineer\" OR \"researcher\")",
+      "base_id": "research_engineer_frontier-12",
+      "edit": "add_self_excluding_NOT",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P033",
+      "A": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\") NOT (\"engineer\" OR \"researcher\")",
+      "B": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\")",
+      "base_id": "research_engineer_frontier-18",
+      "edit": "add_self_excluding_NOT",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P034",
+      "A": "(\"benchmark\" OR \"benchmarks\" OR \"model evaluation\" OR \"capability evaluation\" OR \"evals\" OR \"red teaming\") NOT (\"engineer\" OR \"researcher\")",
+      "B": "(\"benchmark\" OR \"benchmarks\" OR \"model evaluation\" OR \"capability evaluation\" OR \"evals\" OR \"red teaming\")",
+      "base_id": "research_engineer_frontier-14",
+      "edit": "add_self_excluding_NOT",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P035",
+      "A": "(\"DeepMind\" OR \"Gemini\") AND (\"post-training\" OR \"RLHF\" OR \"reinforcement learning\" OR \"fine-tuning\" OR \"model evaluation\" OR \"reward model\")",
+      "B": "(\"DeepMind\" OR \"Gemini\") AND (\"post-training\" OR \"RLHF\" OR \"reinforcement learning\" OR \"fine-tuning\" OR \"model evaluation\" OR \"reward model\") NOT (\"engineer\" OR \"researcher\")",
+      "base_id": "research_engineer_frontier-09",
+      "edit": "add_self_excluding_NOT",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P036",
+      "A": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+      "B": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\") NOT (\"engineer\" OR \"researcher\")",
+      "base_id": "prre_code_brazil-20",
+      "edit": "add_self_excluding_NOT",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P037",
+      "A": "(\"RLHF\" OR \"reward model\" OR \"post-training\" OR \"evaluation harness\") NOT (\"engineer\" OR \"engenheiro\" OR \"scientist\" OR \"cientista\" OR \"researcher\" OR \"pesquisador\" OR \"AI Trainer\" OR \"annotator\" OR \"student\" OR \"estudante\")",
+      "B": "(\"RLHF\" OR \"reward model\" OR \"post-training\" OR \"evaluation harness\") NOT (\"engineer\" OR \"engenheiro\" OR \"scientist\" OR \"cientista\" OR \"researcher\" OR \"pesquisador\" OR \"AI Trainer\" OR \"annotator\" OR \"student\" OR \"estudante\") AND (\"led\" OR \"managed\" OR \"owned\")",
+      "base_id": "prre_code_brazil-16",
+      "edit": "add_third_gate",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P038",
+      "A": "(\"Llama\" OR \"post-training\" OR \"RLHF\" OR \"reward model\" OR \"instruction tuning\" OR \"superintelligence\" OR \"GenAI\")",
+      "B": "(\"Llama\" OR \"post-training\" OR \"RLHF\" OR \"reward model\" OR \"instruction tuning\" OR \"superintelligence\" OR \"GenAI\") AND (\"led\" OR \"managed\" OR \"owned\")",
+      "base_id": "research_engineer_frontier-12",
+      "edit": "add_third_gate",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P039",
+      "A": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\") AND (\"led\" OR \"managed\" OR \"owned\")",
+      "B": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\")",
+      "base_id": "research_engineer_frontier-18",
+      "edit": "add_third_gate",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P040",
+      "A": "(\"benchmark\" OR \"benchmarks\" OR \"model evaluation\" OR \"capability evaluation\" OR \"evals\" OR \"red teaming\") AND (\"led\" OR \"managed\" OR \"owned\")",
+      "B": "(\"benchmark\" OR \"benchmarks\" OR \"model evaluation\" OR \"capability evaluation\" OR \"evals\" OR \"red teaming\")",
+      "base_id": "research_engineer_frontier-14",
+      "edit": "add_third_gate",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P041",
+      "A": "(\"DeepMind\" OR \"Gemini\") AND (\"post-training\" OR \"RLHF\" OR \"reinforcement learning\" OR \"fine-tuning\" OR \"model evaluation\" OR \"reward model\") AND (\"led\" OR \"managed\" OR \"owned\")",
+      "B": "(\"DeepMind\" OR \"Gemini\") AND (\"post-training\" OR \"RLHF\" OR \"reinforcement learning\" OR \"fine-tuning\" OR \"model evaluation\" OR \"reward model\")",
+      "base_id": "research_engineer_frontier-09",
+      "edit": "add_third_gate",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P042",
+      "A": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+      "B": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\") AND (\"led\" OR \"managed\" OR \"owned\")",
+      "base_id": "prre_code_brazil-20",
+      "edit": "add_third_gate",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P043",
+      "A": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\")",
+      "B": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\" OR \"Amazônia IA\" OR \"Cabrita\" OR \"Canarim\" OR \"Code Llama\" OR \"DeepSeek-Coder\" OR \"Gervásio\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\")",
+      "base_id": "research_engineer_frontier-18",
+      "edit": "extend_sweep_with_known_instances",
+      "edited_side": "B",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P044",
+      "A": "(\"DeepSpeed\" OR \"FSDP\" OR \"Megatron-LM\" OR \"NeMo-Aligner\" OR \"NVIDIA NeMo\" OR \"Hugging Face TRL\" OR \"verl\" OR \"Colossal-AI\" OR \"DeepSpeed-Chat\" OR \"LLaMA-Factory\" OR \"OpenRLHF\" OR \"prime-rl\" OR \"SkyRL\" OR \"torchtune\") AND (\"LLM\" OR \"large language model\" OR \"large language models\" OR \"language model\" OR \"transformer\")",
+      "B": "(\"DeepSpeed\" OR \"FSDP\" OR \"Megatron-LM\" OR \"NeMo-Aligner\" OR \"NVIDIA NeMo\" OR \"Hugging Face TRL\" OR \"verl\" OR \"Colossal-AI\") AND (\"LLM\" OR \"large language model\" OR \"large language models\" OR \"language model\" OR \"transformer\")",
+      "base_id": "prre_code_brazil-07",
+      "edit": "extend_sweep_with_known_instances",
+      "edited_side": "A",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P045",
+      "A": "(\"AgentBench\" OR \"WebArena\" OR \"VisualWebArena\" OR \"OSWorld\" OR \"τ-bench\" OR \"tau-bench\" OR \"Terminal-Bench\" OR \"BFCL\" OR \"Berkeley Function Calling\" OR \"ToolBench\" OR \"GAIA benchmark\" OR \"Mind2Web\" OR \"BrowserGym\" OR \"MiniWoB++\" OR \"ALFWorld\" OR \"AndroidWorld\")",
+      "B": "(\"AgentBench\" OR \"WebArena\" OR \"VisualWebArena\" OR \"OSWorld\" OR \"τ-bench\" OR \"tau-bench\" OR \"Terminal-Bench\" OR \"BFCL\" OR \"Berkeley Function Calling\" OR \"ToolBench\" OR \"GAIA benchmark\" OR \"Mind2Web\" OR \"BrowserGym\" OR \"MiniWoB++\" OR \"ALFWorld\" OR \"AndroidWorld\" OR \"SWE-bench\" OR \"Stanford HELM\" OR \"Aider Polyglot\" OR \"AlpacaEval\" OR \"Arena-Hard\" OR \"ASSIN2\")",
+      "base_id": "prre_code_brazil-05",
+      "edit": "extend_sweep_with_known_instances",
+      "edited_side": "B",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P046",
+      "A": "(\"BRACIS\" OR \"STIL\" OR \"Simpósio Brasileiro de Tecnologia da Informação e da Linguagem Humana\") AND (\"RLHF\" OR \"instruction tuning\" OR \"post-training\" OR \"fine-tuning\" OR \"ajuste fino\" OR \"benchmark\") AND (\"LLM\" OR \"LLMs\" OR \"large language model\" OR \"modelos de linguagem\" OR \"language model\")",
+      "B": "(\"BRACIS\" OR \"STIL\" OR \"Simpósio Brasileiro de Tecnologia da Informação e da Linguagem Humana\" OR \"COLING\" OR \"COLM\" OR \"Datasets and Benchmarks track\" OR \"EMNLP\" OR \"ICLR\" OR \"ICML\") AND (\"RLHF\" OR \"instruction tuning\" OR \"post-training\" OR \"fine-tuning\" OR \"ajuste fino\" OR \"benchmark\") AND (\"LLM\" OR \"LLMs\" OR \"large language model\" OR \"modelos de linguagem\" OR \"language model\")",
+      "base_id": "prre_code_brazil-11",
+      "edit": "extend_sweep_with_known_instances",
+      "edited_side": "B",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P047",
+      "A": "(\"SWE-bench\" OR \"Terminal-Bench\" OR \"OSWorld\" OR \"WebArena\" OR \"τ-bench\" OR \"GPQA\" OR \"LiveCodeBench\" OR \"MLE-bench\" OR \"BrowseComp\")",
+      "B": "(\"SWE-bench\" OR \"Terminal-Bench\" OR \"OSWorld\" OR \"WebArena\" OR \"τ-bench\" OR \"GPQA\" OR \"LiveCodeBench\" OR \"MLE-bench\" OR \"BrowseComp\" OR \"Stanford HELM\" OR \"BFCL\" OR \"AgentBench\" OR \"Aider Polyglot\" OR \"ALFWorld\" OR \"AlpacaEval\")",
+      "base_id": "research_engineer_frontier-05",
+      "edit": "extend_sweep_with_known_instances",
+      "edited_side": "B",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P048",
+      "A": "(\"OpenRLHF\" OR \"verl\" OR \"NeMo-Aligner\" OR \"TRLX\" OR \"SkyRL\" OR \"prime-rl\" OR \"DeepSpeed-Chat\" OR \"torchtune\" OR \"LLaMA-Factory\")",
+      "B": "(\"OpenRLHF\" OR \"verl\" OR \"NeMo-Aligner\" OR \"TRLX\" OR \"SkyRL\" OR \"prime-rl\" OR \"DeepSpeed-Chat\" OR \"torchtune\" OR \"LLaMA-Factory\" OR \"NeMo\" OR \"Megatron\" OR \"Colossal-AI\" OR \"DeepSpeed\" OR \"FSDP\" OR \"Hugging Face TRL\")",
+      "base_id": "research_engineer_frontier-00",
+      "edit": "extend_sweep_with_known_instances",
+      "edited_side": "B",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P049",
+      "A": "(\"RLHF\" OR \"reward model\" OR \"post-training\" OR \"evaluation harness\" OR \"built an LLM\" OR \"shipped an LLM\") NOT (\"engineer\" OR \"engenheiro\" OR \"scientist\" OR \"cientista\" OR \"researcher\" OR \"pesquisador\" OR \"AI Trainer\" OR \"annotator\" OR \"student\" OR \"estudante\")",
+      "B": "(\"RLHF\" OR \"reward model\" OR \"post-training\" OR \"evaluation harness\") NOT (\"engineer\" OR \"engenheiro\" OR \"scientist\" OR \"cientista\" OR \"researcher\" OR \"pesquisador\" OR \"AI Trainer\" OR \"annotator\" OR \"student\" OR \"estudante\")",
+      "base_id": "prre_code_brazil-16",
+      "edit": "inject_sentence_fragments",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P050",
+      "A": "(\"Llama\" OR \"post-training\" OR \"RLHF\" OR \"reward model\" OR \"instruction tuning\" OR \"superintelligence\" OR \"GenAI\" OR \"built an LLM\" OR \"shipped an LLM\")",
+      "B": "(\"Llama\" OR \"post-training\" OR \"RLHF\" OR \"reward model\" OR \"instruction tuning\" OR \"superintelligence\" OR \"GenAI\")",
+      "base_id": "research_engineer_frontier-12",
+      "edit": "inject_sentence_fragments",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P051",
+      "A": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\" OR \"built an LLM\" OR \"shipped an LLM\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\")",
+      "B": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\")",
+      "base_id": "research_engineer_frontier-18",
+      "edit": "inject_sentence_fragments",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P052",
+      "A": "(\"benchmark\" OR \"benchmarks\" OR \"model evaluation\" OR \"capability evaluation\" OR \"evals\" OR \"red teaming\" OR \"built an LLM\" OR \"shipped an LLM\")",
+      "B": "(\"benchmark\" OR \"benchmarks\" OR \"model evaluation\" OR \"capability evaluation\" OR \"evals\" OR \"red teaming\")",
+      "base_id": "research_engineer_frontier-14",
+      "edit": "inject_sentence_fragments",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P053",
+      "A": "(\"DeepMind\" OR \"Gemini\" OR \"built an LLM\" OR \"shipped an LLM\") AND (\"post-training\" OR \"RLHF\" OR \"reinforcement learning\" OR \"fine-tuning\" OR \"model evaluation\" OR \"reward model\")",
+      "B": "(\"DeepMind\" OR \"Gemini\") AND (\"post-training\" OR \"RLHF\" OR \"reinforcement learning\" OR \"fine-tuning\" OR \"model evaluation\" OR \"reward model\")",
+      "base_id": "research_engineer_frontier-09",
+      "edit": "inject_sentence_fragments",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P054",
+      "A": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\" OR \"built an LLM\" OR \"shipped an LLM\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+      "B": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+      "base_id": "prre_code_brazil-20",
+      "edit": "inject_sentence_fragments",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P055",
+      "A": "(\"RLHF\" OR \"reward model\" OR \"post-training\" OR \"evaluation harness\" OR \"vector database\" OR \"hybrid search\" OR \"reranker\") NOT (\"engineer\" OR \"engenheiro\" OR \"scientist\" OR \"cientista\" OR \"researcher\" OR \"pesquisador\" OR \"AI Trainer\" OR \"annotator\" OR \"student\" OR \"estudante\")",
+      "B": "(\"RLHF\" OR \"reward model\" OR \"post-training\" OR \"evaluation harness\") NOT (\"engineer\" OR \"engenheiro\" OR \"scientist\" OR \"cientista\" OR \"researcher\" OR \"pesquisador\" OR \"AI Trainer\" OR \"annotator\" OR \"student\" OR \"estudante\")",
+      "base_id": "prre_code_brazil-16",
+      "edit": "inject_unrelated_family_terms",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P056",
+      "A": "(\"Llama\" OR \"post-training\" OR \"RLHF\" OR \"reward model\" OR \"instruction tuning\" OR \"superintelligence\" OR \"GenAI\")",
+      "B": "(\"Llama\" OR \"post-training\" OR \"RLHF\" OR \"reward model\" OR \"instruction tuning\" OR \"superintelligence\" OR \"GenAI\" OR \"vector database\" OR \"hybrid search\" OR \"reranker\")",
+      "base_id": "research_engineer_frontier-12",
+      "edit": "inject_unrelated_family_terms",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P057",
+      "A": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\" OR \"vector database\" OR \"hybrid search\" OR \"reranker\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\")",
+      "B": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\")",
+      "base_id": "research_engineer_frontier-18",
+      "edit": "inject_unrelated_family_terms",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P058",
+      "A": "(\"benchmark\" OR \"benchmarks\" OR \"model evaluation\" OR \"capability evaluation\" OR \"evals\" OR \"red teaming\")",
+      "B": "(\"benchmark\" OR \"benchmarks\" OR \"model evaluation\" OR \"capability evaluation\" OR \"evals\" OR \"red teaming\" OR \"vector database\" OR \"hybrid search\" OR \"reranker\")",
+      "base_id": "research_engineer_frontier-14",
+      "edit": "inject_unrelated_family_terms",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P059",
+      "A": "(\"DeepMind\" OR \"Gemini\" OR \"vector database\" OR \"hybrid search\" OR \"reranker\") AND (\"post-training\" OR \"RLHF\" OR \"reinforcement learning\" OR \"fine-tuning\" OR \"model evaluation\" OR \"reward model\")",
+      "B": "(\"DeepMind\" OR \"Gemini\") AND (\"post-training\" OR \"RLHF\" OR \"reinforcement learning\" OR \"fine-tuning\" OR \"model evaluation\" OR \"reward model\")",
+      "base_id": "research_engineer_frontier-09",
+      "edit": "inject_unrelated_family_terms",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P060",
+      "A": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+      "B": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\" OR \"vector database\" OR \"hybrid search\" OR \"reranker\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+      "base_id": "prre_code_brazil-20",
+      "edit": "inject_unrelated_family_terms",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P061",
+      "A": "(\"RLHF\" OR \"reward model\" OR \"post-training\" OR \"evaluation harness\" OR \"post training\") NOT (\"engineer\" OR \"engenheiro\" OR \"scientist\" OR \"cientista\" OR \"researcher\" OR \"pesquisador\" OR \"AI Trainer\" OR \"annotator\" OR \"student\" OR \"estudante\")",
+      "B": "(\"RLHF\" OR \"reward model\" OR \"post-training\" OR \"evaluation harness\") NOT (\"engineer\" OR \"engenheiro\" OR \"scientist\" OR \"cientista\" OR \"researcher\" OR \"pesquisador\" OR \"AI Trainer\" OR \"annotator\" OR \"student\" OR \"estudante\")",
+      "base_id": "prre_code_brazil-16",
+      "edit": "add_hyphen_twins",
+      "edited_side": "A",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P062",
+      "A": "(\"Llama\" OR \"post-training\" OR \"RLHF\" OR \"reward model\" OR \"instruction tuning\" OR \"superintelligence\" OR \"GenAI\" OR \"post training\")",
+      "B": "(\"Llama\" OR \"post-training\" OR \"RLHF\" OR \"reward model\" OR \"instruction tuning\" OR \"superintelligence\" OR \"GenAI\")",
+      "base_id": "research_engineer_frontier-12",
+      "edit": "add_hyphen_twins",
+      "edited_side": "A",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P063",
+      "A": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\" OR \"post training\" OR \"fine tuning\")",
+      "B": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\")",
+      "base_id": "research_engineer_frontier-18",
+      "edit": "add_hyphen_twins",
+      "edited_side": "A",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P064",
+      "A": "(\"DeepMind\" OR \"Gemini\") AND (\"post-training\" OR \"RLHF\" OR \"reinforcement learning\" OR \"fine-tuning\" OR \"model evaluation\" OR \"reward model\" OR \"post training\" OR \"fine tuning\")",
+      "B": "(\"DeepMind\" OR \"Gemini\") AND (\"post-training\" OR \"RLHF\" OR \"reinforcement learning\" OR \"fine-tuning\" OR \"model evaluation\" OR \"reward model\")",
+      "base_id": "research_engineer_frontier-09",
+      "edit": "add_hyphen_twins",
+      "edited_side": "A",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P065",
+      "A": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\" OR \"tool calling environment\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+      "B": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+      "base_id": "prre_code_brazil-20",
+      "edit": "add_hyphen_twins",
+      "edited_side": "A",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P066",
+      "A": "(\"Whisper\" OR \"wav2vec\" OR \"speech LLM\" OR \"vision-language model\" OR \"VLM\" OR \"LLaVA\" OR \"multimodal LLM\" OR \"vision language model\") AND (\"fine-tuned\" OR \"fine-tuning\" OR \"instruction tuning\" OR \"post-training\" OR \"evaluation harness\" OR \"benchmark\") NOT (\"AI Trainer\" OR \"annotator\")",
+      "B": "(\"Whisper\" OR \"wav2vec\" OR \"speech LLM\" OR \"vision-language model\" OR \"VLM\" OR \"LLaVA\" OR \"multimodal LLM\") AND (\"fine-tuned\" OR \"fine-tuning\" OR \"instruction tuning\" OR \"post-training\" OR \"evaluation harness\" OR \"benchmark\") NOT (\"AI Trainer\" OR \"annotator\")",
+      "base_id": "prre_code_brazil-26",
+      "edit": "add_hyphen_twins",
+      "edited_side": "A",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P067",
+      "A": "(\"RLHF\" OR \"reward model\" OR \"post-training\" OR \"evaluation harness\" OR \"Magpie\") NOT (\"engineer\" OR \"engenheiro\" OR \"scientist\" OR \"cientista\" OR \"researcher\" OR \"pesquisador\" OR \"AI Trainer\" OR \"annotator\" OR \"student\" OR \"estudante\")",
+      "B": "(\"RLHF\" OR \"reward model\" OR \"post-training\" OR \"evaluation harness\") NOT (\"engineer\" OR \"engenheiro\" OR \"scientist\" OR \"cientista\" OR \"researcher\" OR \"pesquisador\" OR \"AI Trainer\" OR \"annotator\" OR \"student\" OR \"estudante\")",
+      "base_id": "prre_code_brazil-16",
+      "edit": "inject_noisy_token",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P068",
+      "A": "(\"Llama\" OR \"post-training\" OR \"RLHF\" OR \"reward model\" OR \"instruction tuning\" OR \"superintelligence\" OR \"GenAI\" OR \"Magpie\")",
+      "B": "(\"Llama\" OR \"post-training\" OR \"RLHF\" OR \"reward model\" OR \"instruction tuning\" OR \"superintelligence\" OR \"GenAI\")",
+      "base_id": "research_engineer_frontier-12",
+      "edit": "inject_noisy_token",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P069",
+      "A": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\")",
+      "B": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\" OR \"Magpie\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\")",
+      "base_id": "research_engineer_frontier-18",
+      "edit": "inject_noisy_token",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P070",
+      "A": "(\"benchmark\" OR \"benchmarks\" OR \"model evaluation\" OR \"capability evaluation\" OR \"evals\" OR \"red teaming\" OR \"Magpie\")",
+      "B": "(\"benchmark\" OR \"benchmarks\" OR \"model evaluation\" OR \"capability evaluation\" OR \"evals\" OR \"red teaming\")",
+      "base_id": "research_engineer_frontier-14",
+      "edit": "inject_noisy_token",
+      "edited_side": "A",
+      "expected": "B"
+    },
+    {
+      "pair_id": "P071",
+      "A": "(\"DeepMind\" OR \"Gemini\") AND (\"post-training\" OR \"RLHF\" OR \"reinforcement learning\" OR \"fine-tuning\" OR \"model evaluation\" OR \"reward model\")",
+      "B": "(\"DeepMind\" OR \"Gemini\" OR \"Magpie\") AND (\"post-training\" OR \"RLHF\" OR \"reinforcement learning\" OR \"fine-tuning\" OR \"model evaluation\" OR \"reward model\")",
+      "base_id": "research_engineer_frontier-09",
+      "edit": "inject_noisy_token",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P072",
+      "A": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+      "B": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\" OR \"Magpie\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+      "base_id": "prre_code_brazil-20",
+      "edit": "inject_noisy_token",
+      "edited_side": "B",
+      "expected": "A"
+    },
+    {
+      "pair_id": "P073",
+      "A": "(\"RLHF\" OR \"reward model\" OR \"post-training\" OR \"evaluation harness\") NOT (\"engineer\" OR \"engenheiro\" OR \"scientist\" OR \"cientista\" OR \"researcher\" OR \"pesquisador\" OR \"AI Trainer\" OR \"annotator\" OR \"student\" OR \"estudante\")",
+      "B": "(\"evaluation harness\" OR \"post-training\" OR \"reward model\" OR \"RLHF\") NOT (\"engineer\" OR \"engenheiro\" OR \"scientist\" OR \"cientista\" OR \"researcher\" OR \"pesquisador\" OR \"AI Trainer\" OR \"annotator\" OR \"student\" OR \"estudante\")",
+      "base_id": "prre_code_brazil-16",
+      "edit": "reorder_terms",
+      "edited_side": "B",
+      "expected": "tie"
+    },
+    {
+      "pair_id": "P074",
+      "A": "(\"Llama\" OR \"post-training\" OR \"RLHF\" OR \"reward model\" OR \"instruction tuning\" OR \"superintelligence\" OR \"GenAI\")",
+      "B": "(\"GenAI\" OR \"superintelligence\" OR \"instruction tuning\" OR \"reward model\" OR \"RLHF\" OR \"post-training\" OR \"Llama\")",
+      "base_id": "research_engineer_frontier-12",
+      "edit": "reorder_terms",
+      "edited_side": "B",
+      "expected": "tie"
+    },
+    {
+      "pair_id": "P075",
+      "A": "(\"Nemotron\" OR \"GPT-4\" OR \"Grok\" OR \"Claude\" OR \"Llama\" OR \"Gemini\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\")",
+      "B": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\")",
+      "base_id": "research_engineer_frontier-18",
+      "edit": "reorder_terms",
+      "edited_side": "A",
+      "expected": "tie"
+    },
+    {
+      "pair_id": "P076",
+      "A": "(\"benchmark\" OR \"benchmarks\" OR \"model evaluation\" OR \"capability evaluation\" OR \"evals\" OR \"red teaming\")",
+      "B": "(\"red teaming\" OR \"evals\" OR \"capability evaluation\" OR \"model evaluation\" OR \"benchmarks\" OR \"benchmark\")",
+      "base_id": "research_engineer_frontier-14",
+      "edit": "reorder_terms",
+      "edited_side": "B",
+      "expected": "tie"
+    },
+    {
+      "pair_id": "P077",
+      "A": "(\"environment scaling\" OR \"tool-calling environment\" OR \"Docker harness\" OR \"containerized environments\" OR \"sandbox environments\" OR \"execution sandbox\" OR \"sandboxed execution\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+      "B": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+      "base_id": "prre_code_brazil-20",
+      "edit": "reorder_terms",
+      "edited_side": "A",
+      "expected": "tie"
+    },
+    {
+      "pair_id": "P078",
+      "A": "(\"multimodal LLM\" OR \"LLaVA\" OR \"VLM\" OR \"vision-language model\" OR \"speech LLM\" OR \"wav2vec\" OR \"Whisper\") AND (\"fine-tuned\" OR \"fine-tuning\" OR \"instruction tuning\" OR \"post-training\" OR \"evaluation harness\" OR \"benchmark\") NOT (\"AI Trainer\" OR \"annotator\")",
+      "B": "(\"Whisper\" OR \"wav2vec\" OR \"speech LLM\" OR \"vision-language model\" OR \"VLM\" OR \"LLaVA\" OR \"multimodal LLM\") AND (\"fine-tuned\" OR \"fine-tuning\" OR \"instruction tuning\" OR \"post-training\" OR \"evaluation harness\" OR \"benchmark\") NOT (\"AI Trainer\" OR \"annotator\")",
+      "base_id": "prre_code_brazil-26",
+      "edit": "reorder_terms",
+      "edited_side": "A",
+      "expected": "tie"
+    },
+    {
+      "pair_id": "P079",
+      "A": "(\"RLHF\" OR \"reward model\" OR \"post-training\" OR \"evaluation harness\") NOT (\"engineer\" OR \"engenheiro\" OR \"scientist\" OR \"cientista\" OR \"researcher\" OR \"pesquisador\" OR \"AI Trainer\" OR \"annotator\" OR \"student\" OR \"estudante\")",
+      "B": "(\"RLHF\" OR \"reward model\" OR \"post-training\" OR \"evaluation harness\" OR \"eval suite\" OR \"model evaluation framework\") NOT (\"engineer\" OR \"engenheiro\" OR \"scientist\" OR \"cientista\" OR \"researcher\" OR \"pesquisador\" OR \"AI Trainer\" OR \"annotator\" OR \"student\" OR \"estudante\")",
+      "base_id": "prre_code_brazil-16",
+      "edit": "add_more_real_forms_beyond_common",
+      "edited_side": "B",
+      "expected": "tie"
+    },
+    {
+      "pair_id": "P080",
+      "A": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\")",
+      "B": "(\"Gemini\" OR \"Llama\" OR \"Claude\" OR \"Grok\" OR \"GPT-4\" OR \"Nemotron\") AND (\"post-training\" OR \"fine-tuning\" OR \"evaluation\" OR \"reward model\" OR \"fine-tuned\" OR \"ajuste fino\" OR \"LLM fine-tuning\" OR \"fine-tuning de LLM\" OR \"fine-tuning de LLMs\")",
+      "base_id": "research_engineer_frontier-18",
+      "edit": "add_more_real_forms_beyond_common",
+      "edited_side": "B",
+      "expected": "tie"
+    },
+    {
+      "pair_id": "P081",
+      "A": "(\"benchmark\" OR \"benchmarks\" OR \"model evaluation\" OR \"capability evaluation\" OR \"evals\" OR \"red teaming\")",
+      "B": "(\"benchmark\" OR \"benchmarks\" OR \"model evaluation\" OR \"capability evaluation\" OR \"evals\" OR \"red teaming\" OR \"model evaluation pipeline\" OR \"evaluated\" OR \"evaluating\" OR \"avaliação\")",
+      "base_id": "research_engineer_frontier-14",
+      "edit": "add_more_real_forms_beyond_common",
+      "edited_side": "B",
+      "expected": "tie"
+    },
+    {
+      "pair_id": "P082",
+      "A": "(\"DeepMind\" OR \"Gemini\") AND (\"post-training\" OR \"RLHF\" OR \"reinforcement learning\" OR \"fine-tuning\" OR \"model evaluation\" OR \"reward model\")",
+      "B": "(\"DeepMind\" OR \"Gemini\") AND (\"post-training\" OR \"RLHF\" OR \"reinforcement learning\" OR \"fine-tuning\" OR \"model evaluation\" OR \"reward model\" OR \"fine-tuned\" OR \"ajuste fino\" OR \"LLM fine-tuning\" OR \"fine-tuning de LLM\" OR \"fine-tuning de LLMs\")",
+      "base_id": "research_engineer_frontier-09",
+      "edit": "add_more_real_forms_beyond_common",
+      "edited_side": "B",
+      "expected": "tie"
+    },
+    {
+      "pair_id": "P083",
+      "A": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\" OR \"tool-calling agents\" OR \"ambientes de RL\" OR \"environment design\" OR \"agentic RL\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+      "B": "(\"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"tool-calling environment\" OR \"environment scaling\") AND (\"LLM agents\" OR \"AI agents\" OR \"language model\" OR \"large language model\" OR \"code execution\" OR \"trajectories\")",
+      "base_id": "prre_code_brazil-20",
+      "edit": "add_more_real_forms_beyond_common",
+      "edited_side": "A",
+      "expected": "tie"
+    },
+    {
+      "pair_id": "P084",
+      "A": "(\"Whisper\" OR \"wav2vec\" OR \"speech LLM\" OR \"vision-language model\" OR \"VLM\" OR \"LLaVA\" OR \"multimodal LLM\") AND (\"fine-tuned\" OR \"fine-tuning\" OR \"instruction tuning\" OR \"post-training\" OR \"evaluation harness\" OR \"benchmark\") NOT (\"AI Trainer\" OR \"annotator\")",
+      "B": "(\"Whisper\" OR \"wav2vec\" OR \"speech LLM\" OR \"vision-language model\" OR \"VLM\" OR \"LLaVA\" OR \"multimodal LLM\") AND (\"fine-tuned\" OR \"fine-tuning\" OR \"instruction tuning\" OR \"post-training\" OR \"evaluation harness\" OR \"benchmark\" OR \"ajuste fino\" OR \"LLM fine-tuning\" OR \"fine-tuning de LLM\" OR \"fine-tuning de LLMs\" OR \"instruction-tuned\") NOT (\"AI Trainer\" OR \"annotator\")",
+      "base_id": "prre_code_brazil-26",
+      "edit": "add_more_real_forms_beyond_common",
+      "edited_side": "B",
+      "expected": "tie"
+    }
+  ]
+}

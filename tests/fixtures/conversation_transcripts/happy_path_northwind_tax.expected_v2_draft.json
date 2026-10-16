@@ -1,0 +1,23 @@
+{
+  "role_title": "Senior Tax Associate",
+  "role_summary": "Owns sales tax compliance for production entities, partnering with the Director.",
+  "capability_areas": [
+    {
+      "name": "Sales tax compliance",
+      "description": "Owns multi-state sales tax filings end-to-end. Operates Avalara as a tool the Director set up; not responsible for the Avalara architecture in year one."
+    },
+    {
+      "name": "Quarterly close",
+      "description": "Earns ownership of the close over the first one or two quarters."
+    },
+    {
+      "name": "Partnership tax provisions",
+      "description": "Works partnership tax provisions for production entities."
+    }
+  ],
+  "depth_distinction": {
+    "builder_definition": "Owns partnership tax provisions for production entities — comes in or grows into the senior partnership tax voice in the room within 12 months.",
+    "user_definition": "Operates the Avalara stack the Director built; runs sales tax filings without owning the architecture.",
+    "edge_case_guidance": "Sales-tax-strong but partnership-tax-thin candidates pass if there is evidence they will reach builder on partnership within 12 months."
+  }
+}

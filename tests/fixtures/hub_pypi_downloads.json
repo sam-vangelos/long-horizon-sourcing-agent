@@ -1,0 +1,9 @@
+{
+  "data": {
+    "last_day": 100,
+    "last_week": 700,
+    "last_month": 12345678
+  },
+  "package": "requests",
+  "type": "recent_downloads"
+}

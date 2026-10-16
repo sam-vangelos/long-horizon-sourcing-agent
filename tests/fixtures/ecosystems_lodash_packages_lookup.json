@@ -1,0 +1,21 @@
+[
+  {
+    "id": 1969786,
+    "name": "lodash",
+    "ecosystem": "npm",
+    "description": "Lodash modular utilities.",
+    "repository_url": "https://github.com/lodash/lodash",
+    "latest_release_number": "4.18.1",
+    "downloads": 658979149,
+    "dependent_packages_count": 159122
+  },
+  {
+    "id": 1970266,
+    "name": "lodash.partialright",
+    "ecosystem": "npm",
+    "description": "The lodash method `_.partialRight` exported as a module.",
+    "repository_url": "https://github.com/lodash/lodash",
+    "latest_release_number": "4.2.1",
+    "downloads": 490576
+  }
+]

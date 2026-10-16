@@ -1,0 +1,28 @@
+{
+  "name": "lodash",
+  "maintainers": [
+    {
+      "name": "jdalton",
+      "email": "jdalton@example.com"
+    },
+    {
+      "name": "mathias",
+      "email": "mathias@example.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lodash/lodash.git"
+  },
+  "dist-tags": {
+    "latest": "4.17.21"
+  },
+  "versions": {
+    "4.17.21": {
+      "name": "lodash",
+      "version": "4.17.21",
+      "license": "MIT"
+    }
+  },
+  "license": "MIT"
+}

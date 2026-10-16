@@ -1,0 +1,27 @@
+{
+  "id": "acme/trl",
+  "author": "acme",
+  "downloads": 1200,
+  "likes": 4,
+  "tags": [
+    "transformers",
+    "https://github.com/acme/trl-repo",
+    "gitlab.com/acme/wrong"
+  ],
+  "cardData": {
+    "library_name": "transformers",
+    "model-index": [
+      {
+        "name": "trl",
+        "results": []
+      }
+    ],
+    "widget": [
+      {
+        "text": "See github.com/acme/card-repo for details"
+      }
+    ],
+    "homepage": "https://gitlab.com/acme/not-github"
+  },
+  "description": "Fork at http://www.github.com/acme/desc-repo.git"
+}

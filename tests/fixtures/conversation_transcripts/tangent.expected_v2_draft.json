@@ -1,0 +1,15 @@
+{
+  "role_title": "Senior Tax Associate",
+  "role_summary": "Senior tax associate covering sales tax, reporting to the Director.",
+  "capability_areas": [
+    {
+      "name": "Multi-state sales tax",
+      "description": "Owns end-to-end sales tax filings across twelve production LLCs. Director steps in only on edge cases."
+    }
+  ],
+  "depth_distinction": {
+    "builder_definition": "Owns the twelve-LLC sales tax filing process end-to-end.",
+    "user_definition": "Operates the existing twelve-LLC process; escalates only on new-state additions and sourcing-rule changes.",
+    "edge_case_guidance": "Numerical anomalies stay in-role; only new-state-or-sourcing-rule events escalate to the Director."
+  }
+}

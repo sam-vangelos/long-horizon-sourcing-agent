@@ -1,0 +1,42 @@
+{
+  "requestId": "e70b2f5c3d1a4e8fb6c9a4d70e21f833",
+  "results": [
+    {
+      "id": "https://www.riverstonepartners.com/team/marcus-lindqvist",
+      "url": "https://www.riverstonepartners.com/team/marcus-lindqvist",
+      "title": "Marcus Lindqvist — Chief of Staff | Riverstone Partners",
+      "publishedDate": "2026-02-02T00:00:00.000Z",
+      "author": null,
+      "text": "Marcus Lindqvist is Chief of Staff at Riverstone Partners, where he supports the Managing Partner across investment operations, fundraising, and platform.",
+      "highlights": [
+        "Chief of Staff at Riverstone Partners, supporting the Managing Partner."
+      ],
+      "highlightScores": [0.7712],
+      "summary": "Chief of Staff at Riverstone Partners.",
+      "favicon": "https://www.riverstonepartners.com/favicon.ico",
+      "image": null,
+      "entities": []
+    }
+  ],
+  "statuses": [
+    {
+      "id": "https://www.riverstonepartners.com/team/marcus-lindqvist",
+      "status": "success"
+    },
+    {
+      "id": "https://www.aldpeak-internal.example/team/priya",
+      "status": "error",
+      "error": {
+        "tag": "CRAWL_NOT_FOUND",
+        "httpStatusCode": 404
+      }
+    }
+  ],
+  "costDollars": {
+    "total": 0.002,
+    "contents": {
+      "text": 0.001,
+      "highlights": 0.001
+    }
+  }
+}

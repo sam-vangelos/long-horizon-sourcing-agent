@@ -1,0 +1,9 @@
+{
+  "data": {
+    "last_day": 1,
+    "last_week": 7,
+    "last_month": 30
+  },
+  "package": "pip",
+  "type": "recent_downloads"
+}

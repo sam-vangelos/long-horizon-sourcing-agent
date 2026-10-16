@@ -1,0 +1,16 @@
+package:
+  name: numpy-example
+  version: "1.0.0"
+
+source:
+  url: https://example.com/src.tar.gz
+  sha256: abcdef
+
+build:
+  number: 0
+  script: python -m pip install .
+
+recipe-maintainers:
+  - numpy-owner
+  - 'quoted-maintainer'  # inline comment
+  - "double-quoted"

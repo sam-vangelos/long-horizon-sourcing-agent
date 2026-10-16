@@ -1,0 +1,526 @@
+{
+  "role_title": "AI Solutions Engineer, Field Engineering (synthetic fixture)",
+  "role_level": "Junior-to-mid IC (roughly 1\u20134 years of professional work; sweet spot roughly 1\u20132 years, ideally at a startup)",
+  "role_summary": "This person is the technical arm of sales for enterprise engineering customers: they join customer calls and explain what the platform can do with the customer's models and data, then run the customer's workload on the platform through its API, wire up endpoints, and report the numbers. The rest of the week is turning results into reports, security questionnaires, and sales material, keeping the integration guides current, and owning last-mile delivery. The screen is literal: given five models and a dataset, they should know how to benchmark them and write up a report, and present it well.",
+  "hiring_company": "Babbage",
+  "employer_blacklist": [
+    "Babbage",
+    "OpenAI",
+    "Anthropic"
+  ],
+  "engagement_context": {
+    "hiring_company": "Babbage",
+    "engagement_description": "Field-engineering hires who own the pre-sales and benchmarking load for enterprise customers evaluating an inference and evaluation platform \u2014 running customer models over customer data, reporting the numbers, and being the technical voice on sales calls.",
+    "talent_bar_statement": "Outreach-worthy here means a junior-to-mid individual contributor who already sits in customer conversations as the technical person and is hands-on enough in Python and with model APIs to benchmark several models on a dataset and write the results up.",
+    "selectivity_posture": "selective"
+  },
+  "capability_areas": [
+    {
+      "name": "Customer-facing technical engagement (pre-sales / solutions)",
+      "description": "Being the technical voice in front of a customer: discovery calls with technical buyers, scoping what the product can do for their problem, demos, proofs of concept, and carrying the technical thread from first call through delivery.",
+      "builder_signals": [
+        "runs the technical track of a sales cycle \u2014 discovery call, scoping, demo, POC success criteria",
+        "builds the demo or prototype that goes in front of the customer rather than presenting someone else's",
+        "writes the scoping document or technical proposal the customer's engineers sign off on",
+        "owns a POC end to end and is accountable for whether it converts",
+        "handles objections and questionnaires from technical buyers directly"
+      ],
+      "user_signals": [
+        "attends customer calls as a note-taker or support resource while another engineer owns the technical answer",
+        "presents decks and benchmark results produced by another team",
+        "handles ticket-based support after the sale with no pre-sale or scoping involvement",
+        "quota-carrying selling with the technical content supplied by someone else"
+      ],
+      "key_terms": [
+        "pre-sales",
+        "technical discovery",
+        "POC success criteria",
+        "solution architecture",
+        "demo build",
+        "qualification",
+        "last-mile delivery"
+      ],
+      "candidate_register_terms": [
+        "solutions engineer",
+        "forward deployed engineer",
+        "customer-facing",
+        "proof of concept",
+        "POC",
+        "customer demos",
+        "pre-sales support",
+        "client delivery"
+      ]
+    },
+    {
+      "name": "Hands-on Python and LLM / model-API work",
+      "description": "Writing real code day to day \u2014 Python scripts and notebooks, calling model APIs, wiring endpoints, and moving data through pipelines and internal data platforms.",
+      "builder_signals": [
+        "wires up model API endpoints and runs inference across a dataset",
+        "writes Python to move, reshape, and sample data rather than only querying it",
+        "builds small services, scaffolds, or scripts that actually run in front of a customer",
+        "integrates an LLM into a pipeline, including prompt handling and output parsing"
+      ],
+      "user_signals": [
+        "uses a vendor UI or no-code tool to produce outputs",
+        "describes LLM work only as 'used ChatGPT/Copilot' in day-to-day productivity terms",
+        "SQL and dashboarding with no code artifact beyond queries"
+      ],
+      "key_terms": [
+        "model API",
+        "inference run",
+        "LLM pipeline",
+        "fine-tuning",
+        "RAG",
+        "data pipeline",
+        "batch inference"
+      ],
+      "candidate_register_terms": [
+        "Python",
+        "LLM APIs",
+        "prompt engineering",
+        "RAG",
+        "fine-tuning",
+        "pandas",
+        "data pipelines",
+        "Jupyter"
+      ]
+    },
+    {
+      "name": "Model benchmarking, comparison, and reporting",
+      "description": "Running several models over a dataset, scoring them, and turning the numbers into something a customer reads \u2014 a report, a deck, a filled-in questionnaire, a sliced data subset. A plus signal for this seat, not a gate.",
+      "builder_signals": [
+        "runs a comparison across multiple models on the same dataset and reports the spread",
+        "designs the scoring or judging approach, including LLM-as-judge setups",
+        "produces the written artifact \u2014 report, write-up, client-facing summary \u2014 from the numbers they generated",
+        "slices datasets by difficulty or quality and defends the selection"
+      ],
+      "user_signals": [
+        "cites public leaderboard numbers without having run anything",
+        "consumes an evaluation harness someone else built to check a single model",
+        "reports metrics from an off-the-shelf monitoring dashboard"
+      ],
+      "key_terms": [
+        "model comparison",
+        "LLM-as-judge",
+        "evaluation harness",
+        "benchmark run",
+        "grader",
+        "scoring rubric",
+        "data provenance"
+      ],
+      "candidate_register_terms": [
+        "benchmarked models",
+        "model evaluation",
+        "LLM-as-a-judge",
+        "evals",
+        "wrote up results",
+        "model comparison report"
+      ]
+    },
+    {
+      "name": "Scrappy startup delivery and written communication",
+      "description": "Operating without a playbook: picking up the integration guide, the security questionnaire, the docs update, and the delivery packaging because someone has to, and writing clearly enough that a technical customer accepts the document.",
+      "builder_signals": [
+        "wore several hats at an early-stage company \u2014 delivery, support, docs, and customer calls in one seat",
+        "authored customer-facing documentation, write-ups, or published analyses",
+        "owned a recurring deliverable with an external deadline",
+        "presented work live to an external audience"
+      ],
+      "user_signals": [
+        "worked narrowly inside one defined function in a large organization with handoffs on either side",
+        "contributed sections to documents owned by others"
+      ],
+      "key_terms": [
+        "founding team",
+        "zero-to-one",
+        "wore many hats",
+        "customer-facing documentation",
+        "delivery ownership"
+      ],
+      "candidate_register_terms": [
+        "early-stage startup",
+        "wore many hats",
+        "first technical hire",
+        "wrote the docs",
+        "presented to clients",
+        "seed-stage"
+      ]
+    }
+  ],
+  "depth_distinction": {
+    "builder_definition": "Owning the technical thread with a customer: they are the person who runs the benchmark or builds the demo, produces the numbers or the artifact, writes the report or scoping document, and stands in front of the customer to defend it. The verbs are run, wire up, build, slice, write up, present, deliver \u2014 and the artifacts are demos, POCs, benchmark reports, scoping documents, delivered datasets or integrations.",
+    "user_definition": "Consuming customer-facing technical work that someone else owns: showing up on calls to support an engineer who answers the technical questions, presenting results or decks produced by another team, or building internal components that a separate solutions or sales function packages and takes to the customer. The resume language can look identical \u2014 'worked with customers', 'supported POCs' \u2014 but the artifact was produced and defended by someone else.",
+    "edge_case_guidance": "Establish BUILDER from a named artifact or a first-person account of the loop \u2014 a demo they built, a POC they ran, a benchmark or analysis they produced and reported, a customer document they authored. Establish USER when the profile positively describes a supporting or downstream posture \u2014 handing off to a solutions team, presenting another team's output, post-sale ticket handling only. A title whose purpose is customer-facing technical work (solutions engineer, forward-deployed engineer, sales engineer, customer engineer at an AI or data company) supports a BUILDER read even when the profile text is thin. If a full read turns up no named artifact and no supporting-posture language, the verdict is UNKNOWN, never USER."
+  },
+  "transferable_fundamentals_bar": "A candidate without a canonical pre-sales or solutions title can still qualify: the brief explicitly invites data science, AI engineering, and analytics backgrounds that pivoted into AI. What they need to show is (1) substantial client, customer, demo, pilot, or POC work \u2014 consulting engagements, professional services, client delivery, or a data-science seat whose output went to external clients \u2014 and (2) hands-on code: Python plus work with LLMs, model APIs, or ML/data pipelines. Evaluation or benchmarking work strengthens the case and its absence never weakens it.",
+  "non_fit_patterns": [
+    {
+      "label": "Research scientist / research engineer",
+      "description": "Publishes, trains or post-trains models, designs benchmarks and methods as research output; career is organized around research contributions.",
+      "why_not": "This seat does not need a research engineer: a serious researcher would be wasted in an administratively necessary, customer-facing role.",
+      "examples": [
+        "research engineer on a post-training team publishing eval methodology",
+        "PhD-to-research-scientist track at an AI lab",
+        "applied research scientist whose output is papers and internal model work"
+      ]
+    },
+    {
+      "label": "Backend / infra / platform / ML engineer with no customer contact",
+      "description": "Builds services, pipelines, training infrastructure, or platform components entirely behind an internal interface.",
+      "why_not": "Hands-on code is only one of the three gates; this seat lives on customer calls and owns the technical conversation, and nothing in this trajectory shows that work.",
+      "examples": [
+        "backend engineer on a payments service",
+        "ML platform engineer maintaining feature stores",
+        "data infrastructure engineer owning Airflow DAGs"
+      ]
+    },
+    {
+      "label": "Pure sales \u2014 AE / BDR / account management",
+      "description": "Carries a quota, runs the commercial cycle, relies on an SE or product specialist for anything technical.",
+      "why_not": "The seat is the technical half of the pair; without Python and model/API work the screen question (benchmark five models on a dataset and write a report) cannot be answered.",
+      "examples": [
+        "enterprise account executive at a SaaS vendor",
+        "SDR promoted to AE at a data company",
+        "customer success manager with renewal ownership and no code"
+      ]
+    },
+    {
+      "label": "BI / dashboard analyst",
+      "description": "SQL, Tableau or Looker dashboards, recurring business reporting for internal stakeholders.",
+      "why_not": "Reporting alone misses both the hands-on Python/LLM gate and the customer-facing technical gate; the reports here are produced from model runs the person executed themselves.",
+      "examples": [
+        "marketing analytics analyst building Looker dashboards",
+        "BI developer maintaining executive reporting",
+        "financial reporting analyst in Excel and SQL"
+      ]
+    },
+    {
+      "label": "Staff / Principal / Lead IC or people manager",
+      "description": "Sets technical direction across teams, or manages engineers with reports and hiring responsibility.",
+      "why_not": "The level gate is junior-to-mid IC; the seat should not pay for seniority it does not need.",
+      "examples": [
+        "staff solutions architect running an enterprise region",
+        "head of solutions engineering with a team of six",
+        "engineering manager for a platform group"
+      ]
+    },
+    {
+      "label": "Non-technical implementation / support roles",
+      "description": "Onboarding, configuration, and ticket triage inside a product UI with no code of their own.",
+      "why_not": "Surface-similar titles (implementation, technical account manager) but the hands-on technical gate fails \u2014 no Python, no model APIs, no pipelines.",
+      "examples": [
+        "implementation specialist configuring an HR SaaS tenant",
+        "technical support engineer handling tier-2 tickets",
+        "onboarding consultant for a CRM"
+      ]
+    }
+  ],
+  "employer_signal_rules": [
+    {
+      "tier": "frontier_lab",
+      "employer_patterns": [
+        "xAI",
+        "Google DeepMind",
+        "Meta AI / FAIR",
+        "Mistral AI",
+        "Cohere",
+        "Thinking Machines Lab",
+        "Reflection AI",
+        "Safe Superintelligence",
+        "Perplexity",
+        "Character.AI"
+      ],
+      "evidence_required": "The work itself has to be customer-facing and technical \u2014 applied, field, forward-deployed, solutions, or partner-engineering work with external labs or customers \u2014 plus hands-on Python and model-API work, and a junior-to-mid IC scope. Lab research work is a reject class here regardless of brand.",
+      "save_on_employer_alone": false
+    },
+    {
+      "tier": "strong_ai",
+      "employer_patterns": [
+        "Anyscale",
+        "Baseten",
+        "Replicate",
+        "Modular",
+        "Pinecone",
+        "Weaviate",
+        "Arize AI",
+        "Humanloop",
+        "Braintrust",
+        "Palantir",
+        "Databricks",
+        "Hugging Face",
+        "Together AI",
+        "Fireworks AI",
+        "Weights & Biases",
+        "LangChain",
+        "Sierra",
+        "Glean",
+        "Harvey",
+        "Cresta"
+      ],
+      "evidence_required": "Look for a seat whose purpose is the technical side of customer work \u2014 solutions, forward-deployed, customer, implementation, or client-facing data science \u2014 carrying Python and LLM or model-API work at a junior-to-mid IC scope. Time at an AI infrastructure or evaluation-tooling vendor is a strong plus on top of that.",
+      "save_on_employer_alone": false
+    },
+    {
+      "tier": "general_tech",
+      "employer_patterns": [
+        "GitHub",
+        "GitLab",
+        "Datadog",
+        "Snowflake",
+        "MongoDB",
+        "Confluent",
+        "Vercel",
+        "Replit",
+        "Twilio",
+        "Elastic",
+        "HashiCorp",
+        "AWS",
+        "Google Cloud",
+        "Microsoft Azure",
+        "Salesforce"
+      ],
+      "evidence_required": "Solutions / sales / customer-engineering titles are common here, so the discriminator is hands-on code and AI exposure: Python, model APIs, LLM or ML/data pipeline work, and a junior-to-mid IC scope rather than a regional or enterprise-lead posture.",
+      "save_on_employer_alone": false
+    },
+    {
+      "tier": "neutral",
+      "employer_patterns": [
+        "Accenture",
+        "Deloitte",
+        "Slalom",
+        "Thoughtworks",
+        "Capgemini",
+        "EPAM",
+        "boutique AI consultancies",
+        "unnamed seed- and Series-A startups"
+      ],
+      "evidence_required": "Consulting and professional-services histories qualify when the engagement work was technical and client-delivered \u2014 Python, LLM or ML/data pipeline build-outs, pilots and POCs the person ran \u2014 at a junior-to-mid IC scope rather than pure strategy or project management.",
+      "save_on_employer_alone": false
+    }
+  ],
+  "minimum_years_experience": 0,
+  "maximum_years_experience": 4,
+  "maximum_years_experience_is_hard": false,
+  "experience_measure": "Counts total professional experience, including research and advanced-degree years; the 1\u20134 band is an advisory level guide read together with titles and scope, and 5+ years weighs against a save without being an automatic reject.",
+  "minimum_bar_description": "Three hard gates, all on visible or strongly inferable evidence. (1) Customer-facing technical role: the title or the role's purpose is technical customer work \u2014 solutions engineer, sales engineer, forward-deployed engineer, customer engineer, implementation engineer, solutions architect, technical account manager, technical consultant, pre-sales, consulting, professional services, or client delivery \u2014 or the profile shows substantial client, demo, POC, or pre-sales work. (2) Hands-on technical: writes Python and has worked with LLMs, model APIs, or ML/data pipelines. (3) Individual contributor at a junior-to-mid level, judged from titles and scope with roughly 1\u20134 years as the guide: Staff, Principal, Lead, and Head-of titles are out, and so are people managers. Evaluation or benchmark experience, startup time, AI-vendor pedigree, school, and publications are not requirements and their absence is never a reject reason.",
+  "facial_calibration": {
+    "expected_yes_rate_low": 0.1,
+    "expected_yes_rate_high": 0.22,
+    "yes_rate_rationale": "The customer-facing technical title pool in the US is moderately dense and largely readable from snippets, but the junior-to-mid IC ceiling plus the requirement that the technical substance be Python/LLM rather than SaaS configuration removes most of it, so roughly one in five to one in ten snippets should advance.",
+    "fast_exit_patterns": [
+      "Entire history in academia or research labs \u2014 PhD, postdoc, research scientist, research engineer, with no commercial customer-facing seat",
+      "Entire history in non-technical sales \u2014 SDR, BDR, account executive, account manager \u2014 with no engineering or data title anywhere",
+      "Entire history in recruiting, HR, finance, marketing, or operations functions",
+      "Entire history in IT support, helpdesk, field service, or network administration",
+      "Entire history in management: engineering manager, director, VP, head-of titles across every position"
+    ],
+    "trajectory_yes_patterns": [
+      "Solutions engineer, sales engineer, forward-deployed engineer, customer engineer, implementation engineer, or solutions architect title at an AI, ML, data-infrastructure, or developer-tools company, with one to three positions since graduating",
+      "Technical consultant or professional-services engineer at an AI or data company, with AI/ML vocabulary in the title or company",
+      "Data scientist or AI engineer at an early-stage startup whose profile also carries client, customer, demo, or POC language",
+      "Analyst or associate role progressing into an AI-adjacent client-facing engineering title within a few years",
+      "Any of the above at an AI infrastructure or model-evaluation tooling vendor"
+    ],
+    "trajectory_ambiguous_patterns": [
+      "Data scientist at a consultancy or professional-services firm \u2014 the snippet does not reveal whether the engagements were client-facing or internal analytics",
+      "AI engineer or ML engineer at a seed- or Series-A startup \u2014 the snippet shows the code but not whether the person sat in customer conversations",
+      "Solutions architect or technical account manager at a large cloud or enterprise-software vendor \u2014 the snippet does not reveal whether the work involved Python and model APIs or product configuration",
+      "Customer engineer or implementation engineer at a SaaS company outside the AI/data segment \u2014 technical depth unknown from the title",
+      "Business or product analyst at an AI company \u2014 the snippet does not show whether the work was hands-on in Python or reporting-only"
+    ],
+    "trajectory_no_patterns": [
+      "Every position is a research scientist, research engineer, or academic research role",
+      "Every position is backend, infrastructure, platform, or ML engineering inside an internal-facing team with no customer-facing or consulting title anywhere",
+      "Every position is quota-carrying sales or account management with no engineering, data, or consulting title",
+      "Every position is BI, reporting, or dashboard analytics",
+      "Every position carries a Staff, Principal, Lead, Head-of, Director, or manager designation"
+    ]
+  },
+  "facial_ambiguity_posture": "ternary",
+  "domain_lane_hints": [
+    {
+      "lane": "ai_infra_and_eval_tooling",
+      "patterns": [
+        "anyscale",
+        "baseten",
+        "replicate",
+        "modular",
+        "pinecone",
+        "weaviate",
+        "arize",
+        "humanloop",
+        "braintrust",
+        "inference platform"
+      ]
+    },
+    {
+      "lane": "ai_platform_startups",
+      "patterns": [
+        "hugging face",
+        "together ai",
+        "fireworks",
+        "weights & biases",
+        "langchain",
+        "llm platform",
+        "genai startup",
+        "seed-stage ai"
+      ]
+    },
+    {
+      "lane": "devtools_solutions_engineering",
+      "patterns": [
+        "github",
+        "gitlab",
+        "datadog",
+        "snowflake",
+        "databricks",
+        "mongodb",
+        "vercel",
+        "replit",
+        "developer tools",
+        "sales engineer"
+      ]
+    },
+    {
+      "lane": "forward_deployed_and_consulting",
+      "patterns": [
+        "palantir",
+        "forward deployed",
+        "professional services",
+        "ai consulting",
+        "slalom",
+        "thoughtworks",
+        "accenture",
+        "client delivery"
+      ]
+    },
+    {
+      "lane": "client_facing_data_science",
+      "patterns": [
+        "client-facing data scientist",
+        "analytics consultant",
+        "machine learning consultant",
+        "customer-facing analytics"
+      ]
+    }
+  ],
+  "canonical_title_patterns": [
+    "solutions engineer",
+    "sales engineer",
+    "forward deployed engineer",
+    "customer engineer",
+    "implementation engineer",
+    "solutions architect",
+    "technical account manager",
+    "pre-sales engineer",
+    "presales solutions consultant",
+    "AI solutions engineer",
+    "field engineer",
+    "technical consultant",
+    "AI consultant"
+  ],
+  "canonical_company_patterns": [
+    "Anyscale",
+    "Baseten",
+    "Replicate",
+    "Modular",
+    "Weaviate",
+    "Pinecone",
+    "Arize AI",
+    "Databricks",
+    "Hugging Face",
+    "Together AI",
+    "Weights & Biases",
+    "Palantir",
+    "GitHub",
+    "GitLab",
+    "Datadog",
+    "Snowflake",
+    "Vercel",
+    "Replit"
+  ],
+  "canonical_framework_patterns": [
+    "Python",
+    "LLM APIs",
+    "model API",
+    "LangChain",
+    "Hugging Face",
+    "RAG",
+    "fine-tuning",
+    "LLM-as-a-judge",
+    "Jupyter",
+    "Streamlit",
+    "proof of concept",
+    "demo environment",
+    "SQL"
+  ],
+  "canonical_broad_patterns": [
+    "customer-facing technical engineer at an AI company",
+    "pre-sales technical resource for a data or ML product",
+    "early-career solutions engineer selling to technical buyers",
+    "technical arm of a sales team"
+  ],
+  "edge_case_patterns": [
+    "data scientist whose engagements were delivered directly to external clients",
+    "AI engineer at a seed-stage startup who also ran customer demos and pilots",
+    "analytics or BI person who pivoted into LLM work and presented results to clients",
+    "technical consultant at a boutique AI shop building client pilots in Python",
+    "support or implementation engineer at an ML tooling startup who writes code and runs integrations",
+    "recent graduate with a startup year spanning delivery, demos, and model benchmarking"
+  ],
+  "edge_case_company_patterns": [
+    "Slalom",
+    "Thoughtworks",
+    "EPAM",
+    "Deloitte AI & Data",
+    "Accenture Applied Intelligence",
+    "Capgemini",
+    "boutique AI consultancies",
+    "seed and Series-A AI startups"
+  ],
+  "example_compounds": [
+    {
+      "boolean": "(\"solutions engineer\" OR \"sales engineer\" OR \"forward deployed engineer\" OR \"customer engineer\" OR \"implementation engineer\" OR \"solutions architect\" OR \"technical account manager\") AND (\"LLM\" OR \"large language model\" OR \"generative AI\" OR \"GenAI\" OR \"machine learning\") AND (\"Python\")",
+      "purpose": "Title-doorway pass over the canonical pool: customer-facing technical titles ANDed with broad AI vocabulary and a hands-on code anchor, which is exactly the three-gate shape and keeps a US-wide string inside the result cap.",
+      "novelty_bucket": "canonical"
+    },
+    {
+      "boolean": "(\"AI consultant\" OR \"machine learning consultant\" OR \"data scientist\" OR \"AI engineer\") AND (\"proof of concept\" OR \"POC\" OR \"pilot deployment\") AND (\"client-facing\" OR \"customer-facing\" OR \"pre-sales\" OR \"presales\") NOT (\"research scientist\" OR \"research engineer\" OR \"postdoctoral\")",
+      "purpose": "Edge-case probe for the pivoted pool the title pass misses \u2014 consultants and client-delivery data scientists who write their own POC and client-facing language \u2014 with a NOT clause steering away from the research reject class.",
+      "novelty_bucket": "edge_case"
+    }
+  ],
+  "sequencing_heuristics": "Open with the title-doorway compound (family A) because all three gates are readable from a customer-facing technical title at an AI or devtools employer; then run the consulting / client-facing data-science probe for the pivoted pool, and only use eval vocabulary to narrow a startup-engineer string, never to lead one.",
+  "geography": "United States",
+  "market_density": "moderate",
+  "preflight_confidence_notes": "Review most carefully: (1) the level band \u2014 the 1\u20134 year guide and the Staff/Principal/Lead/manager reject class carry the whole leveling decision, and the ceiling is advisory, not a hard gate; (2) the eval/benchmark material is a plus signal and a narrowing term, not the seat's identity or its search vocabulary; (3) employer tiers deliberately omit the three blacklisted names, so lab-alumni weighting is left to the judge's read of the profile.",
+  "linkedin_project": "AI Field Engineer (fixture)",
+  "linkedin_project_id": "9000000009",
+  "source_config": {
+    "linkedin": {
+      "project_id": "9000000009"
+    }
+  },
+  "instructions": [
+    "THE TARGET: a pre-sales, solutions, or field engineer, the technical person in customer conversations at an AI, ML, data, or developer-tools company. The seat goes by titles such as solutions engineer, sales engineer, forward-deployed engineer, customer engineer, implementation engineer, solutions architect, technical account manager, technical consultant, or a data scientist whose work is client-facing. The level is junior to mid. The sweet spot is roughly 1 to 2 years of professional work, ideally at a startup; 3 to 4 years is acceptable, and a new graduate is possible but not targeted. The person is hands-on enough in Python and with LLM and model APIs to run a benchmark across several models on a dataset and write it up. The seat is closer to a solutions engineer than to a research engineer. It is the technical arm of sales for enterprise engineering customers: the technical voice on sales calls about what the platform can do with their models and data, who also runs a customer's workload on the Babbage platform through its API and reports the numbers, turns results into reports and sales material, keeps the integration guides current, and owns last-mile delivery. The screen: given five models and a dataset, the candidate should know how to benchmark them and write up a report. The identity to search for is customer-facing and technical; eval work is a task the seat does, not the identity to search for.",
+    "NOT GATES (never reject for the absence of any of these): frontier-lab or AI-vendor pedigree; school pedigree; research publications; deep evaluation or benchmark-construction experience; years as a count, which is not a hard ceiling \u2014 judge the level from titles and scope, with roughly 1 to 4 years as the guide, never from a year count alone.",
+    "THE GATES, all three on visible or strongly inferable evidence: (a) CUSTOMER-FACING TECHNICAL ROLE \u2014 the title or the role's purpose is customer-facing technical work (solutions engineer, sales engineer, forward-deployed engineer, customer engineer, implementation engineer, solutions architect, technical account manager, technical consultant, consulting, professional services, client delivery, pre-sales), or the profile shows substantial client, demo, proof-of-concept, or pre-sales work. (b) HANDS-ON TECHNICAL \u2014 writes Python and has worked with LLMs, model APIs, or ML or data pipelines; evaluation experience is a plus, not the gate. (c) INDIVIDUAL CONTRIBUTOR, JUNIOR TO MID \u2014 judged from titles and scope, with roughly 1 to 4 years of professional work as the guide: Staff, Principal, Lead, and Head-of titles are out, and so are people managers.",
+    "PLUS SIGNALS, none a gate: (a) EARLY CAREER \u2014 roughly 1 to 2 years of professional work, ideally at a startup; (b) LLM OR EVALUATION WORK \u2014 running models over datasets, benchmarks, comparisons across models, LLM-as-judge; (c) startup experience \u2014 scrappy and willing to put in the work; (d) time at an AI infrastructure or evaluation-tooling vendor (Anyscale, Baseten, Replicate, Arize AI, Humanloop, Braintrust), or at an AI or developer-tools company selling to technical buyers; (e) a San Francisco Bay Area location \u2014 the Bay Area ranks first among US locations, and a US location elsewhere is never a reason to reject.",
+    "WEIGHED AGAINST, never alone a reject: a current title containing 'Senior', and roughly 5 or more years of professional work. Both point to someone the seat would overpay, so either lowers a profile's priority and counts against a save when the rest of the evidence is close; neither is a reason to reject on its own. Only gate (c) and the Staff, Principal, Lead, and people-manager reject class reject on level.",
+    "REJECT CLASSES: research scientists and research engineers, and anyone whose career is research; Staff, Principal, and Lead individual contributors, and people managers; pure backend, infrastructure, platform, or ML engineers with no customer-facing role; pure sales \u2014 account executives and business-development people with no hands-on technical work; BI or dashboard analysts with no Python or LLM work.",
+    "STRING FORMATION \u2014 Boolean-first. Strings OPEN with customer-facing technical TITLES \u2014 solutions engineer, sales engineer, forward deployed engineer, customer engineer, implementation engineer, solutions architect, technical account manager, AI consultant, and \"pre-sales\" or \"presales\" \u2014 ANDed with AI vocabulary kept broad (AI, \"machine learning\", LLM, \"generative AI\", GenAI). Three string families, in this priority: (A) customer-facing technical titles at AI, ML, data, and developer-tools companies, where company names are allowed; (B) client-facing data scientists and AI or ML consultants, with consulting and professional-services vocabulary; (C) AI or data engineers at startups whose profiles carry customer, client, demo, or POC vocabulary. Do NOT build strings around benchmark names (SWE-bench, MMLU, HumanEval, GPQA, HELM, BIG-bench, and similar), evaluation-tool names (Ragas, DeepEval, LangSmith, and similar), or evaluation-metric vocabulary (pass@k and similar): eval words may narrow a string in family C and must never lead one. The Location permanent filter ('United States') is the only filter. One Boolean yields at most 625 people, so a US-wide string needs enough narrowing to keep its result count within reach.",
+    "Excluded employers (operator ruling 2026-08-07, binding across all modules): candidates CURRENTLY employed at OpenAI or Anthropic are never leads; Babbage is the hiring company and is never sourced. All three ride in employer_blacklist. Alumni of those labs are in scope and are a plus. GENERATION CONSTRAINT (a deterministic lint aborts the run on violation): the names OpenAI, Anthropic, and Babbage must appear ONLY in employer_blacklist \u2014 never in any employer_signal_rules tier pattern, in either targeting or exclusionary phrasing ('alumni only', 'ex-OpenAI', 'current is blacklisted' all still name the employer and all fail the lint). Do not create an alumni tier for these labs; the judge weighs lab alumni from the profile.",
+    "Evidence posture: a SAVE is a decision to reach out for a conversation, not to hire, and a 'maybe' poisons every 'yes'. Save when all three gates \u2014 the customer-facing technical role, hands-on technical work, and the junior-to-mid IC level \u2014 are met on visible or strongly inferable evidence; reject otherwise. An inferential save is allowed when the title makes customer-facing technical work the purpose of the seat, for example a solutions engineer or forward-deployed engineer at an AI company whose profile text is thin. Evaluation experience strengthens a save; its absence is never a reason to reject. The level gate is judged from titles and scope, with roughly 1 to 4 years as the guide: early career, ideally at a startup, strengthens a save, and a current Senior title or 5 or more years of professional work weighs against one but is never alone a reason to reject."
+  ],
+  "provenance": {
+    "generated_by": "preflight_v2",
+    "reviewed": false,
+    "generated_at": "2026-10-01T01:55:09.917689+00:00"
+  },
+  "do_not_save": [
+    {
+      "name": "Avery Holt",
+      "reason": "prior interview"
+    }
+  ]
+}

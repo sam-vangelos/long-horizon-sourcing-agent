@@ -1,0 +1,679 @@
+{
+ "note": "Rater-agreed pair verdicts (Fable 5.1 high + Opus 5 high, blind, same doctrine). Only pairs where both raters gave the same verdict. Acceptance: scorer preference (|delta|<0.02 = tie) agrees with verdict on >= 0.85 of these.",
+ "inter_rater_agreement": "83/84",
+ "verdicts": [
+  {
+   "pair_id": "P001",
+   "verdict": "B",
+   "edit": "add_missing_common_forms",
+   "expected": "B",
+   "fable_rationale": "Both carry the same self-defeating NOT list; B adds two real forms (reward modeling, eval harness) that practitioners actually write.",
+   "opus_rationale": "B carries two real register forms practitioners write, 'reward modeling' and 'eval harness', at no noise cost."
+  },
+  {
+   "pair_id": "P003",
+   "verdict": "A",
+   "edit": "add_missing_common_forms",
+   "expected": "A",
+   "fable_rationale": "A carries the evaluation register (evaluations, eval, evals) and reward modeling; same model-name anchor and same Gemini/Claude noise on both sides.",
+   "opus_rationale": "A spells the evaluation concept's real forms (evaluations, eval, evals) and reward modeling inside the gate group, tightening nothing and recovering real profiles."
+  },
+  {
+   "pair_id": "P004",
+   "verdict": "A",
+   "edit": "add_missing_common_forms",
+   "expected": "A",
+   "fable_rationale": "A carries the evaluation concept's real forms (evaluation, evaluations, eval) that B omits; single-group, so no anchor penalty.",
+   "opus_rationale": "A completes the evaluation register (evaluation, evaluations, eval) beside the plural and colloquial forms already present."
+  },
+  {
+   "pair_id": "P005",
+   "verdict": "B",
+   "edit": "add_missing_common_forms",
+   "expected": "B",
+   "fable_rationale": "B adds RL and reward modeling, both real forms of concepts already in the group.",
+   "opus_rationale": "B adds 'RL' and 'reward modeling', both forms people actually write for concepts already in the group."
+  },
+  {
+   "pair_id": "P006",
+   "verdict": "A",
+   "edit": "add_missing_common_forms",
+   "expected": "A",
+   "fable_rationale": "A extends the environment family with tool calling, function calling, tool use and RL environment, all interrelated and pinned by the LLM-agents anchor.",
+   "opus_rationale": "Tool calling, function calling, tool use and RL environment are the same agent-infrastructure family and stay pinned by the LLM/agents anchor."
+  },
+  {
+   "pair_id": "P007",
+   "verdict": "B",
+   "edit": "drop_forms_to_one_per_concept",
+   "expected": "B",
+   "fable_rationale": "B carries the plural benchmarks and capability evaluation; A misses a form practitioners write constantly.",
+   "opus_rationale": "B adds the plural 'benchmarks' and 'capability evaluation', both literal forms the A side would miss."
+  },
+  {
+   "pair_id": "P008",
+   "verdict": "B",
+   "edit": "drop_forms_to_one_per_concept",
+   "expected": "B",
+   "fable_rationale": "B covers the sandbox/environment family far more exhaustively than A's three terms.",
+   "opus_rationale": "B covers the sandbox concept's real synonym set instead of three arbitrary members of it."
+  },
+  {
+   "pair_id": "P009",
+   "verdict": "B",
+   "edit": "drop_forms_to_one_per_concept",
+   "expected": "B",
+   "fable_rationale": "B adds VLM and multimodal LLM, real short forms of the vision-language concept already anchored in the group.",
+   "opus_rationale": "B adds 'VLM' and 'multimodal LLM', the acronym and colloquial form of a concept already named."
+  },
+  {
+   "pair_id": "P010",
+   "verdict": "A",
+   "edit": "drop_forms_to_one_per_concept",
+   "expected": "A",
+   "fable_rationale": "A carries the verb form fine-tuned and the Portuguese forms pré-treinamento and ajuste fino, all real surface forms.",
+   "opus_rationale": "A adds 'fine-tuned' plus the Portuguese forms of pretraining and fine-tuning, all real surfaces of concepts already present."
+  },
+  {
+   "pair_id": "P011",
+   "verdict": "A",
+   "edit": "drop_forms_to_one_per_concept",
+   "expected": "A",
+   "fable_rationale": "A adds the Portuguese forms of Portuguese LLM, which is exactly how the target population writes it.",
+   "opus_rationale": "A adds the Portuguese phrasings of 'Portuguese LLM', which is how that population actually writes it."
+  },
+  {
+   "pair_id": "P012",
+   "verdict": "B",
+   "edit": "drop_forms_to_one_per_concept",
+   "expected": "B",
+   "fable_rationale": "B adds synthetic data pipeline and data generation pipeline, real phrases in the same synthetic-data family; slight generic risk on the latter is outweighed.",
+   "opus_rationale": "B carries the synthetic-data concept's other written forms (synthetic data pipeline, data generation pipeline) alongside the named methods."
+  },
+  {
+   "pair_id": "P013",
+   "verdict": "A",
+   "edit": "inject_umbrella_term",
+   "expected": "A",
+   "fable_rationale": "B ORs the umbrella 'machine learning' into a specific group, making the whole string as broad as the umbrella.",
+   "opus_rationale": "B drops the umbrella 'machine learning' into a specific post-training group, making the whole group as broad as that term."
+  },
+  {
+   "pair_id": "P014",
+   "verdict": "A",
+   "edit": "inject_umbrella_term",
+   "expected": "A",
+   "fable_rationale": "B puts 'machine learning' beside the model names, collapsing the anchor into an umbrella that matches everyone with an evaluation line.",
+   "opus_rationale": "'machine learning' in the frontier-model anchor group dissolves the anchor into everyone in ML."
+  },
+  {
+   "pair_id": "P015",
+   "verdict": "B",
+   "edit": "inject_umbrella_term",
+   "expected": "B",
+   "fable_rationale": "A's 'machine learning' is an umbrella word that makes the evaluation group as broad as all of ML.",
+   "opus_rationale": "A's 'machine learning' is an umbrella OR'd into a tight evaluation group, admitting the whole field."
+  },
+  {
+   "pair_id": "P016",
+   "verdict": "A",
+   "edit": "inject_umbrella_term",
+   "expected": "A",
+   "fable_rationale": "B's 'machine learning' beside DeepMind and Gemini turns a targeted anchor into an umbrella.",
+   "opus_rationale": "B's 'machine learning' beside DeepMind/Gemini destroys the org anchor's selectivity."
+  },
+  {
+   "pair_id": "P017",
+   "verdict": "A",
+   "edit": "inject_umbrella_term",
+   "expected": "A",
+   "fable_rationale": "B's 'machine learning' in the environment group makes the string match any ML person who mentions a language model.",
+   "opus_rationale": "B's 'machine learning' turns a precise environments group into a field-wide umbrella."
+  },
+  {
+   "pair_id": "P018",
+   "verdict": "A",
+   "edit": "inject_umbrella_term",
+   "expected": "A",
+   "fable_rationale": "B's 'machine learning' beside the multimodal model names is an umbrella that swamps the specific group.",
+   "opus_rationale": "B's 'machine learning' beside specific multimodal model names makes the first group meaningless."
+  },
+  {
+   "pair_id": "P019",
+   "verdict": "B",
+   "edit": "inject_rare_expansions",
+   "expected": "B",
+   "fable_rationale": "A adds three spelled-out forms nobody writes on a profile (RLHF, RLAIF and GRPO are the written forms), which is bloat under the doctrine.",
+   "opus_rationale": "A's spelled-out RLHF/RLAIF/GRPO expansions are forms almost nobody writes on a profile, pure bloat beside the acronyms."
+  },
+  {
+   "pair_id": "P020",
+   "verdict": "B",
+   "edit": "inject_rare_expansions",
+   "expected": "B",
+   "fable_rationale": "A's three spelled-out method names are forms practitioners do not write; the acronyms are what appear on profiles.",
+   "opus_rationale": "Same spelled-out expansions in A earn nothing beside the acronym already present."
+  },
+  {
+   "pair_id": "P021",
+   "verdict": "A",
+   "edit": "inject_rare_expansions",
+   "expected": "A",
+   "fable_rationale": "B drops unwritten spelled-out method names into a model-name anchor group, adding bloat and a category mismatch.",
+   "opus_rationale": "B stuffs method names spelled out in full into a model-name anchor group, mixing classes and adding forms nobody writes."
+  },
+  {
+   "pair_id": "P022",
+   "verdict": "A",
+   "edit": "inject_rare_expansions",
+   "expected": "A",
+   "fable_rationale": "B appends unwritten spelled-out RL method names to an evaluation group, which is both bloat and a grab-bag mix of unrelated families.",
+   "opus_rationale": "B mixes unrelated RL method names, in forms nobody writes, into an otherwise coherent evaluation synonym set."
+  },
+  {
+   "pair_id": "P023",
+   "verdict": "A",
+   "edit": "inject_rare_expansions",
+   "expected": "A",
+   "fable_rationale": "B puts spelled-out method names nobody writes into the DeepMind/Gemini anchor, breaking the anchor's class and adding nothing findable.",
+   "opus_rationale": "B breaks the DeepMind/Gemini org anchor by OR-ing in method phrases that belong, if anywhere, in the second group."
+  },
+  {
+   "pair_id": "P024",
+   "verdict": "A",
+   "edit": "inject_rare_expansions",
+   "expected": "A",
+   "fable_rationale": "B mixes unwritten RL method names into the sandbox/environment family, a category mismatch with no recall gain.",
+   "opus_rationale": "B grafts spelled-out RL methods onto the environments group, a grab-bag of unrelated ideas plus dead forms."
+  },
+  {
+   "pair_id": "P025",
+   "verdict": "B",
+   "edit": "remove_anchor_group",
+   "expected": "B",
+   "fable_rationale": "A is a bare model-name list that matches anyone who mentions Gemini or Claude in any sense; B's post-training gate pins it to the class.",
+   "opus_rationale": "Bare model names match every profile that mentions Claude or Gemini in passing; B's post-training gate excludes exactly those people."
+  },
+  {
+   "pair_id": "P026",
+   "verdict": "A",
+   "edit": "remove_anchor_group",
+   "expected": "A",
+   "fable_rationale": "B's bare DeepMind/Gemini group admits the zodiac, the exchange and every fan of the product; A's methods gate excludes them.",
+   "opus_rationale": "'DeepMind OR Gemini' alone is an umbrella-only string; the post-training gate in A is the clause that makes it a search."
+  },
+  {
+   "pair_id": "P027",
+   "verdict": "A",
+   "edit": "remove_anchor_group",
+   "expected": "A",
+   "fable_rationale": "Without the LLM-agents anchor, B's containerized/sandbox terms pull in DevOps and security people; A's second group excludes them.",
+   "opus_rationale": "The LLM/agents gate earns its AND by removing DevOps profiles that write 'containerized environments' or 'Docker' with no model work."
+  },
+  {
+   "pair_id": "P028",
+   "verdict": "B",
+   "edit": "remove_anchor_group",
+   "expected": "B",
+   "fable_rationale": "A has a dangling 'AND  NOT' and no post-training gate, so Whisper and VLM mentions alone match; B is well-formed and gated.",
+   "opus_rationale": "A is malformed, an AND with an empty operand before NOT, which loses outright."
+  },
+  {
+   "pair_id": "P029",
+   "verdict": "B",
+   "edit": "remove_anchor_group",
+   "expected": "B",
+   "fable_rationale": "A's bare model list is full of tokens with louder Portuguese meanings (Tucano, Sabiá, Cabrita, Gervásio); B's training gate pins it to ML people.",
+   "opus_rationale": "Sabia, Cabrita, Tucano and Canarim are common Portuguese nouns; B's training-and-artifact gate is what keeps the search off birdwatchers."
+  },
+  {
+   "pair_id": "P030",
+   "verdict": "A",
+   "edit": "remove_anchor_group",
+   "expected": "A",
+   "fable_rationale": "A is the two-group ideal (RLHF family AND SFT/post-training family) with a short NOT; B has a dangling 'AND  NOT' and drops the second gate.",
+   "opus_rationale": "B is malformed, an AND with nothing on its right-hand side, and it also discards the SFT/post-training gate."
+  },
+  {
+   "pair_id": "P031",
+   "verdict": "A",
+   "edit": "add_self_excluding_NOT",
+   "expected": "A",
+   "fable_rationale": "B's second NOT repeats terms already excluded, a redundant clause that adds nothing and only risks parsing oddities.",
+   "opus_rationale": "B bolts on a second NOT clause that is wholly contained in the first, lengthening an already over-long exclusion list for no change in results."
+  },
+  {
+   "pair_id": "P032",
+   "verdict": "A",
+   "edit": "add_self_excluding_NOT",
+   "expected": "A",
+   "fable_rationale": "B's NOT (engineer OR researcher) excludes the very class being hired.",
+   "opus_rationale": "B's NOT excludes 'engineer' and 'researcher', the very titles this role hires."
+  },
+  {
+   "pair_id": "P033",
+   "verdict": "B",
+   "edit": "add_self_excluding_NOT",
+   "expected": "B",
+   "fable_rationale": "A's NOT (engineer OR researcher) excludes the research engineers the search exists to find.",
+   "opus_rationale": "A's NOT throws out research engineers and researchers, the target class itself."
+  },
+  {
+   "pair_id": "P034",
+   "verdict": "B",
+   "edit": "add_self_excluding_NOT",
+   "expected": "B",
+   "fable_rationale": "A's NOT (engineer OR researcher) is self-harm against the hired class.",
+   "opus_rationale": "A's NOT removes the exact population being hired from an otherwise clean evaluation group."
+  },
+  {
+   "pair_id": "P035",
+   "verdict": "A",
+   "edit": "add_self_excluding_NOT",
+   "expected": "A",
+   "fable_rationale": "B adds a NOT that excludes engineers and researchers, the target population.",
+   "opus_rationale": "B's NOT on 'engineer' and 'researcher' is self-defeating against a research-engineer search."
+  },
+  {
+   "pair_id": "P036",
+   "verdict": "A",
+   "edit": "add_self_excluding_NOT",
+   "expected": "A",
+   "fable_rationale": "B's NOT (engineer OR researcher) removes the class being hired.",
+   "opus_rationale": "B's trailing NOT excludes the class being hired and guts an otherwise well-built two-group string."
+  },
+  {
+   "pair_id": "P037",
+   "verdict": "A",
+   "edit": "add_third_gate",
+   "expected": "A",
+   "fable_rationale": "B AND-gates generic verbs (led, managed, owned), which excludes nobody useful and cuts recall arbitrarily.",
+   "opus_rationale": "B AND-gates the generic verbs led/managed/owned, which exclude nobody relevant and drop strong ICs who do not write that way."
+  },
+  {
+   "pair_id": "P038",
+   "verdict": "A",
+   "edit": "add_third_gate",
+   "expected": "A",
+   "fable_rationale": "B's generic-verb AND gate is doctrine's named anti-pattern.",
+   "opus_rationale": "B's led/managed/owned gate is a generic-verb AND that filters on phrasing, not on capability."
+  },
+  {
+   "pair_id": "P039",
+   "verdict": "B",
+   "edit": "add_third_gate",
+   "expected": "B",
+   "fable_rationale": "A's third gate of generic verbs over-constrains without pinning any class.",
+   "opus_rationale": "A adds a third gate of generic management verbs, over-constraining the string without excluding any wrong person."
+  },
+  {
+   "pair_id": "P040",
+   "verdict": "B",
+   "edit": "add_third_gate",
+   "expected": "B",
+   "fable_rationale": "A AND-gates led/managed/owned, generic verbs that exclude arbitrarily.",
+   "opus_rationale": "A AND-gates led/managed/owned onto an evaluation group, dropping hands-on candidates for a verb."
+  },
+  {
+   "pair_id": "P041",
+   "verdict": "B",
+   "edit": "add_third_gate",
+   "expected": "B",
+   "fable_rationale": "A's generic-verb gate is a third AND that excludes no class and drops good candidates.",
+   "opus_rationale": "A's third gate of generic verbs adds no exclusion power and skews toward managers."
+  },
+  {
+   "pair_id": "P042",
+   "verdict": "A",
+   "edit": "add_third_gate",
+   "expected": "A",
+   "fable_rationale": "B adds a generic-verb third gate that over-constrains an already well-anchored string.",
+   "opus_rationale": "B's led/managed/owned gate is a generic-verb AND on top of two already sufficient groups."
+  },
+  {
+   "pair_id": "P043",
+   "verdict": "B",
+   "edit": "extend_sweep_with_known_instances",
+   "expected": "B",
+   "fable_rationale": "B extends the anchored model-name family with more named LLMs (Code Llama, DeepSeek-Coder, the Portuguese models); the Gervásio/Cabrita ambiguity is the same kind both sides already carry with Claude and Gemini, and the gate limits it.",
+   "opus_rationale": "The added names are more members of the same anchored class of LLMs, and the post-training gate contains the common-noun risk in Cabrita or Canarim."
+  },
+  {
+   "pair_id": "P044",
+   "verdict": "A",
+   "edit": "extend_sweep_with_known_instances",
+   "expected": "A",
+   "fable_rationale": "A covers the training-framework family far more exhaustively, adding the post-training libraries (OpenRLHF, SkyRL, prime-rl, torchtune, LLaMA-Factory, DeepSpeed-Chat) most relevant to this role.",
+   "opus_rationale": "A covers the training-and-alignment framework family far more exhaustively, and the LLM group still anchors it."
+  },
+  {
+   "pair_id": "P045",
+   "verdict": "B",
+   "edit": "extend_sweep_with_known_instances",
+   "expected": "B",
+   "fable_rationale": "B covers the LLM benchmark family more exhaustively (SWE-bench, HELM, AlpacaEval, Arena-Hard, Aider Polyglot, ASSIN2), and a single-group list of named specifics is judged on coverage.",
+   "opus_rationale": "A single group of named benchmarks is judged on exhaustiveness, and B covers the family more completely with no noisier tokens."
+  },
+  {
+   "pair_id": "P046",
+   "verdict": "B",
+   "edit": "extend_sweep_with_known_instances",
+   "expected": "B",
+   "fable_rationale": "B's venue group adds the major international venues (ICLR, ICML, EMNLP, COLM, COLING) to two Brazilian ones; same three-gate structure, much better recall.",
+   "opus_rationale": "COLM, ICLR, ICML and EMNLP are the same class as the Brazilian venues and are where this population actually publishes."
+  },
+  {
+   "pair_id": "P047",
+   "verdict": "B",
+   "edit": "extend_sweep_with_known_instances",
+   "expected": "B",
+   "fable_rationale": "B extends the benchmark family with six more real named benchmarks, and coverage is the measure for a named-specifics group.",
+   "opus_rationale": "B extends the same benchmark family with six more specific, low-ambiguity names."
+  },
+  {
+   "pair_id": "P048",
+   "verdict": "B",
+   "edit": "extend_sweep_with_known_instances",
+   "expected": "B",
+   "fable_rationale": "B adds Hugging Face TRL, DeepSpeed, FSDP and Colossal-AI, which post-training engineers actually list; the bare NeMo and Megatron tokens carry some louder-meaning noise but do not outweigh four clean high-value additions.",
+   "opus_rationale": "B rounds out the training-stack family with the frameworks post-training engineers most often name, and the tokens stay specific."
+  },
+  {
+   "pair_id": "P049",
+   "verdict": "B",
+   "edit": "inject_sentence_fragments",
+   "expected": "B",
+   "fable_rationale": "A adds invented sentence fragments (built an LLM, shipped an LLM) that no profile contains.",
+   "opus_rationale": "'built an LLM' and 'shipped an LLM' are invented sentence fragments nobody writes verbatim on a profile."
+  },
+  {
+   "pair_id": "P050",
+   "verdict": "B",
+   "edit": "inject_sentence_fragments",
+   "expected": "B",
+   "fable_rationale": "A's 'built an LLM' and 'shipped an LLM' are invented fragments, pure bloat.",
+   "opus_rationale": "The two invented sentence fragments in A match nothing and only pad the string."
+  },
+  {
+   "pair_id": "P051",
+   "verdict": "B",
+   "edit": "inject_sentence_fragments",
+   "expected": "B",
+   "fable_rationale": "A drops invented sentence fragments into the model-name anchor; they match nobody.",
+   "opus_rationale": "A adds invented prose fragments into the model-name anchor, which is both the wrong class and a dead form."
+  },
+  {
+   "pair_id": "P052",
+   "verdict": "B",
+   "edit": "inject_sentence_fragments",
+   "expected": "B",
+   "fable_rationale": "A's invented fragments earn nothing and are doctrine's named anti-pattern.",
+   "opus_rationale": "A's 'built an LLM' / 'shipped an LLM' are phrases no candidate writes, so they add length and nothing else."
+  },
+  {
+   "pair_id": "P053",
+   "verdict": "B",
+   "edit": "inject_sentence_fragments",
+   "expected": "B",
+   "fable_rationale": "A pads the anchor with invented fragments no one writes.",
+   "opus_rationale": "A pads the org anchor with invented sentence fragments that will never match."
+  },
+  {
+   "pair_id": "P054",
+   "verdict": "B",
+   "edit": "inject_sentence_fragments",
+   "expected": "B",
+   "fable_rationale": "A adds invented fragments to the environment family; no recall, category mismatch.",
+   "opus_rationale": "A's invented fragments sit in the environments group where they neither match nor belong."
+  },
+  {
+   "pair_id": "P055",
+   "verdict": "B",
+   "edit": "inject_unrelated_family_terms",
+   "expected": "B",
+   "fable_rationale": "A ORs retrieval/RAG terms (vector database, hybrid search, reranker) into an RLHF group, a grab-bag that admits search-infra people.",
+   "opus_rationale": "Vector database, hybrid search and reranker are RAG concepts unrelated to post-training, turning the group into a grab-bag."
+  },
+  {
+   "pair_id": "P056",
+   "verdict": "A",
+   "edit": "inject_unrelated_family_terms",
+   "expected": "A",
+   "fable_rationale": "B mixes RAG infrastructure terms into a post-training group, unrelated ideas that pull in retrieval engineers.",
+   "opus_rationale": "B pulls in retrieval-stack terms that surface RAG application engineers, not post-training researchers."
+  },
+  {
+   "pair_id": "P057",
+   "verdict": "B",
+   "edit": "inject_unrelated_family_terms",
+   "expected": "B",
+   "fable_rationale": "A puts vector-database and reranker terms in the model-name anchor, breaking the class and admitting RAG engineers.",
+   "opus_rationale": "A drops RAG vocabulary into the model-name anchor, so any retrieval engineer who also wrote 'fine-tuning' now matches."
+  },
+  {
+   "pair_id": "P058",
+   "verdict": "A",
+   "edit": "inject_unrelated_family_terms",
+   "expected": "A",
+   "fable_rationale": "B adds retrieval terms to an evaluation group, a grab-bag with no relation to the role.",
+   "opus_rationale": "B mixes retrieval-infrastructure terms into an evaluation synonym set, an unrelated-concept grab-bag."
+  },
+  {
+   "pair_id": "P059",
+   "verdict": "B",
+   "edit": "inject_unrelated_family_terms",
+   "expected": "B",
+   "fable_rationale": "A's RAG terms in the DeepMind/Gemini anchor make it a grab-bag anchored to nothing.",
+   "opus_rationale": "A's retrieval terms in the anchor group let RAG engineers through the post-training gate."
+  },
+  {
+   "pair_id": "P060",
+   "verdict": "A",
+   "edit": "inject_unrelated_family_terms",
+   "expected": "A",
+   "fable_rationale": "B mixes retrieval-stack terms into the sandbox/environment family, unrelated concepts.",
+   "opus_rationale": "B's vector database and reranker belong to a different stack than the execution-environment family."
+  },
+  {
+   "pair_id": "P061",
+   "verdict": "A",
+   "edit": "add_hyphen_twins",
+   "expected": "A",
+   "fable_rationale": "A carries the space twin 'post training', a real form Recruiter treats as a different term.",
+   "opus_rationale": "'post training' as a space twin of 'post-training' is a distinct literal term that many profiles actually use."
+  },
+  {
+   "pair_id": "P062",
+   "verdict": "A",
+   "edit": "add_hyphen_twins",
+   "expected": "A",
+   "fable_rationale": "A adds the space twin 'post training', which literal matching requires.",
+   "opus_rationale": "A adds the unhyphenated twin of a concept already in the group, which literal matching would otherwise miss."
+  },
+  {
+   "pair_id": "P063",
+   "verdict": "A",
+   "edit": "add_hyphen_twins",
+   "expected": "A",
+   "fable_rationale": "A carries both hyphen/space twins (post training, fine tuning), real forms B silently misses.",
+   "opus_rationale": "A adds both space twins, 'post training' and 'fine tuning', for terms the string already commits to."
+  },
+  {
+   "pair_id": "P064",
+   "verdict": "A",
+   "edit": "add_hyphen_twins",
+   "expected": "A",
+   "fable_rationale": "A carries the space twins post training and fine tuning; B misses both under literal matching.",
+   "opus_rationale": "A carries the unhyphenated twins of post-training and fine-tuning, real surfaces of concepts the string already names."
+  },
+  {
+   "pair_id": "P065",
+   "verdict": "A",
+   "edit": "add_hyphen_twins",
+   "expected": "A",
+   "fable_rationale": "A adds the space twin 'tool calling environment', a real form of a term already in the group.",
+   "opus_rationale": "'tool calling environment' is the space-twin spelling of a phrase already in the group, and literal matching treats them as different terms."
+  },
+  {
+   "pair_id": "P066",
+   "verdict": "A",
+   "edit": "add_hyphen_twins",
+   "expected": "A",
+   "fable_rationale": "A adds the space twin 'vision language model', which literal matching needs beside the hyphenated form.",
+   "opus_rationale": "'vision language model' unhyphenated is written at least as often as the hyphenated form already present."
+  },
+  {
+   "pair_id": "P067",
+   "verdict": "B",
+   "edit": "inject_noisy_token",
+   "expected": "B",
+   "fable_rationale": "A adds Magpie, a token whose louder meaning is the bird, into an otherwise tight RLHF group.",
+   "opus_rationale": "'Magpie' is a bird and a brand before it is a synthetic-data method, so it imports noise for a sliver of recall."
+  },
+  {
+   "pair_id": "P068",
+   "verdict": "B",
+   "edit": "inject_noisy_token",
+   "expected": "B",
+   "fable_rationale": "A's Magpie is a louder-other-meaning token that admits noise for negligible recall.",
+   "opus_rationale": "A's 'Magpie' is a token with a much louder everyday meaning sitting in an unanchored OR group."
+  },
+  {
+   "pair_id": "P069",
+   "verdict": "A",
+   "edit": "inject_noisy_token",
+   "expected": "A",
+   "fable_rationale": "B adds Magpie to the model-name anchor; the bird, the band and the nickname all match.",
+   "opus_rationale": "B puts 'Magpie' in the anchor group, where its everyday sense passes anything paired with 'fine-tuning'."
+  },
+  {
+   "pair_id": "P070",
+   "verdict": "B",
+   "edit": "inject_noisy_token",
+   "expected": "B",
+   "fable_rationale": "A's Magpie in an evaluation group is a noise token with no evaluation meaning to most profiles.",
+   "opus_rationale": "A's 'Magpie' is an ambiguous token dropped into an otherwise clean evaluation set."
+  },
+  {
+   "pair_id": "P071",
+   "verdict": "A",
+   "edit": "inject_noisy_token",
+   "expected": "A",
+   "fable_rationale": "B's Magpie beside DeepMind and Gemini adds a louder-other-meaning token to the anchor.",
+   "opus_rationale": "B widens the org anchor with 'Magpie', a token whose other meanings dominate."
+  },
+  {
+   "pair_id": "P072",
+   "verdict": "A",
+   "edit": "inject_noisy_token",
+   "expected": "A",
+   "fable_rationale": "B's Magpie in the environment family is a category mismatch and a noise token.",
+   "opus_rationale": "B adds the ambiguous 'Magpie' to the environments group where it fits neither the concept nor the class."
+  },
+  {
+   "pair_id": "P073",
+   "verdict": "tie",
+   "edit": "reorder_terms",
+   "expected": "tie",
+   "fable_rationale": "Same terms in a different order; OR is commutative and Recruiter returns the same set.",
+   "opus_rationale": "Identical term sets, only the order inside the OR group differs."
+  },
+  {
+   "pair_id": "P074",
+   "verdict": "tie",
+   "edit": "reorder_terms",
+   "expected": "tie",
+   "fable_rationale": "Identical term set, reordered only.",
+   "opus_rationale": "Same terms reversed; the result set is identical."
+  },
+  {
+   "pair_id": "P075",
+   "verdict": "tie",
+   "edit": "reorder_terms",
+   "expected": "tie",
+   "fable_rationale": "Same anchor and gate, reordered; identical results.",
+   "opus_rationale": "Pure reordering of the model-name group with no change to what matches."
+  },
+  {
+   "pair_id": "P076",
+   "verdict": "tie",
+   "edit": "reorder_terms",
+   "expected": "tie",
+   "fable_rationale": "Same six terms reversed; no change to who is found.",
+   "opus_rationale": "Same evaluation terms in reverse order, so neither reach nor noise moves."
+  },
+  {
+   "pair_id": "P077",
+   "verdict": "tie",
+   "edit": "reorder_terms",
+   "expected": "tie",
+   "fable_rationale": "First group reversed, second unchanged; identical results.",
+   "opus_rationale": "The environments group is reordered and nothing else changes."
+  },
+  {
+   "pair_id": "P078",
+   "verdict": "tie",
+   "edit": "reorder_terms",
+   "expected": "tie",
+   "fable_rationale": "Model-name group reversed; same gate and NOT; identical results.",
+   "opus_rationale": "Identical multimodal terms listed in reverse; no difference in who is found."
+  },
+  {
+   "pair_id": "P079",
+   "verdict": "B",
+   "edit": "add_more_real_forms_beyond_common",
+   "expected": "tie",
+   "fable_rationale": "B adds eval suite and model evaluation framework, real phrases in the evaluation-harness family.",
+   "opus_rationale": "'eval suite' and 'model evaluation framework' are how people actually name the harness concept already in the group."
+  },
+  {
+   "pair_id": "P080",
+   "verdict": "B",
+   "edit": "add_more_real_forms_beyond_common",
+   "expected": "tie",
+   "fable_rationale": "B adds the verb form fine-tuned and the Portuguese ajuste fino; the 'LLM fine-tuning' variants are superstrings of a term already present, harmless bloat.",
+   "opus_rationale": "B adds the participle 'fine-tuned' and the Portuguese forms, real register for the gate group, at the cost of one redundant phrase."
+  },
+  {
+   "pair_id": "P081",
+   "verdict": "B",
+   "edit": "add_more_real_forms_beyond_common",
+   "expected": "tie",
+   "fable_rationale": "B carries the verb forms evaluated and evaluating and the Portuguese avaliação, real forms of the group's own concept; 'model evaluation pipeline' is redundant but harmless.",
+   "opus_rationale": "The tense forms 'evaluated' and 'evaluating' plus Portuguese 'avaliacao' are written constantly and the group's other terms keep the class pinned."
+  },
+  {
+   "pair_id": "P082",
+   "verdict": "B",
+   "edit": "add_more_real_forms_beyond_common",
+   "expected": "tie",
+   "fable_rationale": "B adds fine-tuned and ajuste fino to the gate; the LLM fine-tuning superstrings add nothing but cost nothing.",
+   "opus_rationale": "B enriches the method gate with 'fine-tuned' and its Portuguese and LLM-qualified forms while the DeepMind/Gemini anchor still holds."
+  },
+  {
+   "pair_id": "P083",
+   "verdict": "A",
+   "edit": "add_more_real_forms_beyond_common",
+   "expected": "tie",
+   "fable_rationale": "A extends the environment family with agentic RL, tool-calling agents, ambientes de RL and environment design, all interrelated and pinned by the LLM-agents anchor.",
+   "opus_rationale": "Tool-calling agents, environment design, agentic RL and 'ambientes de RL' are the same interrelated family and remain anchored by the LLM/agents group."
+  },
+  {
+   "pair_id": "P084",
+   "verdict": "B",
+   "edit": "add_more_real_forms_beyond_common",
+   "expected": "tie",
+   "fable_rationale": "B adds ajuste fino and the verb form instruction-tuned to the gate; the LLM fine-tuning superstrings are redundant but harmless.",
+   "opus_rationale": "B adds 'instruction-tuned' and the Portuguese fine-tuning forms, all real surfaces of concepts the gate already names."
+  }
+ ],
+ "disagreements": [
+  {
+   "pair_id": "P002",
+   "edit": "add_missing_common_forms",
+   "expected": "A",
+   "fable": "B",
+   "opus": "tie"
+  }
+ ]
+}

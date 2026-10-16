@@ -1,0 +1,55 @@
+{
+  "note": "Ten deliberately bad strings, one per failure shape named in plans/boolean-scorer.md §7 item 3, authored by the Opus 5 implementer. Every one is LEGAL: these are quality failures, not syntax failures, and each must score below the median of the 76 real strings in ml_runs_76.json.",
+  "strings": [
+    {
+      "id": "adversarial-00",
+      "defect": "every form of every concept dumped into one group",
+      "boolean": "(\"LLM\" OR \"LLMs\" OR \"large language model\" OR \"large language models\" OR \"language model\" OR \"language models\" OR \"modelo de linguagem\" OR \"modelos de linguagem\" OR \"LLM-powered\" OR \"Portuguese LLM\" OR \"LLM em português\" OR \"modelo de linguagem em português\" OR \"Portuguese LLM leaderboard\" OR \"frontier model\" OR \"frontier models\" OR \"foundation model\" OR \"transformer\" OR \"VLM\" OR \"vision-language model\" OR \"multimodal LLM\" OR \"speech LLM\" OR \"code LLM\" OR \"code LLMs\" OR \"code models\" OR \"machine learning\" OR \"ML\" OR \"reinforcement learning\" OR \"RL\" OR \"GenAI\" OR \"generative AI\" OR \"post-training\" OR \"pretraining\" OR \"pretraining data\" OR \"pre-training data\" OR \"pretraining corpus\" OR \"pré-treinamento\" OR \"RLHF\" OR \"reinforcement learning from human feedback\" OR \"RLAIF\" OR \"reinforcement learning from AI feedback\" OR \"RLVR\" OR \"reinforcement learning with verifiable rewards\" OR \"verifiable reward\" OR \"verifiable rewards\" OR \"GRPO\" OR \"group relative policy optimization\" OR \"DPO\" OR \"direct preference optimization\" OR \"preference optimization\" OR \"SFT\" OR \"supervised fine-tuning\" OR \"fine-tuning\" OR \"fine-tuned\" OR \"ajuste fino\" OR \"LLM fine-tuning\" OR \"fine-tuning de LLM\" OR \"fine-tuning de LLMs\" OR \"instruction tuning\" OR \"instruction-tuned\" OR \"distillation\" OR \"model distillation\" OR \"distilled model\" OR \"distilled models\" OR \"distillation pipeline\" OR \"teacher model\" OR \"PEFT\" OR \"parameter-efficient fine-tuning\" OR \"LoRA\" OR \"low-rank adaptation\" OR \"QLoRA\" OR \"reward model\" OR \"reward modeling\" OR \"preference data\" OR \"preference dataset\" OR \"synthetic data\" OR \"synthetic data generation\" OR \"synthetic data pipeline\" OR \"synthetic data pipelines\" OR \"data generation pipeline\" OR \"dados sintéticos\" OR \"geração de dados sintéticos\" OR \"instruction data\" OR \"SFT data\" OR \"SFT dataset\" OR \"training data\" OR \"training data pipeline\" OR \"training pipeline\" OR \"evaluation\" OR \"evaluations\" OR \"eval\" OR \"evals\" OR \"evaluated\" OR \"evaluating\" OR \"avaliação\" OR \"evaluation harness\" OR \"eval harness\" OR \"eval suite\" OR \"model evaluation framework\" OR \"LLM evaluation\" OR \"LLM evals\" OR \"evaluating LLMs\" OR \"evaluation of LLMs\" OR \"avaliação de LLMs\" OR \"avaliação de modelos de linguagem\" OR \"model evaluation\" OR \"model evaluation pipeline\" OR \"capability evaluation\" OR \"LLM-as-a-judge\" OR \"LLM judge\" OR \"LLM-as-judge\" OR \"autograder\" OR \"grader\" OR \"graders\" OR \"rubric\" OR \"rubrics\" OR \"benchmark\" OR \"benchmarks\" OR \"leaderboard\" OR \"leaderboard de LLMs\" OR \"red teaming\" OR \"RL environment\" OR \"RL environments\" OR \"reinforcement learning environment\" OR \"ambientes de RL\" OR \"RL environment for LLM\" OR \"RL environments for LLM\" OR \"RL environments for agents\" OR \"environment design\" OR \"environment scaling\" OR \"agentic RL\" OR \"sandboxed execution\" OR \"execution sandbox\" OR \"sandbox environments\" OR \"containerized environments\" OR \"Docker harness\" OR \"agent trajectories\" OR \"trajectories\" OR \"trajectory collection\" OR \"coding agent\" OR \"coding agents\" OR \"agentic coding\" OR \"software engineering agents\" OR \"AI agents\" OR \"LLM agents\" OR \"agent orchestration\" OR \"multi-agent\" OR \"agentic\" OR \"agentic workflows\" OR \"tool calling\" OR \"function calling\" OR \"tool use\" OR \"tool-calling agents\" OR \"tool-calling environment\" OR \"MCP server\" OR \"Model Context Protocol\" OR \"RAG\" OR \"retrieval-augmented generation\" OR \"retrieval-augmented\" OR \"embeddings\" OR \"semantic search\" OR \"vector search\" OR \"vector database\" OR \"hybrid search\" OR \"hybrid retrieval\" OR \"reranker\" OR \"reranking\" OR \"cross-encoder\" OR \"information retrieval\" OR \"search relevance\" OR \"search ranking\" OR \"learning to rank\" OR \"query understanding\" OR \"code generation\" OR \"code gen\" OR \"program synthesis\" OR \"model card\" OR \"open-weights\" OR \"released checkpoint\" OR \"published checkpoint\" OR \"frontier lab\" OR \"frontier labs\" OR \"AI labs\" OR \"foundation model labs\" OR \"engineer\" OR \"engenheiro\" OR \"machine learning engineer\" OR \"ML engineer\" OR \"research engineer\" OR \"founding engineer\" OR \"founding AI engineer\" OR \"founding ML engineer\" OR \"founding machine learning engineer\" OR \"first AI hire\" OR \"research scientist\" OR \"researcher\" OR \"pesquisador\" OR \"cientista\" OR \"applied scientist\" OR \"data scientist\" OR \"data scientists\" OR \"co-founder\" OR \"cofounder\" OR \"cofundador\" OR \"tech lead\" OR \"research lead\" OR \"líder técnico\" OR \"head of AI\" OR \"head of research\" OR \"SWE-bench\" OR \"SWE-bench Verified\" OR \"SWE-agent\" OR \"τ-bench\" OR \"tau-bench\" OR \"NeMo\" OR \"NeMo RL\" OR \"NVIDIA NeMo\" OR \"NeMo-Aligner\" OR \"Megatron\" OR \"Megatron-LM\" OR \"Megatron-Core\" OR \"lm-evaluation-harness\" OR \"lm-eval-harness\" OR \"lm-eval\" OR \"Stanford HELM\" OR \"HELM benchmark\" OR \"BFCL\" OR \"Berkeley Function Calling\" OR \"Evol-Instruct\" OR \"WizardLM Evol-Instruct\" OR \"Hugging Face\" OR \"Hugging Face Hub\" OR \"huggingface.co\" OR \"Amazon Bedrock\" OR \"AWS Bedrock\" OR \"AgentBench\" OR \"Aider Polyglot\" OR \"ALFWorld\" OR \"AlpacaEval\" OR \"AndroidWorld\" OR \"Arena-Hard\" OR \"ASSIN2\" OR \"BLUEX\" OR \"BrowseComp\" OR \"BrowserGym\" OR \"CodeContests\" OR \"CRUXEval\" OR \"DS-1000\" OR \"EvalPlus\" OR \"FaQuAD\" OR \"GAIA benchmark\" OR \"GPQA\" OR \"HumanEval\" OR \"IFEval\" OR \"JudgeBench\" OR \"LiveCodeBench\" OR \"MBPP\" OR \"Mind2Web\" OR \"MiniWoB++\" OR \"MLE-bench\" OR \"MT-Bench\" OR \"MultiPL-E\" OR \"Open PT LLM Leaderboard\" OR \"OSWorld\" OR \"Poeta benchmark\" OR \"RewardBench\" OR \"Terminal-Bench\" OR \"ToolBench\" OR \"VisualWebArena\" OR \"WebArena\" OR \"WildBench\" OR \"BigCode Evaluation Harness\" OR \"Inspect AI\" OR \"LightEval\" OR \"OpenCompass\" OR \"RAGAS\" OR \"simple-evals\" OR \"SWE-Gym\" OR \"Colossal-AI\" OR \"DeepSpeed\" OR \"DeepSpeed-Chat\" OR \"FSDP\" OR \"Hugging Face TRL\" OR \"LLaMA-Factory\" OR \"OpenRLHF\" OR \"prime-rl\" OR \"SkyRL\" OR \"torchtune\" OR \"TRLX\" OR \"verl\" OR \"AutoGen\" OR \"CrewAI\" OR \"DSPy\" OR \"Haystack\" OR \"LangChain\" OR \"LangGraph\" OR \"LlamaIndex\" OR \"Ollama\" OR \"PydanticAI\" OR \"Semantic Kernel\" OR \"vLLM\" OR \"FAISS\" OR \"Milvus\" OR \"pgvector\" OR \"Pinecone\" OR \"Qdrant\" OR \"Weaviate\" OR \"AgentInstruct\" OR \"APIGen\" OR \"Common Crawl\" OR \"FineWeb\" OR \"HelpSteer\" OR \"HH-RLHF\" OR \"Magpie\" OR \"Nectar\" OR \"OpenHermes\" OR \"Tulu\" OR \"UltraChat\" OR \"UltraFeedback\" OR \"Amazônia IA\" OR \"Cabrita\" OR \"Canarim\" OR \"Claude\" OR \"Code Llama\" OR \"DeepSeek-Coder\" OR \"Gemini\" OR \"Gervásio\" OR \"GPT-4\" OR \"Grok\" OR \"Llama\" OR \"LLaVA\" OR \"Mistral\" OR \"Nemotron\" OR \"Qwen\" OR \"Qwen2.5-Coder\" OR \"Sabía\" OR \"StarCoder\" OR \"TeenyTinyLlama\" OR \"Tucano\" OR \"wav2vec\" OR \"Whisper\" OR \"xLAM\" OR \"BRACIS\" OR \"COLING\" OR \"COLM\" OR \"Datasets and Benchmarks track\" OR \"EMNLP\" OR \"ICLR\" OR \"ICML\" OR \"NAACL\" OR \"NeurIPS\" OR \"Agentless\" OR \"AutoCodeRover\" OR \"mini-SWE-agent\" OR \"OpenHands\" OR \"Azure OpenAI\" OR \"Vertex AI\" OR \"STIL\" OR \"Simpósio Brasileiro de Tecnologia da Informação e da Linguagem Humana\")"
+    },
+    {
+      "id": "adversarial-01",
+      "defect": "rare expansions padded in",
+      "boolean": "(\"RLHF\" OR \"reinforcement learning from human feedback\" OR \"RLAIF\" OR \"reinforcement learning from AI feedback\" OR \"GRPO\" OR \"group relative policy optimization\" OR \"RLVR\" OR \"reinforcement learning with verifiable rewards\" OR \"RL environments for agents\" OR \"RL environment for LLM\") AND (\"machine learning\" OR \"post-training\")"
+    },
+    {
+      "id": "adversarial-02",
+      "defect": "a grab-bag of unrelated families in one group",
+      "boolean": "(\"research engineer\" OR \"vector database\" OR \"multi-agent\" OR \"transformer\" OR \"model card\" OR \"hybrid search\" OR \"frontier lab\" OR \"Hugging Face\")"
+    },
+    {
+      "id": "adversarial-03",
+      "defect": "four AND gates",
+      "boolean": "(\"RLHF\" OR \"DPO\") AND (\"SWE-bench\" OR \"tau-bench\") AND (\"LoRA\" OR \"QLoRA\") AND (\"NeMo\" OR \"Megatron\") AND (\"PEFT\" OR \"SFT\")"
+    },
+    {
+      "id": "adversarial-04",
+      "defect": "a NOT list of eight",
+      "boolean": "(\"RLHF\" OR \"post-training\" OR \"instruction tuning\") AND (\"evaluation\" OR \"benchmark\" OR \"leaderboard\") NOT (\"annotator\" OR \"AI trainer\" OR \"language specialist\" OR \"data labeling\" OR \"recruiter\" OR \"student\" OR \"prompt engineer\" OR \"solutions architect\")"
+    },
+    {
+      "id": "adversarial-05",
+      "defect": "a long group that invites noise",
+      "boolean": "(\"post-training\" OR \"RLHF\" OR \"instruction tuning\" OR \"fine-tuning\" OR \"distillation\" OR \"SFT\" OR \"supervised fine-tuning\" OR \"PEFT\" OR \"LoRA\" OR \"QLoRA\" OR \"reward model\" OR \"reward modeling\" OR \"preference data\" OR \"preference dataset\" OR \"synthetic data\" OR \"evaluation harness\" OR \"machine learning\" OR \"reinforcement learning from human feedback\" OR \"reinforcement learning from AI feedback\" OR \"group relative policy optimization\" OR \"Magpie\" OR \"Nectar\")"
+    },
+    {
+      "id": "adversarial-06",
+      "defect": "an AND gate made only of ubiquitous words",
+      "boolean": "(\"RLHF\" OR \"post-training\") AND (\"evaluation\" OR \"benchmark\") AND (\"led\" OR \"managed\" OR \"owned\" OR \"oversaw\")"
+    },
+    {
+      "id": "adversarial-07",
+      "defect": "lowercase operators throughout",
+      "boolean": "(\"LLM\" or \"RAG\" or \"agentic\") and (\"evaluation\" or \"benchmark\" or \"fine-tuned\")"
+    },
+    {
+      "id": "adversarial-08",
+      "defect": "unquoted multi-word runs",
+      "boolean": "(\"LLM\" OR post training methods OR \"evaluation\") AND (large scale infrastructure work OR \"benchmark\" OR shipped production systems OR deep technical background)"
+    },
+    {
+      "id": "adversarial-09",
+      "defect": "the same concept repeated across sibling AND gates",
+      "boolean": "(\"RLHF\" OR \"post-training\" OR \"instruction tuning\") AND (\"RLHF\" OR \"evaluation\" OR \"benchmark\") AND (\"post-training\" OR \"reward model\")"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "long_shot_employers": [
+    "OpenAI",
+    "Anthropic",
+    "Google DeepMind",
+    "DeepMind",
+    "xAI",
+    "Meta"
+  ],
+  "long_shot_title_patterns": [
+    "^(?:(?:technical|stealth|solo|serial|interim|acting|founding)\\s+)?co-?founder\\b(?!['’]s\\b|\\s+(?:office|associate|assistant)\\b)",
+    "^(?:(?:technical|stealth|solo|serial|interim|acting|founding)\\s+)?founder\\b(?!['’]s\\b|\\s+(?:office|associate|assistant)\\b)",
+    "^(?:(?:technical|stealth|solo|serial|interim|acting|founding)\\s+)?ceo\\b(?!['’]s\\b|\\s+(?:office|associate|assistant)\\b)",
+    "^(?:(?:technical|stealth|solo|serial|interim|acting|founding)\\s+)?cto\\b(?!['’]s\\b|\\s+(?:office|associate|assistant)\\b)",
+    "^(?:(?:technical|stealth|solo|serial|interim|acting|founding)\\s+)?chief executive\\b(?!['’]s\\b|\\s+(?:office|associate|assistant)\\b)",
+    "^(?:(?:technical|stealth|solo|serial|interim|acting|founding)\\s+)?chief technology\\b(?!['’]s\\b|\\s+(?:office|associate|assistant)\\b)"
+  ]
+}

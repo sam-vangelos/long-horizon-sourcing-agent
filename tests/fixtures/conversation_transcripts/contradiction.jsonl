@@ -1,0 +1,20 @@
+{"kind": "meta", "scenario": "contradiction", "expected_ready_to_compose": true, "expected_max_cloris_turns": 8}
+{"kind": "cloris", "content": "Hi — I'm Cloris. Tell me about the role."}
+{"kind": "recruiter", "content": "Senior tax associate at Northwind. Sales tax and partnership tax."}
+{"kind": "cloris", "content": "Sales tax and partnership tax — both real ownership, or one is primary and the other is support?"}
+{"kind": "extraction", "updates": {"role_title": "Senior Tax Associate", "role_summary": "Senior tax associate at Northwind covering sales tax and partnership tax."}}
+{"kind": "recruiter", "content": "Both real ownership."}
+{"kind": "cloris", "content": "OK — co-equal sales tax and partnership tax. Multi-state sales tax across the production LLCs?"}
+{"kind": "extraction", "updates": {"capability_areas": [{"name": "Sales tax", "description": "Real ownership of sales tax."}, {"name": "Partnership tax", "description": "Real ownership of partnership tax."}]}}
+{"kind": "recruiter", "content": "Yeah, twelve LLCs. Filings, audits, the works."}
+{"kind": "cloris", "content": "Twelve LLCs end-to-end on sales tax. On the partnership side, is that K-1 distribution and provisions, or something heavier like restructuring work?"}
+{"kind": "extraction", "updates": {"capability_areas": [{"name": "Sales tax", "description": "Owns multi-state sales tax across twelve LLCs — filings, audits, the full surface."}, {"name": "Partnership tax", "description": "Real ownership of partnership tax."}]}}
+{"kind": "recruiter", "content": "Actually, scratch the partnership tax piece — that's the Director's permanent thing. The new hire is sales tax only."}
+{"kind": "cloris", "content": "Got it — partnership tax stays with the Director. So the new hire is sales tax: twelve LLCs, filings, audits. Anything else on the day-to-day, or is that the role?"}
+{"kind": "extraction", "updates": {"role_summary": "Owns multi-state sales tax across Northwind's twelve production-entity LLCs.", "capability_areas": [{"name": "Sales tax", "description": "Owns multi-state sales tax across twelve LLCs — filings, audits, the full surface."}]}}
+{"kind": "recruiter", "content": "Plus close coordination with finance during production wrap. That's it."}
+{"kind": "cloris", "content": "Sales tax plus close coordination — clean role. Builder-grade on sales tax, then? Or coming in green on the close side?"}
+{"kind": "extraction", "updates": {"capability_areas": [{"name": "Sales tax", "description": "Owns multi-state sales tax across twelve LLCs — filings, audits, the full surface."}, {"name": "Close coordination", "description": "Partners with finance during production wrap on the close."}]}}
+{"kind": "recruiter", "content": "Builder on sales tax, fine to come in green on close coordination — that's a learnable thing here."}
+{"kind": "cloris", "content": "Got it — builder on sales tax, room to grow on close coordination. I think I have what I need. Want to see the brief I'd run with?"}
+{"kind": "extraction", "updates": {"depth_distinction": {"builder_definition": "Builder-grade on multi-state sales tax across twelve LLCs from day one — filings, audits, full ownership.", "user_definition": "User-grade on close coordination is acceptable; the close side is treated as a learnable surface inside the role.", "edge_case_guidance": "Candidates green on sales tax don't pass even if strong on close. Sales tax is the load that has to land."}}}

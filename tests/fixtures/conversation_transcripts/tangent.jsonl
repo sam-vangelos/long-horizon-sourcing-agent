@@ -1,0 +1,19 @@
+{"kind": "meta", "scenario": "tangent", "expected_ready_to_compose": true, "expected_max_cloris_turns": 9}
+{"kind": "cloris", "content": "Hi — I'm Cloris. Tell me about the role."}
+{"kind": "recruiter", "content": "Senior tax associate at Northwind. What's the typical hire timeline at Northwind, by the way?"}
+{"kind": "cloris", "content": "Six to ten weeks for senior finance roles is what your last few looked like — give or take a holiday slowdown. Back to the senior tax associate: sales tax, partnership tax, both?"}
+{"kind": "extraction", "updates": {"role_title": "Senior Tax Associate"}}
+{"kind": "recruiter", "content": "Sales tax, primarily. Reports to the Director."}
+{"kind": "cloris", "content": "Sales tax primary, reports to the Director — got it. Multi-state across the production LLCs, or single state?"}
+{"kind": "extraction", "updates": {"role_summary": "Senior tax associate covering sales tax, reporting to the Director."}}
+{"kind": "recruiter", "content": "Multi-state, twelve LLCs."}
+{"kind": "cloris", "content": "Twelve LLCs is the same scope you've been running on — the new hire owns filings end-to-end, or backfills the Director?"}
+{"kind": "extraction", "updates": {"capability_areas": [{"name": "Multi-state sales tax", "description": "Sales tax across twelve production LLCs."}]}}
+{"kind": "recruiter", "content": "End to end. Director only on edge cases."}
+{"kind": "cloris", "content": "End-to-end on twelve LLCs, Director on edge cases. What's an edge case here — new state, sourcing-rule change, a number that looks weird?"}
+{"kind": "extraction", "updates": {"capability_areas": [{"name": "Multi-state sales tax", "description": "Owns end-to-end sales tax filings across twelve production LLCs. Director steps in only on edge cases."}], "depth_distinction": {"builder_definition": "Owns the twelve-LLC sales tax filing process end-to-end."}}}
+{"kind": "recruiter", "content": "New state or a sourcing-rule change. Numbers we handle in-role."}
+{"kind": "cloris", "content": "New-state-or-sourcing-rule escalates, numbers stay in-role. Builder-grade from day one, then?"}
+{"kind": "extraction", "updates": {"depth_distinction": {"builder_definition": "Owns the twelve-LLC sales tax filing process end-to-end.", "user_definition": "Operates the existing twelve-LLC process; escalates only on new-state additions and sourcing-rule changes.", "edge_case_guidance": "Numerical anomalies stay in-role; only new-state-or-sourcing-rule events escalate to the Director."}}}
+{"kind": "recruiter", "content": "Builder day one, yeah."}
+{"kind": "cloris", "content": "Builder day one on twelve LLCs. I think I have what I need. Want to see the brief I'd run with?"}

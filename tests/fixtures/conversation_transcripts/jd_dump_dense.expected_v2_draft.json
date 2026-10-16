@@ -1,0 +1,24 @@
+{
+  "role_title": "Senior Tax Associate",
+  "role_summary": "Owns multi-state sales tax compliance across Northwind's twelve production-entity LLCs, partnership tax provisions, and K-1 distribution. Reports to the Director of Tax.",
+  "capability_areas": [
+    {
+      "name": "Multi-state sales tax compliance",
+      "description": "Owns sales tax across the twelve production-entity LLCs. Avalara experience preferred but not required."
+    },
+    {
+      "name": "Partnership tax provisions and K-1 distribution",
+      "description": "Manages quarterly partnership tax provisions and the annual K-1 distribution."
+    },
+    {
+      "name": "Close coordination with finance",
+      "description": "Partners with finance leadership on close coordination, especially during production wrap."
+    }
+  ],
+  "depth_distinction": {
+    "builder_definition": "By Q3 owns the multi-state sales tax close end-to-end across the twelve production-entity LLCs. Builder is the year-two state.",
+    "user_definition": "Year-one bar: shadows the Director through Q1, operates the Director's existing process competently, inherits ownership through Q3.",
+    "edge_case_guidance": "A candidate who can't credibly take ownership by Q3 is not a fit even if year-one shadowing would go fine."
+  },
+  "minimum_bar_description": "CPA required. At least one year of in-house experience inside the six-plus years total. Pure public-accounting profiles do not pass."
+}

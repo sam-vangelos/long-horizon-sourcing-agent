@@ -1,0 +1,3677 @@
+{
+  "role": "research-engineer-post-training",
+  "version": 1,
+  "note": "Drafted by the Opus 5 implementer from the 431 distinct quoted terms in tests/fixtures/boolean_corpus/ml_runs_76.json; Sam reviews every item carrying \"unsure\": true. Deliberate omissions: employers and research-lab names, conference names, single-surface tool/benchmark/dataset names (a named artifact earns a concept only when it has a real second surface form), and NOT-list exclusion vocabulary such as annotator or data labeling. Hyphen/space twins are never declared as separate forms - that axis is derived, so \"post-training\" implies \"post training\". Plural twins ARE declared when the corpus writes both, and are repeated in morphology only for common nouns. Every concept declares one or more families; a family is what lets a group reach across INTERRELATED concepts without reading as a grab-bag, and a concept that genuinely belongs to two neighbourhoods declares both, and related families sit under a shared parent in family_parents. Every concept also declares whether it names a CLASS of thing (a title, \"LLM\", \"evaluation\") or an INSTANCE of one (RLHF, SWE-bench); only a group of class concepts sharing a family can anchor a string. Named artifacts earn an instance concept even with one surface form, so that a sweep of benchmarks, frameworks, datasets, model names or venues is something the scorer can see; employers, labs and exclusion vocabulary stay out. The families venues and model_names are deliberately empty: a conference or a model name with one surface form earns no concept, so none of them is in here.",
+  "concepts": [
+    {
+      "id": "llm",
+      "family": "llm_umbrella",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "LLM",
+          "register": "common",
+          "kind": "acronym"
+        },
+        {
+          "text": "LLMs",
+          "register": "common",
+          "kind": "acronym"
+        },
+        {
+          "text": "large language model",
+          "register": "common",
+          "kind": "expansion"
+        },
+        {
+          "text": "large language models",
+          "register": "common",
+          "kind": "expansion"
+        },
+        {
+          "text": "language model",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "language models",
+          "register": "common",
+          "kind": "noun_plural"
+        },
+        {
+          "text": "modelo de linguagem",
+          "register": "occasional",
+          "kind": "noun",
+          "unsure": true
+        },
+        {
+          "text": "modelos de linguagem",
+          "register": "occasional",
+          "kind": "noun_plural",
+          "unsure": true
+        },
+        {
+          "text": "LLM-powered",
+          "register": "occasional",
+          "kind": "other",
+          "unsure": true
+        }
+      ]
+    },
+    {
+      "id": "portuguese-llm",
+      "family": "llm_umbrella",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "Portuguese LLM",
+          "register": "common",
+          "kind": "compound"
+        },
+        {
+          "text": "LLM em português",
+          "register": "common",
+          "kind": "compound",
+          "unsure": true
+        },
+        {
+          "text": "modelo de linguagem em português",
+          "register": "common",
+          "kind": "compound",
+          "unsure": true
+        },
+        {
+          "text": "Portuguese LLM leaderboard",
+          "register": "occasional",
+          "kind": "compound"
+        }
+      ]
+    },
+    {
+      "id": "frontier-model",
+      "family": [
+        "llm_umbrella",
+        "labs"
+      ],
+      "kind": "class",
+      "forms": [
+        {
+          "text": "frontier model",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "frontier models",
+          "register": "common",
+          "kind": "noun_plural"
+        },
+        {
+          "text": "foundation model",
+          "register": "occasional",
+          "kind": "noun"
+        }
+      ]
+    },
+    {
+      "id": "transformer",
+      "family": "llm_umbrella",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "transformer",
+          "register": "common",
+          "kind": "noun"
+        }
+      ]
+    },
+    {
+      "id": "vlm",
+      "family": "multimodal",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "VLM",
+          "register": "common",
+          "kind": "acronym"
+        },
+        {
+          "text": "vision-language model",
+          "register": "common",
+          "kind": "expansion"
+        },
+        {
+          "text": "multimodal LLM",
+          "register": "occasional",
+          "kind": "compound"
+        }
+      ]
+    },
+    {
+      "id": "speech-llm",
+      "family": "multimodal",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "speech LLM",
+          "register": "common",
+          "kind": "compound"
+        }
+      ]
+    },
+    {
+      "id": "code-model",
+      "family": [
+        "llm_umbrella",
+        "agentic_coding"
+      ],
+      "kind": "class",
+      "forms": [
+        {
+          "text": "code LLM",
+          "register": "common",
+          "kind": "compound"
+        },
+        {
+          "text": "code LLMs",
+          "register": "common",
+          "kind": "compound"
+        },
+        {
+          "text": "code models",
+          "register": "common",
+          "kind": "noun_plural"
+        }
+      ]
+    },
+    {
+      "id": "machine-learning",
+      "family": "ai_umbrella",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "machine learning",
+          "register": "common",
+          "kind": "expansion"
+        },
+        {
+          "text": "ML",
+          "register": "common",
+          "kind": "acronym"
+        }
+      ]
+    },
+    {
+      "id": "reinforcement-learning",
+      "family": "ai_umbrella",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "reinforcement learning",
+          "register": "common",
+          "kind": "expansion"
+        },
+        {
+          "text": "RL",
+          "register": "common",
+          "kind": "acronym"
+        }
+      ]
+    },
+    {
+      "id": "genai",
+      "family": "ai_umbrella",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "GenAI",
+          "register": "common",
+          "kind": "acronym"
+        },
+        {
+          "text": "generative AI",
+          "register": "common",
+          "kind": "expansion"
+        }
+      ]
+    },
+    {
+      "id": "post-training",
+      "family": "post_training_methods",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "post-training",
+          "register": "common",
+          "kind": "noun"
+        }
+      ]
+    },
+    {
+      "id": "pretraining",
+      "family": [
+        "pretraining"
+      ],
+      "kind": "class",
+      "forms": [
+        {
+          "text": "pretraining",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "pretraining data",
+          "register": "occasional",
+          "kind": "compound"
+        },
+        {
+          "text": "pre-training data",
+          "register": "occasional",
+          "kind": "compound"
+        },
+        {
+          "text": "pretraining corpus",
+          "register": "occasional",
+          "kind": "compound"
+        },
+        {
+          "text": "pré-treinamento",
+          "register": "occasional",
+          "kind": "noun",
+          "unsure": true
+        }
+      ]
+    },
+    {
+      "id": "rlhf",
+      "family": "post_training_methods",
+      "kind": "instance",
+      "forms": [
+        {
+          "text": "RLHF",
+          "register": "common",
+          "kind": "acronym"
+        },
+        {
+          "text": "reinforcement learning from human feedback",
+          "register": "rare",
+          "kind": "expansion"
+        }
+      ]
+    },
+    {
+      "id": "rlaif",
+      "family": "post_training_methods",
+      "kind": "instance",
+      "forms": [
+        {
+          "text": "RLAIF",
+          "register": "common",
+          "kind": "acronym"
+        },
+        {
+          "text": "reinforcement learning from AI feedback",
+          "register": "rare",
+          "kind": "expansion"
+        }
+      ]
+    },
+    {
+      "id": "rlvr",
+      "family": [
+        "post_training_methods",
+        "rl_environments"
+      ],
+      "kind": "instance",
+      "forms": [
+        {
+          "text": "RLVR",
+          "register": "common",
+          "kind": "acronym"
+        },
+        {
+          "text": "reinforcement learning with verifiable rewards",
+          "register": "rare",
+          "kind": "expansion"
+        },
+        {
+          "text": "verifiable reward",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "verifiable rewards",
+          "register": "common",
+          "kind": "noun_plural"
+        }
+      ]
+    },
+    {
+      "id": "grpo",
+      "family": [
+        "post_training_methods",
+        "rl_environments"
+      ],
+      "kind": "instance",
+      "forms": [
+        {
+          "text": "GRPO",
+          "register": "common",
+          "kind": "acronym"
+        },
+        {
+          "text": "group relative policy optimization",
+          "register": "rare",
+          "kind": "expansion"
+        }
+      ]
+    },
+    {
+      "id": "dpo",
+      "family": "post_training_methods",
+      "kind": "instance",
+      "forms": [
+        {
+          "text": "DPO",
+          "register": "common",
+          "kind": "acronym"
+        },
+        {
+          "text": "direct preference optimization",
+          "register": "occasional",
+          "kind": "expansion"
+        }
+      ]
+    },
+    {
+      "id": "preference-optimization",
+      "family": [
+        "post_training_methods",
+        "preference_and_reward"
+      ],
+      "kind": "class",
+      "forms": [
+        {
+          "text": "preference optimization",
+          "register": "common",
+          "kind": "noun"
+        }
+      ]
+    },
+    {
+      "id": "sft",
+      "family": "post_training_methods",
+      "kind": "instance",
+      "forms": [
+        {
+          "text": "SFT",
+          "register": "common",
+          "kind": "acronym"
+        },
+        {
+          "text": "supervised fine-tuning",
+          "register": "common",
+          "kind": "expansion"
+        }
+      ]
+    },
+    {
+      "id": "fine-tuning",
+      "family": "post_training_methods",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "fine-tuning",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "fine-tuned",
+          "register": "occasional",
+          "kind": "verb_passive"
+        },
+        {
+          "text": "ajuste fino",
+          "register": "occasional",
+          "kind": "noun",
+          "unsure": true
+        },
+        {
+          "text": "LLM fine-tuning",
+          "register": "occasional",
+          "kind": "compound"
+        },
+        {
+          "text": "fine-tuning de LLM",
+          "register": "occasional",
+          "kind": "compound",
+          "unsure": true
+        },
+        {
+          "text": "fine-tuning de LLMs",
+          "register": "occasional",
+          "kind": "compound",
+          "unsure": true
+        }
+      ]
+    },
+    {
+      "id": "instruction-tuning",
+      "family": "post_training_methods",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "instruction tuning",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "instruction-tuned",
+          "register": "occasional",
+          "kind": "verb_passive"
+        }
+      ]
+    },
+    {
+      "id": "distillation",
+      "family": "post_training_methods",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "distillation",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "model distillation",
+          "register": "common",
+          "kind": "compound"
+        },
+        {
+          "text": "distilled model",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "distilled models",
+          "register": "common",
+          "kind": "noun_plural"
+        },
+        {
+          "text": "distillation pipeline",
+          "register": "rare",
+          "kind": "compound"
+        },
+        {
+          "text": "teacher model",
+          "register": "occasional",
+          "kind": "noun"
+        }
+      ]
+    },
+    {
+      "id": "peft",
+      "family": "post_training_methods",
+      "kind": "instance",
+      "forms": [
+        {
+          "text": "PEFT",
+          "register": "common",
+          "kind": "acronym"
+        },
+        {
+          "text": "parameter-efficient fine-tuning",
+          "register": "occasional",
+          "kind": "expansion"
+        }
+      ]
+    },
+    {
+      "id": "lora",
+      "family": "post_training_methods",
+      "kind": "instance",
+      "forms": [
+        {
+          "text": "LoRA",
+          "register": "common",
+          "kind": "acronym"
+        },
+        {
+          "text": "low-rank adaptation",
+          "register": "occasional",
+          "kind": "expansion"
+        }
+      ]
+    },
+    {
+      "id": "qlora",
+      "family": "post_training_methods",
+      "kind": "instance",
+      "forms": [
+        {
+          "text": "QLoRA",
+          "register": "common",
+          "kind": "acronym"
+        }
+      ]
+    },
+    {
+      "id": "reward-model",
+      "family": "preference_and_reward",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "reward model",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "reward modeling",
+          "register": "common",
+          "kind": "noun"
+        }
+      ]
+    },
+    {
+      "id": "preference-data",
+      "family": [
+        "preference_and_reward",
+        "data_curation"
+      ],
+      "kind": "class",
+      "forms": [
+        {
+          "text": "preference data",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "preference dataset",
+          "register": "common",
+          "kind": "noun"
+        }
+      ]
+    },
+    {
+      "id": "synthetic-data",
+      "family": "data_curation",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "synthetic data",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "synthetic data generation",
+          "register": "common",
+          "kind": "compound"
+        },
+        {
+          "text": "synthetic data pipeline",
+          "register": "common",
+          "kind": "compound"
+        },
+        {
+          "text": "synthetic data pipelines",
+          "register": "common",
+          "kind": "compound"
+        },
+        {
+          "text": "data generation pipeline",
+          "register": "rare",
+          "kind": "compound"
+        },
+        {
+          "text": "dados sintéticos",
+          "register": "occasional",
+          "kind": "noun_plural",
+          "unsure": true
+        },
+        {
+          "text": "geração de dados sintéticos",
+          "register": "occasional",
+          "kind": "other",
+          "unsure": true
+        }
+      ]
+    },
+    {
+      "id": "instruction-data",
+      "family": "data_curation",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "instruction data",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "SFT data",
+          "register": "common",
+          "kind": "compound"
+        },
+        {
+          "text": "SFT dataset",
+          "register": "common",
+          "kind": "compound"
+        }
+      ]
+    },
+    {
+      "id": "training-data",
+      "family": "data_curation",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "training data",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "training data pipeline",
+          "register": "occasional",
+          "kind": "compound"
+        },
+        {
+          "text": "training pipeline",
+          "register": "occasional",
+          "kind": "compound"
+        }
+      ]
+    },
+    {
+      "id": "evaluation",
+      "family": "evaluation",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "evaluation",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "evaluations",
+          "register": "common",
+          "kind": "noun_plural"
+        },
+        {
+          "text": "eval",
+          "register": "common",
+          "kind": "colloquial"
+        },
+        {
+          "text": "evals",
+          "register": "common",
+          "kind": "colloquial"
+        },
+        {
+          "text": "evaluated",
+          "register": "occasional",
+          "kind": "verb_past"
+        },
+        {
+          "text": "evaluating",
+          "register": "occasional",
+          "kind": "verb_gerund"
+        },
+        {
+          "text": "avaliação",
+          "register": "occasional",
+          "kind": "noun",
+          "unsure": true
+        }
+      ]
+    },
+    {
+      "id": "eval-harness",
+      "family": "evaluation",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "evaluation harness",
+          "register": "common",
+          "kind": "compound"
+        },
+        {
+          "text": "eval harness",
+          "register": "common",
+          "kind": "compound"
+        },
+        {
+          "text": "eval suite",
+          "register": "occasional",
+          "kind": "compound"
+        },
+        {
+          "text": "model evaluation framework",
+          "register": "occasional",
+          "kind": "compound"
+        }
+      ]
+    },
+    {
+      "id": "llm-evaluation",
+      "family": "evaluation",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "LLM evaluation",
+          "register": "common",
+          "kind": "compound"
+        },
+        {
+          "text": "LLM evals",
+          "register": "common",
+          "kind": "colloquial"
+        },
+        {
+          "text": "evaluating LLMs",
+          "register": "occasional",
+          "kind": "verb_gerund"
+        },
+        {
+          "text": "evaluation of LLMs",
+          "register": "occasional",
+          "kind": "other"
+        },
+        {
+          "text": "avaliação de LLMs",
+          "register": "occasional",
+          "kind": "other",
+          "unsure": true
+        },
+        {
+          "text": "avaliação de modelos de linguagem",
+          "register": "occasional",
+          "kind": "other",
+          "unsure": true
+        }
+      ]
+    },
+    {
+      "id": "model-evaluation",
+      "family": "evaluation",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "model evaluation",
+          "register": "common",
+          "kind": "compound"
+        },
+        {
+          "text": "model evaluation pipeline",
+          "register": "occasional",
+          "kind": "compound"
+        },
+        {
+          "text": "capability evaluation",
+          "register": "occasional",
+          "kind": "compound"
+        }
+      ]
+    },
+    {
+      "id": "llm-as-a-judge",
+      "family": "evaluation",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "LLM-as-a-judge",
+          "register": "common",
+          "kind": "other"
+        },
+        {
+          "text": "LLM judge",
+          "register": "common",
+          "kind": "other"
+        },
+        {
+          "text": "LLM-as-judge",
+          "register": "occasional",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "autograder",
+      "family": "evaluation",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "autograder",
+          "register": "common",
+          "kind": "noun"
+        }
+      ]
+    },
+    {
+      "id": "grader",
+      "family": "evaluation",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "grader",
+          "register": "occasional",
+          "kind": "noun"
+        },
+        {
+          "text": "graders",
+          "register": "common",
+          "kind": "noun_plural"
+        }
+      ]
+    },
+    {
+      "id": "rubric",
+      "family": "evaluation",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "rubric",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "rubrics",
+          "register": "common",
+          "kind": "noun_plural"
+        }
+      ]
+    },
+    {
+      "id": "benchmark",
+      "family": "benchmarks",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "benchmark",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "benchmarks",
+          "register": "common",
+          "kind": "noun_plural"
+        }
+      ]
+    },
+    {
+      "id": "leaderboard",
+      "family": "benchmarks",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "leaderboard",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "leaderboard de LLMs",
+          "register": "occasional",
+          "kind": "other",
+          "unsure": true
+        }
+      ]
+    },
+    {
+      "id": "red-teaming",
+      "family": "evaluation",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "red teaming",
+          "register": "common",
+          "kind": "noun"
+        }
+      ]
+    },
+    {
+      "id": "rl-environment",
+      "family": "rl_environments",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "RL environment",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "RL environments",
+          "register": "common",
+          "kind": "noun_plural"
+        },
+        {
+          "text": "reinforcement learning environment",
+          "register": "common",
+          "kind": "expansion"
+        },
+        {
+          "text": "ambientes de RL",
+          "register": "occasional",
+          "kind": "noun_plural",
+          "unsure": true
+        },
+        {
+          "text": "RL environment for LLM",
+          "register": "rare",
+          "kind": "compound"
+        },
+        {
+          "text": "RL environments for LLM",
+          "register": "rare",
+          "kind": "compound"
+        },
+        {
+          "text": "RL environments for agents",
+          "register": "rare",
+          "kind": "compound"
+        },
+        {
+          "text": "environment design",
+          "register": "occasional",
+          "kind": "compound"
+        },
+        {
+          "text": "environment scaling",
+          "register": "occasional",
+          "kind": "compound"
+        },
+        {
+          "text": "agentic RL",
+          "register": "occasional",
+          "kind": "compound"
+        }
+      ]
+    },
+    {
+      "id": "execution-sandbox",
+      "family": [
+        "rl_environments",
+        "agentic_coding"
+      ],
+      "kind": "class",
+      "forms": [
+        {
+          "text": "sandboxed execution",
+          "register": "common",
+          "kind": "other"
+        },
+        {
+          "text": "execution sandbox",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "sandbox environments",
+          "register": "common",
+          "kind": "noun_plural"
+        },
+        {
+          "text": "containerized environments",
+          "register": "common",
+          "kind": "noun_plural"
+        },
+        {
+          "text": "Docker harness",
+          "register": "occasional",
+          "kind": "compound"
+        }
+      ]
+    },
+    {
+      "id": "agent-trajectories",
+      "family": "rl_environments",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "agent trajectories",
+          "register": "common",
+          "kind": "noun_plural"
+        },
+        {
+          "text": "trajectories",
+          "register": "common",
+          "kind": "noun_plural"
+        },
+        {
+          "text": "trajectory collection",
+          "register": "occasional",
+          "kind": "compound"
+        }
+      ]
+    },
+    {
+      "id": "coding-agents",
+      "family": "agentic_coding",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "coding agent",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "coding agents",
+          "register": "common",
+          "kind": "noun_plural"
+        },
+        {
+          "text": "agentic coding",
+          "register": "common",
+          "kind": "other"
+        },
+        {
+          "text": "software engineering agents",
+          "register": "common",
+          "kind": "compound"
+        }
+      ]
+    },
+    {
+      "id": "ai-agents",
+      "family": "agents",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "AI agents",
+          "register": "common",
+          "kind": "noun_plural"
+        },
+        {
+          "text": "LLM agents",
+          "register": "common",
+          "kind": "noun_plural"
+        },
+        {
+          "text": "agent orchestration",
+          "register": "occasional",
+          "kind": "compound"
+        }
+      ]
+    },
+    {
+      "id": "multi-agent",
+      "family": "agents",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "multi-agent",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "agentic",
+      "family": "agents",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "agentic",
+          "register": "common",
+          "kind": "other"
+        },
+        {
+          "text": "agentic workflows",
+          "register": "occasional",
+          "kind": "compound"
+        }
+      ]
+    },
+    {
+      "id": "tool-calling",
+      "family": "agents",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "tool calling",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "function calling",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "tool use",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "tool-calling agents",
+          "register": "occasional",
+          "kind": "compound"
+        },
+        {
+          "text": "tool-calling environment",
+          "register": "occasional",
+          "kind": "compound"
+        }
+      ]
+    },
+    {
+      "id": "mcp",
+      "family": "agents",
+      "kind": "instance",
+      "forms": [
+        {
+          "text": "MCP server",
+          "register": "common",
+          "kind": "compound"
+        },
+        {
+          "text": "Model Context Protocol",
+          "register": "common",
+          "kind": "expansion"
+        }
+      ]
+    },
+    {
+      "id": "rag",
+      "family": "retrieval",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "RAG",
+          "register": "common",
+          "kind": "acronym"
+        },
+        {
+          "text": "retrieval-augmented generation",
+          "register": "occasional",
+          "kind": "expansion"
+        },
+        {
+          "text": "retrieval-augmented",
+          "register": "rare",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "embeddings",
+      "family": "retrieval",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "embeddings",
+          "register": "common",
+          "kind": "noun_plural"
+        }
+      ]
+    },
+    {
+      "id": "semantic-search",
+      "family": "retrieval",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "semantic search",
+          "register": "common",
+          "kind": "noun"
+        }
+      ]
+    },
+    {
+      "id": "vector-search",
+      "family": "retrieval",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "vector search",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "vector database",
+          "register": "common",
+          "kind": "noun"
+        }
+      ]
+    },
+    {
+      "id": "hybrid-search",
+      "family": "retrieval",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "hybrid search",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "hybrid retrieval",
+          "register": "common",
+          "kind": "noun"
+        }
+      ]
+    },
+    {
+      "id": "reranking",
+      "family": "retrieval",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "reranker",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "reranking",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "cross-encoder",
+          "register": "occasional",
+          "kind": "noun"
+        }
+      ]
+    },
+    {
+      "id": "information-retrieval",
+      "family": "retrieval",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "information retrieval",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "search relevance",
+          "register": "occasional",
+          "kind": "noun"
+        },
+        {
+          "text": "search ranking",
+          "register": "occasional",
+          "kind": "noun"
+        },
+        {
+          "text": "learning to rank",
+          "register": "occasional",
+          "kind": "other"
+        },
+        {
+          "text": "query understanding",
+          "register": "occasional",
+          "kind": "noun"
+        }
+      ]
+    },
+    {
+      "id": "code-generation",
+      "family": "agentic_coding",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "code generation",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "code gen",
+          "register": "common",
+          "kind": "colloquial"
+        },
+        {
+          "text": "program synthesis",
+          "register": "occasional",
+          "kind": "noun"
+        }
+      ]
+    },
+    {
+      "id": "model-card",
+      "family": "model_release",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "model card",
+          "register": "common",
+          "kind": "noun"
+        }
+      ]
+    },
+    {
+      "id": "open-weights",
+      "family": "model_release",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "open-weights",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "released-checkpoint",
+      "family": "model_release",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "released checkpoint",
+          "register": "common",
+          "kind": "compound"
+        },
+        {
+          "text": "published checkpoint",
+          "register": "common",
+          "kind": "compound"
+        }
+      ]
+    },
+    {
+      "id": "frontier-lab",
+      "family": "labs",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "frontier lab",
+          "register": "occasional",
+          "kind": "noun"
+        },
+        {
+          "text": "frontier labs",
+          "register": "occasional",
+          "kind": "noun_plural"
+        },
+        {
+          "text": "AI labs",
+          "register": "rare",
+          "kind": "noun_plural"
+        },
+        {
+          "text": "foundation model labs",
+          "register": "rare",
+          "kind": "compound"
+        }
+      ]
+    },
+    {
+      "id": "engineer",
+      "family": "titles",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "engineer",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "engenheiro",
+          "register": "occasional",
+          "kind": "noun",
+          "unsure": true
+        }
+      ]
+    },
+    {
+      "id": "ml-engineer",
+      "family": "titles",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "machine learning engineer",
+          "register": "common",
+          "kind": "expansion"
+        },
+        {
+          "text": "ML engineer",
+          "register": "common",
+          "kind": "acronym"
+        }
+      ]
+    },
+    {
+      "id": "research-engineer",
+      "family": "titles",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "research engineer",
+          "register": "common",
+          "kind": "noun"
+        }
+      ]
+    },
+    {
+      "id": "founding-engineer",
+      "family": "titles",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "founding engineer",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "founding AI engineer",
+          "register": "occasional",
+          "kind": "compound"
+        },
+        {
+          "text": "founding ML engineer",
+          "register": "occasional",
+          "kind": "compound"
+        },
+        {
+          "text": "founding machine learning engineer",
+          "register": "occasional",
+          "kind": "compound"
+        },
+        {
+          "text": "first AI hire",
+          "register": "occasional",
+          "kind": "other",
+          "unsure": true
+        }
+      ]
+    },
+    {
+      "id": "research-scientist",
+      "family": "titles",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "research scientist",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "researcher",
+          "register": "occasional",
+          "kind": "noun"
+        },
+        {
+          "text": "pesquisador",
+          "register": "occasional",
+          "kind": "noun",
+          "unsure": true
+        },
+        {
+          "text": "cientista",
+          "register": "occasional",
+          "kind": "noun",
+          "unsure": true
+        }
+      ]
+    },
+    {
+      "id": "applied-scientist",
+      "family": "titles",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "applied scientist",
+          "register": "common",
+          "kind": "noun"
+        }
+      ]
+    },
+    {
+      "id": "data-scientist",
+      "family": "titles",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "data scientist",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "data scientists",
+          "register": "common",
+          "kind": "noun_plural"
+        }
+      ]
+    },
+    {
+      "id": "co-founder",
+      "family": "titles",
+      "kind": "class",
+      "forms": [
+        {
+          "text": "co-founder",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "cofounder",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "cofundador",
+          "register": "occasional",
+          "kind": "noun",
+          "unsure": true
+        }
+      ]
+    },
+    {
+      "id": "tech-lead",
+      "family": "titles",
+      "kind": "class",
+      "unsure": true,
+      "forms": [
+        {
+          "text": "tech lead",
+          "register": "common",
+          "kind": "noun"
+        },
+        {
+          "text": "research lead",
+          "register": "occasional",
+          "kind": "noun"
+        },
+        {
+          "text": "líder técnico",
+          "register": "occasional",
+          "kind": "noun",
+          "unsure": true
+        }
+      ]
+    },
+    {
+      "id": "head-of-ai",
+      "family": "titles",
+      "kind": "class",
+      "unsure": true,
+      "forms": [
+        {
+          "text": "head of AI",
+          "register": "common",
+          "kind": "other"
+        },
+        {
+          "text": "head of research",
+          "register": "occasional",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "swe-bench",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "SWE-bench",
+          "register": "common",
+          "kind": "other"
+        },
+        {
+          "text": "SWE-bench Verified",
+          "register": "occasional",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "swe-agent",
+      "family": "agentic_coding",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "SWE-agent",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "tau-bench",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "τ-bench",
+          "register": "common",
+          "kind": "other"
+        },
+        {
+          "text": "tau-bench",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "nemo",
+      "family": "training_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "NeMo",
+          "register": "common",
+          "kind": "other"
+        },
+        {
+          "text": "NeMo RL",
+          "register": "occasional",
+          "kind": "other"
+        },
+        {
+          "text": "NVIDIA NeMo",
+          "register": "occasional",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "nemo-aligner",
+      "family": "training_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "NeMo-Aligner",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "megatron",
+      "family": "training_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Megatron",
+          "register": "common",
+          "kind": "other"
+        },
+        {
+          "text": "Megatron-LM",
+          "register": "common",
+          "kind": "other"
+        },
+        {
+          "text": "Megatron-Core",
+          "register": "occasional",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "lm-eval-harness",
+      "family": "evaluation",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "lm-evaluation-harness",
+          "register": "common",
+          "kind": "other"
+        },
+        {
+          "text": "lm-eval-harness",
+          "register": "common",
+          "kind": "other"
+        },
+        {
+          "text": "lm-eval",
+          "register": "occasional",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "helm",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "unsure": true,
+      "forms": [
+        {
+          "text": "Stanford HELM",
+          "register": "common",
+          "kind": "other"
+        },
+        {
+          "text": "HELM benchmark",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "bfcl",
+      "family": [
+        "benchmarks",
+        "agents"
+      ],
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "BFCL",
+          "register": "common",
+          "kind": "acronym"
+        },
+        {
+          "text": "Berkeley Function Calling",
+          "register": "common",
+          "kind": "expansion"
+        }
+      ]
+    },
+    {
+      "id": "evol-instruct",
+      "family": "datasets",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Evol-Instruct",
+          "register": "common",
+          "kind": "other"
+        },
+        {
+          "text": "WizardLM Evol-Instruct",
+          "register": "occasional",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "hugging-face",
+      "family": "model_release",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Hugging Face",
+          "register": "common",
+          "kind": "other"
+        },
+        {
+          "text": "Hugging Face Hub",
+          "register": "occasional",
+          "kind": "other"
+        },
+        {
+          "text": "huggingface.co",
+          "register": "occasional",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "bedrock",
+      "family": "cloud_platforms",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Amazon Bedrock",
+          "register": "common",
+          "kind": "other"
+        },
+        {
+          "text": "AWS Bedrock",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "agentbench",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "AgentBench",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "aider-polyglot",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Aider Polyglot",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "alfworld",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "ALFWorld",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "alpacaeval",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "AlpacaEval",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "androidworld",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "AndroidWorld",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "arena-hard",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Arena-Hard",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "assin2",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "ASSIN2",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "bluex",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "BLUEX",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "browsecomp",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "BrowseComp",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "browsergym",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "BrowserGym",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "codecontests",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "CodeContests",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "cruxeval",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "CRUXEval",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "ds-1000",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "DS-1000",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "evalplus",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "EvalPlus",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "faquad",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "FaQuAD",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "gaia-benchmark",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "GAIA benchmark",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "gpqa",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "GPQA",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "humaneval",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "HumanEval",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "ifeval",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "IFEval",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "judgebench",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "JudgeBench",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "livecodebench",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "LiveCodeBench",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "mbpp",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "MBPP",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "mind2web",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Mind2Web",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "miniwob",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "MiniWoB++",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "mle-bench",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "MLE-bench",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "mt-bench",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "MT-Bench",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "multipl-e",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "MultiPL-E",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "open-pt-llm-leaderboard",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Open PT LLM Leaderboard",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "osworld",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "OSWorld",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "poeta-benchmark",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Poeta benchmark",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "rewardbench",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "RewardBench",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "terminal-bench",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Terminal-Bench",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "toolbench",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "ToolBench",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "visualwebarena",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "VisualWebArena",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "webarena",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "WebArena",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "wildbench",
+      "family": "benchmarks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "WildBench",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "bigcode-evaluation-harness",
+      "family": "evaluation",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "BigCode Evaluation Harness",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "inspect-ai",
+      "family": "evaluation",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Inspect AI",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "lighteval",
+      "family": "evaluation",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "LightEval",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "opencompass",
+      "family": "evaluation",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "OpenCompass",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "ragas",
+      "family": "evaluation",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "RAGAS",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "simple-evals",
+      "family": "evaluation",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "simple-evals",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "swe-gym",
+      "family": "rl_environments",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "SWE-Gym",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "colossal-ai",
+      "family": "training_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Colossal-AI",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "deepspeed",
+      "family": "training_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "DeepSpeed",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "deepspeed-chat",
+      "family": "training_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "DeepSpeed-Chat",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "fsdp",
+      "family": "training_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "FSDP",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "hugging-face-trl",
+      "family": "training_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Hugging Face TRL",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "llama-factory",
+      "family": "training_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "LLaMA-Factory",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "openrlhf",
+      "family": "training_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "OpenRLHF",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "prime-rl",
+      "family": "training_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "prime-rl",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "skyrl",
+      "family": "training_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "SkyRL",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "torchtune",
+      "family": "training_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "torchtune",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "trlx",
+      "family": "training_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "TRLX",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "verl",
+      "family": "training_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "verl",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "autogen",
+      "family": "app_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "AutoGen",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "crewai",
+      "family": "app_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "CrewAI",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "dspy",
+      "family": "app_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "DSPy",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "haystack",
+      "family": "app_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Haystack",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "langchain",
+      "family": "app_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "LangChain",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "langgraph",
+      "family": "app_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "LangGraph",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "llamaindex",
+      "family": "app_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "LlamaIndex",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "ollama",
+      "family": "app_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Ollama",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "pydanticai",
+      "family": "app_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "PydanticAI",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "semantic-kernel",
+      "family": "app_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Semantic Kernel",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "vllm",
+      "family": "app_frameworks",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "vLLM",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "faiss",
+      "family": "vector_stores",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "FAISS",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "milvus",
+      "family": "vector_stores",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Milvus",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "pgvector",
+      "family": "vector_stores",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "pgvector",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "pinecone",
+      "family": "vector_stores",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Pinecone",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "qdrant",
+      "family": "vector_stores",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Qdrant",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "weaviate",
+      "family": "vector_stores",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Weaviate",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "agentinstruct",
+      "family": "datasets",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "AgentInstruct",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "apigen",
+      "family": "datasets",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "APIGen",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "common-crawl",
+      "family": "datasets",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Common Crawl",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "fineweb",
+      "family": "datasets",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "FineWeb",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "helpsteer",
+      "family": "datasets",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "HelpSteer",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "hh-rlhf",
+      "family": "datasets",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "HH-RLHF",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "magpie",
+      "family": "datasets",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Magpie",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "nectar",
+      "family": "datasets",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Nectar",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "openhermes",
+      "family": "datasets",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "OpenHermes",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "tulu",
+      "family": "datasets",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Tulu",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "ultrachat",
+      "family": "datasets",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "UltraChat",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "ultrafeedback",
+      "family": "datasets",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "UltraFeedback",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "amazônia-ia",
+      "family": [
+        "model_names",
+        "llm_umbrella"
+      ],
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Amazônia IA",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "cabrita",
+      "family": [
+        "model_names",
+        "llm_umbrella"
+      ],
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Cabrita",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "canarim",
+      "family": [
+        "model_names",
+        "llm_umbrella"
+      ],
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Canarim",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "claude",
+      "family": [
+        "model_names",
+        "llm_umbrella"
+      ],
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Claude",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "code-llama",
+      "family": [
+        "model_names",
+        "llm_umbrella"
+      ],
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Code Llama",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "deepseek-coder",
+      "family": [
+        "model_names",
+        "llm_umbrella"
+      ],
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "DeepSeek-Coder",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "gemini",
+      "family": [
+        "model_names",
+        "llm_umbrella"
+      ],
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Gemini",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "gervásio",
+      "family": [
+        "model_names",
+        "llm_umbrella"
+      ],
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Gervásio",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "gpt-4",
+      "family": [
+        "model_names",
+        "llm_umbrella"
+      ],
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "GPT-4",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "grok",
+      "family": [
+        "model_names",
+        "llm_umbrella"
+      ],
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Grok",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "llama",
+      "family": [
+        "model_names",
+        "llm_umbrella"
+      ],
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Llama",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "llava",
+      "family": "multimodal",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "LLaVA",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "mistral",
+      "family": [
+        "model_names",
+        "llm_umbrella"
+      ],
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Mistral",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "nemotron",
+      "family": [
+        "model_names",
+        "llm_umbrella"
+      ],
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Nemotron",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "qwen",
+      "family": [
+        "model_names",
+        "llm_umbrella"
+      ],
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Qwen",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "qwen2-5-coder",
+      "family": [
+        "model_names",
+        "llm_umbrella"
+      ],
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Qwen2.5-Coder",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "sabía",
+      "family": [
+        "model_names",
+        "llm_umbrella"
+      ],
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Sabía",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "starcoder",
+      "family": [
+        "model_names",
+        "llm_umbrella"
+      ],
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "StarCoder",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "teenytinyllama",
+      "family": [
+        "model_names",
+        "llm_umbrella"
+      ],
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "TeenyTinyLlama",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "tucano",
+      "family": [
+        "model_names",
+        "llm_umbrella"
+      ],
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Tucano",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "wav2vec",
+      "family": "multimodal",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "wav2vec",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "whisper",
+      "family": "multimodal",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Whisper",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "xlam",
+      "family": [
+        "model_names",
+        "llm_umbrella"
+      ],
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "xLAM",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "bracis",
+      "family": "venues",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "BRACIS",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "coling",
+      "family": "venues",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "COLING",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "colm",
+      "family": "venues",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "COLM",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "datasets-and-benchmarks-track",
+      "family": "venues",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Datasets and Benchmarks track",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "emnlp",
+      "family": "venues",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "EMNLP",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "iclr",
+      "family": "venues",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "ICLR",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "icml",
+      "family": "venues",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "ICML",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "naacl",
+      "family": "venues",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "NAACL",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "neurips",
+      "family": "venues",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "NeurIPS",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "agentless",
+      "family": "agentic_coding",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Agentless",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "autocoderover",
+      "family": "agentic_coding",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "AutoCodeRover",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "mini-swe-agent",
+      "family": "agentic_coding",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "mini-SWE-agent",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "openhands",
+      "family": "agentic_coding",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "OpenHands",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "azure-openai",
+      "family": "cloud_platforms",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Azure OpenAI",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "vertex-ai",
+      "family": "cloud_platforms",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "Vertex AI",
+          "register": "common",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "stil",
+      "family": "venues",
+      "kind": "instance",
+      "proper_noun": true,
+      "forms": [
+        {
+          "text": "STIL",
+          "register": "common",
+          "kind": "other"
+        },
+        {
+          "text": "Simpósio Brasileiro de Tecnologia da Informação e da Linguagem Humana",
+          "register": "occasional",
+          "kind": "expansion"
+        }
+      ]
+    }
+  ],
+  "morphology": {
+    "benchmark": [
+      "benchmarks"
+    ],
+    "evaluation": [
+      "evaluations"
+    ],
+    "eval": [
+      "evals"
+    ],
+    "rubric": [
+      "rubrics"
+    ],
+    "reward model": [
+      "reward models"
+    ],
+    "RL environment": [
+      "RL environments"
+    ],
+    "coding agent": [
+      "coding agents"
+    ],
+    "verifiable reward": [
+      "verifiable rewards"
+    ],
+    "frontier lab": [
+      "frontier labs"
+    ],
+    "frontier model": [
+      "frontier models"
+    ],
+    "language model": [
+      "language models"
+    ],
+    "large language model": [
+      "large language models"
+    ],
+    "distilled model": [
+      "distilled models"
+    ],
+    "synthetic data pipeline": [
+      "synthetic data pipelines"
+    ],
+    "code LLM": [
+      "code LLMs"
+    ],
+    "embeddings": [
+      "embedding"
+    ],
+    "transformer": [
+      "transformers"
+    ],
+    "model card": [
+      "model cards"
+    ],
+    "data scientist": [
+      "data scientists"
+    ],
+    "grader": [
+      "graders"
+    ]
+  },
+  "family_parents": {
+    "post_training_methods": "post_training_practice",
+    "preference_and_reward": "post_training_practice",
+    "rl_environments": "post_training_practice",
+    "evaluation": "post_training_practice",
+    "data_curation": "post_training_practice",
+    "benchmarks": "post_training_practice",
+    "llm_umbrella": "post_training_practice"
+  },
+  "family_relevance": {
+    "post_training_methods": "core",
+    "preference_and_reward": "core",
+    "rl_environments": "core",
+    "evaluation": "core",
+    "benchmarks": "core",
+    "data_curation": "core",
+    "pretraining": "core",
+    "llm_umbrella": "core",
+    "agentic_coding": "adjacent",
+    "agents": "adjacent",
+    "training_frameworks": "adjacent",
+    "datasets": "adjacent",
+    "model_names": "adjacent",
+    "model_release": "adjacent",
+    "labs": "adjacent",
+    "titles": "adjacent",
+    "venues": "adjacent",
+    "retrieval": "peripheral",
+    "app_frameworks": "peripheral",
+    "vector_stores": "peripheral",
+    "cloud_platforms": "peripheral",
+    "multimodal": "peripheral"
+  },
+  "anchor_families": [
+    "venues"
+  ],
+  "neutral_variant": 0.35,
+  "generic_verbs": [
+    "led",
+    "managed",
+    "owned",
+    "oversaw",
+    "responsible for",
+    "hands-on",
+    "built",
+    "shipped",
+    "deployed",
+    "delivered",
+    "scaled"
+  ],
+  "umbrella_terms": [
+    "ai",
+    "artificial intelligence",
+    "machine learning",
+    "ml",
+    "llm",
+    "llms",
+    "large language model",
+    "large language models",
+    "language model",
+    "language models",
+    "generative ai",
+    "genai",
+    "reinforcement learning",
+    "rl",
+    "deep learning",
+    "nlp",
+    "natural language processing",
+    "data science",
+    "engineer",
+    "engenheiro",
+    "software",
+    "technology",
+    "python",
+    "code",
+    "coding",
+    "programming",
+    "backend",
+    "infrastructure",
+    "pipeline",
+    "distributed",
+    "production"
+  ],
+  "employer_terms": [
+    "Adobe Research",
+    "AGI Foundations",
+    "AI Frontiers",
+    "AIML",
+    "Amazon AGI",
+    "Amazon Science",
+    "Apple Machine Learning Research",
+    "Bosch Research",
+    "DeepMind",
+    "Ericsson Research",
+    "Google Research",
+    "IBM Research",
+    "Intel Labs",
+    "Microsoft AI",
+    "Microsoft Research",
+    "Nokia Bell Labs",
+    "OpenAI",
+    "Samsung Research",
+    "Fractal",
+    "Quantiphi",
+    "Tredence",
+    "ZS Associates",
+    "Sigmoid",
+    "Tribe AI",
+    "Slalom Build"
+  ],
+  "noisy_terms": [
+    "Gemini",
+    "Claude",
+    "Grok",
+    "Magpie",
+    "Nectar",
+    "Tulu",
+    "AIML",
+    "Agentless",
+    "superintelligence",
+    "environment design",
+    "Sigmoid"
+  ]
+}

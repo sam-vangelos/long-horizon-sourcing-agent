@@ -1,0 +1,33 @@
+[
+  {
+    "id": "acme/trl",
+    "modelId": "acme/trl",
+    "author": "acme",
+    "downloads": 1200,
+    "likes": 4,
+    "tags": ["transformers", "trl", "region:us"]
+  },
+  {
+    "id": "acme/trl-x",
+    "modelId": "acme/trl-x",
+    "author": "acme",
+    "downloads": 50,
+    "likes": 0,
+    "tags": ["transformers", "region:us"]
+  },
+  {
+    "id": "other/tRl",
+    "modelId": "other/tRl",
+    "downloads": 99,
+    "likes": 1,
+    "tags": ["region:us"]
+  },
+  {
+    "id": "trl-internal-testing/dummy-trl-model",
+    "modelId": "trl-internal-testing/dummy-trl-model",
+    "author": "trl-internal-testing",
+    "downloads": 3,
+    "likes": 1,
+    "tags": ["trl", "region:us"]
+  }
+]

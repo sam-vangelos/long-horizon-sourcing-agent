@@ -1,0 +1,18 @@
+{
+  "crate": {
+    "name": "serde",
+    "downloads": 500000000,
+    "description": "Serde serialization framework",
+    "repository": "https://github.com/serde-rs/serde"
+  },
+  "versions": [
+    {
+      "num": "1.0.210",
+      "created_at": "2026-05-01T12:00:00Z"
+    },
+    {
+      "num": "1.0.209",
+      "created_at": "2026-04-01T12:00:00Z"
+    }
+  ]
+}

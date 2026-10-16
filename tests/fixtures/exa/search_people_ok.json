@@ -1,0 +1,66 @@
+{
+  "requestId": "b1f0c6f4e2a94f0f8f2b3c5d7e9a0b12",
+  "results": [
+    {
+      "id": "https://www.linkedin.com/in/dana-okafor-chiefofstaff",
+      "url": "https://www.linkedin.com/in/dana-okafor-chiefofstaff",
+      "title": "Dana Okafor - Chief of Staff to the CEO - Northwind Capital | LinkedIn",
+      "publishedDate": "2026-05-14T00:00:00.000Z",
+      "author": "Dana Okafor",
+      "text": "Chief of Staff to the CEO at Northwind Capital. Previously Director of Strategy & Operations at Lakebridge Ventures. Partner-track operator focused on portfolio operations, LP reporting cadence, and firm-wide planning. San Francisco Bay Area.",
+      "highlights": [
+        "Chief of Staff to the CEO at Northwind Capital, running firm-wide planning and LP reporting cadence.",
+        "Previously Director of Strategy & Operations at Lakebridge Ventures."
+      ],
+      "highlightScores": [0.7421, 0.6188],
+      "summary": "Chief of Staff to the CEO at Northwind Capital (SF Bay Area); prior strategy and operations leadership at Lakebridge Ventures.",
+      "favicon": "https://static.licdn.com/favicon.ico",
+      "image": null,
+      "entities": []
+    },
+    {
+      "id": "https://www.riverstonepartners.com/team/marcus-lindqvist",
+      "url": "https://www.riverstonepartners.com/team/marcus-lindqvist",
+      "title": "Marcus Lindqvist — Chief of Staff | Riverstone Partners",
+      "publishedDate": "2026-02-02T00:00:00.000Z",
+      "author": null,
+      "text": "Marcus Lindqvist is Chief of Staff at Riverstone Partners, where he supports the Managing Partner across investment operations, fundraising, and platform. Before Riverstone, Marcus spent five years at Halden Growth in a business operations role.",
+      "highlights": [
+        "Marcus Lindqvist is Chief of Staff at Riverstone Partners, supporting the Managing Partner across investment operations and fundraising."
+      ],
+      "highlightScores": [0.8033],
+      "summary": "Chief of Staff at Riverstone Partners supporting the Managing Partner; prior business operations at Halden Growth.",
+      "favicon": "https://www.riverstonepartners.com/favicon.ico",
+      "image": "https://www.riverstonepartners.com/img/team/lindqvist.jpg",
+      "entities": []
+    },
+    {
+      "id": "https://www.linkedin.com/in/priya-raghunathan-ops",
+      "url": "https://www.linkedin.com/in/priya-raghunathan-ops",
+      "title": "Priya Raghunathan - Head of Firm Operations - Alder Peak | LinkedIn",
+      "publishedDate": null,
+      "author": null,
+      "text": "Head of Firm Operations at Alder Peak. Leads finance, people, and platform functions for a $900M AUM growth equity firm. Prior: Chief of Staff at Meridian Growth Partners.",
+      "highlights": [],
+      "highlightScores": [],
+      "summary": "Head of Firm Operations at Alder Peak; formerly Chief of Staff at Meridian Growth Partners.",
+      "favicon": "https://static.licdn.com/favicon.ico",
+      "image": null,
+      "entities": []
+    }
+  ],
+  "costDollars": {
+    "total": 0.016,
+    "search": {
+      "neural": 0.007,
+      "keyword": 0
+    },
+    "summary": 0.003,
+    "contents": {
+      "text": 0.003,
+      "highlights": 0.003,
+      "summary": 0.003
+    }
+  },
+  "searchTime": 1834.51
+}

@@ -1,0 +1,16 @@
+{
+  "$schema_version": "slice7-v1",
+  "description": "Acceptance thresholds for the Perplexity-augmented shadow bakeoff. PASS gates the slice 2 -> enriched-canonical cutover; FAIL or INSUFFICIENT_SAMPLE block it. Edit conservatively. Operators are expected to tune per-brief or per-rollout-stage by editing this file or by passing --thresholds <override> to tools/evaluate_shadow_thresholds.py.",
+  "minimum_sample": {
+    "total_rows_read_min": 50,
+    "total_compared_min": 25
+  },
+  "decision_quality": {
+    "max_save_to_reject_rate": 0.05,
+    "min_reject_to_save_lift": 0.10
+  },
+  "evidence_quality": {
+    "max_unavailable_evidence_rate": 0.30,
+    "max_weak_citation_rate": 0.20
+  }
+}

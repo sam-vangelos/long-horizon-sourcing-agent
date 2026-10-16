@@ -1,0 +1,12 @@
+<!-- provenance: status=canonical era=terminal-first stamped=2026-10-15 -->
+# Technical Design Notes
+
+These notes describe the core persistence, recovery, browser automation, budgeting, and verification mechanisms in this repository, with references to the modules that implement them.
+
+| Document | Scope | Primary Modules |
+|---|---|---|
+| [`docs/runtime-state-and-recovery.md`](runtime-state-and-recovery.md) | SQLite WAL state model (`CURRENT_SCHEMA_VERSION = "12"`), `fcntl.flock` advisory locking, `side_effects` idempotency ledger, and `--resume` reconciliation across source adapters | `shared/runtime_state/store.py`, `shared/runtime_state/lock.py`, `shared/storage.py`, `linkedin/side_effects.py` |
+| [`docs/browser-automation-and-session-pacing.md`](browser-automation-and-session-pacing.md) | Pluggable CDP and macOS HID input backends, Ghost Cursor trajectories, log-normal/autocorrelated human timing, section-directed profile reading, interleaved decoy browsing, session rate governance, and startup posture verification | `linkedin/input_backends.py`, `linkedin/browser.py`, `shared/human_timing.py`, `decoy/`, `shared/governor.py`, `github/governor.py`, `linkedin/posture_report.py`, `tools/build_fingerprint.py` |
+| [`docs/spend-metering-and-governance.md`](spend-metering-and-governance.md) | Worst-case pre-dispatch API cost reservation (`exa-usage-v1`), opt-in process-wide Fireworks spend guard, persistent session rate/cooldown governance, and multi-provider LLM usage telemetry | `exa/cost_meter.py`, `shared/llm_spend_budget.py`, `shared/governor.py`, `shared/llm_usage.py` |
+| [`docs/boolean-scoring-and-enrichment.md`](boolean-scoring-and-enrichment.md) | Deterministic LinkedIn Recruiter Boolean parser and multiplicative scorer (`207`-concept lexicon), opt-in lexicon enrichment, and fail-closed client gating (`MIN_GAIN = 0.01`) against the local `boolean-search-rl` GGUF sidecar | `linkedin/boolean_score/`, `linkedin/boolean_enrichment.py`, `linkedin/boolean_sidecar.py`, `tools/sidecar_replay.py` |
+| [`docs/verification-and-mutation-testing.md`](verification-and-mutation-testing.md) | Build-gated mutation sentinels (`20` functions), diagnostic AST mutation survey (`empty_body`, `invert_bool`), untrusted candidate text fencing, and repository hygiene/lint ratchets | `tests/test_mutation_sentinels.py`, `tools/mutation_survey.py`, `shared/judgment/tool_contracts.py`, `tools/flag_ledger.py` |

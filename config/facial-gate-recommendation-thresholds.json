@@ -1,0 +1,18 @@
+{
+  "$schema_version": "slice10-v1",
+  "description": "Recommendation thresholds for the offline facial-gate variant comparison harness (tools/experiments/facial_gate_experiment.py). This file controls the labeling of recommendation verdicts (KEEP_BINARY / TRY_LOOSER_BINARY / EXPERIMENT_TERNARY_ONLY / NOT_ENOUGH_DATA / INVESTIGATE_REGRESSION). It does NOT move the production gate. Editing this file does not affect shared/judgment/templates.py:FACIAL_TRIAGE_TEMPLATE, parse_facial_response, or any production decision contract.",
+  "minimum_sample": {
+    "total_snippets_min": 50
+  },
+  "parse_quality": {
+    "max_parse_failure_rate": 0.05
+  },
+  "recovery_quality": {
+    "min_variant_only_recovered_saves": 1,
+    "min_reach_full_eval_lift_ratio": 0.10,
+    "min_ternary_borderline_signal_ratio": 0.10
+  },
+  "cost_quality": {
+    "max_token_proxy_ratio_vs_baseline": 3.0
+  }
+}

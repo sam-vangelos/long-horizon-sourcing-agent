@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Cloris death watchdog (CLO-243). Template: replace __REPO__ with the absolute
+  path of the Cloris checkout and __HOME__ with your home directory, save as
+  ~/Library/LaunchAgents/com.cloris.watchdog.plist, then load it.
+  See docs/watchdog.md. Nothing in the repo installs or loads this.
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.cloris.watchdog</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>__REPO__/.venv/bin/python</string>
+        <string>__REPO__/tools/cloris_watchdog.py</string>
+        <string>--state-root</string>
+        <string>__REPO__/output/state</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>__REPO__</string>
+    <key>StartInterval</key>
+    <integer>120</integer>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>ProcessType</key>
+    <string>Background</string>
+    <key>StandardOutPath</key>
+    <string>__HOME__/Library/Logs/cloris-watchdog.log</string>
+    <key>StandardErrorPath</key>
+    <string>__HOME__/Library/Logs/cloris-watchdog.log</string>
+</dict>
+</plist>
