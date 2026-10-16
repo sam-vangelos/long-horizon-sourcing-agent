@@ -1,3 +1,4 @@
+<!-- provenance: status=canonical era=terminal-first stamped=2026-10-16 -->
 # Technical reference
 
 This is the full technical description of the system, kept for engineers who want every mechanism, constant and file. Until 15 October 2026 it was the repository's README; the [README](../README.md) is now the short version.
