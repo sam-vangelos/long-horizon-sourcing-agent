@@ -7,8 +7,6 @@ An agent that sources for hours has to keep the habits a careful recruiter keeps
 
 <!-- METRIC: candidates reviewed and saved per session, or recruiter hours per search, if Sam supplies it -->
 
-I am a recruiter, not a software engineer, and I built this by directing AI coding agents against written specifications and a test suite that has to prove it catches broken code.
-
 > Curated public snapshot as of 15 October 2026. Private development history, live campaign briefs, and operator run artifacts are omitted.
 
 ## System architecture and design choices
@@ -80,10 +78,6 @@ To run individual verification tools directly:
 - [`docs/browser-automation-and-session-pacing.md`](docs/browser-automation-and-session-pacing.md) — CDP and macOS HID input backends, Ghost Cursor trajectories, human timing, and decoy browsing (`decoy/`).
 - [`docs/boolean-scoring-and-enrichment.md`](docs/boolean-scoring-and-enrichment.md) — Boolean parser, 207-concept scorer, lexicon enrichment, and RL sidecar gating.
 - [`docs/verification-and-mutation-testing.md`](docs/verification-and-mutation-testing.md) — mutation sentinels, `tools/mutation_survey.py`, untrusted text fencing, `tools/shadow_replay.py`, and static ratchets.
-
-## How it was built
-
-I built this system as a senior technical recruiter directing AI coding agents (Claude Code, Codex CLI, and Cursor) under an explicit specification, adversarial code review, and mutation-tested verification workflow. I authored the recruiting rubrics, schema contracts, and failure-mode analyses before each slice, and gated implementation with offline unit and replay tests, static ratchets, and the 20 mutation sentinels in `tests/test_mutation_sentinels.py`.
 
 ## License
 
