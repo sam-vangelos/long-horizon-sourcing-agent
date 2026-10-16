@@ -180,13 +180,18 @@ def _resolve_run_id(db_path: Path, *, module: str, run_id: int | None) -> int | 
 
 
 def _db_is_readable(db_path: Path) -> bool:
-    """Return False when the DB file exists but cannot be queried."""
+    """Return False when the DB file exists but cannot be queried.
+
+    The probe must read the file: ``SELECT 1`` touches no page, and whether
+    SQLite rejects a non-database header before then varies by SQLite build.
+    Reading ``sqlite_master`` forces the header and schema page to load.
+    """
 
     with _readonly(db_path) as conn:
         if conn is None:
             return False
         try:
-            conn.execute("SELECT 1").fetchone()
+            conn.execute("SELECT count(*) FROM sqlite_master").fetchone()
         except sqlite3.Error:
             return False
     return True

@@ -15,7 +15,11 @@ from shared.runtime_state.projections import write_linkedin_progress_projection
 from shared.runtime_state.store import LINKEDIN_STRING_KIND
 from shared.schemas import SearchString
 
-from tools.projection_drift_sweep import main as sweep_main, sweep_projection_drift
+from tools.projection_drift_sweep import (
+    _db_is_readable,
+    main as sweep_main,
+    sweep_projection_drift,
+)
 
 
 def _make_store(state_dir: Path) -> RuntimeStateStore:
@@ -269,6 +273,16 @@ def test_sweep_reports_missing_for_corrupt_database(tmp_path: Path) -> None:
 
     assert report.has_drift is False
     assert "runtime_state.sqlite3:unreadable" in report.missing
+
+
+def test_db_readability_probe_reads_the_file_header(tmp_path: Path) -> None:
+    # ``SELECT 1`` never reads the database file, and whether SQLite rejects a
+    # garbage header before that point depends on the SQLite build. A file
+    # with no SQLite header must be reported unreadable on every build.
+    db_path = tmp_path / "runtime_state.sqlite3"
+    db_path.write_bytes(b"not-a-sqlite-database")
+
+    assert _db_is_readable(db_path) is False
 
 
 def test_cli_exits_2_on_malformed_input(tmp_path: Path) -> None:

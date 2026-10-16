@@ -86,9 +86,15 @@ def _validate_out_path(out_path: Path, state_dir: Path) -> None:
     parent_norms = {os.path.normcase(str(parent)) for parent in out_resolved.parents}
     if out_norm == state_norm or state_norm in parent_norms:
         raise SystemExit("--out must not be inside --state-dir")
-    out_parent = out_resolved.parent
-    if out_parent.exists() and os.path.samefile(out_parent, state_resolved):
-        raise SystemExit("--out must not be inside --state-dir")
+    # Lexical comparison cannot see aliases the filesystem creates: on a
+    # case-folding filesystem (macOS APFS by default) ``STATE`` and ``state``
+    # are one directory, and ``resolve()`` does not canonicalise case. Ask the
+    # filesystem by identity at every existing ancestor, not just the immediate
+    # parent, because ``mkdir(parents=True)`` would otherwise create a missing
+    # intermediate directory inside the aliased state dir.
+    for ancestor in (out_resolved, *out_resolved.parents):
+        if ancestor.exists() and os.path.samefile(ancestor, state_resolved):
+            raise SystemExit("--out must not be inside --state-dir")
 
 
 def _username_from_candidate_text(candidate_text: str) -> str | None:

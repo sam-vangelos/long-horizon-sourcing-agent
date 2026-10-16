@@ -254,9 +254,15 @@ def test_out_path_inside_state_dir_refused(tmp_path: Path) -> None:
         )
 
 
-def test_out_path_case_insensitive_refused(tmp_path: Path) -> None:
+@pytest.mark.parametrize("out_relative", ["STATE/report.md", "STATE/nested/report.md"])
+def test_out_path_case_insensitive_refused(tmp_path: Path, out_relative: str) -> None:
     state_dir = tmp_path / "state"
     state_dir.mkdir()
+    if not (tmp_path / "STATE").exists():
+        pytest.skip(
+            "case-sensitive filesystem: STATE and state are distinct directories, "
+            "so there is no alias to refuse (see the case-sensitive companion test)"
+        )
     _make_fixture_db(
         state_dir,
         [
@@ -277,9 +283,46 @@ def test_out_path_case_insensitive_refused(tmp_path: Path) -> None:
             state_dir=state_dir,
             brief_path=BRIEF_PATH,
             model_name="claude-cli:claude-opus-4-8",
-            out_path=tmp_path / "STATE" / "report.md",
+            out_path=tmp_path / out_relative,
             dry_run=True,
         )
+
+
+def test_out_path_case_variant_allowed_on_case_sensitive_filesystem(tmp_path: Path) -> None:
+    state_dir = tmp_path / "state"
+    state_dir.mkdir()
+    if (tmp_path / "STATE").exists():
+        pytest.skip(
+            "case-insensitive filesystem: STATE aliases state, which "
+            "test_out_path_case_insensitive_refused covers"
+        )
+    _make_fixture_db(
+        state_dir,
+        [
+            (
+                "full",
+                _payload(
+                    username="alpha",
+                    candidate_text="Username: alpha\nEvidence",
+                    decision="SAVE",
+                    confidence=0.8,
+                ),
+            ),
+        ],
+    )
+    state_files_before = sorted(path.name for path in state_dir.iterdir())
+
+    exit_code = github_rejudge_ab.run_rejudge(
+        state_dir=state_dir,
+        brief_path=BRIEF_PATH,
+        model_name="claude-cli:claude-opus-4-8",
+        out_path=tmp_path / "STATE" / "report.md",
+        dry_run=True,
+    )
+
+    assert exit_code == 0
+    assert (tmp_path / "STATE" / "report.md").is_file()
+    assert sorted(path.name for path in state_dir.iterdir()) == state_files_before
 
 
 def test_foreign_source_rows_skipped(tmp_path: Path) -> None:

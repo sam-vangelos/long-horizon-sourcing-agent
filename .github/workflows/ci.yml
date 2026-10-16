@@ -19,6 +19,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      # The browser-driven tests launch Chromium through rebrowser-playwright,
+      # which ships the driver but not the browser build it pins.
+      - name: Install Chromium for rebrowser-playwright
+        run: python -m rebrowser_playwright install --with-deps chromium
+
       - name: Run credential-free validation suite
         run: make validate PYTHON=python
         env:
